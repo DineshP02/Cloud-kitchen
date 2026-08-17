@@ -1,0 +1,1813 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Contact Bowl & Hearth for meals, catering, events and delivery enquiries.">
+
+    <title>Contact | Bowl & Hearth</title>
+
+    <!-- =====================================================
+         TAILWIND CSS
+    ====================================================== -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: [
+                            'Playfair Display',
+                            'Georgia',
+                            'serif'
+                        ]
+                    }
+                }
+            }
+        };
+    </script>
+
+
+    <!-- =====================================================
+         SHARED PROJECT CSS
+    ====================================================== -->
+
+    <link rel="stylesheet" href="../css/style.css">
+
+
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+
+        /* =====================================================
+           BASIC
+        ====================================================== */
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f7f5ed;
+            overflow-x: hidden;
+        }
+
+        .font-display {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+
+        /* =====================================================
+           CONTACT HERO
+        ====================================================== */
+
+        .contact-hero {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(
+                180deg,
+                #eaf2ff 0%,
+                #f7f9ff 55%,
+                #ffffff 100%
+            );
+        }
+
+        .contact-hero::before {
+            content: "";
+            position: absolute;
+            width: 640px;
+            height: 640px;
+            right: -220px;
+            top: -260px;
+            border-radius: 50%;
+            background: rgba(37, 99, 235, 0.06);
+        }
+
+        .contact-hero-inner {
+            position: relative;
+            display: grid;
+            gap: 40px;
+            align-items: center;
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 1024px) {
+            .contact-hero-inner {
+                grid-template-columns: 0.95fr 1.05fr;
+                gap: 64px;
+            }
+        }
+
+
+        /* =====================================================
+           HERO LEFT
+        ====================================================== */
+
+        .contact-hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 14px;
+            border-radius: 999px;
+            background: #dbeafe;
+            color: #1d4ed8;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .contact-hero-eyebrow-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #2563eb;
+            flex-shrink: 0;
+        }
+
+        .contact-hero-heading {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: #17234a;
+            letter-spacing: -0.03em;
+            line-height: 0.92;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 2.75rem;
+            margin-top: 20px;
+        }
+
+        @media (min-width: 480px) {
+            .contact-hero-heading {
+                font-size: 3.4rem;
+            }
+        }
+
+        @media (min-width: 640px) {
+            .contact-hero-heading {
+                font-size: 4.2rem;
+                margin-top: 22px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .contact-hero-heading {
+                font-size: 4.6rem;
+            }
+        }
+
+        .contact-hero-heading span {
+            color: #2563eb;
+        }
+
+        .contact-hero-subline {
+            margin-top: 16px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #d97706;
+        }
+
+        @media (min-width: 640px) {
+            .contact-hero-subline {
+                margin-top: 18px;
+                font-size: 12px;
+            }
+        }
+
+        .contact-hero-text {
+            margin-top: 14px;
+            max-width: 30rem;
+            font-size: 0.98rem;
+            line-height: 1.75;
+            color: #64748b;
+        }
+
+        @media (min-width: 640px) {
+            .contact-hero-text {
+                font-size: 1.05rem;
+                line-height: 1.8;
+            }
+        }
+
+        .contact-hero-cta {
+            margin-top: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            border-radius: 999px;
+            background: #1d4ed8;
+            padding: 14px 24px;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 700;
+            width: 100%;
+            box-shadow: 0 14px 28px rgba(29, 78, 216, 0.24);
+            transition:
+                transform 0.25s ease,
+                background 0.25s ease;
+        }
+
+        @media (min-width: 480px) {
+            .contact-hero-cta {
+                width: auto;
+                padding: 15px 28px;
+                font-size: 14px;
+                margin-top: 32px;
+            }
+        }
+
+        .contact-hero-cta:hover {
+            transform: translateY(-3px);
+            background: #1e40af;
+        }
+
+
+        /* =====================================================
+           HERO ART
+        ====================================================== */
+
+        .contact-hero-art {
+            position: relative;
+            border-radius: 24px;
+            background: linear-gradient(
+                150deg,
+                #dbeaff 0%,
+                #eef4ff 60%,
+                #e9f6ee 100%
+            );
+            padding: 20px;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        @media (min-width: 640px) {
+            .contact-hero-art {
+                border-radius: 28px;
+                padding: 32px;
+                min-height: 420px;
+            }
+        }
+
+        .contact-hero-art::before {
+            content: "";
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            left: -90px;
+            bottom: -100px;
+            border-radius: 50%;
+            background: rgba(190, 242, 100, 0.28);
+        }
+
+        .contact-hero-art svg {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 460px;
+            height: auto;
+        }
+
+
+        /* =====================================================
+           HERO ANIMATION
+        ====================================================== */
+
+        .hero-reveal {
+            animation: contactHeroReveal 0.8s ease forwards;
+        }
+
+        .hero-reveal-delay {
+            opacity: 0;
+            animation: contactHeroReveal 0.9s ease 0.15s forwards;
+        }
+
+        @keyframes contactHeroReveal {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-reveal,
+            .hero-reveal-delay,
+            .reveal {
+                animation: none !important;
+                transition: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+
+
+        /* =====================================================
+           DARK MODE HERO
+        ====================================================== */
+
+        .dark .contact-hero {
+            background: linear-gradient(
+                180deg,
+                #14201d 0%,
+                #1a231e 55%,
+                #0f1512 100%
+            );
+        }
+
+        .dark .contact-hero-heading {
+            color: #f1f5f9;
+        }
+
+        .dark .contact-hero-text {
+            color: #cbd5e1;
+        }
+
+        .dark .contact-hero-art {
+            background: linear-gradient(
+                150deg,
+                #1c2a24,
+                #17211c
+            );
+        }
+
+
+        /* =====================================================
+           EYEBROW
+        ====================================================== */
+
+        .eyebrow {
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #d97706;
+        }
+
+
+        /* =====================================================
+           FORM
+        ====================================================== */
+
+        .contact-input {
+            width: 100%;
+            margin-top: 8px;
+            border: 1px solid #ded9cb;
+            border-radius: 14px;
+            background: #fffdf7;
+            padding: 13px 15px;
+            font-size: 14px;
+            outline: none;
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease,
+                background 0.2s ease;
+        }
+
+        @media (min-width: 640px) {
+            .contact-input {
+                padding: 14px 16px;
+            }
+        }
+
+        .contact-input:focus {
+            border-color: #d97706;
+            box-shadow: 0 0 0 3px rgba(217,119,6,0.12);
+            background: white;
+        }
+
+        .dark .contact-input {
+            border-color: #3d443b;
+            background: #1f251e;
+            color: white;
+        }
+
+        .dark .contact-input:focus {
+            border-color: #f59e0b;
+            background: #252d23;
+        }
+
+
+        /* =====================================================
+           HELP CARDS
+        ====================================================== */
+
+        .help-card {
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+            .help-card:hover {
+                transform: translateY(-7px);
+                box-shadow: 0 20px 45px rgba(0,0,0,0.10);
+            }
+        }
+
+
+        /* =====================================================
+           MAP
+        ====================================================== */
+
+        .map-wrapper {
+            position: relative;
+            min-height: 340px;
+            overflow: hidden;
+            background: linear-gradient(
+                135deg,
+                #e9e6dd,
+                #f4f1e8,
+                #e0e8dc
+            );
+        }
+
+        #contact-map {
+            width: 100%;
+            height: 340px;
+        }
+
+        #contact-map iframe {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        @media (min-width: 640px) {
+            .map-wrapper {
+                min-height: 430px;
+            }
+
+            #contact-map {
+                height: 430px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .map-wrapper {
+                min-height: 520px;
+            }
+
+            #contact-map {
+                height: 520px;
+            }
+        }
+
+        .map-info-card {
+            position: absolute;
+            z-index: 10;
+            left: 14px;
+            bottom: 14px;
+            width: calc(100% - 28px);
+            max-width: none;
+            padding: 16px;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.96);
+            box-shadow: 0 18px 45px rgba(0,0,0,0.18);
+            backdrop-filter: blur(12px);
+        }
+
+        @media (min-width: 640px) {
+            .map-info-card {
+                left: 24px;
+                bottom: 24px;
+                width: 340px;
+                max-width: calc(100% - 48px);
+                padding: 20px;
+                border-radius: 22px;
+            }
+        }
+
+        .dark .map-info-card {
+            background: rgba(27,32,26,0.96);
+        }
+
+
+        /* =====================================================
+           REVEAL
+        ====================================================== */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition:
+                opacity 0.7s ease,
+                transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* =====================================================
+           FINAL CTA BACKGROUND
+           Warm Sage / Olive
+        ====================================================== */
+
+        .final-contact-cta {
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(190, 242, 100, 0.22),
+                    transparent 32%
+                ),
+                radial-gradient(
+                    circle at 85% 80%,
+                    rgba(245, 158, 11, 0.18),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #40513b 0%,
+                    #526748 48%,
+                    #394936 100%
+                );
+        }
+
+        .dark .final-contact-cta {
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(190, 242, 100, 0.12),
+                    transparent 32%
+                ),
+                radial-gradient(
+                    circle at 85% 80%,
+                    rgba(245, 158, 11, 0.10),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #263326 0%,
+                    #344331 50%,
+                    #222c22 100%
+                );
+        }
+
+    </style>
+
+</head>
+
+
+<body class="text-stone-900 antialiased dark:text-stone-100">
+
+
+    <!-- =====================================================
+         SHARED NAVBAR
+    ====================================================== -->
+
+    <div id="site-header"></div>
+
+
+    <main>
+
+
+        <!-- =================================================
+             CONTACT HERO
+        ================================================== -->
+
+        <section class="contact-hero">
+
+            <div
+                class="relative mx-auto max-w-7xl px-4 py-12 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
+
+                <div class="contact-hero-inner">
+
+                    <!-- LEFT -->
+
+                    <div class="hero-reveal">
+
+                        <div class="contact-hero-eyebrow">
+
+                            <span class="contact-hero-eyebrow-dot"></span>
+
+                            Get in touch
+
+                        </div>
+
+
+                        <h1 class="contact-hero-heading">
+
+                            Contact<br>
+
+                            <span>Us</span>
+
+                        </h1>
+
+
+                        <p class="contact-hero-subline">
+
+                            We'd love to hear from you
+
+                        </p>
+
+
+                        <p class="contact-hero-text">
+
+                            Have a question about our meals, delivery or catering?
+                            Send us a message and our team will get back to you shortly.
+
+                        </p>
+
+
+                        <a href="#enquiry" class="contact-hero-cta">
+
+                            Send an enquiry
+
+                            <span>→</span>
+
+                        </a>
+
+                    </div>
+
+
+                    <!-- RIGHT -->
+
+                    <div class="hero-reveal-delay">
+
+                        <div class="contact-hero-art">
+
+                            <svg
+                                viewBox="0 0 480 400"
+                                xmlns="http://www.w3.org/2000/svg">
+
+                                <!-- Ground shadow -->
+
+                                <ellipse
+                                    cx="240"
+                                    cy="360"
+                                    rx="170"
+                                    ry="16"
+                                    fill="#c9dcf5"
+                                    opacity="0.6" />
+
+
+                                <!-- Phone -->
+
+                                <g transform="translate(70,60) rotate(-8)">
+
+                                    <path
+                                        d="M20 40
+                                        C10 20 30 0 55 5
+                                        L95 15
+                                        C110 20 112 40 100 50
+                                        L85 62
+                                        C95 90 115 110 143 120
+                                        L155 105
+                                        C165 93 185 95 190 110
+                                        L200 150
+                                        C205 175 185 195 160 185
+                                        C90 160 40 110 15 40
+                                        C13 34 15 30 20 40 Z"
+                                        fill="#2563eb" />
+
+                                </g>
+
+
+                                <!-- Envelope -->
+
+                                <g transform="translate(230,150)">
+
+                                    <rect
+                                        x="0"
+                                        y="0"
+                                        width="200"
+                                        height="140"
+                                        rx="16"
+                                        fill="#f59e0b" />
+
+                                    <path
+                                        d="M0 20 L100 95 L200 20"
+                                        fill="none"
+                                        stroke="#fff"
+                                        stroke-width="8"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round" />
+
+                                </g>
+
+
+                                <!-- Person -->
+
+                                <g transform="translate(120,220)">
+
+                                    <circle
+                                        cx="35"
+                                        cy="20"
+                                        r="20"
+                                        fill="#1e293b" />
+
+                                    <rect
+                                        x="10"
+                                        y="42"
+                                        width="50"
+                                        height="70"
+                                        rx="18"
+                                        fill="#2563eb" />
+
+                                    <rect
+                                        x="-6"
+                                        y="55"
+                                        width="20"
+                                        height="55"
+                                        rx="10"
+                                        fill="#f59e0b"
+                                        transform="rotate(18 -6 55)" />
+
+                                </g>
+
+
+                                <!-- Leaves -->
+
+                                <g fill="#84cc16" opacity="0.85">
+
+                                    <ellipse
+                                        cx="60"
+                                        cy="330"
+                                        rx="22"
+                                        ry="9"
+                                        transform="rotate(-20 60 330)" />
+
+                                    <ellipse
+                                        cx="90"
+                                        cy="340"
+                                        rx="18"
+                                        ry="8"
+                                        transform="rotate(10 90 340)" />
+
+                                    <ellipse
+                                        cx="410"
+                                        cy="320"
+                                        rx="24"
+                                        ry="10"
+                                        transform="rotate(25 410 320)" />
+
+                                </g>
+
+
+                                <!-- Speech dots -->
+
+                                <g fill="#2563eb" opacity="0.5">
+
+                                    <circle cx="330" cy="70" r="6" />
+
+                                    <circle cx="355" cy="55" r="4" />
+
+                                    <circle cx="375" cy="80" r="3" />
+
+                                </g>
+
+                            </svg>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             ENQUIRY SECTION
+        ================================================== -->
+
+        <section
+            id="enquiry"
+            class="bg-[#f7f5ed] py-14 dark:bg-[#171713] sm:py-20 lg:py-24">
+
+            <div
+                class="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12">
+
+                <div
+                    class="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-12">
+
+
+                    <!-- INFORMATION -->
+
+                    <div class="reveal">
+
+                        <p class="eyebrow">
+                            Send an enquiry
+                        </p>
+
+
+                        <h2
+                            class="font-display mt-4 text-3xl font-black sm:text-4xl lg:text-5xl">
+
+                            Tell us what
+
+                            <span
+                                class="text-amber-600 dark:text-amber-400">
+
+                                you're planning.
+
+                            </span>
+
+                        </h2>
+
+
+                        <p
+                            class="mt-5 text-base leading-7 text-stone-600 dark:text-stone-300 sm:mt-6 sm:leading-8">
+
+                            Share a few details about your order,
+                            event or catering requirements and our
+                            team will get back to you.
+
+                        </p>
+
+
+                        <div class="mt-7 space-y-4 sm:mt-8">
+
+
+                            <!-- PHONE -->
+
+                            <div
+                                class="flex items-center gap-4 rounded-2xl border border-stone-200 bg-white p-4 dark:border-stone-800 dark:bg-stone-900 sm:p-5">
+
+                                <div
+                                    class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-amber-100">
+
+                                    📞
+
+                                </div>
+
+
+                                <div class="min-w-0">
+
+                                    <p
+                                        class="text-xs font-bold uppercase tracking-widest text-stone-400">
+
+                                        Call us
+
+                                    </p>
+
+                                    <p class="mt-1 font-bold">
+
+                                        +91 98765 43210
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- EMAIL -->
+
+                            <div
+                                class="flex items-center gap-4 rounded-2xl border border-stone-200 bg-white p-4 dark:border-stone-800 dark:bg-stone-900 sm:p-5">
+
+                                <div
+                                    class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-lime-100">
+
+                                    ✉️
+
+                                </div>
+
+
+                                <div class="min-w-0">
+
+                                    <p
+                                        class="text-xs font-bold uppercase tracking-widest text-stone-400">
+
+                                        Email
+
+                                    </p>
+
+
+                                    <p class="mt-1 break-all font-bold">
+
+                                        hello@bowlandhearth.com
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- HOURS -->
+
+                            <div
+                                class="flex items-center gap-4 rounded-2xl border border-stone-200 bg-white p-4 dark:border-stone-800 dark:bg-stone-900 sm:p-5">
+
+                                <div
+                                    class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-orange-100">
+
+                                    🕐
+
+                                </div>
+
+
+                                <div class="min-w-0">
+
+                                    <p
+                                        class="text-xs font-bold uppercase tracking-widest text-stone-400">
+
+                                        Opening hours
+
+                                    </p>
+
+
+                                    <p class="mt-1 font-bold">
+
+                                        Daily · 7 AM – 10 PM
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FORM -->
+
+                    <div
+                        class="reveal rounded-[1.5rem] border border-[#ddd8c9] bg-white p-5 shadow-xl dark:border-stone-800 dark:bg-stone-900 sm:rounded-[2rem] sm:p-9">
+
+                        <form id="enquiry-form">
+
+                            <div class="grid gap-5 sm:grid-cols-2">
+
+
+                                <label class="text-sm font-semibold">
+
+                                    Your name
+
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        class="contact-input"
+                                        placeholder="Your name"
+                                        required>
+
+                                </label>
+
+
+                                <label class="text-sm font-semibold">
+
+                                    Phone number
+
+                                    <input
+                                        type="tel"
+                                        name="phone"
+                                        class="contact-input"
+                                        placeholder="+91 98765 43210"
+                                        required>
+
+                                </label>
+
+
+                                <label class="text-sm font-semibold">
+
+                                    Email
+
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        class="contact-input"
+                                        placeholder="you@example.com"
+                                        required>
+
+                                </label>
+
+
+                                <label class="text-sm font-semibold">
+
+                                    Enquiry type
+
+                                    <select
+                                        name="type"
+                                        class="contact-input">
+
+                                        <option>
+                                            General enquiry
+                                        </option>
+
+                                        <option>
+                                            Individual meal
+                                        </option>
+
+                                        <option>
+                                            Office catering
+                                        </option>
+
+                                        <option>
+                                            Event catering
+                                        </option>
+
+                                        <option>
+                                            Delivery
+                                        </option>
+
+                                    </select>
+
+                                </label>
+
+
+                                <label
+                                    class="text-sm font-semibold sm:col-span-2">
+
+                                    Message
+
+                                    <textarea
+                                        name="message"
+                                        rows="6"
+                                        class="contact-input resize-none"
+                                        placeholder="Tell us your date, headcount or food requirements"
+                                        required></textarea>
+
+                                </label>
+
+                            </div>
+
+
+                            <button
+                                type="submit"
+                                class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-amber-500 px-7 py-4 text-sm font-bold text-white shadow-lg transition hover:bg-amber-600 sm:mt-7">
+
+                                Send enquiry
+
+                                <span>→</span>
+
+                            </button>
+
+
+                            <div
+                                id="form-msg"
+                                class="mt-5 hidden rounded-xl bg-emerald-50 p-4 text-sm font-semibold text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300">
+
+                                ✓ Thank you! Your enquiry has been submitted.
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             HELP SECTION
+        ================================================== -->
+
+        <section
+            class="bg-[#eef3e8] py-14 dark:bg-[#1d241b] sm:py-20 lg:py-24">
+
+            <div
+                class="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12">
+
+
+                <div class="reveal text-center">
+
+                    <p class="eyebrow">
+                        How can we help?
+                    </p>
+
+
+                    <h2
+                        class="font-display mt-4 text-3xl font-black sm:text-4xl lg:text-5xl">
+
+                        Made for everyday meals,
+
+                        <span
+                            class="text-amber-600 dark:text-amber-400">
+
+                            celebrations too.
+
+                        </span>
+
+                    </h2>
+
+
+                    <p
+                        class="mx-auto mt-5 max-w-2xl text-base leading-7 text-stone-600 dark:text-stone-300 sm:leading-8">
+
+                        From a quick lunch to a large gathering,
+                        we make fresh food simple.
+
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="mt-10 grid gap-5 sm:mt-12 sm:gap-6 md:grid-cols-3">
+
+
+                    <!-- MENU -->
+
+                    <div
+                        class="help-card reveal rounded-[1.5rem] border border-[#dfe5d9] bg-white p-6 shadow-sm dark:border-stone-800 dark:bg-stone-900 sm:rounded-[2rem] sm:p-7">
+
+                        <div
+                            class="flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-100 text-2xl">
+
+                            🍲
+
+                        </div>
+
+
+                        <h3
+                            class="font-display mt-6 text-2xl font-bold">
+
+                            Everyday meals
+
+                        </h3>
+
+
+                        <p
+                            class="mt-3 text-sm leading-7 text-stone-500 dark:text-stone-400">
+
+                            Fresh, balanced meals prepared for
+                            busy weekdays and relaxed evenings.
+
+                        </p>
+
+
+                        <!-- FIXED LINK -->
+
+                        <a
+                            href="menu.html"
+                            class="mt-6 inline-flex items-center gap-2 font-bold text-amber-600 dark:text-amber-400">
+
+                            Explore the menu
+
+                            <span>→</span>
+
+                        </a>
+
+                    </div>
+
+
+                    <!-- OFFICE -->
+
+                    <div
+                        class="help-card reveal rounded-[1.5rem] border border-[#dfe5d9] bg-white p-6 shadow-sm dark:border-stone-800 dark:bg-stone-900 sm:rounded-[2rem] sm:p-7">
+
+                        <div
+                            class="flex h-14 w-14 items-center justify-center rounded-2xl bg-lime-100 text-2xl">
+
+                            🥗
+
+                        </div>
+
+
+                        <h3
+                            class="font-display mt-6 text-2xl font-bold">
+
+                            Office catering
+
+                        </h3>
+
+
+                        <p
+                            class="mt-3 text-sm leading-7 text-stone-500 dark:text-stone-400">
+
+                            Easy group meals for meetings,
+                            team lunches and office celebrations.
+
+                        </p>
+
+
+                        <!-- FIXED LINK -->
+
+                        <a
+                            href="#enquiry"
+                            class="mt-6 inline-flex items-center gap-2 font-bold text-amber-600 dark:text-amber-400">
+
+                            Plan catering
+
+                            <span>→</span>
+
+                        </a>
+
+                    </div>
+
+
+                    <!-- EVENTS -->
+
+                    <div
+                        class="help-card reveal rounded-[1.5rem] border border-[#dfe5d9] bg-white p-6 shadow-sm dark:border-stone-800 dark:bg-stone-900 sm:rounded-[2rem] sm:p-7">
+
+                        <div
+                            class="flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100 text-2xl">
+
+                            🎉
+
+                        </div>
+
+
+                        <h3
+                            class="font-display mt-6 text-2xl font-bold">
+
+                            Events &amp; celebrations
+
+                        </h3>
+
+
+                        <p
+                            class="mt-3 text-sm leading-7 text-stone-500 dark:text-stone-400">
+
+                            Tell us about your event and we'll
+                            help plan food for your guests.
+
+                        </p>
+
+
+                        <!-- FIXED LINK -->
+
+                        <a
+                            href="#enquiry"
+                            class="mt-6 inline-flex items-center gap-2 font-bold text-amber-600 dark:text-amber-400">
+
+                            Talk to us
+
+                            <span>→</span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SMALL CTA -->
+
+                <div
+                    class="reveal mt-8 rounded-[1.5rem] bg-[#fffdf7] p-5 shadow-sm dark:bg-stone-950 sm:mt-10 sm:rounded-[2rem] sm:p-8">
+
+                    <div
+                        class="mx-auto flex max-w-3xl flex-col items-center justify-between gap-5 sm:flex-row sm:text-left">
+
+                        <div>
+
+                            <p
+                                class="font-display text-2xl font-bold">
+
+                                Not sure what you need?
+
+                            </p>
+
+
+                            <p
+                                class="mt-1 text-sm text-stone-500 dark:text-stone-400">
+
+                                Tell us what you're planning and
+                                we'll help you figure it out.
+
+                            </p>
+
+                        </div>
+
+
+                        <!-- FIXED LINK -->
+
+                        <a
+                            href="#enquiry"
+                            class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-amber-500 px-7 py-3.5 text-sm font-bold text-white transition hover:bg-amber-600 sm:w-auto">
+
+                            Talk to us
+
+                            <span>→</span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             LOCATION / MAP
+        ================================================== -->
+
+        <section
+            id="location"
+            class="bg-[#f7f5ed] py-14 dark:bg-[#171713] sm:py-20 lg:py-24">
+
+            <div
+                class="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12">
+
+
+                <div
+                    class="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-end lg:gap-10">
+
+
+                    <div class="reveal">
+
+                        <p class="eyebrow">
+                            Find us
+                        </p>
+
+
+                        <h2
+                            class="font-display mt-4 text-3xl font-black sm:text-4xl lg:text-5xl">
+
+                            We're close to
+
+                            <span
+                                class="text-amber-600 dark:text-amber-400">
+
+                                your table.
+
+                            </span>
+
+                        </h2>
+
+                    </div>
+
+
+                    <div class="reveal lg:pl-10">
+
+                        <p
+                            class="text-base leading-7 text-stone-600 dark:text-stone-300 sm:text-lg sm:leading-8">
+
+                            Our kitchen serves local neighbourhoods
+                            with fresh meals and reliable delivery.
+                            Explore the map to find our service area.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MAP -->
+
+                <div
+                    class="reveal mt-10 overflow-hidden rounded-[1.5rem] border border-[#ddd8c9] bg-white shadow-2xl dark:border-stone-800 dark:bg-stone-900 sm:mt-12 sm:rounded-[2rem]">
+
+                    <div class="map-wrapper">
+
+                        <div id="contact-map">
+
+                            <iframe
+                                title="Bowl & Hearth location map"
+                                src="https://www.google.com/maps?q=12.9716,77.5946&z=13&output=embed"
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                allowfullscreen>
+                            </iframe>
+
+                        </div>
+
+
+                        <!-- MAP CARD -->
+
+                        <div class="map-info-card">
+
+                            <div class="flex items-start gap-4">
+
+                                <div
+                                    class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-amber-100 text-xl">
+
+                                    📍
+
+                                </div>
+
+
+                                <div class="min-w-0">
+
+                                    <p
+                                        class="text-sm font-bold text-stone-900 dark:text-white">
+
+                                        Bowl &amp; Hearth
+
+                                    </p>
+
+
+                                    <p
+                                        class="mt-1 text-xs leading-5 text-stone-500 dark:text-stone-400">
+
+                                        Central Bengaluru
+
+                                        <br>
+
+                                        Serving nearby neighbourhoods.
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div
+                                class="mt-4 flex flex-wrap items-center gap-2 text-xs font-semibold text-emerald-700 dark:text-emerald-400">
+
+                                <span
+                                    class="h-2 w-2 rounded-full bg-emerald-500">
+                                </span>
+
+                                Kitchen open today
+
+                                <span class="text-stone-400">
+                                    •
+                                </span>
+
+                                7 AM – 10 PM
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- MAP BOTTOM BAR -->
+
+                    <div
+                        class="flex flex-col gap-4 border-t border-stone-100 p-5 sm:flex-row sm:items-center sm:justify-between sm:px-7 dark:border-stone-800">
+
+                        <div>
+
+                            <p
+                                class="text-sm font-bold text-stone-900 dark:text-white">
+
+                                Delivery &amp; service area
+
+                            </p>
+
+
+                            <p
+                                class="mt-1 text-xs text-stone-500 dark:text-stone-400">
+
+                                Check your neighbourhood with our
+                                team before placing a large order.
+
+                            </p>
+
+                        </div>
+
+
+                        <!-- FIXED GOOGLE MAPS LINK -->
+
+                        <a
+                            href="https://www.google.com/maps/search/?api=1&query=12.9716,77.5946"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center justify-center gap-2 rounded-full bg-[#263225] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#354433] dark:bg-white dark:text-stone-900">
+
+                            Open in Google Maps
+
+                            <span>↗</span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LOCATION CARDS -->
+
+                <div
+                    class="mt-6 grid gap-5 sm:mt-8 sm:grid-cols-3">
+
+
+                    <!-- DELIVERY -->
+
+                    <div
+                        class="reveal rounded-2xl border border-[#e3dfd3] bg-[#fffdf7] p-6 dark:border-stone-800 dark:bg-stone-900">
+
+                        <p class="text-2xl">
+                            🚚
+                        </p>
+
+                        <h3 class="mt-4 font-bold">
+                            Local delivery
+                        </h3>
+
+                        <p
+                            class="mt-2 text-sm leading-6 text-stone-500 dark:text-stone-400">
+
+                            Fresh meals delivered across
+                            our service zones.
+
+                        </p>
+
+                    </div>
+
+
+                    <!-- PICKUP -->
+
+                    <div
+                        class="reveal rounded-2xl border border-[#e3dfd3] bg-[#fffdf7] p-6 dark:border-stone-800 dark:bg-stone-900">
+
+                        <p class="text-2xl">
+                            📦
+                        </p>
+
+                        <h3 class="mt-4 font-bold">
+                            Catering pickup
+                        </h3>
+
+                        <p
+                            class="mt-2 text-sm leading-6 text-stone-500 dark:text-stone-400">
+
+                            Planning a larger order?
+                            Ask about pickup options.
+
+                        </p>
+
+                    </div>
+
+
+                    <!-- HOURS -->
+
+                    <div
+                        class="reveal rounded-2xl border border-[#e3dfd3] bg-[#fffdf7] p-6 dark:border-stone-800 dark:bg-stone-900">
+
+                        <p class="text-2xl">
+                            🕐
+                        </p>
+
+                        <h3 class="mt-4 font-bold">
+                            Open daily
+                        </h3>
+
+                        <p
+                            class="mt-2 text-sm leading-6 text-stone-500 dark:text-stone-400">
+
+                            Our kitchen team is available
+                            from 7 AM to 10 PM.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             FINAL CTA
+        ================================================== -->
+
+        <section
+            class="final-contact-cta py-14 text-white sm:py-20 lg:py-24">
+
+            <!-- Decorative shapes -->
+
+            <div
+                class="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-lime-300/10 blur-3xl">
+            </div>
+
+
+            <div
+                class="pointer-events-none absolute -bottom-32 -right-24 h-80 w-80 rounded-full bg-amber-300/10 blur-3xl">
+            </div>
+
+
+            <div
+                class="relative mx-auto max-w-4xl px-4 text-center sm:px-8">
+
+
+                <div class="reveal">
+
+
+                    <p
+                        class="text-xs font-bold uppercase tracking-[0.18em] text-lime-200">
+
+                        One more thing
+
+                    </p>
+
+
+                    <h2
+                        class="font-display mt-5 text-3xl font-black sm:text-5xl lg:text-6xl">
+
+                        Good food is only
+
+                        <br>
+
+                        a message away.
+
+                    </h2>
+
+
+                    <p
+                        class="mx-auto mt-6 max-w-2xl text-base leading-7 text-stone-100/80 sm:text-lg">
+
+                        Tell us what you're planning, where you're
+                        located and how many people you're feeding.
+                        We'll take it from there.
+
+                    </p>
+
+
+                    <div
+                        class="mt-8 flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
+
+
+                        <!-- ENQUIRY LINK -->
+
+                        <a
+                            href="#enquiry"
+                            class="inline-flex items-center justify-center gap-2 rounded-full bg-amber-500 px-8 py-4 text-sm font-bold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-amber-600">
+
+                            Send an enquiry
+
+                            <span>→</span>
+
+                        </a>
+
+
+                        <!-- MENU LINK -->
+
+                        <a
+                            href="menu.html"
+                            class="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 px-8 py-4 text-sm font-bold text-white backdrop-blur-sm transition hover:bg-white/20">
+
+                            Explore the menu
+
+                            <span>↗</span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         SHARED FOOTER
+    ====================================================== -->
+
+    <div id="site-footer"></div>
+
+
+    <!-- =====================================================
+         SHARED JAVASCRIPT
+    ====================================================== -->
+
+    <script src="../js/components.js"></script>
+
+    <script src="../js/main.js"></script>
+
+
+    <!-- =====================================================
+         CONTACT FORM
+    ====================================================== -->
+
+    <script>
+
+        const enquiryForm =
+            document.getElementById('enquiry-form');
+
+        const formMessage =
+            document.getElementById('form-msg');
+
+
+        if (enquiryForm && formMessage) {
+
+            enquiryForm.addEventListener(
+                'submit',
+                function (event) {
+
+                    event.preventDefault();
+
+                    formMessage.classList.remove('hidden');
+
+                    enquiryForm.reset();
+
+                    formMessage.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+
+                }
+            );
+
+        }
+
+    </script>
+
+
+    <!-- =====================================================
+         SCROLL REVEAL
+    ====================================================== -->
+
+    <script>
+
+        const revealElements =
+            document.querySelectorAll('.reveal');
+
+
+        if ('IntersectionObserver' in window) {
+
+            const revealObserver =
+                new IntersectionObserver(
+
+                    function (entries) {
+
+                        entries.forEach(function (entry) {
+
+                            if (entry.isIntersecting) {
+
+                                entry.target.classList.add(
+                                    'visible'
+                                );
+
+                                revealObserver.unobserve(
+                                    entry.target
+                                );
+
+                            }
+
+                        });
+
+                    },
+
+                    {
+                        threshold: 0.12
+                    }
+
+                );
+
+
+            revealElements.forEach(function (element) {
+
+                revealObserver.observe(element);
+
+            });
+
+        } else {
+
+            revealElements.forEach(function (element) {
+
+                element.classList.add('visible');
+
+            });
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
+```

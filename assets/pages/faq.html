@@ -1,0 +1,2341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Delivery FAQ | Bowl & Hearth</title>
+
+
+    <!-- =====================================================
+         TAILWIND CSS
+    ====================================================== -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        };
+    </script>
+
+
+    <!-- =====================================================
+         PROJECT CSS
+    ====================================================== -->
+
+    <link rel="stylesheet" href="../css/style.css">
+
+
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+
+
+    <!-- =====================================================
+         CUSTOM CSS
+    ====================================================== -->
+
+    <style>
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .font-display {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        .eyebrow {
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #c2410c;
+        }
+
+
+        /* =====================================================
+           HERO
+        ====================================================== */
+
+        .faq-hero {
+            position: relative;
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 85% 15%,
+                    rgba(251, 146, 60, 0.30),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 10% 90%,
+                    rgba(245, 158, 11, 0.18),
+                    transparent 32%
+                ),
+                linear-gradient(
+                    135deg,
+                    #fff8ed 0%,
+                    #f8ead7 48%,
+                    #f3dfc5 100%
+                );
+        }
+
+        .hero-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.35;
+
+            background-image:
+                radial-gradient(
+                    circle,
+                    rgba(120, 53, 15, 0.12) 1px,
+                    transparent 1px
+                );
+
+            background-size: 28px 28px;
+        }
+
+        .hero-glow-one {
+            position: absolute;
+
+            width: 430px;
+            height: 430px;
+
+            top: -220px;
+            right: -130px;
+
+            border-radius: 999px;
+
+            background: rgba(234, 88, 12, 0.15);
+
+            filter: blur(60px);
+        }
+
+        .hero-glow-two {
+            position: absolute;
+
+            width: 350px;
+            height: 350px;
+
+            bottom: -190px;
+            left: -120px;
+
+            border-radius: 999px;
+
+            background: rgba(245, 158, 11, 0.13);
+
+            filter: blur(60px);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            border: 1px solid rgba(154, 52, 18, 0.15);
+
+            background: rgba(255, 255, 255, 0.60);
+
+            padding: 9px 15px;
+
+            border-radius: 999px;
+
+            color: #9a3412;
+
+            font-size: 0.72rem;
+
+            font-weight: 800;
+
+            letter-spacing: 0.12em;
+
+            text-transform: uppercase;
+
+            box-shadow:
+                0 8px 25px rgba(120, 53, 15, 0.06);
+
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-badge-dot {
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: #ea580c;
+
+            box-shadow:
+                0 0 0 5px rgba(234, 88, 12, 0.12);
+        }
+
+
+        /* =====================================================
+           HERO BOWL
+        ====================================================== */
+
+        .hero-bowl-area {
+            position: relative;
+
+            min-height: 410px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 40px;
+
+            border: 1px solid rgba(120, 53, 15, 0.10);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.78),
+                    rgba(255,247,237,0.55)
+                );
+
+            box-shadow:
+                0 30px 80px rgba(120, 53, 15, 0.12);
+
+            backdrop-filter: blur(15px);
+        }
+
+        .hero-bowl {
+            position: relative;
+
+            width: 235px;
+            height: 235px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle at 50% 45%,
+                    #facc15 0%,
+                    #f59e0b 19%,
+                    #b45309 20%,
+                    #7c2d12 40%,
+                    #431407 41%,
+                    #292015 63%,
+                    transparent 64%
+                );
+
+            box-shadow:
+                0 35px 70px rgba(67, 20, 7, 0.25);
+
+            animation:
+                bowlFloat 5s ease-in-out infinite;
+        }
+
+        .hero-bowl::before {
+            content: "";
+
+            position: absolute;
+
+            width: 150px;
+            height: 92px;
+
+            left: 43px;
+            top: 50px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle at 22% 30%,
+                    #84cc16 0 13%,
+                    transparent 14%
+                ),
+                radial-gradient(
+                    circle at 58% 25%,
+                    #f97316 0 13%,
+                    transparent 14%
+                ),
+                radial-gradient(
+                    circle at 42% 68%,
+                    #facc15 0 14%,
+                    transparent 15%
+                ),
+                radial-gradient(
+                    circle at 78% 60%,
+                    #ef4444 0 12%,
+                    transparent 13%
+                ),
+                radial-gradient(
+                    circle at 67% 78%,
+                    #65a30d 0 10%,
+                    transparent 11%
+                ),
+                #fff7ed;
+
+            box-shadow:
+                inset 0 -8px 15px rgba(0,0,0,0.08);
+        }
+
+        .hero-bowl::after {
+            content: "";
+
+            position: absolute;
+
+            width: 170px;
+            height: 35px;
+
+            left: 33px;
+            bottom: 47px;
+
+            border-radius: 50%;
+
+            background: rgba(0,0,0,0.18);
+
+            filter: blur(12px);
+        }
+
+        @keyframes bowlFloat {
+
+            0%,
+            100% {
+                transform:
+                    translateY(0)
+                    rotate(-2deg);
+            }
+
+            50% {
+                transform:
+                    translateY(-12px)
+                    rotate(2deg);
+            }
+
+        }
+
+        .hero-floating-card {
+            position: absolute;
+
+            border: 1px solid rgba(120, 53, 15, 0.10);
+
+            background: rgba(255, 255, 255, 0.78);
+
+            box-shadow:
+                0 18px 40px rgba(120, 53, 15, 0.12);
+
+            backdrop-filter: blur(12px);
+
+            border-radius: 20px;
+        }
+
+        .hero-reveal {
+            opacity: 0;
+
+            transform: translateY(25px);
+
+            animation:
+                heroReveal 0.8s ease forwards;
+        }
+
+        .hero-reveal-delay {
+            opacity: 0;
+
+            transform: translateY(25px);
+
+            animation:
+                heroReveal 0.9s ease 0.15s forwards;
+        }
+
+        @keyframes heroReveal {
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* =====================================================
+           FAQ
+        ====================================================== */
+
+        .faq-section {
+            position: relative;
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 5% 15%,
+                    rgba(251, 191, 36, 0.10),
+                    transparent 24%
+                ),
+                radial-gradient(
+                    circle at 95% 80%,
+                    rgba(234, 88, 12, 0.07),
+                    transparent 25%
+                );
+        }
+
+        .faq-decoration {
+            position: absolute;
+
+            width: 230px;
+            height: 230px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(194, 65, 12, 0.10);
+        }
+
+        .faq-decoration-one {
+            top: 70px;
+            left: -130px;
+        }
+
+        .faq-decoration-two {
+            right: -120px;
+            bottom: 100px;
+        }
+
+        .faq-intro-card {
+            position: relative;
+
+            overflow: hidden;
+
+            border-radius: 32px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fffaf3,
+                    #f8eee1
+                );
+
+            border: 1px solid #eadfce;
+
+            box-shadow:
+                0 20px 60px rgba(120, 53, 15, 0.08);
+        }
+
+        .dark .faq-intro-card {
+            background:
+                linear-gradient(
+                    135deg,
+                    #29251f,
+                    #211f1a
+                );
+
+            border-color: #3d382f;
+        }
+
+        .faq-wrapper {
+            border-radius: 30px;
+
+            overflow: hidden;
+
+            border: 1px solid #e7dfd3;
+
+            background: rgba(255, 255, 255, 0.90);
+
+            box-shadow:
+                0 25px 70px rgba(120, 53, 15, 0.09);
+        }
+
+        .dark .faq-wrapper {
+            border-color: #3b3933;
+
+            background: #1c1b18;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee7dc;
+
+            transition:
+                background 0.3s ease;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .dark .faq-item {
+            border-color: #34322e;
+        }
+
+        .faq-item:hover {
+            background: #fffaf4;
+        }
+
+        .dark .faq-item:hover {
+            background: #24221e;
+        }
+
+        .faq-question {
+            width: 100%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding: 26px 30px;
+
+            text-align: left;
+
+            cursor: pointer;
+
+            transition:
+                color 0.25s ease;
+        }
+
+        .faq-question:hover {
+            color: #c2410c;
+        }
+
+        .faq-number {
+            display: flex;
+
+            width: 42px;
+            height: 42px;
+
+            flex-shrink: 0;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 14px;
+
+            background: #fff1df;
+
+            color: #c2410c;
+
+            font-size: 0.72rem;
+
+            font-weight: 800;
+        }
+
+        .dark .faq-number {
+            background: #3a2a1d;
+            color: #fb923c;
+        }
+
+        .faq-plus {
+            position: relative;
+
+            width: 42px;
+            height: 42px;
+
+            flex-shrink: 0;
+
+            border-radius: 50%;
+
+            background: #f5f1eb;
+
+            color: #57534e;
+
+            transition:
+                transform 0.35s ease,
+                background 0.35s ease,
+                color 0.35s ease;
+        }
+
+        .dark .faq-plus {
+            background: #302e29;
+            color: #d6d3d1;
+        }
+
+        .faq-plus::before,
+        .faq-plus::after {
+            content: "";
+
+            position: absolute;
+
+            top: 50%;
+            left: 50%;
+
+            width: 15px;
+            height: 2px;
+
+            border-radius: 99px;
+
+            background: currentColor;
+
+            transform:
+                translate(-50%, -50%);
+
+            transition:
+                transform 0.35s ease;
+        }
+
+        .faq-plus::after {
+            transform:
+                translate(-50%, -50%)
+                rotate(90deg);
+        }
+
+        .faq-item.active {
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(255,247,237,0.95),
+                    rgba(255,255,255,0.95)
+                );
+        }
+
+        .dark .faq-item.active {
+            background:
+                linear-gradient(
+                    90deg,
+                    #29261f,
+                    #1f1e1a
+                );
+        }
+
+        .faq-item.active .faq-plus {
+            background: #ea580c;
+
+            color: white;
+
+            transform: rotate(45deg);
+
+            box-shadow:
+                0 8px 20px rgba(234, 88, 12, 0.25);
+        }
+
+        .faq-answer {
+            display: grid;
+
+            grid-template-rows: 0fr;
+
+            transition:
+                grid-template-rows 0.4s ease;
+        }
+
+        .faq-answer-inner {
+            overflow: hidden;
+        }
+
+        .faq-answer-content {
+            padding:
+                0 95px 28px 92px;
+
+            color: #78716c;
+
+            font-size: 0.95rem;
+
+            line-height: 1.85;
+        }
+
+        .dark .faq-answer-content {
+            color: #a8a29e;
+        }
+
+        .faq-item.active .faq-answer {
+            grid-template-rows: 1fr;
+        }
+
+        .faq-note {
+            border-left: 3px solid #ea580c;
+
+            background: #fff7ed;
+
+            border-radius: 0 18px 18px 0;
+        }
+
+        .dark .faq-note {
+            background: #2b241d;
+        }
+
+
+        /* =====================================================
+           INFO CARDS
+        ====================================================== */
+
+        .info-card {
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-7px);
+
+            box-shadow:
+                0 20px 45px rgba(120, 53, 15, 0.10);
+        }
+
+
+        /* =====================================================
+           FOOD IMAGE
+        ====================================================== */
+
+        .food-image-wrap {
+            overflow: hidden;
+
+            border-radius: 32px;
+
+            box-shadow:
+                0 30px 70px rgba(120, 53, 15, 0.15);
+        }
+
+        .food-image {
+            transition:
+                transform 0.7s ease;
+        }
+
+        .food-image-wrap:hover .food-image {
+            transform: scale(1.05);
+        }
+
+
+        /* =====================================================
+           CTA
+        ====================================================== */
+
+        .cta-section {
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 85% 20%,
+                    rgba(251, 146, 60, 0.25),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #3b2417,
+                    #4a2918,
+                    #2f2119
+                );
+        }
+
+
+        /* =====================================================
+           SCROLL REVEAL
+        ====================================================== */
+
+        .reveal {
+            opacity: 0;
+
+            transform: translateY(25px);
+
+            transition:
+                opacity 0.7s ease,
+                transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ====================================================== */
+
+        @media (max-width: 768px) {
+
+            .hero-bowl-area {
+                min-height: 330px;
+
+                border-radius: 28px;
+            }
+
+            .hero-bowl {
+                width: 190px;
+                height: 190px;
+            }
+
+            .hero-bowl::before {
+                width: 120px;
+                height: 75px;
+
+                left: 35px;
+                top: 40px;
+            }
+
+            .faq-question {
+                padding: 22px 18px;
+            }
+
+            .faq-answer-content {
+                padding:
+                    0 20px 25px 78px;
+            }
+
+        }
+
+
+        @media (max-width: 480px) {
+
+            .faq-question {
+                gap: 12px;
+
+                padding:
+                    20px 15px;
+            }
+
+            .faq-number {
+                width: 36px;
+                height: 36px;
+
+                border-radius: 11px;
+            }
+
+            .faq-plus {
+                width: 36px;
+                height: 36px;
+            }
+
+            .faq-answer-content {
+                padding:
+                    0 15px 24px 15px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body
+    class="bg-stone-50 text-stone-900 antialiased dark:bg-stone-950 dark:text-stone-100">
+
+
+    <!-- =====================================================
+         SHARED HEADER
+    ====================================================== -->
+
+    <div id="site-header"></div>
+
+
+    <main>
+
+
+        <!-- =================================================
+             1. HERO SECTION
+        ================================================== -->
+
+        <section class="faq-hero">
+
+            <div class="hero-pattern pointer-events-none"></div>
+
+            <div class="hero-glow-one pointer-events-none"></div>
+
+            <div class="hero-glow-two pointer-events-none"></div>
+
+
+            <div
+                class="hero-content mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
+
+
+                <div
+                    class="grid items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
+
+
+                    <!-- HERO TEXT -->
+
+                    <div class="hero-reveal">
+
+
+                        <div class="hero-badge">
+
+                            <span class="hero-badge-dot"></span>
+
+                            Delivery &amp; Ordering Guide
+
+                        </div>
+
+
+                        <h1
+                            class="font-display mt-7 max-w-4xl text-5xl font-black leading-[1.02] text-stone-900 sm:text-6xl lg:text-7xl xl:text-8xl">
+
+                            Questions?
+
+                            <br>
+
+                            <span class="text-orange-700">
+                                We've got answers.
+                            </span>
+
+                        </h1>
+
+
+                        <p
+                            class="mt-7 max-w-2xl text-base leading-8 text-stone-600 sm:text-lg">
+
+                            Everything you need to know about
+                            delivery, ordering, dietary requests,
+                            catering and enjoying your favourite
+                            meals from Bowl &amp; Hearth.
+
+                        </p>
+
+
+                        <div
+                            class="mt-9 flex flex-wrap gap-4">
+
+
+                            <a
+                                href="#faq"
+                                class="inline-flex items-center gap-3 rounded-full bg-orange-600 px-7 py-4 text-sm font-bold text-white shadow-xl shadow-orange-900/10 transition hover:-translate-y-1 hover:bg-orange-700">
+
+                                Browse questions
+
+                                <span class="text-lg">
+                                    ↓
+                                </span>
+
+                            </a>
+
+
+                            <a
+                                href="contact.html"
+                                class="inline-flex items-center gap-3 rounded-full border border-stone-300 bg-white/60 px-7 py-4 text-sm font-bold text-stone-800 backdrop-blur transition hover:-translate-y-1 hover:bg-white">
+
+                                Contact us
+
+                                <span>
+                                    ↗
+                                </span>
+
+                            </a>
+
+                        </div>
+
+
+                        <div
+                            class="mt-10 flex flex-wrap gap-3">
+
+
+                            <span
+                                class="rounded-full border border-orange-900/10 bg-white/55 px-4 py-2 text-xs font-bold text-stone-700 backdrop-blur">
+
+                                🚚 Local delivery
+
+                            </span>
+
+
+                            <span
+                                class="rounded-full border border-orange-900/10 bg-white/55 px-4 py-2 text-xs font-bold text-stone-700 backdrop-blur">
+
+                                🥗 Fresh meals
+
+                            </span>
+
+
+                            <span
+                                class="rounded-full border border-orange-900/10 bg-white/55 px-4 py-2 text-xs font-bold text-stone-700 backdrop-blur">
+
+                                📦 Group orders
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- HERO VISUAL -->
+
+                    <div
+                        class="hero-reveal-delay flex justify-center lg:justify-end">
+
+
+                        <div class="hero-bowl-area w-full max-w-[440px]">
+
+
+                            <div
+                                class="hero-floating-card left-5 top-5 px-5 py-4 sm:left-7 sm:top-7">
+
+                                <p
+                                    class="text-[10px] font-extrabold uppercase tracking-[0.18em] text-orange-600">
+
+                                    Bowl &amp; Hearth
+
+                                </p>
+
+                                <p
+                                    class="mt-1 text-sm font-bold text-stone-800">
+
+                                    Fresh every day
+
+                                </p>
+
+                            </div>
+
+
+                            <div class="hero-bowl"></div>
+
+
+                            <div
+                                class="hero-floating-card bottom-6 right-5 px-5 py-4 sm:bottom-8 sm:right-7">
+
+                                <div class="flex items-center gap-3">
+
+                                    <span
+                                        class="flex h-9 w-9 items-center justify-center rounded-full bg-orange-100">
+
+                                        🕐
+
+                                    </span>
+
+                                    <div>
+
+                                        <p
+                                            class="text-[10px] font-bold uppercase tracking-widest text-stone-500">
+
+                                            Kitchen hours
+
+                                        </p>
+
+                                        <p
+                                            class="font-display text-lg font-bold text-stone-900">
+
+                                            7 AM – 10 PM
+
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <span
+                                class="absolute bottom-10 left-8 text-2xl text-orange-500">
+
+                                ✦
+
+                            </span>
+
+
+                            <span
+                                class="absolute right-12 top-24 text-xl text-amber-500">
+
+                                ✦
+
+                            </span>
+
+
+                            <span
+                                class="absolute bottom-20 right-24 text-sm text-orange-400">
+
+                                • • •
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             2. FAQ SECTION
+        ================================================== -->
+
+        <section
+            id="faq"
+            class="faq-section bg-stone-50 py-20 dark:bg-stone-950 sm:py-28 lg:py-32">
+
+
+            <div
+                class="faq-decoration faq-decoration-one pointer-events-none">
+            </div>
+
+            <div
+                class="faq-decoration faq-decoration-two pointer-events-none">
+            </div>
+
+
+            <div
+                class="relative mx-auto max-w-6xl px-5 sm:px-8 lg:px-12">
+
+
+                <!-- FAQ INTRO -->
+
+                <div class="faq-intro-card reveal p-7 sm:p-10 lg:p-12">
+
+
+                    <div
+                        class="grid items-center gap-8 md:grid-cols-[1fr_auto]">
+
+
+                        <div>
+
+                            <div class="flex items-center gap-3">
+
+                                <span
+                                    class="h-px w-10 bg-orange-500">
+                                </span>
+
+                                <p class="eyebrow">
+                                    Frequently asked
+                                </p>
+
+                            </div>
+
+
+                            <h2
+                                class="font-display mt-4 text-4xl font-black leading-tight text-stone-900 dark:text-stone-100 sm:text-5xl lg:text-6xl">
+
+                                Your questions,
+
+                                <span class="text-orange-600 dark:text-orange-400">
+                                    answered.
+                                </span>
+
+                            </h2>
+
+
+                            <p
+                                class="mt-5 max-w-2xl text-base leading-8 text-stone-500 dark:text-stone-400">
+
+                                We know you may have questions before
+                                placing an order. Find quick answers
+                                about delivery, preparation, catering
+                                and dietary requests below.
+
+                            </p>
+
+                        </div>
+
+
+                        <div
+                            class="hidden h-28 w-28 flex-shrink-0 flex-col items-center justify-center rounded-full border-8 border-orange-100 bg-white text-center shadow-sm dark:border-orange-950 dark:bg-stone-900">
+
+
+                            <span
+                                class="font-display text-3xl font-black text-orange-600 dark:text-orange-400">
+
+                                06
+
+                            </span>
+
+
+                            <span
+                                class="text-[10px] font-bold uppercase tracking-widest text-stone-400">
+
+                                Questions
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mt-10 sm:mt-12">
+
+
+                    <!-- FAQ WRAPPER -->
+
+                    <div class="faq-wrapper">
+
+
+                        <!-- FAQ 01 -->
+
+                        <div class="faq-item active reveal">
+
+                            <button
+                                type="button"
+                                class="faq-question"
+                                aria-expanded="true">
+
+                                <div
+                                    class="flex min-w-0 items-center gap-4">
+
+                                    <span class="faq-number">
+                                        01
+                                    </span>
+
+                                    <span
+                                        class="text-base font-bold text-stone-800 sm:text-lg dark:text-stone-100">
+
+                                        Which areas do you deliver to?
+
+                                    </span>
+
+                                </div>
+
+                                <span class="faq-plus"></span>
+
+                            </button>
+
+
+                            <div class="faq-answer">
+
+                                <div class="faq-answer-inner">
+
+                                    <div class="faq-answer-content">
+
+                                        We cover Central City, North
+                                        Park, Riverside, Market Road,
+                                        Greenfield and nearby office
+                                        districts. Contact us with your
+                                        postcode if you want to confirm
+                                        whether your location is within
+                                        our delivery area.
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- FAQ 02 -->
+
+                        <div class="faq-item reveal">
+
+                            <button
+                                type="button"
+                                class="faq-question"
+                                aria-expanded="false">
+
+                                <div
+                                    class="flex min-w-0 items-center gap-4">
+
+                                    <span class="faq-number">
+                                        02
+                                    </span>
+
+                                    <span
+                                        class="text-base font-bold text-stone-800 sm:text-lg dark:text-stone-100">
+
+                                        How long does delivery take?
+
+                                    </span>
+
+                                </div>
+
+                                <span class="faq-plus"></span>
+
+                            </button>
+
+
+                            <div class="faq-answer">
+
+                                <div class="faq-answer-inner">
+
+                                    <div class="faq-answer-content">
+
+                                        Most local orders arrive within
+                                        about 35 minutes. Delivery time
+                                        can vary depending on the delivery
+                                        zone, traffic and current order
+                                        volume.
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- FAQ 03 -->
+
+                        <div class="faq-item reveal">
+
+                            <button
+                                type="button"
+                                class="faq-question"
+                                aria-expanded="false">
+
+                                <div
+                                    class="flex min-w-0 items-center gap-4">
+
+                                    <span class="faq-number">
+                                        03
+                                    </span>
+
+                                    <span
+                                        class="text-base font-bold text-stone-800 sm:text-lg dark:text-stone-100">
+
+                                        Can I schedule an office order?
+
+                                    </span>
+
+                                </div>
+
+                                <span class="faq-plus"></span>
+
+                            </button>
+
+
+                            <div class="faq-answer">
+
+                                <div class="faq-answer-inner">
+
+                                    <div class="faq-answer-content">
+
+                                        Bulk and office orders can
+                                        be scheduled in advance. This
+                                        gives our kitchen enough time to
+                                        prepare your order and organise
+                                        delivery properly.
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- FAQ 04 -->
+
+                        <div class="faq-item reveal">
+
+                            <button
+                                type="button"
+                                class="faq-question"
+                                aria-expanded="false">
+
+                                <div
+                                    class="flex min-w-0 items-center gap-4">
+
+                                    <span class="faq-number">
+                                        04
+                                    </span>
+
+                                    <span
+                                        class="text-base font-bold text-stone-800 sm:text-lg dark:text-stone-100">
+
+                                        Do you support dietary requests?
+
+                                    </span>
+
+                                </div>
+
+                                <span class="faq-plus"></span>
+
+                            </button>
+
+
+                            <div class="faq-answer">
+
+                                <div class="faq-answer-inner">
+
+                                    <div class="faq-answer-content">
+
+                                        Many dishes can be adjusted.
+                                        Tell us your requirements when
+                                        enquiring and our kitchen team
+                                        will confirm what can be
+                                        supported.
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- FAQ 05 -->
+
+                        <div class="faq-item reveal">
+
+                            <button
+                                type="button"
+                                class="faq-question"
+                                aria-expanded="false">
+
+                                <div
+                                    class="flex min-w-0 items-center gap-4">
+
+                                    <span class="faq-number">
+                                        05
+                                    </span>
+
+                                    <span
+                                        class="text-base font-bold text-stone-800 sm:text-lg dark:text-stone-100">
+
+                                        Can I place a large catering order?
+
+                                    </span>
+
+                                </div>
+
+                                <span class="faq-plus"></span>
+
+                            </button>
+
+
+                            <div class="faq-answer">
+
+                                <div class="faq-answer-inner">
+
+                                    <div class="faq-answer-content">
+
+                                        Yes. We support office lunches,
+                                        workshops, launches, family
+                                        gatherings and small events.
+                                        Send us your headcount, date and
+                                        requirements so we can help plan
+                                        your order.
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- FAQ 06 -->
+
+                        <div class="faq-item reveal">
+
+                            <button
+                                type="button"
+                                class="faq-question"
+                                aria-expanded="false">
+
+                                <div
+                                    class="flex min-w-0 items-center gap-4">
+
+                                    <span class="faq-number">
+                                        06
+                                    </span>
+
+                                    <span
+                                        class="text-base font-bold text-stone-800 sm:text-lg dark:text-stone-100">
+
+                                        How can I contact the kitchen?
+
+                                    </span>
+
+                                </div>
+
+                                <span class="faq-plus"></span>
+
+                            </button>
+
+
+                            <div class="faq-answer">
+
+                                <div class="faq-answer-inner">
+
+                                    <div class="faq-answer-content">
+
+                                        You can use our Contact page for
+                                        delivery questions, catering
+                                        enquiries, general questions or
+                                        custom food requests.
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- FAQ NOTE -->
+
+                    <div
+                        class="faq-note mt-8 flex items-start gap-4 p-5 sm:mt-10 sm:p-6 reveal">
+
+                        <div
+                            class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-orange-100 text-lg">
+
+                            💬
+
+                        </div>
+
+                        <div>
+
+                            <h3
+                                class="font-bold text-stone-800 dark:text-stone-100">
+
+                                Still can't find your answer?
+
+                            </h3>
+
+                            <p
+                                class="mt-1 text-sm leading-6 text-stone-500 dark:text-stone-400">
+
+                                Our team is happy to help with
+                                delivery areas, special requests
+                                and larger orders.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             3. FRESH FOOD SECTION
+        ================================================== -->
+
+        <section
+            class="bg-[#f0f4e9] py-20 dark:bg-[#1d241b] sm:py-28">
+
+
+            <div
+                class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+
+
+                <div
+                    class="grid items-center gap-12 lg:grid-cols-2">
+
+
+                    <!-- FOOD IMAGE -->
+
+                    <div class="reveal">
+
+                        <div class="food-image-wrap">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1400&q=90"
+                                alt="Fresh colourful healthy food bowl"
+                                class="food-image h-[380px] w-full object-cover sm:h-[500px]">
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CONTENT -->
+
+                    <div class="reveal">
+
+                        <p class="eyebrow">
+                            Fresh from our kitchen
+                        </p>
+
+
+                        <h2
+                            class="font-display mt-4 text-4xl font-black sm:text-5xl">
+
+                            Fresh food should be
+
+                            <span
+                                class="text-orange-600 dark:text-orange-400">
+
+                                easy.
+
+                            </span>
+
+                        </h2>
+
+
+                        <p
+                            class="mt-6 text-base leading-8 text-stone-600 dark:text-stone-300">
+
+                            We keep the ordering and delivery
+                            experience simple, while focusing on
+                            fresh ingredients and satisfying meals.
+
+                        </p>
+
+
+                        <div
+                            class="mt-8 grid gap-4 sm:grid-cols-2">
+
+
+                            <!-- CARD 1 -->
+
+                            <div
+                                class="info-card rounded-3xl bg-white p-6 shadow-sm dark:bg-stone-900">
+
+                                <div
+                                    class="flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-100 text-xl">
+
+                                    🥗
+
+                                </div>
+
+                                <h3
+                                    class="font-display mt-5 text-xl font-bold">
+
+                                    Fresh ingredients
+
+                                </h3>
+
+                                <p
+                                    class="mt-2 text-sm leading-6 text-stone-500 dark:text-stone-400">
+
+                                    Carefully prepared meals
+                                    made for everyday eating.
+
+                                </p>
+
+                            </div>
+
+
+                            <!-- CARD 2 -->
+
+                            <div
+                                class="info-card rounded-3xl bg-white p-6 shadow-sm dark:bg-stone-900">
+
+                                <div
+                                    class="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-xl">
+
+                                    🚚
+
+                                </div>
+
+                                <h3
+                                    class="font-display mt-5 text-xl font-bold">
+
+                                    Local delivery
+
+                                </h3>
+
+                                <p
+                                    class="mt-2 text-sm leading-6 text-stone-500 dark:text-stone-400">
+
+                                    Convenient delivery to nearby
+                                    homes and offices.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <a
+                            href="menu.html"
+                            class="mt-8 inline-flex items-center gap-3 rounded-full bg-orange-600 px-7 py-4 text-sm font-bold text-white transition hover:-translate-y-1 hover:bg-orange-700">
+
+                            Explore our menu
+
+                            <span>
+                                →
+                            </span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             4. DELIVERY PROCESS
+        ================================================== -->
+
+        <section
+            class="bg-stone-50 py-20 dark:bg-stone-950 sm:py-28">
+
+
+            <div
+                class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+
+
+                <div
+                    class="mx-auto max-w-3xl text-center reveal">
+
+
+                    <p class="eyebrow">
+                        How it works
+                    </p>
+
+
+                    <h2
+                        class="font-display mt-4 text-4xl font-black sm:text-5xl">
+
+                        From click
+
+                        <span
+                            class="text-orange-600 dark:text-orange-400">
+
+                            to doorstep.
+
+                        </span>
+
+                    </h2>
+
+
+                    <p
+                        class="mt-5 text-base leading-8 text-stone-500 dark:text-stone-400">
+
+                        Ordering from Bowl &amp; Hearth is
+                        designed to be simple from beginning
+                        to end.
+
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="mt-14 grid gap-6 md:grid-cols-3">
+
+
+                    <!-- STEP 1 -->
+
+                    <div
+                        class="info-card reveal rounded-[2rem] border border-stone-200 bg-white p-8 dark:border-stone-800 dark:bg-stone-900">
+
+                        <span
+                            class="flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100 font-display text-2xl font-bold text-orange-700">
+
+                            01
+
+                        </span>
+
+
+                        <h3
+                            class="font-display mt-7 text-2xl font-bold">
+
+                            Choose your meal
+
+                        </h3>
+
+
+                        <p
+                            class="mt-3 text-sm leading-7 text-stone-500 dark:text-stone-400">
+
+                            Browse the menu and choose the bowl,
+                            side or meal that sounds right for you.
+
+                        </p>
+
+                    </div>
+
+
+                    <!-- STEP 2 -->
+
+                    <div
+                        class="info-card reveal rounded-[2rem] border border-stone-200 bg-white p-8 dark:border-stone-800 dark:bg-stone-900">
+
+                        <span
+                            class="flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-100 font-display text-2xl font-bold text-amber-700">
+
+                            02
+
+                        </span>
+
+
+                        <h3
+                            class="font-display mt-7 text-2xl font-bold">
+
+                            We prepare it
+
+                        </h3>
+
+
+                        <p
+                            class="mt-3 text-sm leading-7 text-stone-500 dark:text-stone-400">
+
+                            Our kitchen gets your order ready with
+                            fresh ingredients and careful preparation.
+
+                        </p>
+
+                    </div>
+
+
+                    <!-- STEP 3 -->
+
+                    <div
+                        class="info-card reveal rounded-[2rem] border border-stone-200 bg-white p-8 dark:border-stone-800 dark:bg-stone-900">
+
+                        <span
+                            class="flex h-14 w-14 items-center justify-center rounded-2xl bg-red-100 font-display text-2xl font-bold text-red-700">
+
+                            03
+
+                        </span>
+
+
+                        <h3
+                            class="font-display mt-7 text-2xl font-bold">
+
+                            Enjoy your food
+
+                        </h3>
+
+
+                        <p
+                            class="mt-3 text-sm leading-7 text-stone-500 dark:text-stone-400">
+
+                            Your order arrives at your doorstep,
+                            ready for you to enjoy.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             5. NEW GROUP DINING SECTION
+        ================================================== -->
+
+        <section
+            class="relative overflow-hidden bg-[#f6eadc] py-20 dark:bg-[#241f1a] sm:py-28">
+
+
+            <!-- Decorative background circles -->
+
+            <div
+                class="pointer-events-none absolute -left-24 top-10 h-64 w-64 rounded-full bg-orange-300/20 blur-3xl">
+            </div>
+
+            <div
+                class="pointer-events-none absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-amber-300/20 blur-3xl">
+            </div>
+
+
+            <div
+                class="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+
+
+                <div
+                    class="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+
+
+                    <!-- LEFT CONTENT -->
+
+                    <div class="reveal">
+
+
+                        <p class="eyebrow">
+                            Made for sharing
+                        </p>
+
+
+                        <h2
+                            class="font-display mt-4 text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">
+
+                            Good food is
+
+                            <span
+                                class="text-orange-600 dark:text-orange-400">
+
+                                better together.
+
+                            </span>
+
+                        </h2>
+
+
+                        <p
+                            class="mt-6 max-w-xl text-base leading-8 text-stone-600 dark:text-stone-300">
+
+                            Bringing people together is one of our
+                            favourite things. Whether you're planning
+                            a team lunch, a family meal or a casual
+                            get-together, we make it easy to put
+                            something delicious on the table.
+
+                        </p>
+
+
+                        <div
+                            class="mt-8 flex flex-wrap gap-3">
+
+
+                            <span
+                                class="rounded-full border border-orange-900/10 bg-white px-5 py-3 text-sm font-semibold text-stone-700 shadow-sm dark:bg-stone-900 dark:text-stone-200">
+
+                                🍽️ Shared meals
+
+                            </span>
+
+
+                            <span
+                                class="rounded-full border border-orange-900/10 bg-white px-5 py-3 text-sm font-semibold text-stone-700 shadow-sm dark:bg-stone-900 dark:text-stone-200">
+
+                                👨‍👩‍👧 Family time
+
+                            </span>
+
+
+                            <span
+                                class="rounded-full border border-orange-900/10 bg-white px-5 py-3 text-sm font-semibold text-stone-700 shadow-sm dark:bg-stone-900 dark:text-stone-200">
+
+                                🎉 Celebrations
+
+                            </span>
+
+
+                            <span
+                                class="rounded-full border border-orange-900/10 bg-white px-5 py-3 text-sm font-semibold text-stone-700 shadow-sm dark:bg-stone-900 dark:text-stone-200">
+
+                                💼 Team meals
+
+                            </span>
+
+                        </div>
+
+
+                        <a
+                            href="bulk-orders.html"
+                            class="group mt-9 inline-flex items-center gap-4 rounded-full bg-orange-600 px-7 py-4 text-sm font-bold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-orange-700 hover:shadow-xl">
+
+                            Plan a group meal
+
+                            <span
+                                class="flex h-8 w-8 items-center justify-center rounded-full bg-white/15 transition-transform duration-300 group-hover:translate-x-1">
+
+                                →
+
+                            </span>
+
+                        </a>
+
+                    </div>
+
+
+                    <!-- RIGHT FEATURE CARDS -->
+
+                    <div
+                        class="grid gap-5 sm:grid-cols-2 reveal">
+
+
+                        <!-- CARD 1 -->
+
+                        <div
+                            class="info-card rounded-[2rem] border border-orange-900/10 bg-white p-7 shadow-sm dark:border-stone-700 dark:bg-stone-900">
+
+                            <div
+                                class="flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100 text-2xl">
+
+                                🥘
+
+                            </div>
+
+
+                            <h3
+                                class="font-display mt-6 text-2xl font-bold text-stone-900 dark:text-stone-100">
+
+                                Plenty to share
+
+                            </h3>
+
+
+                            <p
+                                class="mt-3 text-sm leading-7 text-stone-500 dark:text-stone-400">
+
+                                Build a table full of comforting
+                                bowls, sides and favourites that
+                                everyone can enjoy.
+
+                            </p>
+
+                        </div>
+
+
+                        <!-- CARD 2 -->
+
+                        <div
+                            class="info-card rounded-[2rem] border border-orange-900/10 bg-white p-7 shadow-sm dark:border-stone-700 dark:bg-stone-900">
+
+                            <div
+                                class="flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-100 text-2xl">
+
+                                ⏰
+
+                            </div>
+
+
+                            <h3
+                                class="font-display mt-6 text-2xl font-bold text-stone-900 dark:text-stone-100">
+
+                                Plan ahead
+
+                            </h3>
+
+
+                            <p
+                                class="mt-3 text-sm leading-7 text-stone-500 dark:text-stone-400">
+
+                                Give us the details in advance and
+                                we'll help make your larger order
+                                smooth and simple.
+
+                            </p>
+
+                        </div>
+
+
+                        <!-- CARD 3 -->
+
+                        <div
+                            class="info-card rounded-[2rem] border border-orange-900/10 bg-white p-7 shadow-sm dark:border-stone-700 dark:bg-stone-900">
+
+                            <div
+                                class="flex h-14 w-14 items-center justify-center rounded-2xl bg-red-100 text-2xl">
+
+                                ❤️
+
+                            </div>
+
+
+                            <h3
+                                class="font-display mt-6 text-2xl font-bold text-stone-900 dark:text-stone-100">
+
+                                Made with care
+
+                            </h3>
+
+
+                            <p
+                                class="mt-3 text-sm leading-7 text-stone-500 dark:text-stone-400">
+
+                                Every order is prepared with the
+                                same attention we give to our
+                                everyday meals.
+
+                            </p>
+
+                        </div>
+
+
+                        <!-- CARD 4 -->
+
+                        <div
+                            class="info-card rounded-[2rem] border border-orange-900/10 bg-white p-7 shadow-sm dark:border-stone-700 dark:bg-stone-900">
+
+                            <div
+                                class="flex h-14 w-14 items-center justify-center rounded-2xl bg-green-100 text-2xl">
+
+                                🌿
+
+                            </div>
+
+
+                            <h3
+                                class="font-display mt-6 text-2xl font-bold text-stone-900 dark:text-stone-100">
+
+                                Something for everyone
+
+                            </h3>
+
+
+                            <p
+                                class="mt-3 text-sm leading-7 text-stone-500 dark:text-stone-400">
+
+                                Explore a variety of flavours and
+                                combinations to create a meal your
+                                group will love.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             6. FINAL CTA
+        ================================================== -->
+
+        <section
+            class="cta-section py-20 text-white sm:py-28">
+
+
+            <div
+                class="absolute -left-32 -top-32 h-80 w-80 rounded-full bg-orange-500/10 blur-3xl">
+            </div>
+
+
+            <div
+                class="absolute -bottom-32 -right-32 h-80 w-80 rounded-full bg-amber-500/10 blur-3xl">
+            </div>
+
+
+            <div
+                class="relative mx-auto max-w-4xl px-5 text-center sm:px-8">
+
+
+                <div class="reveal">
+
+
+                    <p
+                        class="text-xs font-bold uppercase tracking-[0.22em] text-orange-300">
+
+                        Still have questions?
+
+                    </p>
+
+
+                    <h2
+                        class="font-display mt-5 text-4xl font-black sm:text-5xl lg:text-6xl">
+
+                        We're always happy
+
+                        <span class="text-orange-400">
+                            to help.
+                        </span>
+
+                    </h2>
+
+
+                    <p
+                        class="mx-auto mt-6 max-w-2xl text-base leading-8 text-stone-300 sm:text-lg">
+
+                        Can't find what you're looking for?
+                        Get in touch with Bowl &amp; Hearth and
+                        we'll help you with your order.
+
+                    </p>
+
+
+                    <div
+                        class="mt-9 flex flex-wrap justify-center gap-4">
+
+
+                        <a
+                            href="contact.html"
+                            class="inline-flex items-center gap-3 rounded-full bg-orange-600 px-8 py-4 text-sm font-bold text-white shadow-xl transition hover:-translate-y-1 hover:bg-orange-500">
+
+                            Contact us
+
+                            <span>
+                                →
+                            </span>
+
+                        </a>
+
+
+                        <a
+                            href="menu.html"
+                            class="inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-8 py-4 text-sm font-bold text-white transition hover:bg-white/15">
+
+                            Explore menu
+
+                            <span>
+                                ↗
+                            </span>
+
+                        </a>
+
+                    </div>
+
+
+                    <p class="mt-8 text-sm text-stone-400">
+
+                        Call us: +91 98765 43210
+                        &nbsp; • &nbsp;
+                        7 AM – 10 PM daily
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         SHARED FOOTER
+    ====================================================== -->
+
+    <div id="site-footer"></div>
+
+
+    <!-- =====================================================
+         SHARED JAVASCRIPT
+    ====================================================== -->
+
+    <script src="../js/components.js"></script>
+
+    <script src="../js/main.js"></script>
+
+
+    <!-- =====================================================
+         FAQ ACCORDION + SCROLL REVEAL
+    ====================================================== -->
+
+    <script>
+
+        /* =====================================================
+           FAQ ACCORDION
+        ====================================================== */
+
+        const faqItems =
+            document.querySelectorAll('.faq-item');
+
+
+        faqItems.forEach(function (item) {
+
+            const button =
+                item.querySelector('.faq-question');
+
+
+            button.addEventListener('click', function () {
+
+                const wasOpen =
+                    item.classList.contains('active');
+
+
+                faqItems.forEach(function (otherItem) {
+
+                    otherItem.classList.remove('active');
+
+
+                    const otherButton =
+                        otherItem.querySelector('.faq-question');
+
+
+                    otherButton.setAttribute(
+                        'aria-expanded',
+                        'false'
+                    );
+
+                });
+
+
+                if (!wasOpen) {
+
+                    item.classList.add('active');
+
+
+                    button.setAttribute(
+                        'aria-expanded',
+                        'true'
+                    );
+
+                }
+
+            });
+
+        });
+
+
+        /* =====================================================
+           SCROLL REVEAL
+        ====================================================== */
+
+        const revealElements =
+            document.querySelectorAll('.reveal');
+
+
+        if ('IntersectionObserver' in window) {
+
+            const revealObserver =
+                new IntersectionObserver(
+
+                    function (entries) {
+
+                        entries.forEach(function (entry) {
+
+                            if (entry.isIntersecting) {
+
+                                entry.target.classList.add(
+                                    'visible'
+                                );
+
+
+                                revealObserver.unobserve(
+                                    entry.target
+                                );
+
+                            }
+
+                        });
+
+                    },
+
+                    {
+                        threshold: 0.12
+                    }
+
+                );
+
+
+            revealElements.forEach(function (element) {
+
+                revealObserver.observe(element);
+
+            });
+
+
+        } else {
+
+            revealElements.forEach(function (element) {
+
+                element.classList.add('visible');
+
+            });
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
