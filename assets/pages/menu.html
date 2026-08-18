@@ -393,9 +393,17 @@
 
         /* =====================================================
            CREATE LOCAL IMAGE URL
+
+           If the filename already starts with "http",
+           use it as-is (external URL).
+           Otherwise prefix with the local images folder.
         ====================================================== */
 
         function imageURL(filename) {
+
+            if (filename.startsWith("http")) {
+                return filename;
+            }
 
             return IMAGE_PATH + encodeURI(filename);
 
@@ -951,12 +959,6 @@
             },
 
 
-            /* =================================================
-               EXACT FILE YOU ADDED
-
-               karakudi fish fry.jpeg
-            ================================================= */
-
             {
                 tag: "Non-Veg",
                 name: "Karaikudi Fish Fry",
@@ -967,12 +969,6 @@
                 ]
             },
 
-
-            /* =================================================
-               EXACT FILE YOU ADDED
-
-               kongunadu vegitable kurma.jpeg
-            ================================================= */
 
             {
                 tag: "Veg",
@@ -1021,12 +1017,6 @@
             },
 
 
-            /* =================================================
-               EXACT FILE YOU ADDED
-
-               idly ,vadi,sambar,chutney.jpeg
-            ================================================= */
-
             {
                 tag: "Veg",
                 name: "Idli + Vada + Sambar + Chutney",
@@ -1051,24 +1041,15 @@
             },
 
 
-            /* =================================================
-               EXACT FILE YOU ADDED
+            {
+                tag: "Non-Veg",
+                name: "Meen Kuzhambu + Rice + Appalam Combo",
+                price: "₹289",
 
-               meen kuzhambu +rice+appalam .jpeg
-
-               NOTE:
-               There is a SPACE before .jpeg.
-            ================================================= */
-
-   {
-    tag: "Non-Veg",
-    name: "Meen Kuzhambu + Rice + Appalam Combo",
-    price: "₹289",
-
-    images: [
-        "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=800&q=80"
-    ]
-}
+                images: [
+                    "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=800&q=80"
+                ]
+            }
 
         ]);
 
