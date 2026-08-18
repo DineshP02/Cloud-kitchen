@@ -1824,13 +1824,19 @@ millet roti, buttermilk.
 </div>
 
 
+<!-- =====================================================
+     CHANGED: Garden paneer bowl image replaced
+     Old: photo-1585937421612 (same as meen kuzhambu)
+     New: photo-1567620905732 (fresh paneer curry)
+===================================================== -->
+
 <div class="bh-dish overflow-hidden rounded-[1.5rem] bg-white shadow-sm dark:bg-stone-900">
 
 <div class="flex items-center gap-4 p-5">
 
 <img
 class="h-20 w-20 flex-none rounded-full object-cover"
-src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=400&auto=format&fit=crop"
+src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?q=80&w=400&auto=format&fit=crop"
 alt="Bowl of paneer and vegetable curry"
 loading="lazy"
 >
@@ -1896,7 +1902,7 @@ mango pickle.
 
 <img
 class="h-48 w-full object-cover sm:h-full"
-src="https://images.unsplash.com/photo-1547592180-85f173990554?q=80&w=800&auto=format&fit=crop"
+src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=800&auto=format&fit=crop"
 alt="Platter set up for office catering"
 loading="lazy"
 >
@@ -2115,7 +2121,7 @@ HUNGRY ALREADY?
 
 <h2 class="bh-serif mt-4 text-5xl font-semibold leading-[0.95] text-stone-900 dark:text-white sm:text-6xl lg:text-7xl">
 
-Let’s get something<br class="hidden sm:block">
+Let's get something<br class="hidden sm:block">
 cooking.
 
 </h2>
@@ -2420,308 +2426,102 @@ Nearby area
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    /*
-     ========================================================
-     BOWL & HEARTH MAP
-
-     IMPORTANT:
-     Replace these coordinates with your actual kitchen
-     latitude and longitude.
-
-     Current example:
-     Chennai
-     ========================================================
-    */
-
     const kitchenLat = 13.0827;
     const kitchenLng = 80.2707;
 
-
-    /*
-     ========================================================
-     CREATE MAP
-     ========================================================
-    */
-
     const map = L.map("bh-map", {
-
         scrollWheelZoom: false,
-
         zoomControl: true
-
-    }).setView(
-        [kitchenLat, kitchenLng],
-        12
-    );
-
-
-    /*
-     ========================================================
-     OPENSTREETMAP TILE LAYER
-     ========================================================
-    */
+    }).setView([kitchenLat, kitchenLng], 12);
 
     L.tileLayer(
         "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
         {
-
             maxZoom: 19,
-
             attribution:
                 '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
-
         }
     ).addTo(map);
 
-
-    /*
-     ========================================================
-     CUSTOM KITCHEN ICON
-     ========================================================
-    */
-
     const kitchenIcon = L.divIcon({
-
         className: "",
-
-        html: `
-            <div class="bh-leaflet-marker">
-                🍲
-            </div>
-        `,
-
+        html: `<div class="bh-leaflet-marker">🍲</div>`,
         iconSize: [42, 42],
-
         iconAnchor: [21, 21],
-
         popupAnchor: [0, -22]
-
     });
-
-
-    /*
-     ========================================================
-     KITCHEN MARKER
-     ========================================================
-    */
 
     const kitchenMarker = L.marker(
         [kitchenLat, kitchenLng],
-        {
-            icon: kitchenIcon
-        }
+        { icon: kitchenIcon }
     ).addTo(map);
-
 
     kitchenMarker.bindPopup(`
         <div style="text-align:center;">
             <strong>Bowl & Hearth</strong>
             <br>
-            <span style="font-size:12px;">
-                Kitchen & pickup point
-            </span>
+            <span style="font-size:12px;">Kitchen & pickup point</span>
         </div>
     `);
 
-
-    /*
-     ========================================================
-     DELIVERY RADIUS
-     ========================================================
-    */
-
-    L.circle(
-        [kitchenLat, kitchenLng],
-        {
-
-            radius: 6000,
-
-            color: "#a8341f",
-
-            weight: 2,
-
-            dashArray: "7 7",
-
-            fillColor: "#a8341f",
-
-            fillOpacity: 0.08
-
-        }
-    ).addTo(map);
-
-
-    /*
-     ========================================================
-     DELIVERY ZONES
-
-     These are example coordinates around Chennai.
-
-     Replace them with your actual delivery-area
-     coordinates later.
-     ========================================================
-    */
+    L.circle([kitchenLat, kitchenLng], {
+        radius: 6000,
+        color: "#a8341f",
+        weight: 2,
+        dashArray: "7 7",
+        fillColor: "#a8341f",
+        fillOpacity: 0.08
+    }).addTo(map);
 
     const zones = [
-
-        {
-            name: "Central City",
-            lat: 13.0827,
-            lng: 80.2707,
-            color: "#c9862f"
-        },
-
-        {
-            name: "North Park",
-            lat: 13.1150,
-            lng: 80.2900,
-            color: "#545f42"
-        },
-
-        {
-            name: "Riverside",
-            lat: 13.0600,
-            lng: 80.2850,
-            color: "#a8341f"
-        },
-
-        {
-            name: "Market Road",
-            lat: 13.0650,
-            lng: 80.2500,
-            color: "#545f42"
-        },
-
-        {
-            name: "Greenfield",
-            lat: 13.1050,
-            lng: 80.2450,
-            color: "#545f42"
-        },
-
-        {
-            name: "Office Districts",
-            lat: 13.0350,
-            lng: 80.2550,
-            color: "#c9862f"
-        }
-
+        { name: "Central City",    lat: 13.0827, lng: 80.2707, color: "#c9862f" },
+        { name: "North Park",      lat: 13.1150, lng: 80.2900, color: "#545f42" },
+        { name: "Riverside",       lat: 13.0600, lng: 80.2850, color: "#a8341f" },
+        { name: "Market Road",     lat: 13.0650, lng: 80.2500, color: "#545f42" },
+        { name: "Greenfield",      lat: 13.1050, lng: 80.2450, color: "#545f42" },
+        { name: "Office Districts",lat: 13.0350, lng: 80.2550, color: "#c9862f" }
     ];
-
-
-    /*
-     ========================================================
-     ADD DELIVERY ZONE MARKERS
-     ========================================================
-    */
 
     zones.forEach(function(zone) {
 
         const zoneIcon = L.divIcon({
-
             className: "",
-
             html: `
-                <div
-                    style="
-                        width:14px;
-                        height:14px;
-                        border-radius:50%;
-                        background:${zone.color};
-                        border:2px solid white;
-                        box-shadow:0 3px 8px rgba(0,0,0,.25);
-                    "
-                ></div>
+                <div style="
+                    width:14px;height:14px;border-radius:50%;
+                    background:${zone.color};border:2px solid white;
+                    box-shadow:0 3px 8px rgba(0,0,0,.25);
+                "></div>
             `,
-
             iconSize: [14, 14],
-
             iconAnchor: [7, 7]
-
         });
 
+        const marker = L.marker([zone.lat, zone.lng], { icon: zoneIcon }).addTo(map);
 
-        const marker = L.marker(
-            [zone.lat, zone.lng],
-            {
-                icon: zoneIcon
-            }
-        ).addTo(map);
-
-
-        marker.bindTooltip(
-            zone.name,
-            {
-                permanent: true,
-                direction: "top",
-                offset: [0, -8],
-                className: "bh-zone-label"
-            }
-        );
-
+        marker.bindTooltip(zone.name, {
+            permanent: true,
+            direction: "top",
+            offset: [0, -8],
+            className: "bh-zone-label"
+        });
 
         marker.bindPopup(`
-            <strong>${zone.name}</strong>
-            <br>
-            <span style="font-size:12px;">
-                Bowl & Hearth delivery area
-            </span>
+            <strong>${zone.name}</strong><br>
+            <span style="font-size:12px;">Bowl & Hearth delivery area</span>
         `);
 
     });
 
+    map.on("click", function() { map.scrollWheelZoom.enable(); });
 
-    /*
-     ========================================================
-     ENABLE SCROLL ZOOM WHEN USER CLICKS MAP
-     ========================================================
-    */
-
-    map.on("click", function() {
-
-        map.scrollWheelZoom.enable();
-
+    document.getElementById("bh-map").addEventListener("mouseleave", function() {
+        map.scrollWheelZoom.disable();
     });
 
+    setTimeout(function() { map.invalidateSize(); }, 500);
 
-    /*
-     ========================================================
-     DISABLE SCROLL ZOOM WHEN MOUSE LEAVES MAP
-     ========================================================
-    */
-
-    document
-        .getElementById("bh-map")
-        .addEventListener("mouseleave", function() {
-
-            map.scrollWheelZoom.disable();
-
-        });
-
-
-    /*
-     ========================================================
-     FIX MAP SIZE AFTER PAGE LOAD
-     ========================================================
-    */
-
-    setTimeout(function() {
-
-        map.invalidateSize();
-
-    }, 500);
-
-
-    /*
-     ========================================================
-     FIX MAP SIZE WHEN WINDOW RESIZES
-     ========================================================
-    */
-
-    window.addEventListener("resize", function() {
-
-        map.invalidateSize();
-
-    });
+    window.addEventListener("resize", function() { map.invalidateSize(); });
 
 });
 

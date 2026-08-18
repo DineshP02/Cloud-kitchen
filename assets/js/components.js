@@ -4,6 +4,7 @@
    FULL-WIDTH PREMIUM RESPONSIVE VERSION
    LTR / RTL + DARK MODE
    MOBILE RTL/LTR DROPDOWN
+   TABLET FOOTER SAME STYLE AS DESKTOP
    ========================================================= */
 
 
@@ -66,7 +67,8 @@ const navItems = [
 ========================================================= */
 
 const currentPath =
-    window.location.pathname.replace(/\\/g, "/");
+    window.location.pathname
+        .replace(/\\/g, "/");
 
 const normalizedPath =
     currentPath.replace(/\/+$/, "");
@@ -123,9 +125,7 @@ function resolveHref(label, file) {
         label === "Home 1" ||
         label === "Home"
     ) {
-
         return homeHref;
-
     }
 
     return `${pagePrefix}${file}`;
@@ -170,19 +170,17 @@ function applyDirection(dir) {
             ? "rtl"
             : "ltr";
 
-    document.documentElement
-        .setAttribute(
-            "dir",
-            safeDirection
-        );
+    document.documentElement.setAttribute(
+        "dir",
+        safeDirection
+    );
 
-    document.documentElement
-        .setAttribute(
-            "lang",
-            safeDirection === "rtl"
-                ? "ar"
-                : "en"
-        );
+    document.documentElement.setAttribute(
+        "lang",
+        safeDirection === "rtl"
+            ? "ar"
+            : "en"
+    );
 
     try {
 
@@ -227,70 +225,6 @@ function getDirTitle(dir) {
 
 
 /* =========================================================
-   UPDATE DIRECTION UI
-========================================================= */
-
-function updateDirectionButton(dir) {
-
-    const label =
-        getDirLabel(dir);
-
-    const title =
-        getDirTitle(dir);
-
-
-    const langButton =
-        document.getElementById(
-            "bh-lang-button"
-        );
-
-    const langLabel =
-        document.getElementById(
-            "bh-lang-label"
-        );
-
-    const mobileLangCurrent =
-        document.getElementById(
-            "bh-mobile-lang-current"
-        );
-
-
-    if (langLabel) {
-
-        langLabel.textContent =
-            label;
-
-    }
-
-
-    if (mobileLangCurrent) {
-
-        mobileLangCurrent.textContent =
-            dir === "rtl"
-                ? "RTL"
-                : "LTR";
-
-    }
-
-
-    if (langButton) {
-
-        langButton.setAttribute(
-            "aria-label",
-            title
-        );
-
-        langButton.setAttribute(
-            "title",
-            title
-        );
-
-    }
-
-}
-
-
-/* =========================================================
    ICONS
 ========================================================= */
 
@@ -313,7 +247,6 @@ const ICONS = {
             />
         </svg>
     `,
-
 
     sun: `
         <svg
@@ -339,7 +272,6 @@ const ICONS = {
             <path d="M17.66 6.34L19.07 4.93" />
         </svg>
     `,
-
 
     globe: `
         <svg
@@ -367,7 +299,6 @@ const ICONS = {
         </svg>
     `,
 
-
     arrow: `
         <svg
             class="bh-small-arrow"
@@ -381,7 +312,6 @@ const ICONS = {
             <path d="m13 6 6 6-6 6" />
         </svg>
     `,
-
 
     sparkle: `
         <svg
@@ -400,7 +330,6 @@ const ICONS = {
             />
         </svg>
     `,
-
 
     instagram: `
         <svg
@@ -435,7 +364,6 @@ const ICONS = {
         </svg>
     `,
 
-
     facebook: `
         <svg
             viewBox="0 0 24 24"
@@ -457,7 +385,6 @@ const ICONS = {
             />
         </svg>
     `,
-
 
     whatsapp: `
         <svg
@@ -620,7 +547,6 @@ function renderBrandName() {
 
         </span>
 
-
         <span class="bh-brand-text">
 
             <span class="bh-brand-main">
@@ -712,6 +638,7 @@ function createDesktopNavigation() {
                                     ? "bh-nav-dropdown-link-active"
                                     : ""}
                             "
+                            ${active ? 'aria-current="page"' : ""}
                         >
 
                             <span>
@@ -750,7 +677,10 @@ function createDesktopNavigation() {
                         ${item.label}
                     </span>
 
-                    <span class="bh-dropdown-chevron">
+                    <span
+                        class="bh-dropdown-chevron"
+                        aria-hidden="true"
+                    >
                         ↓
                     </span>
 
@@ -842,6 +772,7 @@ function createMobileNavigation() {
                             ? "bh-mobile-active"
                             : ""}
                     "
+                    ${active ? 'aria-current="page"' : ""}
                 >
 
                     <span class="bh-mobile-link-content">
@@ -854,7 +785,10 @@ function createMobileNavigation() {
 
                     </span>
 
-                    <span class="bh-mobile-arrow">
+                    <span
+                        class="bh-mobile-arrow"
+                        aria-hidden="true"
+                    >
                         →
                     </span>
 
@@ -899,13 +833,17 @@ function createMobileNavigation() {
                                     ? "bh-mobile-active"
                                     : ""}
                             "
+                            ${active ? 'aria-current="page"' : ""}
                         >
 
                             <span>
                                 ${label}
                             </span>
 
-                            <span class="bh-mobile-sub-arrow">
+                            <span
+                                class="bh-mobile-sub-arrow"
+                                aria-hidden="true"
+                            >
                                 →
                             </span>
 
@@ -944,7 +882,10 @@ function createMobileNavigation() {
 
                     </span>
 
-                    <span class="bh-mobile-chevron">
+                    <span
+                        class="bh-mobile-chevron"
+                        aria-hidden="true"
+                    >
                         ↓
                     </span>
 
@@ -978,11 +919,23 @@ function createMobileNavigation() {
    CSS
 ========================================================= */
 
+const styleId =
+    "bh-navbar-footer-styles";
+
+const oldStyle =
+    document.getElementById(styleId);
+
+if (oldStyle) {
+    oldStyle.remove();
+}
+
+
 const style =
     document.createElement("style");
 
 style.id =
-    "bh-navbar-footer-styles";
+    styleId;
+
 
 style.textContent = `
 
@@ -1026,8 +979,8 @@ body {
     left: 0 !important;
     right: 0 !important;
 
-    width: 100vw !important;
-    max-width: 100vw !important;
+    width: 100% !important;
+    max-width: 100% !important;
 
     margin: 0 !important;
 
@@ -1055,7 +1008,6 @@ body {
 .bh-navbar-inner {
 
     width: 100% !important;
-
     max-width: none !important;
 
     min-height: 78px;
@@ -1186,14 +1138,18 @@ body {
 }
 
 
+/* =========================================================
+   NAVIGATION HIGHLIGHTING
+========================================================= */
+
 .bh-nav-link {
 
     position: relative;
 
-    height: 78px;
+    height: 44px;
 
     padding:
-        0 7px;
+        0 13px;
 
     display: inline-flex;
 
@@ -1205,9 +1161,11 @@ body {
 
     color: #44403c;
 
-    background: none;
+    background: transparent;
 
-    border: none;
+    border: 1px solid transparent;
+
+    border-radius: 999px;
 
     text-decoration: none;
 
@@ -1221,21 +1179,51 @@ body {
 
     cursor: pointer;
 
+    transition:
+        color .22s ease,
+        background .22s ease,
+        border-color .22s ease,
+        box-shadow .22s ease,
+        transform .22s ease;
+
 }
 
 
-.bh-nav-link:hover,
+.bh-nav-link:hover {
+
+    color:
+        #a8341f;
+
+    background:
+        rgba(168,52,31,.055);
+
+    border-color:
+        rgba(168,52,31,.10);
+
+}
+
+
 .bh-nav-link.bh-active {
 
     color:
         #a8341f;
 
-}
+    background:
+        linear-gradient(
+            135deg,
+            #fff3e8,
+            #fbe9e4
+        );
 
+    border-color:
+        rgba(168,52,31,.18);
 
-.bh-nav-link.bh-active {
+    font-weight:
+        800;
 
-    font-weight: 800;
+    box-shadow:
+        0 4px 12px
+        rgba(168,52,31,.08);
 
 }
 
@@ -1246,15 +1234,15 @@ body {
 
     position: absolute;
 
-    left: 5px;
-    right: 5px;
+    left: 18px;
+    right: 18px;
 
-    bottom: 0;
+    bottom: -5px;
 
     height: 3px;
 
     border-radius:
-        4px 4px 0 0;
+        999px;
 
     background:
         linear-gradient(
@@ -1262,6 +1250,10 @@ body {
             #a8341f,
             #c9862f
         );
+
+    box-shadow:
+        0 2px 5px
+        rgba(168,52,31,.18);
 
 }
 
@@ -1284,7 +1276,7 @@ body {
     position: absolute;
 
     top:
-        calc(100% - 1px);
+        calc(100% + 1px);
 
     left: 50%;
 
@@ -1369,7 +1361,8 @@ body {
     color:
         #a8341f;
 
-    font-weight: 800;
+    font-weight:
+        800;
 
 }
 
@@ -1606,6 +1599,14 @@ body {
 }
 
 
+.bh-mobile-lang-option:hover {
+
+    background:
+        #faf5ec;
+
+}
+
+
 .bh-mobile-lang-option.bh-selected {
 
     background:
@@ -1733,13 +1734,17 @@ body {
     color:
         #44403c;
 
-    text-decoration: none;
+    text-decoration:
+        none;
 
-    font-size: 15px;
+    font-size:
+        15px;
 
-    font-weight: 650;
+    font-weight:
+        650;
 
-    cursor: pointer;
+    cursor:
+        pointer;
 
 }
 
@@ -1792,13 +1797,21 @@ body {
 }
 
 
+/* =========================================================
+   MOBILE ACTIVE
+========================================================= */
+
 .bh-mobile-active {
 
     background:
-        #fbe9e4 !important;
+        linear-gradient(
+            135deg,
+            #fff1e7,
+            #fbe9e4
+        ) !important;
 
     border-color:
-        rgba(168,52,31,.14) !important;
+        rgba(168,52,31,.18) !important;
 
     color:
         #a8341f !important;
@@ -1806,8 +1819,16 @@ body {
     font-weight:
         800 !important;
 
+    box-shadow:
+        0 4px 12px
+        rgba(168,52,31,.07);
+
 }
 
+
+/* =========================================================
+   MOBILE SUBMENU
+========================================================= */
 
 .bh-mobile-submenu {
 
@@ -1848,11 +1869,31 @@ body {
     color:
         #57534e;
 
-    text-decoration: none;
+    text-decoration:
+        none;
 
     border-radius: 9px;
 
     font-size: 14px;
+
+}
+
+
+.bh-mobile-sublink:hover {
+
+    background:
+        #faf5ec;
+
+    color:
+        #a8341f;
+
+}
+
+
+.bh-mobile-sub-arrow {
+
+    transition:
+        transform .2s ease;
 
 }
 
@@ -2114,6 +2155,14 @@ body {
 }
 
 
+.bh-footer-cta-button:hover {
+
+    transform:
+        translateY(-1px);
+
+}
+
+
 /* =========================================================
    FOOTER MAIN
 ========================================================= */
@@ -2293,7 +2342,6 @@ body {
 
 /* =========================================================
    FEATURES
-   SMALL PREMIUM STYLE
 ========================================================= */
 
 .bh-footer-features {
@@ -2356,10 +2404,6 @@ body {
 
 }
 
-
-/* =========================================================
-   SMALL CHECK BADGE
-========================================================= */
 
 .bh-footer-feature-icon {
 
@@ -2788,6 +2832,14 @@ body {
 }
 
 
+.bh-footer-legal a:hover {
+
+    color:
+        #a8341f;
+
+}
+
+
 /* =========================================================
    TABLET
 ========================================================= */
@@ -2848,24 +2900,380 @@ body {
     }
 
 
-    .bh-footer-inner {
-
-        grid-template-columns:
-            1.2fr 1fr 1fr;
-
-        gap:
-            38px;
+    .bh-footer-cta {
 
         padding:
-            15px 24px 45px;
+            42px 24px 36px;
+
+    }
+
+
+    .bh-footer-cta-card {
+
+        min-height:
+            145px;
+
+        padding:
+            28px 30px;
+
+        gap:
+            24px;
+
+    }
+
+
+    .bh-footer-inner {
+
+        width:
+            100%;
+
+        max-width:
+            none;
+
+        padding:
+            18px 24px 48px;
+
+        display:
+            grid;
+
+        grid-template-columns:
+            minmax(0, 1.35fr)
+            minmax(0, .82fr)
+            minmax(0, .82fr)
+            minmax(0, 1fr);
+
+        gap:
+            28px;
+
+        align-items:
+            start;
 
     }
 
 
     .bh-footer-brand {
 
-        grid-column:
-            1 / -1;
+        min-width:
+            0;
+
+    }
+
+
+    .bh-footer-description {
+
+        max-width:
+            100%;
+
+        font-size:
+            13px;
+
+        line-height:
+            1.7;
+
+    }
+
+
+    .bh-footer-features {
+
+        gap:
+            6px;
+
+        margin-top:
+            15px;
+
+    }
+
+
+    .bh-footer-feature {
+
+        font-size:
+            10.5px;
+
+    }
+
+
+    .bh-footer-feature-icon {
+
+        width:
+            18px;
+
+        height:
+            18px;
+
+        flex-basis:
+            18px;
+
+        font-size:
+            9px;
+
+    }
+
+
+    .bh-footer-social {
+
+        margin-top:
+            18px;
+
+    }
+
+
+    .bh-footer-social-link {
+
+        width:
+            38px;
+
+        height:
+            38px;
+
+    }
+
+
+    .bh-footer-social-link svg {
+
+        width:
+            19px;
+
+        height:
+            19px;
+
+    }
+
+
+    .bh-footer-heading {
+
+        font-size:
+            13px;
+
+        margin-bottom:
+            17px;
+
+    }
+
+
+    .bh-footer-link {
+
+        padding:
+            7px 10px 7px 0;
+
+        font-size:
+            13px;
+
+    }
+
+
+    .bh-footer-contact {
+
+        gap:
+            11px;
+
+    }
+
+
+    .bh-footer-contact-item {
+
+        gap:
+            9px;
+
+        font-size:
+            12px;
+
+        line-height:
+            1.5;
+
+    }
+
+
+    .bh-footer-contact-icon {
+
+        width:
+            20px;
+
+        height:
+            20px;
+
+        flex-basis:
+            20px;
+
+    }
+
+
+    .bh-footer-contact-icon svg {
+
+        width:
+            19px;
+
+        height:
+            19px;
+
+    }
+
+
+    .bh-footer-bottom {
+
+        padding:
+            16px 24px;
+
+    }
+
+
+    .bh-footer-bottom-inner {
+
+        max-width:
+            none;
+
+        gap:
+            15px;
+
+    }
+
+
+    .bh-footer-copy,
+    .bh-footer-tagline,
+    .bh-footer-legal a {
+
+        font-size:
+            11px;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (min-width: 641px) and (max-width: 850px) {
+
+    .bh-navbar-inner {
+
+        padding:
+            0 16px;
+
+    }
+
+
+    .bh-brand-mark {
+
+        width:
+            44px;
+
+        height:
+            44px;
+
+        flex-basis:
+            44px;
+
+    }
+
+
+    .bh-brand-mark svg {
+
+        width:
+            38px;
+
+        height:
+            38px;
+
+    }
+
+
+    .bh-brand-text {
+
+        font-size:
+            19px;
+
+    }
+
+
+    .bh-footer-inner {
+
+        grid-template-columns:
+            minmax(0, 1.25fr)
+            minmax(0, .75fr)
+            minmax(0, .75fr)
+            minmax(0, .95fr);
+
+        gap:
+            18px;
+
+        padding:
+            18px 18px 42px;
+
+    }
+
+
+    .bh-footer-description {
+
+        font-size:
+            12px;
+
+    }
+
+
+    .bh-footer-feature {
+
+        font-size:
+            9.5px;
+
+    }
+
+
+    .bh-footer-heading {
+
+        font-size:
+            11px;
+
+        letter-spacing:
+            .09em;
+
+    }
+
+
+    .bh-footer-link {
+
+        font-size:
+            12px;
+
+    }
+
+
+    .bh-footer-contact-item {
+
+        font-size:
+            11px;
+
+    }
+
+
+    .bh-footer-cta {
+
+        padding:
+            34px 18px 30px;
+
+    }
+
+
+    .bh-footer-cta-card {
+
+        padding:
+            24px 26px;
+
+    }
+
+
+    .bh-footer-cta-title {
+
+        font-size:
+            25px;
+
+    }
+
+
+    .bh-footer-cta-text {
+
+        font-size:
+            12px;
 
     }
 
@@ -3014,14 +3422,6 @@ body {
     }
 
 
-    .bh-footer-brand {
-
-        grid-column:
-            auto;
-
-    }
-
-
     .bh-footer-description {
 
         max-width:
@@ -3032,8 +3432,6 @@ body {
 
     }
 
-
-    /* SMALLER MOBILE FEATURES */
 
     .bh-footer-features {
 
@@ -3237,11 +3635,54 @@ body {
 }
 
 
-.dark .bh-nav-link:hover,
+.dark .bh-nav-link:hover {
+
+    color:
+        #f59e0b;
+
+    background:
+        rgba(245,158,11,.08);
+
+    border-color:
+        rgba(245,158,11,.16);
+
+}
+
+
 .dark .bh-nav-link.bh-active {
 
     color:
         #f59e0b;
+
+    background:
+        linear-gradient(
+            135deg,
+            #3b2814,
+            #451a03
+        );
+
+    border-color:
+        rgba(245,158,11,.28);
+
+    box-shadow:
+        0 4px 14px
+        rgba(245,158,11,.08);
+
+}
+
+
+.dark .bh-nav-link.bh-active::after {
+
+    background:
+        linear-gradient(
+            90deg,
+            #f59e0b,
+            #fbbf24
+        );
+
+    box-shadow:
+        0 2px 6px
+        rgba(245,158,11,.18);
 
 }
 
@@ -3325,6 +3766,14 @@ body {
 }
 
 
+.dark .bh-mobile-lang-option:hover {
+
+    background:
+        #292524;
+
+}
+
+
 .dark .bh-mobile-lang-option.bh-selected {
 
     background:
@@ -3377,7 +3826,14 @@ body {
 .dark .bh-mobile-active {
 
     background:
-        #451a03 !important;
+        linear-gradient(
+            135deg,
+            #3b2814,
+            #451a03
+        ) !important;
+
+    border-color:
+        rgba(245,158,11,.22) !important;
 
     color:
         #f59e0b !important;
@@ -3392,6 +3848,25 @@ body {
 
     color:
         #f5b84b;
+
+}
+
+
+.dark .bh-mobile-sublink {
+
+    color:
+        #d6d3d1;
+
+}
+
+
+.dark .bh-mobile-sublink:hover {
+
+    background:
+        #292524;
+
+    color:
+        #f59e0b;
 
 }
 
@@ -3441,8 +3916,6 @@ body {
 
 }
 
-
-/* DARK MODE FEATURES */
 
 .dark .bh-footer-feature {
 
@@ -3623,6 +4096,31 @@ body {
 }
 
 
+[dir="rtl"] .bh-footer-inner,
+[dir="rtl"] .bh-footer-bottom-inner {
+
+    direction:
+        rtl;
+
+}
+
+
+[dir="rtl"] .bh-footer-contact-item {
+
+    text-align:
+        right;
+
+}
+
+
+[dir="rtl"] .bh-mobile-link-content {
+
+    flex-direction:
+        row;
+
+}
+
+
 /* =========================================================
    RTL DARK MODE
 ========================================================= */
@@ -3641,15 +4139,7 @@ body {
    APPEND STYLES
 ========================================================= */
 
-if (
-    !document.getElementById(
-        "bh-navbar-footer-styles"
-    )
-) {
-
-    document.head.appendChild(style);
-
-}
+document.head.appendChild(style);
 
 
 /* =========================================================
@@ -3739,7 +4229,10 @@ if (header) {
                                     : "LTR"}
                             </span>
 
-                            <span class="bh-mobile-lang-chevron">
+                            <span
+                                class="bh-mobile-lang-chevron"
+                                aria-hidden="true"
+                            >
                                 ↓
                             </span>
 
@@ -3864,7 +4357,6 @@ if (header) {
             "bh-mobile-open"
         );
 
-
         if (menuButton) {
 
             menuButton.textContent =
@@ -3895,7 +4387,6 @@ if (header) {
             "bh-mobile-open"
         );
 
-
         if (menuButton) {
 
             menuButton.textContent =
@@ -3923,13 +4414,14 @@ if (header) {
 
         menuButton.addEventListener(
             "click",
-            function () {
+            function (event) {
+
+                event.stopPropagation();
 
                 const isOpen =
                     mobileMenu.classList.contains(
                         "bh-mobile-open"
                     );
-
 
                 if (isOpen) {
 
@@ -4039,7 +4531,6 @@ if (header) {
 
                     event.stopPropagation();
 
-
                     const isOpen =
                         panel.classList.contains(
                             "bh-dropdown-open"
@@ -4092,7 +4583,9 @@ if (header) {
 
                 trigger.addEventListener(
                     "click",
-                    function () {
+                    function (event) {
+
+                        event.stopPropagation();
 
                         const id =
                             trigger.getAttribute(
@@ -4136,52 +4629,14 @@ if (header) {
 
 
     /* =====================================================
-       DIRECTION
+       DIRECTION UI
     ===================================================== */
-
-    function changeDirection() {
-
-        const current =
-            document.documentElement
-                .getAttribute("dir") === "rtl"
-                ? "rtl"
-                : "ltr";
-
-
-        const next =
-            current === "rtl"
-                ? "ltr"
-                : "rtl";
-
-
-        applyDirection(next);
-
-        updateDirectionButton(next);
-
-        updateMobileDirectionOptions(next);
-
-    }
-
 
     const langButton =
         document.getElementById(
             "bh-lang-button"
         );
 
-
-    if (langButton) {
-
-        langButton.addEventListener(
-            "click",
-            changeDirection
-        );
-
-    }
-
-
-    /* =====================================================
-       MOBILE LANGUAGE
-    ===================================================== */
 
     const mobileLangDropdown =
         document.getElementById(
@@ -4207,6 +4662,129 @@ if (header) {
         );
 
 
+    function updateDirectionUI(dir) {
+
+        const label =
+            getDirLabel(dir);
+
+        const title =
+            getDirTitle(dir);
+
+
+        const langLabel =
+            document.getElementById(
+                "bh-lang-label"
+            );
+
+
+        const mobileLangCurrent =
+            document.getElementById(
+                "bh-mobile-lang-current"
+            );
+
+
+        if (langLabel) {
+
+            langLabel.textContent =
+                label;
+
+        }
+
+
+        if (mobileLangCurrent) {
+
+            mobileLangCurrent.textContent =
+                dir === "rtl"
+                    ? "RTL"
+                    : "LTR";
+
+        }
+
+
+        if (langButton) {
+
+            langButton.setAttribute(
+                "aria-label",
+                title
+            );
+
+            langButton.setAttribute(
+                "title",
+                title
+            );
+
+        }
+
+
+        mobileLangOptions.forEach(
+            function (option) {
+
+                option.classList.toggle(
+                    "bh-selected",
+                    option.getAttribute(
+                        "data-direction"
+                    ) === dir
+                );
+
+            }
+        );
+
+    }
+
+
+    function changeDirection(nextDirection) {
+
+        const direction =
+            nextDirection === "rtl"
+                ? "rtl"
+                : "ltr";
+
+
+        applyDirection(
+            direction
+        );
+
+
+        updateDirectionUI(
+            direction
+        );
+
+    }
+
+
+    if (langButton) {
+
+        langButton.addEventListener(
+            "click",
+            function () {
+
+                const current =
+                    document.documentElement
+                        .getAttribute("dir") === "rtl"
+                        ? "rtl"
+                        : "ltr";
+
+
+                const next =
+                    current === "rtl"
+                        ? "ltr"
+                        : "rtl";
+
+
+                changeDirection(
+                    next
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       MOBILE LANGUAGE DROPDOWN
+    ===================================================== */
+
     function closeMobileLanguageDropdown() {
 
         if (!mobileLangDropdown) {
@@ -4227,24 +4805,6 @@ if (header) {
             );
 
         }
-
-    }
-
-
-    function updateMobileDirectionOptions(dir) {
-
-        mobileLangOptions.forEach(
-            function (option) {
-
-                option.classList.toggle(
-                    "bh-selected",
-                    option.getAttribute(
-                        "data-direction"
-                    ) === dir
-                );
-
-            }
-        );
 
     }
 
@@ -4307,17 +4867,7 @@ if (header) {
                         }
 
 
-                        applyDirection(
-                            direction
-                        );
-
-
-                        updateDirectionButton(
-                            direction
-                        );
-
-
-                        updateMobileDirectionOptions(
+                        changeDirection(
                             direction
                         );
 
@@ -4330,17 +4880,43 @@ if (header) {
             }
         );
 
-
-        document.addEventListener(
-            "click",
-            function () {
-
-                closeMobileLanguageDropdown();
-
-            }
-        );
-
     }
+
+
+    /* =====================================================
+       OUTSIDE CLICK
+    ===================================================== */
+
+    document.addEventListener(
+        "click",
+        function () {
+
+            closeMobileLanguageDropdown();
+
+        }
+    );
+
+
+    /* =====================================================
+       ESCAPE KEY
+    ===================================================== */
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (event.key !== "Escape") {
+                return;
+            }
+
+            closeDropdowns();
+
+            closeMobileLanguageDropdown();
+
+            closeMobileMenu();
+
+        }
+    );
 
 
     /* =====================================================
@@ -4367,6 +4943,22 @@ if (header) {
                     ? ICONS.sun
                     : ICONS.moon;
 
+
+            themeButton.setAttribute(
+                "aria-label",
+                isDark
+                    ? "Switch to light mode"
+                    : "Switch to dark mode"
+            );
+
+
+            themeButton.setAttribute(
+                "title",
+                isDark
+                    ? "Switch to light mode"
+                    : "Switch to dark mode"
+            );
+
         }
 
     }
@@ -4389,6 +4981,13 @@ if (header) {
                 document.documentElement
                     .classList.add("dark");
 
+            } else if (
+                savedTheme === "light"
+            ) {
+
+                document.documentElement
+                    .classList.remove("dark");
+
             }
 
         } catch (error) {}
@@ -4404,7 +5003,10 @@ if (header) {
 
 
         document.documentElement
-            .classList.toggle("dark");
+            .classList.toggle(
+                "dark",
+                !isDark
+            );
 
 
         try {
@@ -4440,12 +5042,7 @@ if (header) {
     updateThemeIcon();
 
 
-    updateDirectionButton(
-        getStoredDirection()
-    );
-
-
-    updateMobileDirectionOptions(
+    updateDirectionUI(
         getStoredDirection()
     );
 
@@ -4467,11 +5064,6 @@ if (footer) {
     footer.innerHTML = `
 
         <footer class="bh-footer">
-
-
-            <!-- =================================================
-                 CTA
-            ================================================== -->
 
             <div class="bh-footer-cta">
 
@@ -4522,15 +5114,7 @@ if (footer) {
             </div>
 
 
-
-            <!-- =================================================
-                 FOOTER MAIN
-            ================================================== -->
-
             <div class="bh-footer-inner">
-
-
-                <!-- BRAND -->
 
                 <div class="bh-footer-brand">
 
@@ -4558,12 +5142,7 @@ if (footer) {
                     </p>
 
 
-                    <!-- =================================================
-                         FEATURES
-                    ================================================== -->
-
                     <div class="bh-footer-features">
-
 
                         <div class="bh-footer-feature">
 
@@ -4596,27 +5175,8 @@ if (footer) {
 
                         </div>
 
-
-                        <div class="bh-footer-feature">
-
-                            <span
-                                class="bh-footer-feature-icon"
-                                aria-hidden="true"
-                            >
-                                ✓
-                            </span>
-
-                            <span>
-                                Catering for every occasion
-                            </span>
-
-                        </div>
-
-
                     </div>
 
-
-                    <!-- SOCIAL -->
 
                     <div class="bh-footer-social">
 
@@ -4650,11 +5210,6 @@ if (footer) {
 
                 </div>
 
-
-
-                <!-- =================================================
-                     EXPLORE
-                ================================================== -->
 
                 <div class="bh-footer-column">
 
@@ -4709,11 +5264,6 @@ if (footer) {
                 </div>
 
 
-
-                <!-- =================================================
-                     WHAT WE DO
-                ================================================== -->
-
                 <div class="bh-footer-column">
 
                     <h3 class="bh-footer-heading">
@@ -4767,11 +5317,6 @@ if (footer) {
                 </div>
 
 
-
-                <!-- =================================================
-                     GET IN TOUCH
-                ================================================== -->
-
                 <div class="bh-footer-column">
 
                     <h3 class="bh-footer-heading">
@@ -4780,7 +5325,6 @@ if (footer) {
 
 
                     <div class="bh-footer-contact">
-
 
                         <a
                             href="tel:+919876543210"
@@ -4861,19 +5405,12 @@ if (footer) {
 
                         </div>
 
-
                     </div>
 
                 </div>
 
-
             </div>
 
-
-
-            <!-- =================================================
-                 FOOTER BOTTOM
-            ================================================== -->
 
             <div class="bh-footer-bottom">
 
@@ -4911,7 +5448,6 @@ if (footer) {
 
             </div>
 
-
         </footer>
 
     `;
@@ -4936,9 +5472,62 @@ window.addEventListener(
         );
 
 
-        updateDirectionButton(
-            storedDirection
-        );
+        const langLabel =
+            document.getElementById(
+                "bh-lang-label"
+            );
+
+
+        const mobileLangCurrent =
+            document.getElementById(
+                "bh-mobile-lang-current"
+            );
+
+
+        const langButton =
+            document.getElementById(
+                "bh-lang-button"
+            );
+
+
+        if (langLabel) {
+
+            langLabel.textContent =
+                getDirLabel(
+                    storedDirection
+                );
+
+        }
+
+
+        if (mobileLangCurrent) {
+
+            mobileLangCurrent.textContent =
+                storedDirection === "rtl"
+                    ? "RTL"
+                    : "LTR";
+
+        }
+
+
+        if (langButton) {
+
+            const title =
+                getDirTitle(
+                    storedDirection
+                );
+
+            langButton.setAttribute(
+                "aria-label",
+                title
+            );
+
+            langButton.setAttribute(
+                "title",
+                title
+            );
+
+        }
 
 
         document

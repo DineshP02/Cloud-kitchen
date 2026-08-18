@@ -57,7 +57,6 @@
 
         /* =========================================================
            PROCESS SECTION
-           NEW PREMIUM CARD STYLE
         ========================================================= */
 
         .h2-process-section {
@@ -89,28 +88,21 @@
         }
 
 
-        /* Decorative large word */
-
         .h2-process-section::before {
             content: "CARE";
 
             position: absolute;
-
             right: -35px;
             top: -65px;
 
             font-family: 'Cormorant Garamond', serif;
-
             font-size: clamp(150px, 20vw, 300px);
-
             font-weight: 700;
-
             line-height: .8;
 
             color: rgba(168, 52, 31, .045);
 
             pointer-events: none;
-
             user-select: none;
         }
 
@@ -274,8 +266,6 @@
         }
 
 
-        /* Card decorative number */
-
         .h2-process-item::after {
             content: "";
 
@@ -287,9 +277,7 @@
             font-family: 'Cormorant Garamond', serif;
 
             font-size: 150px;
-
             line-height: 1;
-
             font-weight: 700;
 
             color: rgba(168, 52, 31, .045);
@@ -324,8 +312,6 @@
                 0 22px 50px rgba(63, 43, 27, .12);
         }
 
-
-        /* Number */
 
         .h2-process-number {
             position: relative;
@@ -395,8 +381,6 @@
             color: #75685c;
         }
 
-
-        /* Card small label */
 
         .h2-process-label {
             position: relative;
@@ -540,7 +524,9 @@
 
         .h2-meal-link {
             position: relative;
+
             min-height: 430px;
+
             overflow: hidden;
 
             display: flex;
@@ -557,6 +543,7 @@
                 background-position .7s ease;
         }
 
+
         .h2-meal-link::before {
             content: "";
 
@@ -566,11 +553,13 @@
             z-index: -2;
 
             background: inherit;
+
             background-size: cover;
             background-position: center;
 
             transition: transform .7s ease;
         }
+
 
         .h2-meal-link::after {
             content: "";
@@ -589,33 +578,42 @@
                 );
         }
 
+
         .h2-meal-link:hover::before {
             transform: scale(1.08);
         }
+
 
         .h2-meal-link:hover {
             transform: translateY(-4px);
         }
 
+
         .h2-meal-content {
             position: relative;
             z-index: 2;
+
             padding: 38px;
         }
+
 
         .h2-meal-time {
             color: #f9d79e;
         }
 
+
         .h2-meal-description {
             color: rgba(255, 255, 255, .76);
         }
 
+
         .h2-meal-line {
             width: 42px;
             height: 1px;
+
             background: rgba(255, 255, 255, .55);
         }
+
 
         .h2-meal-explore {
             color: #f9d79e;
@@ -640,6 +638,7 @@
             transition: transform .7s ease;
         }
 
+
         .h2-philosophy-wrap:hover .h2-philosophy-image {
             transform: scale(1.04);
         }
@@ -662,6 +661,7 @@
                 );
         }
 
+
         .dark .h2-kitchen-notes {
             background:
                 linear-gradient(
@@ -672,14 +672,17 @@
                 );
         }
 
+
         .h2-kitchen-notes::before {
             content: "TN";
 
             position: absolute;
+
             right: -25px;
             top: -55px;
 
             font-family: 'Cormorant Garamond', serif;
+
             font-size: 260px;
             line-height: 1;
 
@@ -689,6 +692,7 @@
 
             pointer-events: none;
         }
+
 
         .h2-kitchen-item {
             position: relative;
@@ -700,53 +704,73 @@
                 background .35s ease;
         }
 
+
         .dark .h2-kitchen-item {
             border-color: rgba(255, 255, 255, .12);
         }
+
 
         .h2-kitchen-item:last-child {
             border-bottom: 1px solid rgba(60, 48, 38, .18);
         }
 
+
         .dark .h2-kitchen-item:last-child {
             border-color: rgba(255, 255, 255, .12);
         }
 
+
         .h2-kitchen-item:hover {
             padding-left: 18px;
+
             background: rgba(168, 52, 31, .045);
         }
+
 
         .dark .h2-kitchen-item:hover {
             background: rgba(255, 255, 255, .035);
         }
 
+
         .h2-kitchen-number {
             font-family: 'Cormorant Garamond', serif;
+
             font-size: 22px;
+
             color: #a8341f;
         }
 
+
         .h2-kitchen-title {
             font-family: 'Cormorant Garamond', serif;
+
             font-weight: 600;
         }
+
 
         .h2-kitchen-dot {
             width: 8px;
             height: 8px;
+
             border-radius: 50%;
+
             background: #c9862f;
+
             flex-shrink: 0;
         }
 
+
         .h2-kitchen-side {
             writing-mode: vertical-rl;
+
             transform: rotate(180deg);
 
             font-size: 10px;
+
             font-weight: 700;
+
             letter-spacing: .28em;
+
             text-transform: uppercase;
 
             color: #a8341f;
@@ -763,14 +787,19 @@
                 background .3s ease;
         }
 
+
         .h2-menu-line:hover {
             padding-left: 18px;
+
             background: rgba(168, 52, 31, .045);
         }
 
+
         .h2-menu-price {
             font-family: 'Cormorant Garamond', serif;
+
             font-size: 24px;
+
             font-weight: 600;
         }
 
@@ -781,6 +810,7 @@
 
         .h2-numbers-section {
             position: relative;
+
             overflow: hidden;
 
             background-image:
@@ -793,15 +823,18 @@
                 url("https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=2000&q=90");
 
             background-size: cover;
+
             background-position: center;
 
             color: white;
         }
 
+
         .h2-numbers-section::before {
             content: "";
 
             position: absolute;
+
             inset: 0;
 
             background:
@@ -819,10 +852,12 @@
             pointer-events: none;
         }
 
+
         .h2-numbers-inner {
             position: relative;
             z-index: 2;
         }
+
 
         .h2-number-card {
             padding: 34px 24px;
@@ -846,6 +881,7 @@
                 box-shadow .35s ease;
         }
 
+
         .h2-number-card:hover {
             transform: translateY(-8px);
 
@@ -855,9 +891,11 @@
                 0 20px 45px rgba(0,0,0,.28);
         }
 
+
         .h2-stat {
             position: relative;
         }
+
 
         .h2-stat::before {
             content: "";
@@ -888,6 +926,7 @@
             transition: transform .3s ease;
         }
 
+
         .h2-cta-link:hover .h2-cta-arrow {
             transform: translateX(8px);
         }
@@ -901,32 +940,43 @@
 
             .h2-process-item {
                 padding: 26px;
+
                 min-height: 250px;
             }
+
 
             .h2-meal-link {
                 min-height: 390px;
             }
 
+
             .h2-meal-content {
                 padding: 28px;
             }
+
 
             .h2-process-item:hover {
                 transform: none;
             }
 
+
             .h2-process-section::before {
                 font-size: 160px;
+
                 right: -20px;
+
                 top: -25px;
             }
 
+
             .h2-kitchen-notes::before {
                 font-size: 180px;
+
                 right: -20px;
+
                 top: -20px;
             }
+
 
             .h2-number-card:hover {
                 transform: none;
@@ -941,21 +991,26 @@
                 transform: none;
             }
 
+
             .h2-meal-link:hover::before {
                 transform: none;
             }
+
 
             .h2-kitchen-item:hover {
                 padding-left: 0;
             }
 
+
             .h2-kitchen-side {
                 display: none;
             }
 
+
             .h2-process-item {
                 border-radius: 20px;
             }
+
 
             .h2-process-promise {
                 padding: 15px;
@@ -1059,7 +1114,6 @@
 
         <!-- =========================================================
              SECTION 2 — PROCESS
-             NEW CARD STYLE — NO BACKGROUND IMAGE
         ========================================================== -->
 
         <section class="h2-process-section">
@@ -1069,8 +1123,6 @@
 
                 <div class="grid gap-14 lg:grid-cols-[.7fr_1.3fr]">
 
-
-                    <!-- LEFT SIDE -->
 
                     <div class="flex flex-col justify-center">
 
@@ -1105,8 +1157,6 @@
                         </p>
 
 
-                        <!-- Promise -->
-
                         <div class="h2-process-promise mt-10">
 
                             <div class="h2-process-promise-icon">
@@ -1131,8 +1181,6 @@
                         </div>
 
 
-                        <!-- Small statement -->
-
                         <p
                             class="h2-serif mt-10 max-w-sm text-2xl italic leading-tight text-stone-500">
 
@@ -1143,8 +1191,6 @@
 
                     </div>
 
-
-                    <!-- RIGHT SIDE -->
 
                     <div>
 
@@ -1165,8 +1211,6 @@
 
                         <div class="grid gap-5 sm:grid-cols-2">
 
-
-                            <!-- 01 -->
 
                             <div class="h2-process-item">
 
@@ -1192,8 +1236,6 @@
                             </div>
 
 
-                            <!-- 02 -->
-
                             <div class="h2-process-item">
 
                                 <div class="h2-process-number">
@@ -1218,8 +1260,6 @@
                             </div>
 
 
-                            <!-- 03 -->
-
                             <div class="h2-process-item">
 
                                 <div class="h2-process-number">
@@ -1243,8 +1283,6 @@
 
                             </div>
 
-
-                            <!-- 04 -->
 
                             <div class="h2-process-item">
 
@@ -1326,7 +1364,9 @@
                 <div class="grid md:grid-cols-2 lg:grid-cols-4">
 
 
-                    <!-- BREAKFAST -->
+                    <!-- =================================================
+                         BREAKFAST
+                    ================================================== -->
 
                     <a
                         href="menu.html"
@@ -1360,11 +1400,13 @@
                     </a>
 
 
-                    <!-- LUNCH -->
+                    <!-- =================================================
+                         LUNCH
+                    ================================================== -->
 
                     <a
                         href="menu.html"
-                        class="h2-meal-link group bg-[url('https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=85')]">
+                        class="h2-meal-link group bg-[url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=85')]">
 
                         <div class="h2-meal-content">
 
@@ -1394,7 +1436,9 @@
                     </a>
 
 
-                    <!-- SNACKS -->
+                    <!-- =================================================
+                         SNACKS
+                    ================================================== -->
 
                     <a
                         href="menu.html"
@@ -1428,11 +1472,13 @@
                     </a>
 
 
-                    <!-- DINNER -->
+                    <!-- =================================================
+                         DINNER — NEW IMAGE
+                    ================================================== -->
 
                     <a
                         href="menu.html"
-                        class="h2-meal-link group bg-[url('https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=85')]">
+                        class="h2-meal-link group bg-[url('https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=1000&q=90')]">
 
                         <div class="h2-meal-content">
 
@@ -1904,9 +1950,11 @@
                         href="menu.html"
                         class="inline-flex w-fit items-center gap-3 border-b-2 border-[#a8341f] pb-2 text-sm font-bold text-[#a8341f]">
                         Explore the full menu
+
                         <span class="text-lg">
                             →
                         </span>
+
                     </a>
 
                 </div>
