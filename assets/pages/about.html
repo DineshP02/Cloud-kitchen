@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+
   <title>About | Bowl & Hearth</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -34,7 +35,6 @@
       font-family: 'Inter', sans-serif;
     }
 
-    /* Hero floating card animation */
     @keyframes float {
 
       0%,
@@ -51,7 +51,6 @@
       animation: float 4s ease-in-out infinite;
     }
 
-    /* Scroll reveal */
     .reveal {
       opacity: 0;
       transform: translateY(32px);
@@ -63,7 +62,6 @@
       transform: translateY(0);
     }
 
-    /* Eyebrow label */
     .eyebrow {
       font-family: 'Inter', sans-serif;
       font-size: 0.75rem;
@@ -73,7 +71,6 @@
       color: #b45309;
     }
 
-    /* Value card hover */
     .value-card {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
@@ -83,7 +80,6 @@
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     }
 
-    /* Timeline dot pulse */
     @keyframes pulse-ring {
       0% {
         box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4);
@@ -102,7 +98,6 @@
       animation: pulse-ring 2.5s ease-out infinite;
     }
 
-    /* Stat counter card */
     .stat-card {
       background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
     }
@@ -111,7 +106,6 @@
       background: linear-gradient(135deg, #451a03 0%, #78350f 100%);
     }
 
-    /* Hero image overlay */
     .hero-img-wrap::after {
       content: '';
       position: absolute;
@@ -125,7 +119,6 @@
       pointer-events: none;
     }
 
-    /* New Section 4 image hover */
     .why-image {
       transition: transform 0.7s ease;
     }
@@ -134,7 +127,6 @@
       transform: scale(1.05);
     }
 
-    /* New Section 4 highlight cards */
     .highlight-card {
       transition:
         transform 0.3s ease,
@@ -148,13 +140,16 @@
   </style>
 </head>
 
+
 <body class="bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-100 font-body antialiased">
+
 
   <!-- =====================================================
        HEADER
   ====================================================== -->
 
   <div id="site-header"></div>
+
 
 
   <!-- =====================================================
@@ -170,7 +165,6 @@
 
     <section class="relative overflow-hidden bg-stone-50 dark:bg-stone-950">
 
-      <!-- Decorative background blob -->
       <div
         class="pointer-events-none absolute -top-32 -right-32 h-[520px] w-[520px] rounded-full bg-amber-100 opacity-60 blur-3xl dark:bg-amber-900 dark:opacity-20">
       </div>
@@ -255,8 +249,11 @@
               </a>
 
 
+              <!-- FIXED MENU LINK -->
+
               <a
-                href="/menu"
+                id="about-menu-link-1"
+                href="#"
                 class="inline-flex items-center gap-2 text-sm font-semibold text-amber-600 underline underline-offset-4 transition hover:text-amber-700 dark:text-amber-400">
 
                 View the menu →
@@ -495,8 +492,6 @@
           style="transition-delay:0.2s">
 
           <div class="relative">
-
-            <!-- Desktop connector -->
 
             <div
               class="absolute left-0 right-0 top-5 hidden h-0.5 bg-amber-200 dark:bg-amber-800 lg:block">
@@ -863,8 +858,11 @@
               </p>
 
 
+              <!-- FIXED MENU LINK -->
+
               <a
-                href="/menu"
+                id="about-menu-link-2"
+                href="#"
                 class="mt-6 inline-flex items-center gap-2 rounded-full bg-amber-500 px-7 py-3.5 text-sm font-semibold text-white shadow-lg transition hover:bg-amber-600">
 
                 Explore the menu
@@ -925,9 +923,7 @@
           class="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
 
 
-          <!-- =================================================
-               LEFT IMAGE
-          ================================================== -->
+          <!-- LEFT IMAGE -->
 
           <div
             class="reveal relative order-2 lg:order-1">
@@ -984,9 +980,7 @@
 
 
 
-          <!-- =================================================
-               RIGHT CONTENT
-          ================================================== -->
+          <!-- RIGHT CONTENT -->
 
           <div
             class="reveal order-1 lg:order-2"
@@ -1021,9 +1015,7 @@
 
 
 
-            <!-- =================================================
-                 HIGHLIGHTS
-            ================================================== -->
+            <!-- HIGHLIGHTS -->
 
             <div class="mt-8 space-y-5">
 
@@ -1139,10 +1131,11 @@
 
 
 
-            <!-- CTA -->
+            <!-- FIXED MENU LINK -->
 
             <a
-              href="/menu"
+              id="about-menu-link-3"
+              href="#"
               class="mt-8 inline-flex items-center gap-2 rounded-full bg-amber-500 px-7 py-3.5 text-sm font-semibold text-white shadow-md transition hover:bg-amber-600 hover:shadow-lg">
 
               Order something good
@@ -1191,6 +1184,79 @@
 
   <script src="../js/components.js"></script>
   <script src="../js/main.js"></script>
+
+
+
+  <!-- =====================================================
+       ABOUT PAGE MENU LINK FIX
+  ====================================================== -->
+
+  <script>
+
+    /*
+      -------------------------------------------------------
+      MENU PAGE PATH
+      -------------------------------------------------------
+
+      If this About page is inside:
+
+          assets/pages/about.html
+
+      then the menu page is:
+
+          assets/pages/menu.html
+
+      If the page is somewhere else, the script automatically
+      adjusts the path.
+    */
+
+    function getMenuPageUrl() {
+
+      const currentPath =
+        window.location.pathname.replace(/\\/g, "/");
+
+      const normalizedPath =
+        currentPath.replace(/\/+$/, "");
+
+      const insidePagesFolder =
+        normalizedPath.includes("/assets/pages/");
+
+      if (insidePagesFolder) {
+        return "menu.html";
+      }
+
+      return "assets/pages/menu.html";
+    }
+
+
+    const menuPageUrl =
+      getMenuPageUrl();
+
+
+    /*
+      -------------------------------------------------------
+      APPLY MENU URL TO ALL THREE BUTTONS
+      -------------------------------------------------------
+    */
+
+    const menuButtons = [
+      document.getElementById("about-menu-link-1"),
+      document.getElementById("about-menu-link-2"),
+      document.getElementById("about-menu-link-3")
+    ];
+
+
+    menuButtons.forEach(function (button) {
+
+      if (button) {
+
+        button.href = menuPageUrl;
+
+      }
+
+    });
+
+  </script>
 
 
 
