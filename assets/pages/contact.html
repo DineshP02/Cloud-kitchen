@@ -12,6 +12,8 @@
 
     <title>Contact | Bowl & Hearth</title>
 
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+
 
     <!-- =====================================================
          TAILWIND CSS
@@ -94,6 +96,7 @@
 
         /* =====================================================
            CONTACT HERO
+           CONTAINER BASED
         ====================================================== */
 
         .contact-hero {
@@ -110,6 +113,7 @@
         }
 
         .contact-hero::before {
+
             content: "";
 
             position: absolute;
@@ -122,11 +126,56 @@
 
             border-radius: 50%;
 
-            background: rgba(37, 99, 235, 0.06);
+            background:
+                rgba(37, 99, 235, 0.06);
+
+            pointer-events: none;
         }
 
-        .contact-hero-inner {
+
+        /*
+         * Main hero container.
+         * Same max-width and horizontal spacing
+         * as the rest of the page.
+         */
+
+        .contact-hero-container {
+
             position: relative;
+
+            width: 100%;
+
+            max-width: 1280px;
+
+            margin-left: auto;
+            margin-right: auto;
+
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        @media (min-width: 640px) {
+
+            .contact-hero-container {
+
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+
+        }
+
+        @media (min-width: 1024px) {
+
+            .contact-hero-container {
+
+                padding-left: 3rem;
+                padding-right: 3rem;
+            }
+
+        }
+
+
+        .contact-hero-inner {
 
             display: grid;
 
@@ -191,6 +240,7 @@
             flex-shrink: 0;
         }
 
+
         .contact-hero-heading {
 
             font-family:
@@ -244,6 +294,7 @@
             color: #2563eb;
         }
 
+
         .contact-hero-subline {
 
             margin-top: 16px;
@@ -270,6 +321,7 @@
 
         }
 
+
         .contact-hero-text {
 
             margin-top: 14px;
@@ -293,6 +345,7 @@
             }
 
         }
+
 
         .contact-hero-cta {
 
@@ -353,78 +406,159 @@
 
 
         /* =====================================================
-           HERO ART
+           NEW HERO IMAGE
+           DIFFERENT IMAGE FROM PREVIOUS SVG
         ====================================================== */
 
         .contact-hero-art {
 
             position: relative;
 
+            min-height: 330px;
+
             border-radius: 24px;
 
-            background:
+            overflow: hidden;
+
+            background-image:
+
                 linear-gradient(
-                    150deg,
-                    #dbeaff 0%,
-                    #eef4ff 60%,
-                    #e9f6ee 100%
-                );
+                    135deg,
+                    rgba(24, 34, 25, 0.10),
+                    rgba(24, 34, 25, 0.35)
+                ),
 
-            padding: 20px;
+                url("https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=1200&q=85");
 
-            min-height: 300px;
+            background-size: cover;
+
+            background-position: center;
+
+            box-shadow:
+                0 25px 60px
+                rgba(31, 41, 55, 0.16);
 
             display: flex;
 
-            align-items: center;
+            align-items: flex-end;
 
-            justify-content: center;
-
-            overflow: hidden;
+            justify-content: flex-start;
         }
 
-        @media (min-width: 640px) {
 
-            .contact-hero-art {
+        /*
+         * Soft image overlay.
+         */
 
-                border-radius: 28px;
-
-                padding: 32px;
-
-                min-height: 420px;
-            }
-
-        }
-
-        .contact-hero-art::before {
+        .contact-hero-art::after {
 
             content: "";
 
             position: absolute;
 
-            width: 260px;
-            height: 260px;
-
-            left: -90px;
-            bottom: -100px;
-
-            border-radius: 50%;
+            inset: 0;
 
             background:
-                rgba(190, 242, 100, 0.28);
+                linear-gradient(
+                    to top,
+                    rgba(15, 23, 18, 0.52),
+                    rgba(15, 23, 18, 0.04) 60%
+                );
+
+            pointer-events: none;
         }
 
-        .contact-hero-art svg {
+
+        /*
+         * Small editorial label over image.
+         */
+
+        .hero-image-caption {
 
             position: relative;
 
-            z-index: 2;
+            z-index: 3;
 
-            width: 100%;
+            margin: 0 20px 20px;
 
-            max-width: 460px;
+            padding: 12px 16px;
 
-            height: auto;
+            border-radius: 14px;
+
+            background:
+                rgba(255,255,255,0.90);
+
+            backdrop-filter:
+                blur(12px);
+
+            box-shadow:
+                0 12px 30px
+                rgba(0,0,0,0.12);
+        }
+
+        .hero-image-caption-label {
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 0.16em;
+
+            text-transform: uppercase;
+
+            color: #b45309;
+        }
+
+        .hero-image-caption-text {
+
+            margin-top: 3px;
+
+            font-family:
+                'Playfair Display',
+                Georgia,
+                serif;
+
+            font-size: 1.05rem;
+
+            line-height: 1.2;
+
+            font-weight: 800;
+
+            color: #292524;
+        }
+
+
+        @media (min-width: 640px) {
+
+            .contact-hero-art {
+
+                min-height: 440px;
+
+                border-radius: 28px;
+
+                background-position: center center;
+            }
+
+            .hero-image-caption {
+
+                margin:
+                    0 28px 28px;
+
+                padding:
+                    14px 18px;
+            }
+
+        }
+
+        @media (min-width: 1024px) {
+
+            .contact-hero-art {
+
+                min-height: 500px;
+
+                background-position: center;
+            }
+
         }
 
 
@@ -497,12 +631,19 @@
 
         .dark .contact-hero-art {
 
+            box-shadow:
+                0 25px 60px
+                rgba(0,0,0,0.35);
+        }
+
+        .dark .hero-image-caption {
+
             background:
-                linear-gradient(
-                    150deg,
-                    #1c2a24,
-                    #17211c
-                );
+                rgba(27,32,26,0.90);
+        }
+
+        .dark .hero-image-caption-text {
+            color: #f5f5f4;
         }
 
 
@@ -591,7 +732,6 @@
 
         /* =====================================================
            CONTACT DETAILS
-           CLEAN EDITORIAL STYLE
         ====================================================== */
 
         .contact-detail {
@@ -639,7 +779,6 @@
 
         /* =====================================================
            HELP SECTION
-           COMPLETELY CARDLESS EDITORIAL DESIGN
         ====================================================== */
 
         .help-section {
@@ -734,8 +873,6 @@
         }
 
 
-        /* LARGE NUMBER */
-
         .help-number {
 
             font-family:
@@ -768,8 +905,6 @@
 
         }
 
-
-        /* TEXT */
 
         .help-content {
             min-width: 0;
@@ -857,8 +992,6 @@
 
         }
 
-
-        /* LINK */
 
         .help-link {
 
@@ -1003,7 +1136,9 @@
         }
 
 
-        /* MAP INFO */
+        /* =====================================================
+           MAP INFO
+        ====================================================== */
 
         .map-info-card {
 
@@ -1064,7 +1199,6 @@
 
         /* =====================================================
            LOCATION INFO
-           CARDLESS
         ====================================================== */
 
         .location-info {
@@ -1319,13 +1453,20 @@
 
         <section class="contact-hero">
 
-            <div
-                class="relative mx-auto max-w-7xl px-4 py-12 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
+            <!--
+                IMPORTANT:
+                Hero now uses a proper container.
+                It is aligned with the rest of the page.
+            -->
+
+            <div class="contact-hero-container py-12 sm:py-20 lg:py-24">
 
                 <div class="contact-hero-inner">
 
 
-                    <!-- LEFT -->
+                    <!-- =================================================
+                         HERO LEFT
+                    ================================================== -->
 
                     <div class="hero-reveal">
 
@@ -1379,158 +1520,31 @@
                     </div>
 
 
-                    <!-- RIGHT -->
+                    <!-- =================================================
+                         NEW HERO IMAGE
+                    ================================================== -->
 
                     <div class="hero-reveal-delay">
 
                         <div class="contact-hero-art">
 
-                            <svg
-                                viewBox="0 0 480 400"
-                                xmlns="http://www.w3.org/2000/svg">
+                            <div class="hero-image-caption">
 
+                                <div
+                                    class="hero-image-caption-label">
 
-                                <!-- Ground shadow -->
+                                    Freshly prepared
 
-                                <ellipse
-                                    cx="240"
-                                    cy="360"
-                                    rx="170"
-                                    ry="16"
-                                    fill="#c9dcf5"
-                                    opacity="0.6" />
+                                </div>
 
+                                <div
+                                    class="hero-image-caption-text">
 
-                                <!-- Phone -->
+                                    Made with care, served with warmth.
 
-                                <g
-                                    transform="translate(70,60) rotate(-8)">
+                                </div>
 
-                                    <path
-                                        d="M20 40
-                                        C10 20 30 0 55 5
-                                        L95 15
-                                        C110 20 112 40 100 50
-                                        L85 62
-                                        C95 90 115 110 143 120
-                                        L155 105
-                                        C165 93 185 95 190 110
-                                        L200 150
-                                        C205 175 185 195 160 185
-                                        C90 160 40 110 15 40
-                                        C13 34 15 30 20 40 Z"
-                                        fill="#2563eb" />
-
-                                </g>
-
-
-                                <!-- Envelope -->
-
-                                <g transform="translate(230,150)">
-
-                                    <rect
-                                        x="0"
-                                        y="0"
-                                        width="200"
-                                        height="140"
-                                        rx="16"
-                                        fill="#f59e0b" />
-
-                                    <path
-                                        d="M0 20 L100 95 L200 20"
-                                        fill="none"
-                                        stroke="#fff"
-                                        stroke-width="8"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round" />
-
-                                </g>
-
-
-                                <!-- Person -->
-
-                                <g transform="translate(120,220)">
-
-                                    <circle
-                                        cx="35"
-                                        cy="20"
-                                        r="20"
-                                        fill="#1e293b" />
-
-                                    <rect
-                                        x="10"
-                                        y="42"
-                                        width="50"
-                                        height="70"
-                                        rx="18"
-                                        fill="#2563eb" />
-
-                                    <rect
-                                        x="-6"
-                                        y="55"
-                                        width="20"
-                                        height="55"
-                                        rx="10"
-                                        fill="#f59e0b"
-                                        transform="rotate(18 -6 55)" />
-
-                                </g>
-
-
-                                <!-- Leaves -->
-
-                                <g
-                                    fill="#84cc16"
-                                    opacity="0.85">
-
-                                    <ellipse
-                                        cx="60"
-                                        cy="330"
-                                        rx="22"
-                                        ry="9"
-                                        transform="rotate(-20 60 330)" />
-
-                                    <ellipse
-                                        cx="90"
-                                        cy="340"
-                                        rx="18"
-                                        ry="8"
-                                        transform="rotate(10 90 340)" />
-
-                                    <ellipse
-                                        cx="410"
-                                        cy="320"
-                                        rx="24"
-                                        ry="10"
-                                        transform="rotate(25 410 320)" />
-
-                                </g>
-
-
-                                <!-- Speech dots -->
-
-                                <g
-                                    fill="#2563eb"
-                                    opacity="0.5">
-
-                                    <circle
-                                        cx="330"
-                                        cy="70"
-                                        r="6" />
-
-                                    <circle
-                                        cx="355"
-                                        cy="55"
-                                        r="4" />
-
-                                    <circle
-                                        cx="375"
-                                        cy="80"
-                                        r="3" />
-
-                                </g>
-
-                            </svg>
+                            </div>
 
                         </div>
 
@@ -1591,8 +1605,6 @@
 
                         </p>
 
-
-                        <!-- CLEAN CONTACT DETAILS -->
 
                         <div class="mt-8">
 
@@ -1814,7 +1826,6 @@
 
         <!-- =================================================
              HELP SECTION
-             100% CARDLESS EDITORIAL DESIGN
         ================================================== -->
 
         <section
@@ -1823,8 +1834,6 @@
             <div
                 class="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12">
 
-
-                <!-- HEADING -->
 
                 <div
                     class="reveal max-w-3xl">
@@ -1860,17 +1869,12 @@
                 </div>
 
 
-                <!-- =================================================
-                     EDITORIAL SERVICE LIST
-                ================================================== -->
-
                 <div class="help-list">
 
 
                     <!-- 01 -->
 
                     <div class="help-row reveal">
-
 
                         <div class="help-number">
                             01
@@ -1901,8 +1905,6 @@
                             </p>
 
 
-                            <!-- MOBILE LINK -->
-
                             <a
                                 href="menu.html"
                                 class="help-link sm:hidden">
@@ -1915,8 +1917,6 @@
 
                         </div>
 
-
-                        <!-- DESKTOP LINK -->
 
                         <a
                             href="menu.html"
@@ -1934,7 +1934,6 @@
                     <!-- 02 -->
 
                     <div class="help-row reveal">
-
 
                         <div class="help-number">
                             02
@@ -1995,7 +1994,6 @@
 
                     <div class="help-row reveal">
 
-
                         <div class="help-number">
                             03
                         </div>
@@ -2053,10 +2051,6 @@
 
                 </div>
 
-
-                <!-- =================================================
-                     BOTTOM CTA
-                ================================================== -->
 
                 <div
                     class="help-bottom reveal">
@@ -2237,8 +2231,6 @@
 
                     </div>
 
-
-                    <!-- MAP BOTTOM BAR -->
 
                     <div
                         class="flex flex-col gap-4 border-t border-stone-100 p-5 sm:flex-row sm:items-center sm:justify-between sm:px-7 dark:border-stone-800">

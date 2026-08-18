@@ -3,1233 +3,2087 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<meta
-name="description"
-content="Bowl & Hearth — local catering and cloud kitchen meals for homes, offices and events."
->
+    <meta
+        name="description"
+        content="Bowl & Hearth — local catering and cloud kitchen meals for homes, offices and events."
+    >
 
-<title>Bowl & Hearth | Local Catering & Cloud Kitchen</title>
+    <meta
+        name="theme-color"
+        content="#211812"
+    >
 
+    <title>Bowl & Hearth | Local Catering & Cloud Kitchen</title>
 
-<!-- =========================================================
-     TAILWIND
-========================================================= -->
+    <link
+        rel="icon"
+        type="image/png"
+        href="assets/images/favicon.png"
+    >
 
-<script src="https://cdn.tailwindcss.com"></script>
 
-<script>
-tailwind.config = {
-    darkMode: 'class'
-};
-</script>
+    <!-- =========================================================
+         TAILWIND
+    ========================================================== -->
 
+    <script src="https://cdn.tailwindcss.com"></script>
 
-<!-- =========================================================
-     GOOGLE FONTS
-========================================================= -->
+    <script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+        tailwind.config = {
 
-<link
-href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@1&family=Cormorant+Garamond:wght@600&display=swap"
-rel="stylesheet"
->
+            darkMode: "class",
 
+            theme: {
 
-<!-- =========================================================
-     PROJECT CSS
-========================================================= -->
+                extend: {
 
-<link rel="stylesheet" href="assets/css/style.css">
+                    colors: {
 
+                        bh: {
 
-<!-- =========================================================
-     LEAFLET MAP
-========================================================= -->
+                            ink: "#241A14",
 
-<link
-rel="stylesheet"
-href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-/>
+                            dark: "#17110D",
 
-<script
-src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
-</script>
+                            cream: "#F8F2E8",
 
+                            paper: "#FCF9F3",
 
-<style>
+                            terracotta: "#A8341F",
 
-/* =========================================================
-   ROOT
-========================================================= */
+                            gold: "#C9862F",
 
-:root{
+                            sage: "#545F42",
 
-    --bh-ink:#241a14;
+                            muted: "#766A60"
 
-    --bh-cream:#faf5ec;
+                        }
 
-    --bh-paprika:#a8341f;
+                    },
 
-    --bh-ember:#c9862f;
+                    fontFamily: {
 
-    --bh-sage:#545f42;
+                        display: [
+                            "Cormorant Garamond",
+                            "serif"
+                        ],
 
-}
+                        script: [
+                            "EB Garamond",
+                            "serif"
+                        ],
 
-.dark{
+                        sans: [
+                            "Inter",
+                            "ui-sans-serif",
+                            "system-ui",
+                            "sans-serif"
+                        ]
 
-    --bh-cream:#1c140f;
+                    },
 
-}
+                    boxShadow: {
 
+                        premium:
+                            "0 25px 70px rgba(36,26,20,.12)",
 
-/* =========================================================
-   FONTS
-========================================================= */
+                        soft:
+                            "0 15px 40px rgba(36,26,20,.08)"
 
-.bh-script{
+                    }
 
-    font-family:'EB Garamond',serif;
+                }
 
-    font-style:italic;
+            }
 
-}
+        };
 
-.bh-serif{
+    </script>
 
-    font-family:'Cormorant Garamond',serif;
 
-}
+    <!-- =========================================================
+         GOOGLE FONTS
+    ========================================================== -->
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-/* =========================================================
-   KITCHEN STORY
-========================================================= */
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-.bh-collage{
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=EB+Garamond:ital,wght@0,400;1,400;1,500&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
-    position:relative;
 
-}
+    <!-- =========================================================
+         PROJECT CSS
+    ========================================================== -->
 
-.bh-collage img{
+    <link
+        rel="stylesheet"
+        href="assets/css/style.css"
+    >
 
-    object-fit:cover;
 
-}
+    <!-- =========================================================
+         LEAFLET
+    ========================================================== -->
 
-.bh-collage .bh-img-a{
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
 
-    aspect-ratio:4/5;
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    ></script>
 
-    border-radius:1.5rem;
 
-}
+    <!-- =========================================================
+         PREMIUM PAGE CSS
+    ========================================================== -->
 
-.bh-collage .bh-img-b{
+    <style>
 
-    aspect-ratio:1/1;
+        /* =====================================================
+           ROOT
+        ===================================================== */
 
-    border-radius:1.25rem;
+        :root {
 
-    width:55%;
+            --bh-ink: #241A14;
+            --bh-dark: #17110D;
+            --bh-cream: #F8F2E8;
+            --bh-paper: #FCF9F3;
+            --bh-terracotta: #A8341F;
+            --bh-gold: #C9862F;
+            --bh-sage: #545F42;
+            --bh-muted: #766A60;
 
-    position:absolute;
+        }
 
-    right:-5%;
 
-    bottom:-8%;
+        .dark {
 
-    border:6px solid var(--bh-cream);
+            --bh-cream: #211812;
+            --bh-paper: #17110D;
 
-    box-shadow:0 20px 40px -15px rgba(36,26,20,.35);
+        }
 
-}
 
-.bh-badge{
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
 
-    position:absolute;
+        html {
 
-    top:-1.25rem;
+            scroll-behavior: smooth;
 
-    left:-1.25rem;
+        }
 
-    width:6.5rem;
 
-    height:6.5rem;
+        body {
 
-    border-radius:9999px;
+            font-family: "Inter", sans-serif;
 
-    background:var(--bh-paprika);
+            background: var(--bh-paper);
 
-    color:#fff;
+            color: var(--bh-ink);
 
-    display:flex;
+            overflow-x: hidden;
 
-    align-items:center;
+        }
 
-    justify-content:center;
 
-    text-align:center;
+        .dark body {
 
-    font-size:.62rem;
+            background: #17110D;
 
-    letter-spacing:.08em;
+        }
 
-    text-transform:uppercase;
 
-    line-height:1.25;
+        ::selection {
 
-    box-shadow:0 10px 25px -8px rgba(168,52,31,.55);
+            background: var(--bh-terracotta);
 
-}
+            color: white;
 
+        }
 
-/* =========================================================
-   ORDER TO DOORSTEP
-========================================================= */
 
-.bh-order-section{
+        /* =====================================================
+           TYPOGRAPHY
+        ===================================================== */
 
-    position:relative;
+        .bh-display {
 
-    overflow:hidden;
+            font-family: "Cormorant Garamond", serif;
 
-    isolation:isolate;
+            letter-spacing: -.035em;
 
-    color:white;
+        }
 
-    background-image:
-        linear-gradient(
-            90deg,
-            rgba(28,18,13,.94),
-            rgba(49,28,19,.80),
-            rgba(28,18,13,.94)
-        ),
-        url("https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=85&w=1800&auto=format&fit=crop");
 
-    background-size:cover;
+        .bh-script {
 
-    background-position:center;
+            font-family: "EB Garamond", serif;
 
-    background-attachment:fixed;
+            font-style: italic;
 
-}
+        }
 
 
-.bh-order-section::before{
+        .bh-eyebrow {
 
-    content:"";
+            display: inline-flex;
 
-    position:absolute;
+            align-items: center;
 
-    width:420px;
+            gap: 12px;
 
-    height:420px;
+            font-size: .68rem;
 
-    border-radius:50%;
+            font-weight: 800;
 
-    top:-220px;
+            letter-spacing: .28em;
 
-    right:-120px;
+            text-transform: uppercase;
 
-    background:rgba(201,134,47,.13);
+            color: var(--bh-terracotta);
 
-    filter:blur(10px);
+        }
 
-    z-index:-1;
 
-}
+        .bh-eyebrow::before {
 
-.bh-order-section::after{
+            content: "";
 
-    content:"";
+            width: 28px;
 
-    position:absolute;
+            height: 1px;
 
-    width:360px;
+            background: var(--bh-gold);
 
-    height:360px;
+        }
 
-    border-radius:50%;
 
-    bottom:-220px;
+        .bh-section-title {
 
-    left:-120px;
+            font-family: "Cormorant Garamond", serif;
 
-    background:rgba(168,52,31,.16);
+            font-size: clamp(2.7rem, 5vw, 5rem);
 
-    filter:blur(15px);
+            line-height: .94;
 
-    z-index:-1;
+            letter-spacing: -.035em;
 
-}
+            font-weight: 600;
 
+        }
 
-.bh-order-inner{
 
-    position:relative;
+        .bh-section-copy {
 
-    z-index:2;
+            color: #766A60;
 
-}
+            line-height: 1.9;
 
+        }
 
-.bh-order-eyebrow{
 
-    color:#e4a84f;
+        .dark .bh-section-copy {
 
-    font-size:.75rem;
+            color: #CFC3B8;
 
-    font-weight:800;
+        }
 
-    text-transform:uppercase;
 
-    letter-spacing:.28em;
+        /* =====================================================
+           PREMIUM BUTTONS
+        ===================================================== */
 
-}
+        .bh-btn-primary {
 
+            display: inline-flex;
 
-.bh-order-heading{
+            align-items: center;
 
-    margin-top:.6rem;
+            justify-content: center;
 
-    color:#fff;
+            gap: 12px;
 
-    font-family:'Cormorant Garamond',serif;
+            min-height: 52px;
 
-    font-weight:600;
+            padding: 0 25px;
 
-    font-size:clamp(2rem,4vw,3.4rem);
+            border-radius: 999px;
 
-    line-height:1;
+            background: var(--bh-terracotta);
 
-    white-space:nowrap;
+            color: white;
 
-}
+            font-size: .78rem;
 
+            font-weight: 800;
 
-.bh-order-subtitle{
+            letter-spacing: .02em;
 
-    margin-top:.8rem;
+            box-shadow:
+                0 14px 30px rgba(168,52,31,.18);
 
-    color:rgba(255,255,255,.68);
+            transition:
+                transform .3s ease,
+                box-shadow .3s ease,
+                background .3s ease;
 
-    font-size:.95rem;
+        }
 
-    white-space:nowrap;
 
-}
+        .bh-btn-primary:hover {
 
+            transform: translateY(-3px);
 
-/* =========================================================
-   STEPS RAIL
-========================================================= */
+            background: #8E2B1A;
 
-.bh-order-rail{
+            box-shadow:
+                0 20px 40px rgba(168,52,31,.25);
 
-    position:relative;
+        }
 
-    margin-top:3.5rem;
 
-}
+        .bh-btn-outline {
 
+            display: inline-flex;
 
-.bh-order-rail::before{
+            align-items: center;
 
-    content:"";
+            justify-content: center;
 
-    position:absolute;
+            gap: 10px;
 
-    left:8%;
+            min-height: 52px;
 
-    right:8%;
+            padding: 0 24px;
 
-    top:2rem;
+            border-radius: 999px;
 
-    height:2px;
+            border: 1px solid rgba(255,255,255,.35);
 
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.22),
-            rgba(201,134,47,.75),
-            rgba(255,255,255,.22),
-            transparent
-        );
+            color: white;
 
-    z-index:0;
+            font-size: .78rem;
 
-}
+            font-weight: 700;
 
+            backdrop-filter: blur(8px);
 
-/* =========================================================
-   STEP CARD
-========================================================= */
+            transition: all .3s ease;
 
-.bh-order-step{
+        }
 
-    position:relative;
 
-    z-index:2;
+        .bh-btn-outline:hover {
 
-    min-width:0;
+            background: white;
 
-    text-align:center;
+            color: var(--bh-ink);
 
-    padding:0 .7rem;
+            transform: translateY(-3px);
 
-}
+        }
 
 
-.bh-order-number{
+        .bh-btn-text {
 
-    position:relative;
+            display: inline-flex;
 
-    margin:0 auto;
+            align-items: center;
 
-    width:4rem;
+            gap: 8px;
 
-    height:4rem;
+            color: var(--bh-terracotta);
 
-    border-radius:9999px;
+            font-size: .78rem;
 
-    display:flex;
+            font-weight: 800;
 
-    align-items:center;
+            text-transform: uppercase;
 
-    justify-content:center;
+            letter-spacing: .08em;
 
-    font-family:'Cormorant Garamond',serif;
+        }
 
-    font-size:1.45rem;
 
-    font-weight:700;
+        .bh-btn-text span {
 
-    color:var(--bh-ink);
+            transition: transform .3s ease;
 
-    background:
-        linear-gradient(
-            145deg,
-            #fffdf8,
-            #e9d8bc
-        );
+        }
 
-    border:4px solid rgba(255,255,255,.16);
 
-    box-shadow:
-        0 10px 30px rgba(0,0,0,.32),
-        0 0 0 7px rgba(201,134,47,.08);
+        .bh-btn-text:hover span {
 
-    transition:
-        transform .35s ease,
-        box-shadow .35s ease;
+            transform: translateX(5px);
 
-}
+        }
 
 
-.bh-order-number::after{
+        /* =====================================================
+           HERO
+        ===================================================== */
 
-    content:"";
+        .bh-hero {
 
-    position:absolute;
+            position: relative;
 
-    right:-2px;
+            min-height: min(860px, 90vh);
 
-    top:2px;
+            display: flex;
 
-    width:9px;
+            align-items: center;
 
-    height:9px;
+            overflow: hidden;
 
-    border-radius:50%;
+            background:
 
-    background:var(--bh-ember);
+                linear-gradient(
+                    90deg,
+                    rgba(22,14,10,.88) 0%,
+                    rgba(22,14,10,.66) 43%,
+                    rgba(22,14,10,.20) 75%,
+                    rgba(22,14,10,.08) 100%
+                ),
 
-    box-shadow:0 0 0 4px rgba(201,134,47,.12);
+                url("https://images.unsplash.com/photo-1547592180-85f173990554?q=90&w=2200&auto=format&fit=crop");
 
-}
+            background-size: cover;
 
+            background-position: center;
 
-.bh-order-card{
+        }
 
-    margin-top:1.35rem;
 
-    min-height:145px;
+        .bh-hero::after {
 
-    padding:1.1rem .8rem;
+            content: "";
 
-    border-radius:1.2rem;
+            position: absolute;
 
-    border:1px solid rgba(255,255,255,.12);
+            inset: 0;
 
-    background:rgba(255,255,255,.07);
+            background:
+                linear-gradient(
+                    0deg,
+                    rgba(20,12,8,.70),
+                    transparent 30%
+                );
 
-    backdrop-filter:blur(10px);
+            pointer-events: none;
 
-    -webkit-backdrop-filter:blur(10px);
+        }
 
-    box-shadow:
-        0 15px 35px rgba(0,0,0,.16);
 
-    transition:
-        transform .35s ease,
-        background .35s ease,
-        border-color .35s ease,
-        box-shadow .35s ease;
+        .bh-hero-content {
 
-}
+            position: relative;
 
+            z-index: 3;
 
-.bh-order-card h3{
+        }
 
-    margin:0;
 
-    color:#fff;
+        .bh-hero-kicker {
 
-    font-size:1.05rem;
+            display: inline-flex;
 
-    font-weight:800;
+            align-items: center;
 
-    line-height:1.25;
+            gap: 10px;
 
-    white-space:nowrap;
+            padding: 8px 13px;
 
-}
+            border: 1px solid rgba(255,255,255,.18);
 
+            border-radius: 999px;
 
-.bh-order-card p{
+            background: rgba(255,255,255,.07);
 
-    margin-top:.55rem;
+            backdrop-filter: blur(12px);
 
-    color:rgba(255,255,255,.65);
+            color: #F3C36B;
 
-    font-size:.78rem;
+            font-size: .66rem;
 
-    line-height:1.45;
+            font-weight: 800;
 
-    white-space:nowrap;
+            letter-spacing: .18em;
 
-}
+            text-transform: uppercase;
 
+        }
 
-.bh-order-step:hover .bh-order-number{
 
-    transform:translateY(-5px) scale(1.05);
+        .bh-hero-kicker::before {
 
-    box-shadow:
-        0 16px 35px rgba(0,0,0,.38),
-        0 0 0 9px rgba(201,134,47,.10);
+            content: "";
 
-}
+            width: 7px;
 
-.bh-order-step:hover .bh-order-card{
+            height: 7px;
 
-    transform:translateY(-5px);
+            border-radius: 50%;
 
-    background:rgba(255,255,255,.11);
+            background: #F3C36B;
 
-    border-color:rgba(201,134,47,.45);
+            box-shadow: 0 0 0 5px rgba(243,195,107,.12);
 
-    box-shadow:
-        0 22px 45px rgba(0,0,0,.24);
+        }
 
-}
 
+        .bh-hero-title {
 
-/* =========================================================
-   OLD ORDER CLASSES
-========================================================= */
+            margin-top: 25px;
 
-.bh-rail{
+            max-width: 760px;
 
-    position:relative;
+            color: white;
 
-}
+            font-family: "Cormorant Garamond", serif;
 
-.bh-step-num{
+            font-size: clamp(4rem, 8vw, 8rem);
 
-    width:3.25rem;
+            line-height: .83;
 
-    height:3.25rem;
+            letter-spacing: -.055em;
 
-    border-radius:9999px;
+            font-weight: 600;
 
-    display:flex;
+        }
 
-    align-items:center;
 
-    justify-content:center;
+        .bh-hero-title em {
 
-    font-family:'Cormorant Garamond',serif;
+            color: #E9B763;
 
-    font-weight:600;
+            font-weight: 500;
 
-    font-size:1.35rem;
+        }
 
-    background:var(--bh-cream);
 
-    color:var(--bh-ink);
+        .bh-hero-description {
 
-    border:1px solid rgba(255,255,255,.15);
+            max-width: 590px;
 
-}
+            margin-top: 28px;
 
+            color: rgba(255,255,255,.78);
 
-/* =========================================================
-   KITCHEN STORY / OTHER
-========================================================= */
+            font-size: 1rem;
 
-.bh-dish{
+            line-height: 1.85;
 
-    transition:
-        transform .35s ease,
-        box-shadow .35s ease;
+        }
 
-}
 
-.bh-dish:hover{
+        .bh-hero-actions {
 
-    transform:translateY(-6px);
+            display: flex;
 
-    box-shadow:
-        0 22px 40px -18px rgba(36,26,20,.3);
+            flex-wrap: wrap;
 
-}
+            gap: 12px;
 
+            margin-top: 34px;
 
-.bh-tag{
+        }
 
-    font-size:.65rem;
 
-    letter-spacing:.08em;
+        .bh-hero-bottom {
 
-    text-transform:uppercase;
+            position: absolute;
 
-    padding:.2rem .55rem;
+            z-index: 4;
 
-    border-radius:9999px;
+            left: 0;
 
-    font-weight:600;
+            right: 0;
 
-}
+            bottom: 0;
 
-.bh-tag-veg{
+            border-top: 1px solid rgba(255,255,255,.14);
 
-    background:#eaf0e3;
+            background: rgba(20,12,8,.22);
 
-    color:var(--bh-sage);
+            backdrop-filter: blur(12px);
 
-}
+        }
 
-.bh-tag-nonveg{
 
-    background:#fbe9e4;
+        .bh-hero-bottom-item {
 
-    color:var(--bh-paprika);
+            padding: 18px 0;
 
-}
+            color: rgba(255,255,255,.75);
 
-.dark .bh-tag-veg{
+            font-size: .68rem;
 
-    background:rgba(84,95,66,.25);
+            font-weight: 700;
 
-    color:#c3d3ac;
+            letter-spacing: .1em;
 
-}
+            text-transform: uppercase;
 
-.dark .bh-tag-nonveg{
+        }
 
-    background:rgba(168,52,31,.25);
 
-    color:#f2b3a2;
+        .bh-hero-bottom-item strong {
 
-}
+            color: white;
 
+            margin-right: 7px;
 
-/* =========================================================
-   TESTIMONIALS
-========================================================= */
+        }
 
-.bh-testimonials{
 
-    text-align:center;
+        /* =====================================================
+           INTRO
+        ===================================================== */
 
-}
+        .bh-intro {
 
+            position: relative;
 
-.bh-testimonials-header{
+            background: var(--bh-paper);
 
-    width:100%;
+        }
 
-    max-width:800px;
 
-    margin-left:auto;
+        .bh-intro-grid {
 
-    margin-right:auto;
+            display: grid;
 
-    text-align:center;
+            grid-template-columns: .9fr 1.1fr;
 
-}
+            align-items: center;
 
+            gap: clamp(40px, 8vw, 120px);
 
-.bh-testimonials-grid{
+        }
 
-    width:100%;
 
-    max-width:1100px;
+        .bh-intro-image-wrap {
 
-    margin-left:auto;
+            position: relative;
 
-    margin-right:auto;
+            padding: 20px;
 
-}
+        }
 
 
-.bh-quote-card{
+        .bh-intro-image {
 
-    transform:rotate(var(--r,0deg));
+            width: 100%;
 
-}
+            aspect-ratio: 4 / 5;
 
-.bh-quote-card:nth-child(1){
+            object-fit: cover;
 
-    --r:-1.4deg;
+            border-radius: 2px;
 
-}
+            box-shadow:
+                0 30px 70px rgba(36,26,20,.16);
 
-.bh-quote-card:nth-child(2){
+        }
 
-    --r:1deg;
 
-}
+        .bh-intro-image-wrap::before {
 
-.bh-quote-card:nth-child(3){
+            content: "";
 
-    --r:-.6deg;
+            position: absolute;
 
-}
+            inset: 0;
 
-.bh-quote-mark{
+            border: 1px solid rgba(168,52,31,.35);
 
-    font-family:'Cormorant Garamond',serif;
+            transform: translate(2px,2px);
 
-    line-height:.6;
+            pointer-events: none;
 
-}
+        }
 
 
-.bh-testimonial-text{
+        .bh-intro-stamp {
 
-    text-align:left;
+            position: absolute;
 
-}
+            right: -10px;
 
+            bottom: 25px;
 
-/* =========================================================
-   REAL MAP
-========================================================= */
+            width: 120px;
 
-.bh-real-map{
+            height: 120px;
 
-    position:relative;
+            border-radius: 50%;
 
-    min-height:430px;
+            display: flex;
 
-    width:100%;
+            align-items: center;
 
-    overflow:hidden;
+            justify-content: center;
 
-}
+            text-align: center;
 
+            padding: 20px;
 
-/* Leaflet */
+            background: var(--bh-terracotta);
 
-#bh-map{
+            color: white;
 
-    width:100%;
+            font-family: "Cormorant Garamond", serif;
 
-    height:100%;
+            font-size: 1.1rem;
 
-    min-height:430px;
+            line-height: 1;
 
-    z-index:1;
+            box-shadow:
+                0 18px 40px rgba(168,52,31,.25);
 
-}
+        }
 
 
-/* =========================================================
-   CUSTOM MAP MARKER
-========================================================= */
+        .bh-intro-copy {
 
-.bh-leaflet-marker{
+            max-width: 650px;
 
-    width:42px;
+        }
 
-    height:42px;
 
-    border-radius:50%;
+        .bh-intro-lead {
 
-    background:var(--bh-paprika);
+            margin-top: 25px;
 
-    border:4px solid white;
+            font-family: "Cormorant Garamond", serif;
 
-    display:flex;
+            font-size: clamp(2rem, 3vw, 3rem);
 
-    align-items:center;
+            line-height: 1.05;
 
-    justify-content:center;
+            color: var(--bh-ink);
 
-    font-size:19px;
+        }
 
-    box-shadow:
-        0 8px 20px rgba(0,0,0,.30);
 
-}
+        .dark .bh-intro-lead {
 
+            color: white;
 
-/* =========================================================
-   MAP LABEL
-========================================================= */
+        }
 
-.bh-zone-label{
 
-    background:white;
+        .bh-intro-details {
 
-    color:#241a14;
+            margin-top: 30px;
 
-    border:none;
+            padding-top: 24px;
 
-    border-radius:8px;
+            border-top: 1px solid rgba(118,106,96,.25);
 
-    padding:5px 9px;
+        }
 
-    font-size:11px;
 
-    font-weight:700;
+        .bh-detail {
 
-    box-shadow:0 3px 12px rgba(0,0,0,.15);
+            display: flex;
 
-}
+            gap: 14px;
 
-.dark .bh-zone-label{
+        }
 
-    background:#1c1917;
 
-    color:white;
+        .bh-detail-icon {
 
-}
+            width: 38px;
 
+            height: 38px;
 
-/* =========================================================
-   MAP INFO
-========================================================= */
+            flex: none;
 
-.bh-map-info-real{
+            border-radius: 50%;
 
-    position:absolute;
+            display: flex;
 
-    left:20px;
+            align-items: center;
 
-    top:20px;
+            justify-content: center;
 
-    z-index:500;
+            background: rgba(168,52,31,.08);
 
-    border-radius:12px;
+            color: var(--bh-terracotta);
 
-    background:rgba(255,255,255,.94);
+        }
 
-    padding:12px 16px;
 
-    box-shadow:0 5px 18px rgba(0,0,0,.16);
+        /* =====================================================
+           FEATURED MENU
+        ===================================================== */
 
-    backdrop-filter:blur(8px);
+        .bh-menu-section {
 
-}
+            background: var(--bh-cream);
 
-.dark .bh-map-info-real{
+        }
 
-    background:rgba(28,25,23,.94);
 
-    color:white;
+        .bh-menu-heading {
 
-}
+            display: flex;
 
+            align-items: end;
 
-/* =========================================================
-   MAP LEGEND
-========================================================= */
+            justify-content: space-between;
 
-.bh-map-legend-real{
+            gap: 30px;
 
-    position:absolute;
+        }
 
-    left:20px;
 
-    right:20px;
+        .bh-food-grid {
 
-    bottom:20px;
+            display: grid;
 
-    z-index:500;
+            grid-template-columns:
+                1.2fr
+                .8fr
+                .8fr;
 
-    display:flex;
+            gap: 18px;
 
-    flex-wrap:wrap;
+            margin-top: 50px;
 
-    align-items:center;
+        }
 
-    justify-content:space-between;
 
-    gap:12px;
+        .bh-food-main {
 
-    border-radius:12px;
+            position: relative;
 
-    background:rgba(255,255,255,.94);
+            min-height: 600px;
 
-    padding:12px 16px;
+            overflow: hidden;
 
-    box-shadow:0 5px 18px rgba(0,0,0,.15);
+            border-radius: 3px;
 
-    backdrop-filter:blur(8px);
+        }
 
-}
 
-.dark .bh-map-legend-real{
+        .bh-food-main img {
 
-    background:rgba(28,25,23,.94);
+            position: absolute;
 
-    color:white;
+            inset: 0;
 
-}
+            width: 100%;
 
+            height: 100%;
 
-/* =========================================================
-   TABLET
-========================================================= */
+            object-fit: cover;
 
-@media (min-width:768px) and (max-width:1023px){
+            transition: transform .7s ease;
 
-    .bh-order-section{
+        }
 
-        background-attachment:scroll;
 
-    }
+        .bh-food-main:hover img {
 
-    .bh-order-heading{
+            transform: scale(1.04);
 
-        font-size:2.35rem;
+        }
 
-    }
 
-    .bh-order-subtitle{
+        .bh-food-main::after {
 
-        font-size:.8rem;
+            content: "";
 
-    }
+            position: absolute;
 
-    .bh-order-rail{
+            inset: 0;
 
-        margin-top:3rem;
+            background:
+                linear-gradient(
+                    0deg,
+                    rgba(24,15,10,.90),
+                    rgba(24,15,10,.05) 65%
+                );
 
-    }
+        }
 
-    .bh-order-rail::before{
 
-        left:6%;
+        .bh-food-main-content {
 
-        right:6%;
+            position: absolute;
 
-        top:1.8rem;
+            z-index: 2;
 
-    }
+            left: 30px;
 
-    .bh-order-step{
+            right: 30px;
 
-        padding:0 .25rem;
+            bottom: 30px;
 
-    }
+            color: white;
 
-    .bh-order-number{
+        }
 
-        width:3.6rem;
 
-        height:3.6rem;
+        .bh-food-side {
 
-        font-size:1.3rem;
+            background: var(--bh-paper);
 
-    }
+            overflow: hidden;
 
-    .bh-order-card{
+            border-radius: 3px;
 
-        min-height:140px;
+            transition:
+                transform .35s ease,
+                box-shadow .35s ease;
 
-        padding:.95rem .35rem;
+        }
 
-        border-radius:1rem;
 
-    }
+        .bh-food-side:hover {
 
-    .bh-order-card h3{
+            transform: translateY(-5px);
 
-        font-size:.88rem;
+            box-shadow: 0 25px 50px rgba(36,26,20,.10);
 
-    }
+        }
 
-    .bh-order-card p{
 
-        font-size:.66rem;
+        .bh-food-side img {
 
-    }
+            width: 100%;
 
-}
+            aspect-ratio: 1.15 / 1;
 
+            object-fit: cover;
 
-/* =========================================================
-   MOBILE
-========================================================= */
+        }
 
-@media(max-width:767px){
 
-    .bh-order-section{
+        .bh-food-side-content {
 
-        background-attachment:scroll;
+            padding: 22px;
 
-    }
+        }
 
-    .bh-order-heading{
 
-        font-size:2rem;
+        .bh-food-tag {
 
-        white-space:normal;
+            display: inline-block;
 
-        line-height:1.05;
+            color: var(--bh-terracotta);
 
-    }
+            font-size: .62rem;
 
-    .bh-order-subtitle{
+            font-weight: 800;
 
-        font-size:.78rem;
+            letter-spacing: .14em;
 
-        white-space:normal;
+            text-transform: uppercase;
 
-        max-width:330px;
+        }
 
-    }
 
-    .bh-order-rail{
+        .bh-food-name {
 
-        margin-top:2.5rem;
+            margin-top: 8px;
 
-        display:grid;
+            font-family: "Cormorant Garamond", serif;
 
-        grid-template-columns:
-            repeat(4,minmax(0,1fr));
+            font-size: 1.65rem;
 
-        gap:.3rem;
+            line-height: 1;
 
-    }
+            font-weight: 600;
 
-    .bh-order-rail::before{
+        }
 
-        left:8%;
 
-        right:8%;
+        .bh-food-price {
 
-        top:1.55rem;
+            margin-top: 15px;
 
-    }
+            font-size: .8rem;
 
-    .bh-order-step{
+            font-weight: 800;
 
-        padding:0 .1rem;
+            color: var(--bh-terracotta);
 
-    }
+        }
 
-    .bh-order-number{
 
-        width:3.1rem;
+        /* =====================================================
+           NUMBERS
+        ===================================================== */
 
-        height:3.1rem;
+        .bh-numbers {
 
-        font-size:1.1rem;
+            background: var(--bh-dark);
 
-    }
+            color: white;
 
-    .bh-order-number::after{
+        }
 
-        width:7px;
 
-        height:7px;
+        .bh-number-grid {
 
-    }
+            display: grid;
 
-    .bh-order-card{
+            grid-template-columns: repeat(3, 1fr);
 
-        margin-top:.9rem;
+        }
 
-        min-height:150px;
 
-        padding:.75rem .25rem;
+        .bh-number {
 
-        border-radius:.8rem;
+            padding: 55px 35px;
 
-        backdrop-filter:blur(7px);
+            text-align: center;
 
-    }
+            border-right: 1px solid rgba(255,255,255,.12);
 
-    .bh-order-card h3{
+        }
 
-        font-size:.68rem;
 
-        line-height:1.25;
+        .bh-number:last-child {
 
-        white-space:normal;
+            border-right: 0;
 
-    }
+        }
 
-    .bh-order-card p{
 
-        font-size:.55rem;
+        .bh-number-value {
 
-        line-height:1.35;
+            display: block;
 
-        white-space:normal;
+            font-family: "Cormorant Garamond", serif;
 
-    }
+            font-size: clamp(3.4rem, 6vw, 5.5rem);
 
-    .bh-testimonials-grid{
+            line-height: .8;
 
-        max-width:420px;
+            color: #E6B563;
 
-    }
+        }
 
-}
 
+        .bh-number-label {
 
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
+            display: block;
 
-@media(max-width:420px){
+            margin-top: 18px;
 
-    .bh-order-heading{
+            color: rgba(255,255,255,.58);
 
-        font-size:1.75rem;
+            font-size: .65rem;
 
-    }
+            font-weight: 800;
 
-    .bh-order-eyebrow{
+            letter-spacing: .18em;
 
-        font-size:.62rem;
+            text-transform: uppercase;
 
-        letter-spacing:.2em;
+        }
 
-    }
 
-    .bh-order-rail{
+        /* =====================================================
+           ORDER PROCESS
+        ===================================================== */
 
-        gap:.15rem;
+        .bh-process {
 
-    }
+            background: var(--bh-paper);
 
-    .bh-order-number{
+        }
 
-        width:2.7rem;
 
-        height:2.7rem;
+        .bh-process-grid {
 
-        font-size:1rem;
+            position: relative;
 
-    }
+            display: grid;
 
-    .bh-order-card{
+            grid-template-columns: repeat(4, 1fr);
 
-        min-height:145px;
+            gap: 0;
 
-        padding:.65rem .15rem;
+            margin-top: 65px;
 
-    }
+        }
 
-    .bh-order-card h3{
 
-        font-size:.61rem;
+        .bh-process-grid::before {
 
-    }
+            content: "";
 
-    .bh-order-card p{
+            position: absolute;
 
-        font-size:.5rem;
+            left: 8%;
 
-    }
+            right: 8%;
 
-}
+            top: 32px;
 
+            height: 1px;
 
-/* =========================================================
-   MAP MOBILE
-========================================================= */
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(201,134,47,.65),
+                    transparent
+                );
 
-@media(max-width:640px){
+        }
 
-    .bh-real-map{
 
-        min-height:390px;
+        .bh-process-item {
 
-    }
+            position: relative;
 
-    #bh-map{
+            z-index: 2;
 
-        min-height:390px;
+            padding: 0 22px;
 
-    }
+            text-align: center;
 
-    .bh-map-info-real{
+        }
 
-        left:14px;
 
-        top:14px;
+        .bh-process-number {
 
-    }
+            width: 64px;
 
-    .bh-map-legend-real{
+            height: 64px;
 
-        left:14px;
+            margin: auto;
 
-        right:14px;
+            display: flex;
 
-        bottom:14px;
+            align-items: center;
 
-    }
+            justify-content: center;
 
-}
+            border-radius: 50%;
 
+            background: var(--bh-paper);
 
-/* =========================================================
-   TESTIMONIAL
-========================================================= */
+            border: 1px solid rgba(168,52,31,.35);
 
-@media(min-width:640px){
+            color: var(--bh-terracotta);
 
-    .bh-testimonial-text{
+            font-family: "Cormorant Garamond", serif;
 
-        min-height:84px;
+            font-size: 1.35rem;
 
-    }
+            font-weight: 700;
 
-}
+            box-shadow:
+                0 0 0 10px var(--bh-paper);
 
-</style>
+        }
+
+
+        .bh-process-title {
+
+            margin-top: 28px;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 1.65rem;
+
+            line-height: 1;
+
+            font-weight: 600;
+
+        }
+
+
+        .bh-process-copy {
+
+            margin-top: 12px;
+
+            color: var(--bh-muted);
+
+            font-size: .78rem;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =====================================================
+           SPECIALS EDITORIAL
+        ===================================================== */
+
+        .bh-specials {
+
+            background: #211812;
+
+            color: white;
+
+        }
+
+
+        .bh-specials .bh-eyebrow {
+
+            color: #E6B563;
+
+        }
+
+
+        .bh-specials-title {
+
+            color: white;
+
+        }
+
+
+        .bh-specials-grid {
+
+            display: grid;
+
+            grid-template-columns: 1.05fr .95fr;
+
+            gap: 70px;
+
+            align-items: center;
+
+            margin-top: 55px;
+
+        }
+
+
+        .bh-specials-image {
+
+            position: relative;
+
+        }
+
+
+        .bh-specials-image img {
+
+            width: 100%;
+
+            aspect-ratio: 4 / 3;
+
+            object-fit: cover;
+
+        }
+
+
+        .bh-specials-image::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 20px;
+
+            bottom: -20px;
+
+            width: 70%;
+
+            height: 1px;
+
+            background: var(--bh-gold);
+
+        }
+
+
+        .bh-special-list {
+
+            border-top: 1px solid rgba(255,255,255,.16);
+
+        }
+
+
+        .bh-special-row {
+
+            display: grid;
+
+            grid-template-columns: 1fr auto;
+
+            gap: 25px;
+
+            padding: 24px 0;
+
+            border-bottom: 1px solid rgba(255,255,255,.16);
+
+        }
+
+
+        .bh-special-row h3 {
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 1.65rem;
+
+            font-weight: 600;
+
+        }
+
+
+        .bh-special-row p {
+
+            margin-top: 6px;
+
+            max-width: 420px;
+
+            color: rgba(255,255,255,.55);
+
+            font-size: .75rem;
+
+            line-height: 1.7;
+
+        }
+
+
+        .bh-special-price {
+
+            color: #E6B563;
+
+            font-size: .8rem;
+
+            font-weight: 800;
+
+            white-space: nowrap;
+
+        }
+
+
+        /* =====================================================
+           TESTIMONIALS
+        ===================================================== */
+
+        .bh-testimonials {
+
+            background: var(--bh-cream);
+
+        }
+
+
+        .bh-testimonial-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 1px;
+
+            background: rgba(118,106,96,.25);
+
+            margin-top: 55px;
+
+            border-top: 1px solid rgba(118,106,96,.25);
+
+            border-bottom: 1px solid rgba(118,106,96,.25);
+
+        }
+
+
+        .bh-testimonial {
+
+            padding: 40px 32px;
+
+            background: var(--bh-cream);
+
+        }
+
+
+        .bh-quote {
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 4.5rem;
+
+            line-height: .5;
+
+            color: var(--bh-gold);
+
+        }
+
+
+        .bh-testimonial-text {
+
+            margin-top: 20px;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 1.45rem;
+
+            line-height: 1.25;
+
+        }
+
+
+        .bh-testimonial-person {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            margin-top: 30px;
+
+        }
+
+
+        .bh-avatar {
+
+            width: 38px;
+
+            height: 38px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: var(--bh-terracotta);
+
+            color: white;
+
+            font-size: .65rem;
+
+            font-weight: 800;
+
+        }
+
+
+        .bh-person-name {
+
+            font-size: .75rem;
+
+            font-weight: 800;
+
+        }
+
+
+        .bh-person-location {
+
+            margin-top: 2px;
+
+            color: var(--bh-muted);
+
+            font-size: .65rem;
+
+        }
+
+
+        /* =====================================================
+           CTA
+        ===================================================== */
+
+        .bh-cta {
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    rgba(37,23,17,.96),
+                    rgba(37,23,17,.78)
+                ),
+
+                url("https://images.unsplash.com/photo-1498837167922-ddd27525d352?q=90&w=1800&auto=format&fit=crop");
+
+            background-size: cover;
+
+            background-position: center;
+
+            color: white;
+
+        }
+
+
+        .bh-cta-inner {
+
+            position: relative;
+
+            z-index: 2;
+
+            text-align: center;
+
+        }
+
+
+        .bh-cta-title {
+
+            margin-top: 15px;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(3.5rem, 7vw, 7rem);
+
+            line-height: .82;
+
+            letter-spacing: -.045em;
+
+        }
+
+
+        .bh-cta-copy {
+
+            max-width: 620px;
+
+            margin: 25px auto 0;
+
+            color: rgba(255,255,255,.7);
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =====================================================
+           DELIVERY
+        ===================================================== */
+
+        .bh-delivery {
+
+            background: var(--bh-paper);
+
+        }
+
+
+        .bh-delivery-grid {
+
+            display: grid;
+
+            grid-template-columns: .75fr 1.25fr;
+
+            min-height: 580px;
+
+            border: 1px solid rgba(118,106,96,.22);
+
+        }
+
+
+        .bh-delivery-copy {
+
+            padding: clamp(35px, 5vw, 70px);
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+        }
+
+
+        .bh-zone-list {
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 0;
+
+            margin-top: 30px;
+
+            border-top: 1px solid rgba(118,106,96,.22);
+
+        }
+
+
+        .bh-zone {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding: 14px 0;
+
+            border-bottom: 1px solid rgba(118,106,96,.22);
+
+            font-size: .72rem;
+
+            font-weight: 700;
+
+        }
+
+
+        .bh-zone-dot {
+
+            width: 7px;
+
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: var(--bh-terracotta);
+
+        }
+
+
+        .bh-map-wrap {
+
+            position: relative;
+
+            min-height: 580px;
+
+        }
+
+
+        #bh-map {
+
+            width: 100%;
+
+            height: 100%;
+
+            min-height: 580px;
+
+        }
+
+
+        .bh-map-info {
+
+            position: absolute;
+
+            z-index: 500;
+
+            top: 20px;
+
+            left: 20px;
+
+            padding: 13px 17px;
+
+            background: rgba(255,255,255,.94);
+
+            box-shadow: 0 8px 25px rgba(0,0,0,.12);
+
+            backdrop-filter: blur(10px);
+
+        }
+
+
+        .dark .bh-map-info {
+
+            background: rgba(28,25,23,.94);
+
+            color: white;
+
+        }
+
+
+        .bh-map-info small {
+
+            display: block;
+
+            color: #766A60;
+
+            font-size: .58rem;
+
+            font-weight: 800;
+
+            letter-spacing: .16em;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .bh-map-info strong {
+
+            display: block;
+
+            margin-top: 4px;
+
+            font-size: .8rem;
+
+        }
+
+
+        /* =====================================================
+           LEAFLET
+        ===================================================== */
+
+        .bh-marker {
+
+            width: 42px;
+
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: var(--bh-terracotta);
+
+            border: 4px solid white;
+
+            box-shadow: 0 8px 20px rgba(0,0,0,.25);
+
+            font-size: 17px;
+
+        }
+
+
+        .bh-zone-label {
+
+            padding: 4px 8px !important;
+
+            border: 0 !important;
+
+            border-radius: 6px !important;
+
+            background: white !important;
+
+            color: var(--bh-ink) !important;
+
+            font-size: 10px !important;
+
+            font-weight: 800 !important;
+
+            box-shadow: 0 4px 15px rgba(0,0,0,.12) !important;
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media(max-width: 1023px) {
+
+            .bh-hero {
+
+                min-height: 760px;
+
+                background-position: 58% center;
+
+            }
+
+
+            .bh-intro-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 55px;
+
+            }
+
+
+            .bh-intro-image-wrap {
+
+                max-width: 620px;
+
+                margin: auto;
+
+            }
+
+
+            .bh-food-grid {
+
+                grid-template-columns: 1fr 1fr;
+
+            }
+
+
+            .bh-food-main {
+
+                grid-column: span 2;
+
+                min-height: 520px;
+
+            }
+
+
+            .bh-specials-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 50px;
+
+            }
+
+
+            .bh-delivery-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .bh-map-wrap,
+
+            #bh-map {
+
+                min-height: 500px;
+
+            }
+
+        }
+
+
+        @media(max-width: 767px) {
+
+            .bh-hero {
+
+                min-height: 720px;
+
+                background:
+                    linear-gradient(
+                        90deg,
+                        rgba(22,14,10,.82),
+                        rgba(22,14,10,.50)
+                    ),
+                    url("https://images.unsplash.com/photo-1547592180-85f173990554?q=90&w=1400&auto=format&fit=crop");
+
+                background-position: 62% center;
+
+            }
+
+
+            .bh-hero-title {
+
+                font-size: clamp(3.8rem, 17vw, 5.5rem);
+
+            }
+
+
+            .bh-hero-description {
+
+                font-size: .88rem;
+
+                line-height: 1.7;
+
+            }
+
+
+            .bh-hero-bottom {
+
+                display: none;
+
+            }
+
+
+            .bh-section-title {
+
+                font-size: 3.1rem;
+
+            }
+
+
+            .bh-intro-image-wrap {
+
+                padding: 12px;
+
+            }
+
+
+            .bh-intro-stamp {
+
+                width: 90px;
+
+                height: 90px;
+
+                right: -5px;
+
+                bottom: 15px;
+
+                font-size: .85rem;
+
+            }
+
+
+            .bh-food-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .bh-food-main {
+
+                grid-column: auto;
+
+                min-height: 460px;
+
+            }
+
+
+            .bh-number-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .bh-number {
+
+                padding: 35px 20px;
+
+                border-right: 0;
+
+                border-bottom: 1px solid rgba(255,255,255,.12);
+
+            }
+
+
+            .bh-number:last-child {
+
+                border-bottom: 0;
+
+            }
+
+
+            .bh-process-grid {
+
+                grid-template-columns: 1fr 1fr;
+
+                gap: 45px 10px;
+
+            }
+
+
+            .bh-process-grid::before {
+
+                display: none;
+
+            }
+
+
+            .bh-process-item {
+
+                padding: 0 8px;
+
+            }
+
+
+            .bh-process-title {
+
+                font-size: 1.4rem;
+
+            }
+
+
+            .bh-testimonial-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .bh-testimonial {
+
+                padding: 32px 25px;
+
+            }
+
+
+            .bh-zone-list {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .bh-delivery-grid {
+
+                border-left: 0;
+
+                border-right: 0;
+
+            }
+
+
+            .bh-map-wrap,
+
+            #bh-map {
+
+                min-height: 420px;
+
+            }
+
+        }
+
+
+        @media(max-width: 480px) {
+
+            .bh-hero-actions {
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+            }
+
+
+            .bh-btn-primary,
+
+            .bh-btn-outline {
+
+                width: 100%;
+
+            }
+
+
+            .bh-process-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .bh-special-row {
+
+                grid-template-columns: 1fr;
+
+                gap: 8px;
+
+            }
+
+
+            .bh-special-price {
+
+                text-align: left;
+
+            }
+
+        }
+
+    </style>
 
 </head>
 
 
-<body class="bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-100">
+<body class="bg-[#FCF9F3] text-[#241A14] dark:bg-stone-950 dark:text-stone-100">
 
 
 <!-- =========================================================
@@ -1242,1161 +2096,1181 @@ src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
 <main>
 
 
-<!-- =====================================================
-     HERO
-===================================================== -->
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
 
-<section class="hero-home relative overflow-hidden">
+    <section class="bh-hero">
 
-<div class="absolute inset-0 bg-stone-950/45"></div>
+        <div class="mx-auto w-full max-w-[1500px] px-6 sm:px-10 lg:px-16">
 
-<div class="relative mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-12 lg:py-32">
+            <div class="bh-hero-content max-w-4xl">
 
-<div class="max-w-3xl text-white">
+                <span class="bh-hero-kicker">
+                    Local kitchen · Daily delivery
+                </span>
 
-<p class="mb-5 text-sm font-bold uppercase tracking-[0.3em] text-amber-300">
-Local kitchen • Daily delivery
-</p>
 
-<h1 class="font-display text-5xl font-black leading-tight sm:text-6xl lg:text-7xl">
-Food that feels like it came from home.
-</h1>
+                <h1 class="bh-hero-title">
 
-<p class="mt-6 max-w-2xl text-lg leading-8 text-white/90">
-Freshly cooked breakfast, lunch, dinner and
-snacks prepared in small batches and delivered
-across the city.
-</p>
+                    Food that feels
+                    <br>
 
-<div class="mt-9 flex flex-wrap gap-3">
+                    <em>like home.</em>
 
-<a
-href="assets/pages/menu.html"
-class="btn-primary"
->
-Explore today's menu
-</a>
+                </h1>
 
-<a
-href="assets/pages/bulk-orders.html"
-class="btn-light"
->
-Plan a bulk order
-</a>
 
-</div>
+                <p class="bh-hero-description">
 
-</div>
-</div>
-</section>
+                    Freshly cooked meals, thoughtful catering and
+                    everyday comfort food — prepared in small
+                    batches and delivered with care.
 
+                </p>
 
-<!-- =====================================================
-     KITCHEN STORY
-===================================================== -->
 
-<section class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12">
+                <div class="bh-hero-actions">
 
-<div class="grid items-center gap-16 lg:grid-cols-2">
+                    <a
+                        href="assets/pages/menu.html"
+                        class="bh-btn-primary"
+                    >
+                        Explore today's menu
 
-<div class="bh-collage mx-4 mt-10 sm:mx-8 lg:mx-0">
+                        <span>→</span>
 
-<div class="bh-badge">
-Home&nbsp;kitchen<br>
-since 2016
-</div>
+                    </a>
 
-<img
-class="bh-img-a w-full"
-src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1200&auto=format&fit=crop"
-alt="Spiced tray of roasted chicken and coconut chutney bowls, shot from above"
-loading="lazy"
->
 
-<img
-class="bh-img-b"
-src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=800&auto=format&fit=crop"
-alt="Bowl of dessert topped with fresh berries"
-loading="lazy"
->
+                    <a
+                        href="assets/pages/bulk-orders.html"
+                        class="bh-btn-outline"
+                    >
+                        Plan a bulk order
+                    </a>
 
-</div>
+                </div>
 
+            </div>
 
-<div>
+        </div>
 
-<p class="eyebrow">
-Our kitchen
-</p>
 
-<h2 class="section-title">
-Cooked like it's<br>
-for our own table.
-</h2>
+        <div class="bh-hero-bottom">
 
-<p
-class="bh-script mt-2 text-xl"
-style="color:var(--bh-paprika)"
->
-slow spices, short distances, no shortcuts
-</p>
+            <div class="mx-auto grid max-w-[1500px] grid-cols-3 px-6 sm:px-10 lg:px-16">
 
-<div
-class="mt-6 h-px w-16"
-style="background:var(--bh-ember)"
-></div>
+                <div class="bh-hero-bottom-item">
+                    <strong>01</strong>
+                    Fresh every morning
+                </div>
 
-<p class="mt-6 max-w-md text-stone-600 dark:text-stone-300">
+                <div class="bh-hero-bottom-item text-center">
+                    <strong>02</strong>
+                    Local delivery
+                </div>
 
-Bowl & Hearth started as a two-burner stove and
-a delivery bicycle. A decade on, the same hands
-still grind the masalas every morning — we've just
-added more bicycles. Whether it's one tiffin or
-three hundred plates for an event, it leaves our
-kitchen the way we'd serve it at home.
+                <div class="bh-hero-bottom-item text-right">
+                    <strong>03</strong>
+                    Home-style cooking
+                </div>
 
-</p>
+            </div>
 
+        </div>
 
-<div class="mt-8 grid grid-cols-3 gap-4 border-t border-stone-200 pt-6 dark:border-stone-800">
+    </section>
 
-<div>
 
-<svg
-class="h-6 w-6"
-style="color:var(--bh-paprika)"
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="1.5"
->
+    <!-- =====================================================
+         INTRO / OUR KITCHEN
+    ====================================================== -->
 
-<path
-d="M4 19h16M6 19V9l6-5 6 5v10"
-stroke-linecap="round"
-stroke-linejoin="round"
-/>
+    <section class="bh-intro px-6 py-24 sm:px-10 lg:px-16 lg:py-32">
 
-</svg>
+        <div class="mx-auto max-w-[1250px]">
 
-<p class="mt-2 text-xs font-bold uppercase tracking-wide">
-Home-style
-</p>
+            <div class="bh-intro-grid">
 
-</div>
 
+                <!-- IMAGE -->
 
-<div>
+                <div class="bh-intro-image-wrap">
 
-<svg
-class="h-6 w-6"
-style="color:var(--bh-paprika)"
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="1.5"
->
+                    <img
+                        class="bh-intro-image"
+                        src="https://images.unsplash.com/photo-1547592180-85f173990554?q=90&w=1200&auto=format&fit=crop"
+                        alt="Freshly prepared bowl of food"
+                        loading="lazy"
+                    >
 
-<circle cx="12" cy="12" r="8"/>
 
-<path
-d="M12 8v4l2.5 2.5"
-stroke-linecap="round"
-stroke-linejoin="round"
-/>
+                    <div class="bh-intro-stamp">
 
-</svg>
+                        Cooked
+                        <br>
+                        with
+                        <br>
+                        care
 
-<p class="mt-2 text-xs font-bold uppercase tracking-wide">
-Cooked fresh daily
-</p>
+                    </div>
 
-</div>
+                </div>
 
 
-<div>
+                <!-- CONTENT -->
 
-<svg
-class="h-6 w-6"
-style="color:var(--bh-paprika)"
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="1.5"
->
+                <div class="bh-intro-copy">
 
-<path
-d="M5 13l4 4L19 7"
-stroke-linecap="round"
-stroke-linejoin="round"
-/>
+                    <p class="bh-eyebrow">
+                        Our kitchen
+                    </p>
 
-</svg>
 
-<p class="mt-2 text-xs font-bold uppercase tracking-wide">
-On-time delivery
-</p>
+                    <h2 class="bh-section-title mt-5">
 
-</div>
+                        Cooked like it's
+                        <br>
 
-</div>
+                        <span class="bh-script text-[#A8341F]">
+                            for our own table.
+                        </span>
 
+                    </h2>
 
-<a
-href="assets/pages/menu.html"
-class="btn-primary mt-9 inline-block"
->
-Explore today's menu
-</a>
 
-</div>
+                    <p class="bh-intro-lead">
 
-</div>
+                        Slow spices.
+                        Short distances.
+                        No shortcuts.
 
-</section>
+                    </p>
 
 
-<!-- =====================================================
-     BESTSELLERS
-===================================================== -->
+                    <p class="bh-section-copy mt-6 max-w-xl">
 
-<section class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12">
+                        Bowl & Hearth started with a small kitchen,
+                        a few family recipes and a simple belief:
+                        good food should feel personal.
 
-<div class="grid gap-10 lg:grid-cols-[1.1fr_.9fr] lg:items-end">
+                        Today, we prepare everything in small
+                        batches — from everyday tiffins to
+                        large office and event orders.
 
-<div>
+                    </p>
 
-<p class="eyebrow">
-Bestsellers
-</p>
 
-<h2 class="section-title">
-The plates people order again.
-</h2>
+                    <div class="bh-intro-details">
 
-</div>
+                        <div class="grid gap-6 sm:grid-cols-3">
 
-<p class="max-w-xl text-stone-600 dark:text-stone-300">
 
-Comforting regional recipes, balanced bowls
-and quick bites made for busy weekdays and
-relaxed weekends.
+                            <div class="bh-detail">
 
-</p>
+                                <div class="bh-detail-icon">
 
-</div>
+                                    <svg
+                                        class="h-4 w-4"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="1.6"
+                                    >
 
+                                        <path
+                                            d="M4 19h16M6 19V9l6-5 6 5v10"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        />
 
-<div class="mt-10 grid gap-6 md:grid-cols-3">
+                                    </svg>
 
+                                </div>
 
-<article class="dish-feature">
 
-<img
-src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=85"
-alt="Fresh grain bowl"
-loading="lazy"
->
+                                <div>
 
-<div>
+                                    <p class="text-xs font-bold">
+                                        Home-style
+                                    </p>
 
-<span class="price">
-₹189
-</span>
+                                    <p class="mt-1 text-[11px] text-stone-500">
+                                        Familiar recipes
+                                    </p>
 
-<h3>
-Herb Paneer Grain Bowl
-</h3>
+                                </div>
 
-<p>
-Roasted vegetables, herbed rice,
-paneer and house chutney.
-</p>
+                            </div>
 
-</div>
 
-</article>
+                            <div class="bh-detail">
 
+                                <div class="bh-detail-icon">
 
-<article class="dish-feature">
+                                    <svg
+                                        class="h-4 w-4"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="1.6"
+                                    >
 
-<img
-src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=900&q=85"
-alt="Vegetable pizza"
-loading="lazy"
->
+                                        <circle
+                                            cx="12"
+                                            cy="12"
+                                            r="8"
+                                        />
 
-<div>
+                                        <path
+                                            d="M12 8v4l2.5 2.5"
+                                            stroke-linecap="round"
+                                        />
 
-<span class="price">
-₹229
-</span>
+                                    </svg>
 
-<h3>
-Garden Tandoori Flatbread
-</h3>
+                                </div>
 
-<p>
-Charred vegetables, mozzarella,
-mint and smoky tomato sauce.
-</p>
 
-</div>
+                                <div>
 
-</article>
+                                    <p class="text-xs font-bold">
+                                        Fresh daily
+                                    </p>
 
+                                    <p class="mt-1 text-[11px] text-stone-500">
+                                        Cooked to order
+                                    </p>
 
-<article class="dish-feature">
+                                </div>
 
-<img
-src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=85"
-alt="Indian dumplings"
-loading="lazy"
->
+                            </div>
 
-<div>
 
-<span class="price">
-₹149
-</span>
+                            <div class="bh-detail">
 
-<h3>
-Steamed Veg Momos
-</h3>
+                                <div class="bh-detail-icon">
 
-<p>
-Soft dumplings with seasonal vegetables
-and chilli-garlic dip.
-</p>
+                                    <svg
+                                        class="h-4 w-4"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="1.6"
+                                    >
 
-</div>
+                                        <path
+                                            d="M5 13l4 4L19 7"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        />
 
-</article>
+                                    </svg>
 
-</div>
+                                </div>
 
-</section>
 
+                                <div>
 
-<!-- =====================================================
-     ORDER TO DOORSTEP
-===================================================== -->
+                                    <p class="text-xs font-bold">
+                                        Reliable
+                                    </p>
 
-<section class="bh-order-section py-20 sm:py-24">
+                                    <p class="mt-1 text-[11px] text-stone-500">
+                                        Delivered on time
+                                    </p>
 
-<div class="bh-order-inner mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+                                </div>
 
-<div class="text-center">
+                            </div>
 
-<p class="bh-order-eyebrow">
-Order to doorstep
-</p>
 
-<h2 class="bh-order-heading">
-Four steps, one kitchen.
-</h2>
+                        </div>
 
-<p class="bh-order-subtitle mx-auto">
-From your first message to a freshly packed meal at your door.
-</p>
+                    </div>
 
-</div>
 
+                    <a
+                        href="assets/pages/menu.html"
+                        class="bh-btn-text mt-9"
+                    >
 
-<div class="bh-order-rail grid grid-cols-4 gap-2 sm:gap-4 lg:gap-6">
+                        Discover our menu
 
+                        <span>→</span>
 
-<div class="bh-order-step">
+                    </a>
 
-<div class="bh-order-number">
-01
-</div>
+                </div>
 
-<div class="bh-order-card">
+            </div>
 
-<h3>
-You send word
-</h3>
+        </div>
 
-<p>
-Browse the menu,<br>
-call or WhatsApp.
-</p>
+    </section>
 
-</div>
 
-</div>
+    <!-- =====================================================
+         FEATURED MENU
+    ====================================================== -->
 
+    <section class="bh-menu-section px-6 py-24 sm:px-10 lg:px-16 lg:py-32">
 
-<div class="bh-order-step">
+        <div class="mx-auto max-w-[1250px]">
 
-<div class="bh-order-number">
-02
-</div>
 
-<div class="bh-order-card">
+            <div class="bh-menu-heading">
 
-<h3>
-We plan the batch
-</h3>
+                <div>
 
-<p>
-We fix dishes, spice<br>
-level and notes.
-</p>
+                    <p class="bh-eyebrow">
+                        The favourites
+                    </p>
 
-</div>
+                    <h2 class="bh-section-title mt-5">
 
-</div>
+                        The plates
+                        <br>
 
+                        people order again.
 
-<div class="bh-order-step">
+                    </h2>
 
-<div class="bh-order-number">
-03
-</div>
+                </div>
 
-<div class="bh-order-card">
 
-<h3>
-Morning-of cooking
-</h3>
+                <div class="hidden max-w-sm pb-2 md:block">
 
-<p>
-Fresh batches are<br>
-cooked that morning.
-</p>
+                    <p class="bh-section-copy text-sm">
 
-</div>
+                        Comforting regional recipes,
+                        balanced bowls and quick bites
+                        made for busy weekdays and
+                        relaxed weekends.
 
-</div>
+                    </p>
 
+                    <a
+                        href="assets/pages/menu.html"
+                        class="bh-btn-text mt-5"
+                    >
+                        See full menu
+                        <span>→</span>
+                    </a>
 
-<div class="bh-order-step">
+                </div>
 
-<div class="bh-order-number">
-04
-</div>
+            </div>
 
-<div class="bh-order-card">
 
-<h3>
-Packed & delivered
-</h3>
+            <div class="bh-food-grid">
 
-<p>
-Hot boxes arrive<br>
-right on time.
-</p>
 
-</div>
+                <!-- MAIN -->
 
-</div>
+                <article class="bh-food-main">
 
+                    <img
+                        src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?q=90&w=1200&auto=format&fit=crop"
+                        alt="Slow roasted chicken thali"
+                        loading="lazy"
+                    >
 
-</div>
 
-</div>
+                    <div class="bh-food-main-content">
 
-</section>
+                        <span class="bh-food-tag text-[#E6B563]">
+                            Signature plate
+                        </span>
 
+                        <h3 class="bh-display mt-3 text-4xl font-semibold sm:text-5xl">
 
-<!-- =====================================================
-     STATS
-===================================================== -->
+                            Hearth-roasted
+                            <br>
+                            chicken thali
 
-<section class="bg-stone-900 text-white">
+                        </h3>
 
-<div class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12">
+                        <p class="mt-3 max-w-md text-sm leading-7 text-white/70">
 
-<div class="grid gap-10 md:grid-cols-3">
+                            Charcoal chicken, tempered lentils,
+                            millet roti and cool buttermilk.
 
-<div>
+                        </p>
 
-<strong class="stat-number">
-12
-</strong>
+                        <p class="mt-4 text-sm font-bold text-[#E6B563]">
+                            ₹320
+                        </p>
 
-<span class="stat-label">
-delivery zones
-</span>
+                    </div>
 
-</div>
+                </article>
 
 
-<div>
+                <!-- SIDE 1 -->
 
-<strong class="stat-number">
-4.9/5
-</strong>
+                <article class="bh-food-side">
 
-<span class="stat-label">
-average customer rating
-</span>
+                    <img
+                        src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?q=90&w=800&auto=format&fit=crop"
+                        alt="Garden paneer bowl"
+                        loading="lazy"
+                    >
 
-</div>
 
+                    <div class="bh-food-side-content">
 
-<div>
+                        <span class="bh-food-tag">
+                            Vegetarian
+                        </span>
 
-<strong class="stat-number">
-35 min
-</strong>
+                        <h3 class="bh-food-name">
+                            Garden paneer bowl
+                        </h3>
 
-<span class="stat-label">
-typical local delivery
-</span>
+                        <p class="mt-2 text-xs leading-6 text-stone-500">
 
-</div>
+                            Seasonal vegetables,
+                            soft paneer and coconut gravy.
 
-</div>
+                        </p>
 
-</div>
+                        <p class="bh-food-price">
+                            ₹189
+                        </p>
 
-</section>
+                    </div>
 
+                </article>
 
-<!-- =====================================================
-     THIS WEEK'S SPECIALS
-===================================================== -->
 
-<section class="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12">
+                <!-- SIDE 2 -->
 
-<div class="flex flex-wrap items-end justify-between gap-4">
+                <article class="bh-food-side">
 
-<div>
+                    <img
+                        src="https://images.unsplash.com/photo-1596797038530-2c107229654b?q=90&w=800&auto=format&fit=crop"
+                        alt="Dal chawal"
+                        loading="lazy"
+                    >
 
-<p class="eyebrow">
-From the pass
-</p>
 
-<h2 class="section-title">
-This week's specials.
-</h2>
+                    <div class="bh-food-side-content">
 
-</div>
+                        <span class="bh-food-tag">
+                            Comfort food
+                        </span>
 
+                        <h3 class="bh-food-name">
+                            Grandmother's dal-chawal
+                        </h3>
 
-<a
-href="assets/pages/menu.html"
-class="text-sm font-bold underline decoration-2 underline-offset-4"
-style="color:var(--bh-paprika)"
->
-See full menu →
-</a>
+                        <p class="mt-2 text-xs leading-6 text-stone-500">
 
-</div>
+                            Slow-simmered dal,
+                            ghee rice and mango pickle.
 
+                        </p>
 
-<div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                        <p class="bh-food-price">
+                            ₹159
+                        </p>
 
+                    </div>
 
-<div class="bh-dish overflow-hidden rounded-[1.5rem] bg-white shadow-sm dark:bg-stone-900 lg:row-span-2">
+                </article>
 
-<img
-class="h-64 w-full object-cover lg:h-full"
-src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?q=80&w=1000&auto=format&fit=crop"
-alt="Slow-roasted spiced chicken thali with sides"
-loading="lazy"
->
 
-<div class="p-5">
+            </div>
 
-<span class="bh-tag bh-tag-nonveg">
-Non-veg
-</span>
+        </div>
 
-<h3 class="bh-serif mt-3 text-2xl font-semibold">
-Hearth-roasted chicken thali
-</h3>
+    </section>
 
-<p class="mt-2 text-sm text-stone-600 dark:text-stone-300">
-Charcoal chicken, tempered lentils,
-millet roti, buttermilk.
-</p>
 
-<p class="mt-3 text-sm font-bold">
-₹320
-</p>
+    <!-- =====================================================
+         NUMBERS
+    ====================================================== -->
 
-</div>
+    <section class="bh-numbers">
 
-</div>
+        <div class="mx-auto max-w-[1250px]">
 
+            <div class="bh-number-grid">
 
-<!-- =====================================================
-     CHANGED: Garden paneer bowl image replaced
-     Old: photo-1585937421612 (same as meen kuzhambu)
-     New: photo-1567620905732 (fresh paneer curry)
-===================================================== -->
 
-<div class="bh-dish overflow-hidden rounded-[1.5rem] bg-white shadow-sm dark:bg-stone-900">
+                <div class="bh-number">
 
-<div class="flex items-center gap-4 p-5">
+                    <span class="bh-number-value">
+                        12
+                    </span>
 
-<img
-class="h-20 w-20 flex-none rounded-full object-cover"
-src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?q=80&w=400&auto=format&fit=crop"
-alt="Bowl of paneer and vegetable curry"
-loading="lazy"
->
+                    <span class="bh-number-label">
+                        Delivery zones
+                    </span>
 
-<div>
+                </div>
 
-<span class="bh-tag bh-tag-veg">
-Veg
-</span>
 
-<h3 class="mt-2 text-base font-bold">
-Garden paneer bowl
-</h3>
+                <div class="bh-number">
 
-<p class="mt-1 text-sm text-stone-600 dark:text-stone-300">
-Seasonal veg, soft paneer,
-coconut gravy.
-</p>
+                    <span class="bh-number-value">
+                        4.9
+                    </span>
 
-</div>
+                    <span class="bh-number-label">
+                        Average customer rating
+                    </span>
 
-</div>
+                </div>
 
-</div>
 
+                <div class="bh-number">
 
-<div class="bh-dish overflow-hidden rounded-[1.5rem] bg-white shadow-sm dark:bg-stone-900">
+                    <span class="bh-number-value">
+                        35
+                    </span>
 
-<div class="flex items-center gap-4 p-5">
+                    <span class="bh-number-label">
+                        Typical delivery · minutes
+                    </span>
 
-<img
-class="h-20 w-20 flex-none rounded-full object-cover"
-src="https://images.unsplash.com/photo-1596797038530-2c107229654b?q=80&w=400&auto=format&fit=crop"
-alt="Bowl of dal with rice and pickle"
-loading="lazy"
->
+                </div>
 
-<div>
 
-<span class="bh-tag bh-tag-veg">
-Veg
-</span>
+            </div>
 
-<h3 class="mt-2 text-base font-bold">
-Grandmother's dal-chawal
-</h3>
+        </div>
 
-<p class="mt-1 text-sm text-stone-600 dark:text-stone-300">
-Slow-simmered dal, ghee rice,
-mango pickle.
-</p>
+    </section>
 
-</div>
 
-</div>
+    <!-- =====================================================
+         ORDER PROCESS
+    ====================================================== -->
 
-</div>
+    <section class="bh-process px-6 py-24 sm:px-10 lg:px-16 lg:py-32">
 
+        <div class="mx-auto max-w-[1250px]">
 
-<div class="bh-dish overflow-hidden rounded-[1.5rem] bg-white shadow-sm dark:bg-stone-900 sm:col-span-2">
 
-<div class="grid sm:grid-cols-[.9fr_1.1fr]">
+            <div class="max-w-2xl">
 
-<img
-class="h-48 w-full object-cover sm:h-full"
-src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=800&auto=format&fit=crop"
-alt="Platter set up for office catering"
-loading="lazy"
->
+                <p class="bh-eyebrow">
+                    From kitchen to doorstep
+                </p>
 
-<div class="p-6">
+                <h2 class="bh-section-title mt-5">
 
-<span class="bh-tag bh-tag-nonveg">
-Bulk platter
-</span>
+                    Simple from
+                    <br>
 
-<h3 class="bh-serif mt-2 text-2xl font-semibold">
-The gathering platter
-</h3>
+                    <span class="bh-script text-[#A8341F]">
+                        start to finish.
+                    </span>
 
-<p class="mt-2 text-sm text-stone-600 dark:text-stone-300">
-Built for offices and events —
-three mains, two sides, dessert,
-serves 10.
-</p>
+                </h2>
 
-<p class="mt-3 text-sm font-bold">
-₹2,800 / platter
-</p>
+            </div>
 
-</div>
 
-</div>
+            <div class="bh-process-grid">
 
-</div>
 
-</div>
+                <div class="bh-process-item">
 
-</section>
+                    <div class="bh-process-number">
+                        01
+                    </div>
 
+                    <h3 class="bh-process-title">
+                        You send word
+                    </h3>
 
-<!-- =====================================================
-     TESTIMONIALS
-===================================================== -->
+                    <p class="bh-process-copy">
 
-<section
-class="bh-testimonials px-5 py-20 sm:px-8 lg:px-12"
-style="background:var(--bh-cream)"
->
+                        Browse the menu,
+                        call or WhatsApp.
 
-<div class="mx-auto max-w-7xl">
+                    </p>
 
-<div class="bh-testimonials-header">
+                </div>
 
-<p
-class="eyebrow"
-style="color:var(--bh-paprika)"
->
-Word of mouth
-</p>
 
-<h2 class="section-title">
-What neighbours say.
-</h2>
+                <div class="bh-process-item">
 
-</div>
+                    <div class="bh-process-number">
+                        02
+                    </div>
 
+                    <h3 class="bh-process-title">
+                        We plan
+                    </h3>
 
-<div class="bh-testimonials-grid mt-14 grid items-stretch gap-8 sm:grid-cols-3">
+                    <p class="bh-process-copy">
 
+                        We confirm dishes,
+                        spice level and notes.
 
-<div class="bh-quote-card flex h-full flex-col rounded-2xl bg-white p-7 shadow-md transition duration-300 hover:-translate-y-2 hover:shadow-xl dark:bg-stone-900">
+                    </p>
 
-<span
-class="bh-quote-mark text-6xl"
-style="color:var(--bh-ember)"
->
-&ldquo;
-</span>
+                </div>
 
-<p class="bh-testimonial-text mt-1 min-h-[84px] text-sm leading-7 text-stone-700 dark:text-stone-200">
 
-Fresh food arrived right on time.<br>
-Every dish tasted warm and homemade.<br>
-We would happily order again.
+                <div class="bh-process-item">
 
-</p>
+                    <div class="bh-process-number">
+                        03
+                    </div>
 
-<div class="mt-auto flex items-center gap-3 pt-6">
+                    <h3 class="bh-process-title">
+                        We cook
+                    </h3>
 
-<div
-class="flex h-10 w-10 flex-none items-center justify-center rounded-full text-sm font-bold text-white"
-style="background:var(--bh-paprika)"
->
-RS
-</div>
+                    <p class="bh-process-copy">
 
-<div>
+                        Fresh batches are
+                        prepared that morning.
 
-<p class="text-sm font-bold">
-Ritu
-</p>
+                    </p>
 
-<p class="text-xs text-stone-500">
-Market Road
-</p>
+                </div>
 
-</div>
 
-</div>
+                <div class="bh-process-item">
 
-</div>
+                    <div class="bh-process-number">
+                        04
+                    </div>
 
+                    <h3 class="bh-process-title">
+                        We deliver
+                    </h3>
 
-<div class="bh-quote-card flex h-full flex-col rounded-2xl bg-white p-7 shadow-md transition duration-300 hover:-translate-y-2 hover:shadow-xl dark:bg-stone-900">
+                    <p class="bh-process-copy">
 
-<span
-class="bh-quote-mark text-6xl"
-style="color:var(--bh-ember)"
->
-&ldquo;
-</span>
+                        Carefully packed meals
+                        arrive right on time.
 
-<p class="bh-testimonial-text mt-1 min-h-[84px] text-sm leading-7 text-stone-700 dark:text-stone-200">
+                    </p>
 
-The meals feel just like home.<br>
-Portions are generous and satisfying.<br>
-It is now our weekly favourite.
+                </div>
 
-</p>
 
-<div class="mt-auto flex items-center gap-3 pt-6">
+            </div>
 
-<div
-class="flex h-10 w-10 flex-none items-center justify-center rounded-full text-sm font-bold text-white"
-style="background:var(--bh-sage)"
->
-AK
-</div>
+        </div>
 
-<div>
+    </section>
 
-<p class="text-sm font-bold">
-Arvind
-</p>
 
-<p class="text-xs text-stone-500">
-Riverside
-</p>
+    <!-- =====================================================
+         SPECIALS
+    ====================================================== -->
 
-</div>
+    <section class="bh-specials px-6 py-24 sm:px-10 lg:px-16 lg:py-32">
 
-</div>
+        <div class="mx-auto max-w-[1250px]">
 
-</div>
 
+            <div>
 
-<div class="bh-quote-card flex h-full flex-col rounded-2xl bg-white p-7 shadow-md transition duration-300 hover:-translate-y-2 hover:shadow-xl dark:bg-stone-900">
+                <p class="bh-eyebrow">
+                    From the pass
+                </p>
 
-<span
-class="bh-quote-mark text-6xl"
-style="color:var(--bh-ember)"
->
-&ldquo;
-</span>
+                <h2 class="bh-section-title bh-specials-title mt-5">
 
-<p class="bh-testimonial-text mt-1 min-h-[84px] text-sm leading-7 text-stone-700 dark:text-stone-200">
+                    This week's
+                    <br>
+                    specials.
 
-Ordering for our office was simple.<br>
-Everything arrived fresh and well packed.<br>
-The whole team enjoyed the meal.
+                </h2>
 
-</p>
+            </div>
 
-<div class="mt-auto flex items-center gap-3 pt-6">
 
-<div
-class="flex h-10 w-10 flex-none items-center justify-center rounded-full text-sm font-bold text-white"
-style="background:var(--bh-ember)"
->
-PN
-</div>
+            <div class="bh-specials-grid">
 
-<div>
 
-<p class="text-sm font-bold">
-Priya
-</p>
+                <div class="bh-specials-image">
 
-<p class="text-xs text-stone-500">
-Central City
-</p>
+                    <img
+                        src="https://images.unsplash.com/photo-1601050690597-df0568f70950?q=90&w=1200&auto=format&fit=crop"
+                        alt="Fresh Indian dumplings"
+                        loading="lazy"
+                    >
 
-</div>
+                </div>
 
-</div>
 
-</div>
+                <div class="bh-special-list">
 
 
-</div>
+                    <div class="bh-special-row">
 
-</div>
+                        <div>
 
-</section>
+                            <h3>
+                                Steamed Veg Momos
+                            </h3>
 
+                            <p>
+                                Soft dumplings with seasonal
+                                vegetables and chilli-garlic dip.
+                            </p>
 
-<!-- =====================================================
-     HUNGRY ALREADY
-===================================================== -->
+                        </div>
 
-<section class="bg-white px-5 py-20 sm:px-8 lg:px-12 dark:bg-stone-950">
+                        <span class="bh-special-price">
+                            ₹149
+                        </span>
 
-<div class="mx-auto max-w-4xl text-center">
+                    </div>
 
-<p
-class="text-sm font-bold uppercase tracking-[0.3em]"
-style="color:var(--bh-paprika)"
->
-HUNGRY ALREADY?
-</p>
 
-<h2 class="bh-serif mt-4 text-5xl font-semibold leading-[0.95] text-stone-900 dark:text-white sm:text-6xl lg:text-7xl">
+                    <div class="bh-special-row">
 
-Let's get something<br class="hidden sm:block">
-cooking.
+                        <div>
 
-</h2>
+                            <h3>
+                                Garden Paneer Bowl
+                            </h3>
 
-<p class="mx-auto mt-7 max-w-2xl text-base leading-7 text-stone-600 dark:text-stone-300 sm:text-lg">
+                            <p>
+                                Herbed rice, roasted vegetables,
+                                paneer and house chutney.
+                            </p>
 
-One bowl or a hundred plates — tell us the headcount and the time, and we'll take it from there.
+                        </div>
 
-</p>
+                        <span class="bh-special-price">
+                            ₹189
+                        </span>
 
-<div
-class="mx-auto mt-7 h-px w-16"
-style="background:var(--bh-ember)"
-></div>
+                    </div>
 
-<div class="mt-8 flex flex-wrap items-center justify-center gap-4">
 
-<a
-href="assets/pages/menu.html"
-class="btn-primary"
->
-Order now
-</a>
+                    <div class="bh-special-row">
 
-<a
-href="assets/pages/contact.html"
-class="text-sm font-bold underline decoration-2 underline-offset-4 transition hover:opacity-70"
-style="color:var(--bh-paprika)"
->
-Talk to us →
-</a>
+                        <div>
 
-</div>
+                            <h3>
+                                Gathering Platter
+                            </h3>
 
-</div>
+                            <p>
+                                Three mains, two sides and dessert
+                                — designed for ten people.
+                            </p>
 
-</section>
+                        </div>
 
+                        <span class="bh-special-price">
+                            ₹2,800
+                        </span>
 
-<!-- =====================================================
-     DELIVERY COVERAGE
-===================================================== -->
+                    </div>
 
-<section class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12">
 
-<div class="overflow-hidden rounded-[2rem] border border-stone-200 bg-white shadow-xl dark:border-stone-800 dark:bg-stone-900">
+                    <a
+                        href="assets/pages/menu.html"
+                        class="bh-btn-text mt-7"
+                        style="color:#E6B563"
+                    >
 
-<div class="grid lg:grid-cols-[0.85fr_1.15fr]">
+                        View the complete menu
 
+                        <span>→</span>
 
-<!-- =====================================================
-     DELIVERY LEFT SIDE
-===================================================== -->
+                    </a>
 
-<div class="flex flex-col justify-center p-7 sm:p-10 lg:p-14">
 
-<p
-class="text-sm font-bold uppercase tracking-[0.25em]"
-style="color:var(--bh-paprika)"
->
-Delivery coverage
-</p>
+                </div>
 
-<h2 class="bh-serif mt-3 text-4xl font-semibold leading-tight text-stone-900 dark:text-white sm:text-5xl">
+            </div>
 
-Hot food,<br>
-close to home.
+        </div>
 
-</h2>
+    </section>
 
-<p class="mt-5 max-w-lg text-base leading-7 text-stone-600 dark:text-stone-300">
 
-We deliver freshly cooked meals across
-the city's most active neighbourhoods,
-with nearby areas added every month.
+    <!-- =====================================================
+         TESTIMONIALS
+    ====================================================== -->
 
-</p>
+    <section class="bh-testimonials px-6 py-24 sm:px-10 lg:px-16 lg:py-32">
 
+        <div class="mx-auto max-w-[1250px]">
 
-<div class="mt-8 grid grid-cols-2 gap-3">
 
+            <div class="max-w-2xl">
 
-<div class="flex items-center gap-3 rounded-xl border border-stone-200 bg-stone-50 p-3 transition duration-300 hover:-translate-y-1 hover:shadow-md dark:border-stone-700 dark:bg-stone-800">
+                <p class="bh-eyebrow">
+                    Word of mouth
+                </p>
 
-<span
-class="flex h-8 w-8 flex-none items-center justify-center rounded-full text-sm font-bold text-white"
-style="background:var(--bh-paprika)"
->
-01
-</span>
+                <h2 class="bh-section-title mt-5">
+                    What neighbours say.
+                </h2>
 
-<span class="text-sm font-semibold">
-Central City
-</span>
+            </div>
 
-</div>
 
+            <div class="bh-testimonial-grid">
 
-<div class="flex items-center gap-3 rounded-xl border border-stone-200 bg-stone-50 p-3 transition duration-300 hover:-translate-y-1 hover:shadow-md dark:border-stone-700 dark:bg-stone-800">
 
-<span
-class="flex h-8 w-8 flex-none items-center justify-center rounded-full text-sm font-bold text-white"
-style="background:var(--bh-sage)"
->
-02
-</span>
+                <article class="bh-testimonial">
 
-<span class="text-sm font-semibold">
-North Park
-</span>
+                    <div class="bh-quote">
+                        “
+                    </div>
 
-</div>
+                    <p class="bh-testimonial-text">
 
+                        Fresh food arrived right on time.
+                        Every dish tasted warm and homemade.
+                        We would happily order again.
 
-<div class="flex items-center gap-3 rounded-xl border border-stone-200 bg-stone-50 p-3 transition duration-300 hover:-translate-y-1 hover:shadow-md dark:border-stone-700 dark:bg-stone-800">
+                    </p>
 
-<span
-class="flex h-8 w-8 flex-none items-center justify-center rounded-full text-sm font-bold text-white"
-style="background:var(--bh-ember)"
->
-03
-</span>
 
-<span class="text-sm font-semibold">
-Riverside
-</span>
+                    <div class="bh-testimonial-person">
 
-</div>
+                        <div class="bh-avatar">
+                            RS
+                        </div>
 
+                        <div>
 
-<div class="flex items-center gap-3 rounded-xl border border-stone-200 bg-stone-50 p-3 transition duration-300 hover:-translate-y-1 hover:shadow-md dark:border-stone-700 dark:bg-stone-800">
+                            <p class="bh-person-name">
+                                Ritu
+                            </p>
 
-<span
-class="flex h-8 w-8 flex-none items-center justify-center rounded-full text-sm font-bold text-white"
-style="background:var(--bh-paprika)"
->
-04
-</span>
+                            <p class="bh-person-location">
+                                Market Road
+                            </p>
 
-<span class="text-sm font-semibold">
-Market Road
-</span>
+                        </div>
 
-</div>
+                    </div>
 
+                </article>
 
-<div class="flex items-center gap-3 rounded-xl border border-stone-200 bg-stone-50 p-3 transition duration-300 hover:-translate-y-1 hover:shadow-md dark:border-stone-700 dark:bg-stone-800">
 
-<span
-class="flex h-8 w-8 flex-none items-center justify-center rounded-full text-sm font-bold text-white"
-style="background:var(--bh-sage)"
->
-05
-</span>
+                <article class="bh-testimonial">
 
-<span class="text-sm font-semibold">
-Greenfield
-</span>
+                    <div class="bh-quote">
+                        “
+                    </div>
 
-</div>
+                    <p class="bh-testimonial-text">
 
+                        The meals feel just like home.
+                        Portions are generous and satisfying.
+                        It is now our weekly favourite.
 
-<div class="flex items-center gap-3 rounded-xl border border-stone-200 bg-stone-50 p-3 transition duration-300 hover:-translate-y-1 hover:shadow-md dark:border-stone-700 dark:bg-stone-800">
+                    </p>
 
-<span
-class="flex h-8 w-8 flex-none items-center justify-center rounded-full text-sm font-bold text-white"
-style="background:var(--bh-ember)"
->
-06
-</span>
 
-<span class="text-sm font-semibold">
-Office Districts
-</span>
+                    <div class="bh-testimonial-person">
 
-</div>
+                        <div
+                            class="bh-avatar"
+                            style="background:var(--bh-sage)"
+                        >
+                            AK
+                        </div>
 
-</div>
+                        <div>
 
+                            <p class="bh-person-name">
+                                Arvind
+                            </p>
 
-<a
-href="assets/pages/contact.html"
-class="mt-8 inline-flex w-fit items-center justify-center rounded-full px-6 py-3 text-sm font-bold text-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-lg"
-style="background:var(--bh-paprika)"
->
+                            <p class="bh-person-location">
+                                Riverside
+                            </p>
 
-Check your area
+                        </div>
 
-<span class="ml-2">
-→
-</span>
+                    </div>
 
-</a>
+                </article>
 
-</div>
 
+                <article class="bh-testimonial">
 
-<!-- =====================================================
-     REAL INTERACTIVE MAP
-===================================================== -->
+                    <div class="bh-quote">
+                        “
+                    </div>
 
-<div class="bh-real-map">
+                    <p class="bh-testimonial-text">
 
-<div id="bh-map"></div>
+                        Ordering for our office was simple.
+                        Everything arrived fresh and well packed.
+                        The whole team enjoyed the meal.
 
+                    </p>
 
-<!-- MAP INFO -->
 
-<div class="bh-map-info-real">
+                    <div class="bh-testimonial-person">
 
-<p class="text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500">
-Service area
-</p>
+                        <div
+                            class="bh-avatar"
+                            style="background:var(--bh-gold)"
+                        >
+                            PN
+                        </div>
 
-<p class="mt-1 text-sm font-bold text-stone-900 dark:text-white">
-6 active zones
-</p>
+                        <div>
 
-</div>
+                            <p class="bh-person-name">
+                                Priya
+                            </p>
 
+                            <p class="bh-person-location">
+                                Central City
+                            </p>
 
-<!-- MAP LEGEND -->
+                        </div>
 
-<div class="bh-map-legend-real">
+                    </div>
 
-<div class="flex items-center gap-2">
+                </article>
 
-<span
-class="h-3 w-3 rounded-full"
-style="background:var(--bh-paprika)"
-></span>
 
-<span class="text-xs font-semibold">
-Kitchen
-</span>
+            </div>
 
-</div>
+        </div>
 
+    </section>
 
-<div class="flex items-center gap-2">
 
-<span
-class="h-3 w-3 rounded-full"
-style="background:var(--bh-sage)"
-></span>
+    <!-- =====================================================
+         CTA
+    ====================================================== -->
 
-<span class="text-xs font-semibold">
-Delivery zone
-</span>
+    <section class="bh-cta px-6 py-28 sm:px-10 lg:px-16 lg:py-36">
 
-</div>
+        <div class="bh-cta-inner mx-auto max-w-[900px]">
 
 
-<div class="flex items-center gap-2">
+            <p
+                class="bh-eyebrow justify-center"
+                style="color:#E6B563"
+            >
+                Hungry already?
+            </p>
 
-<span
-class="h-3 w-3 rounded-full"
-style="background:var(--bh-ember)"
-></span>
 
-<span class="text-xs font-semibold">
-Nearby area
-</span>
+            <h2 class="bh-cta-title">
 
-</div>
+                Let's get
+                <br>
+                something cooking.
 
-</div>
+            </h2>
 
-</div>
 
-</div>
+            <p class="bh-cta-copy">
 
-</div>
+                One bowl or a hundred plates —
+                tell us the headcount and the time,
+                and we'll take it from there.
 
-</section>
+            </p>
+
+
+            <div class="mt-9 flex flex-wrap justify-center gap-3">
+
+                <a
+                    href="assets/pages/menu.html"
+                    class="bh-btn-primary"
+                >
+
+                    Order now
+
+                    <span>→</span>
+
+                </a>
+
+
+                <a
+                    href="assets/pages/contact.html"
+                    class="bh-btn-outline"
+                >
+                    Talk to us
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         DELIVERY COVERAGE
+    ====================================================== -->
+
+    <section class="bh-delivery px-0 py-24 sm:px-10 lg:px-16 lg:py-32">
+
+        <div class="mx-auto max-w-[1250px]">
+
+
+            <div class="mb-12 px-6 sm:px-0">
+
+                <p class="bh-eyebrow">
+                    Delivery coverage
+                </p>
+
+                <h2 class="bh-section-title mt-5">
+
+                    Hot food,
+                    <br>
+
+                    <span class="bh-script text-[#A8341F]">
+                        close to home.
+                    </span>
+
+                </h2>
+
+            </div>
+
+
+            <div class="bh-delivery-grid">
+
+
+                <!-- LEFT -->
+
+                <div class="bh-delivery-copy">
+
+                    <p class="bh-section-copy text-sm">
+
+                        We deliver freshly cooked meals
+                        across the city's most active
+                        neighbourhoods, with nearby
+                        areas added regularly.
+
+                    </p>
+
+
+                    <div class="bh-zone-list">
+
+
+                        <div class="bh-zone">
+
+                            <span class="bh-zone-dot"></span>
+
+                            Central City
+
+                        </div>
+
+
+                        <div class="bh-zone">
+
+                            <span
+                                class="bh-zone-dot"
+                                style="background:var(--bh-sage)"
+                            ></span>
+
+                            North Park
+
+                        </div>
+
+
+                        <div class="bh-zone">
+
+                            <span
+                                class="bh-zone-dot"
+                                style="background:var(--bh-gold)"
+                            ></span>
+
+                            Riverside
+
+                        </div>
+
+
+                        <div class="bh-zone">
+
+                            <span class="bh-zone-dot"></span>
+
+                            Market Road
+
+                        </div>
+
+
+                        <div class="bh-zone">
+
+                            <span
+                                class="bh-zone-dot"
+                                style="background:var(--bh-sage)"
+                            ></span>
+
+                            Greenfield
+
+                        </div>
+
+
+                        <div class="bh-zone">
+
+                            <span
+                                class="bh-zone-dot"
+                                style="background:var(--bh-gold)"
+                            ></span>
+
+                            Office Districts
+
+                        </div>
+
+
+                    </div>
+
+
+                    <a
+                        href="assets/pages/contact.html"
+                        class="bh-btn-primary mt-8 w-fit"
+                    >
+
+                        Check your area
+
+                        <span>→</span>
+
+                    </a>
+
+                </div>
+
+
+                <!-- MAP -->
+
+                <div class="bh-map-wrap">
+
+                    <div id="bh-map"></div>
+
+
+                    <div class="bh-map-info">
+
+                        <small>
+                            Service area
+                        </small>
+
+                        <strong>
+                            6 active zones
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
 
 
 </main>
@@ -2419,111 +3293,349 @@ Nearby area
 
 
 <!-- =========================================================
-     REAL MAP JAVASCRIPT
+     MAP JAVASCRIPT
 ========================================================= -->
 
 <script>
 
 document.addEventListener("DOMContentLoaded", function () {
 
+
+    /* =====================================================
+       SAFETY CHECK
+    ===================================================== */
+
+    const mapElement = document.getElementById("bh-map");
+
+    if (!mapElement || typeof L === "undefined") {
+
+        return;
+
+    }
+
+
+    /* =====================================================
+       KITCHEN LOCATION
+    ===================================================== */
+
     const kitchenLat = 13.0827;
+
     const kitchenLng = 80.2707;
 
+
+    /* =====================================================
+       CREATE MAP
+    ===================================================== */
+
     const map = L.map("bh-map", {
+
         scrollWheelZoom: false,
-        zoomControl: true
-    }).setView([kitchenLat, kitchenLng], 12);
+
+        zoomControl: true,
+
+        attributionControl: true
+
+    }).setView(
+
+        [kitchenLat, kitchenLng],
+
+        12
+
+    );
+
+
+    /* =====================================================
+       OPEN STREET MAP
+    ===================================================== */
 
     L.tileLayer(
+
         "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+
         {
+
             maxZoom: 19,
+
             attribution:
-                '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
+                '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>'
+
         }
+
     ).addTo(map);
+
+
+    /* =====================================================
+       KITCHEN ICON
+    ===================================================== */
 
     const kitchenIcon = L.divIcon({
+
         className: "",
-        html: `<div class="bh-leaflet-marker">🍲</div>`,
+
+        html: `
+            <div class="bh-marker">
+                🍲
+            </div>
+        `,
+
         iconSize: [42, 42],
+
         iconAnchor: [21, 21],
+
         popupAnchor: [0, -22]
+
     });
+
+
+    /* =====================================================
+       KITCHEN MARKER
+    ===================================================== */
 
     const kitchenMarker = L.marker(
+
         [kitchenLat, kitchenLng],
-        { icon: kitchenIcon }
+
+        {
+            icon: kitchenIcon
+        }
+
     ).addTo(map);
 
+
     kitchenMarker.bindPopup(`
-        <div style="text-align:center;">
-            <strong>Bowl & Hearth</strong>
+
+        <div style="
+            text-align:center;
+            min-width:150px;
+        ">
+
+            <strong>
+                Bowl & Hearth
+            </strong>
+
             <br>
-            <span style="font-size:12px;">Kitchen & pickup point</span>
+
+            <span style="
+                font-size:12px;
+                color:#766A60;
+            ">
+                Kitchen & pickup point
+            </span>
+
         </div>
+
     `);
 
-    L.circle([kitchenLat, kitchenLng], {
-        radius: 6000,
-        color: "#a8341f",
-        weight: 2,
-        dashArray: "7 7",
-        fillColor: "#a8341f",
-        fillOpacity: 0.08
-    }).addTo(map);
+
+    /* =====================================================
+       SERVICE AREA
+    ===================================================== */
+
+    L.circle(
+
+        [kitchenLat, kitchenLng],
+
+        {
+
+            radius: 6000,
+
+            color: "#A8341F",
+
+            weight: 2,
+
+            dashArray: "7 7",
+
+            fillColor: "#A8341F",
+
+            fillOpacity: 0.07
+
+        }
+
+    ).addTo(map);
+
+
+    /* =====================================================
+       DELIVERY ZONES
+    ===================================================== */
 
     const zones = [
-        { name: "Central City",    lat: 13.0827, lng: 80.2707, color: "#c9862f" },
-        { name: "North Park",      lat: 13.1150, lng: 80.2900, color: "#545f42" },
-        { name: "Riverside",       lat: 13.0600, lng: 80.2850, color: "#a8341f" },
-        { name: "Market Road",     lat: 13.0650, lng: 80.2500, color: "#545f42" },
-        { name: "Greenfield",      lat: 13.1050, lng: 80.2450, color: "#545f42" },
-        { name: "Office Districts",lat: 13.0350, lng: 80.2550, color: "#c9862f" }
+
+        {
+            name: "Central City",
+            lat: 13.0827,
+            lng: 80.2707,
+            color: "#C9862F"
+        },
+
+        {
+            name: "North Park",
+            lat: 13.1150,
+            lng: 80.2900,
+            color: "#545F42"
+        },
+
+        {
+            name: "Riverside",
+            lat: 13.0600,
+            lng: 80.2850,
+            color: "#A8341F"
+        },
+
+        {
+            name: "Market Road",
+            lat: 13.0650,
+            lng: 80.2500,
+            color: "#545F42"
+        },
+
+        {
+            name: "Greenfield",
+            lat: 13.1050,
+            lng: 80.2450,
+            color: "#545F42"
+        },
+
+        {
+            name: "Office Districts",
+            lat: 13.0350,
+            lng: 80.2550,
+            color: "#C9862F"
+        }
+
     ];
 
-    zones.forEach(function(zone) {
+
+    /* =====================================================
+       ADD ZONES
+    ===================================================== */
+
+    zones.forEach(function (zone) {
+
 
         const zoneIcon = L.divIcon({
+
             className: "",
+
             html: `
+
                 <div style="
-                    width:14px;height:14px;border-radius:50%;
-                    background:${zone.color};border:2px solid white;
+                    width:14px;
+                    height:14px;
+                    border-radius:50%;
+                    background:${zone.color};
+                    border:2px solid white;
                     box-shadow:0 3px 8px rgba(0,0,0,.25);
                 "></div>
+
             `,
+
             iconSize: [14, 14],
+
             iconAnchor: [7, 7]
+
         });
 
-        const marker = L.marker([zone.lat, zone.lng], { icon: zoneIcon }).addTo(map);
 
-        marker.bindTooltip(zone.name, {
-            permanent: true,
-            direction: "top",
-            offset: [0, -8],
-            className: "bh-zone-label"
-        });
+        const marker = L.marker(
+
+            [zone.lat, zone.lng],
+
+            {
+                icon: zoneIcon
+            }
+
+        ).addTo(map);
+
+
+        marker.bindTooltip(
+
+            zone.name,
+
+            {
+
+                permanent: true,
+
+                direction: "top",
+
+                offset: [0, -8],
+
+                className: "bh-zone-label"
+
+            }
+
+        );
+
 
         marker.bindPopup(`
-            <strong>${zone.name}</strong><br>
-            <span style="font-size:12px;">Bowl & Hearth delivery area</span>
+
+            <strong>
+                ${zone.name}
+            </strong>
+
+            <br>
+
+            <span style="
+                font-size:12px;
+            ">
+                Bowl & Hearth delivery area
+            </span>
+
         `);
 
+
     });
 
-    map.on("click", function() { map.scrollWheelZoom.enable(); });
 
-    document.getElementById("bh-map").addEventListener("mouseleave", function() {
-        map.scrollWheelZoom.disable();
+    /* =====================================================
+       MOUSE MAP INTERACTION
+    ===================================================== */
+
+    map.on("click", function () {
+
+        map.scrollWheelZoom.enable();
+
     });
 
-    setTimeout(function() { map.invalidateSize(); }, 500);
 
-    window.addEventListener("resize", function() { map.invalidateSize(); });
+    mapElement.addEventListener(
+
+        "mouseleave",
+
+        function () {
+
+            map.scrollWheelZoom.disable();
+
+        }
+
+    );
+
+
+    /* =====================================================
+       FIX MAP SIZE
+    ===================================================== */
+
+    setTimeout(function () {
+
+        map.invalidateSize();
+
+    }, 500);
+
+
+    window.addEventListener(
+
+        "resize",
+
+        function () {
+
+            map.invalidateSize();
+
+        }
+
+    );
+
 
 });
+
 
 </script>
 

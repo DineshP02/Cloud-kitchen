@@ -2,10 +2,21 @@
 <html lang="en" dir="ltr">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="Bowl & Hearth meal plans and chef-led cloud kitchen experience.">
+
+    <meta name="description"
+        content="Bowl & Hearth meal plans and chef-led cloud kitchen experience.">
+
     <title>Home 2 | Bowl & Hearth</title>
+
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+
+    <!-- =========================================================
+         TAILWIND
+    ========================================================== -->
 
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -15,13 +26,24 @@
         }
     </script>
 
+
+    <!-- =========================================================
+         GOOGLE FONT
+    ========================================================== -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap"
         rel="stylesheet">
 
+
+    <!-- =========================================================
+         SHARED CSS
+    ========================================================== -->
+
     <link rel="stylesheet" href="../css/style.css">
+
 
     <style>
 
@@ -38,11 +60,6 @@
             font-style: italic;
         }
 
-
-        /* =========================================================
-           GENERAL
-        ========================================================= */
-
         .h2-line {
             height: 1px;
             background: currentColor;
@@ -56,8 +73,120 @@
 
 
         /* =========================================================
+           HOME 2
+           NAVIGATION / HERO OVERLAP FIX
+        ========================================================== */
+
+        /*
+         * IMPORTANT:
+         *
+         * The shared navbar is loaded dynamically into
+         * #site-header.
+         *
+         * The JavaScript at the bottom of this file measures
+         * the real navbar height and automatically adds space
+         * before #home2-main.
+         */
+
+        html {
+            scroll-padding-top: 100px;
+        }
+
+
+        .home-2-page {
+            overflow-x: hidden;
+        }
+
+
+        .home-2-page #site-header {
+            position: relative;
+            z-index: 9999;
+        }
+
+
+        .home-2-page #home2-main {
+            position: relative;
+            z-index: 1;
+
+            /*
+             * Fallback spacing.
+             *
+             * JavaScript will replace this with the actual
+             * navbar height after the header is loaded.
+             */
+            padding-top: 100px;
+        }
+
+
+        .home-2-page #home2-hero {
+            position: relative;
+            z-index: 1;
+
+            margin-top: 0 !important;
+
+            /*
+             * Never allow the hero to pull underneath
+             * the navigation.
+             */
+            transform: none;
+        }
+
+
+        /*
+         * Desktop fallback
+         */
+
+        @media (min-width: 1025px) {
+
+            .home-2-page #home2-main {
+                padding-top: 100px;
+            }
+
+        }
+
+
+        /*
+         * Tablet fallback
+         */
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+
+            .home-2-page #home2-main {
+                padding-top: 95px;
+            }
+
+        }
+
+
+        /*
+         * Mobile fallback
+         */
+
+        @media (max-width: 768px) {
+
+            .home-2-page #home2-main {
+                padding-top: 85px;
+            }
+
+        }
+
+
+        /*
+         * Small mobile fallback
+         */
+
+        @media (max-width: 480px) {
+
+            .home-2-page #home2-main {
+                padding-top: 80px;
+            }
+
+        }
+
+
+        /* =========================================================
            PROCESS SECTION
-        ========================================================= */
+        ========================================================== */
 
         .h2-process-section {
             position: relative;
@@ -92,12 +221,16 @@
             content: "CARE";
 
             position: absolute;
+
             right: -35px;
             top: -65px;
 
             font-family: 'Cormorant Garamond', serif;
+
             font-size: clamp(150px, 20vw, 300px);
+
             font-weight: 700;
+
             line-height: .8;
 
             color: rgba(168, 52, 31, .045);
@@ -139,7 +272,7 @@
 
         /* =========================================================
            PROCESS LEFT SIDE
-        ========================================================= */
+        ========================================================== */
 
         .h2-process-eyebrow {
             color: #a8341f;
@@ -178,7 +311,9 @@
         }
 
 
-        /* Promise box */
+        /* =========================================================
+           PROMISE BOX
+        ========================================================== */
 
         .h2-process-promise {
             position: relative;
@@ -202,6 +337,7 @@
                 0 10px 35px rgba(63, 43, 27, .06);
 
             backdrop-filter: blur(8px);
+
             -webkit-backdrop-filter: blur(8px);
         }
 
@@ -233,8 +369,8 @@
 
 
         /* =========================================================
-           PROCESS CARDS
-        ========================================================= */
+           PROCESS ITEMS
+        ========================================================== */
 
         .h2-process-item {
             position: relative;
@@ -277,7 +413,9 @@
             font-family: 'Cormorant Garamond', serif;
 
             font-size: 150px;
+
             line-height: 1;
+
             font-weight: 700;
 
             color: rgba(168, 52, 31, .045);
@@ -290,13 +428,16 @@
             content: "01";
         }
 
+
         .h2-process-item:nth-child(2)::after {
             content: "02";
         }
 
+
         .h2-process-item:nth-child(3)::after {
             content: "03";
         }
+
 
         .h2-process-item:nth-child(4)::after {
             content: "04";
@@ -419,7 +560,7 @@
 
         /* =========================================================
            DARK MODE — PROCESS
-        ========================================================= */
+        ========================================================== */
 
         .dark .h2-process-section {
             background:
@@ -520,7 +661,7 @@
 
         /* =========================================================
            MEAL SECTION
-        ========================================================= */
+        ========================================================== */
 
         .h2-meal-link {
             position: relative;
@@ -548,6 +689,7 @@
             content: "";
 
             position: absolute;
+
             inset: 0;
 
             z-index: -2;
@@ -565,6 +707,7 @@
             content: "";
 
             position: absolute;
+
             inset: 0;
 
             z-index: -1;
@@ -621,8 +764,8 @@
 
 
         /* =========================================================
-           QUOTE SECTION
-        ========================================================= */
+           QUOTE
+        ========================================================== */
 
         .h2-quote-mark {
             font-family: 'Cormorant Garamond', serif;
@@ -631,8 +774,8 @@
 
 
         /* =========================================================
-           PHILOSOPHY SECTION
-        ========================================================= */
+           PHILOSOPHY
+        ========================================================== */
 
         .h2-philosophy-image {
             transition: transform .7s ease;
@@ -645,8 +788,8 @@
 
 
         /* =========================================================
-           KITCHEN NOTES SECTION
-        ========================================================= */
+           KITCHEN NOTES
+        ========================================================== */
 
         .h2-kitchen-notes {
             position: relative;
@@ -684,6 +827,7 @@
             font-family: 'Cormorant Garamond', serif;
 
             font-size: 260px;
+
             line-height: 1;
 
             font-weight: 700;
@@ -778,35 +922,8 @@
 
 
         /* =========================================================
-           MENU SECTION
-        ========================================================= */
-
-        .h2-menu-line {
-            transition:
-                padding-left .3s ease,
-                background .3s ease;
-        }
-
-
-        .h2-menu-line:hover {
-            padding-left: 18px;
-
-            background: rgba(168, 52, 31, .045);
-        }
-
-
-        .h2-menu-price {
-            font-family: 'Cormorant Garamond', serif;
-
-            font-size: 24px;
-
-            font-weight: 600;
-        }
-
-
-        /* =========================================================
-           NUMBERS SECTION
-        ========================================================= */
+           NUMBERS
+        ========================================================== */
 
         .h2-numbers-section {
             position: relative;
@@ -920,7 +1037,7 @@
 
         /* =========================================================
            CTA
-        ========================================================= */
+        ========================================================== */
 
         .h2-cta-arrow {
             transition: transform .3s ease;
@@ -934,13 +1051,12 @@
 
         /* =========================================================
            MOBILE
-        ========================================================= */
+        ========================================================== */
 
         @media(max-width:768px) {
 
             .h2-process-item {
                 padding: 26px;
-
                 min-height: 250px;
             }
 
@@ -1016,29 +1132,75 @@
                 padding: 15px;
             }
 
+
+            /*
+             * Mobile hero safety.
+             */
+
+            .home-2-page #home2-hero {
+                padding-top: 18px;
+            }
+
+        }
+
+
+        /* =========================================================
+           VERY SMALL MOBILE
+        ========================================================== */
+
+        @media(max-width:380px) {
+
+            .home-2-page #home2-main {
+                padding-top: 76px;
+            }
+
+
+            .home-2-page #home2-hero {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+
+            .home-2-page #home2-hero h1 {
+                font-size: 2.1rem;
+            }
+
         }
 
     </style>
+
 </head>
 
 
-<body class="bg-[#f4f0e8] text-stone-900 dark:bg-stone-950 dark:text-stone-100">
+<body class="home-2-page bg-[#f4f0e8] text-stone-900 dark:bg-stone-950 dark:text-stone-100">
 
+
+    <!-- =========================================================
+         SHARED HEADER
+    ========================================================== -->
 
     <div id="site-header"></div>
 
 
-    <main>
+    <!-- =========================================================
+         MAIN CONTENT
+    ========================================================== -->
+
+    <main id="home2-main">
 
 
         <!-- =========================================================
              SECTION 1 — HERO
         ========================================================== -->
 
-        <section class="mx-auto max-w-7xl px-5 py-10 sm:px-8 lg:px-12 lg:py-16">
+        <section
+            id="home2-hero"
+            class="mx-auto max-w-7xl px-5 pt-8 pb-10 sm:px-8 sm:pt-10 sm:pb-12 lg:px-12 lg:pt-12 lg:pb-16">
 
             <div class="grid gap-5 lg:grid-cols-[1.4fr_.6fr]">
 
+
+                <!-- HERO IMAGE -->
 
                 <div
                     class="min-h-[420px] overflow-hidden rounded-[2rem] bg-[url('https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1600&q=85')] bg-cover bg-center p-5 text-white sm:min-h-[520px] sm:rounded-[2.5rem] sm:p-9 lg:p-12">
@@ -1050,21 +1212,32 @@
                             Kitchen stories
                         </p>
 
+
                         <h1
                             class="mt-4 max-w-2xl break-words font-display text-3xl font-black leading-tight sm:text-5xl lg:text-7xl">
+
                             A neighbourhood kitchen
                             without four walls.
+
                         </h1>
 
-                        <p class="mt-4 max-w-xl text-sm text-white/85 sm:mt-5 sm:text-base">
-                            One menu, multiple moods: breakfast meetings,
-                            weekday lunches, family dinners and event trays.
+
+                        <p
+                            class="mt-4 max-w-xl text-sm text-white/85 sm:mt-5 sm:text-base">
+
+                            One menu, multiple moods:
+                            breakfast meetings,
+                            weekday lunches,
+                            family dinners and event trays.
+
                         </p>
 
                     </div>
 
                 </div>
 
+
+                <!-- HERO SIDE -->
 
                 <div class="grid gap-5">
 
@@ -1076,12 +1249,20 @@
                             07:00
                         </span>
 
-                        <h2 class="mt-8 text-xl font-black sm:mt-12 sm:text-2xl">
+
+                        <h2
+                            class="mt-8 text-xl font-black sm:mt-12 sm:text-2xl">
+
                             First batch out
+
                         </h2>
 
-                        <p class="mt-2 text-sm text-stone-900/70 sm:text-base">
+
+                        <p
+                            class="mt-2 text-sm text-stone-900/70 sm:text-base">
+
                             Breakfast begins before the morning rush.
+
                         </p>
 
                     </div>
@@ -1094,13 +1275,21 @@
                             4 ways
                         </span>
 
-                        <h2 class="mt-8 text-xl font-black sm:mt-12 sm:text-2xl">
+
+                        <h2
+                            class="mt-8 text-xl font-black sm:mt-12 sm:text-2xl">
+
                             To order
+
                         </h2>
 
-                        <p class="mt-2 text-sm text-white/60 sm:text-base">
-                            Individual meals, subscriptions, office trays
-                            and event catering.
+
+                        <p
+                            class="mt-2 text-sm text-white/60 sm:text-base">
+
+                            Individual meals, subscriptions,
+                            office trays and event catering.
+
                         </p>
 
                     </div>
@@ -1128,8 +1317,11 @@
 
                         <p
                             class="h2-process-eyebrow text-xs font-bold uppercase tracking-[.3em]">
+
                             How we work
+
                         </p>
+
 
                         <h2
                             class="h2-serif h2-process-heading mt-4 text-5xl font-semibold leading-[.92] sm:text-6xl lg:text-7xl">
@@ -1144,7 +1336,9 @@
 
                         </h2>
 
+
                         <div class="h2-process-gold-line mt-8"></div>
+
 
                         <p
                             class="h2-process-description mt-8 max-w-md text-sm leading-7 sm:text-base">
@@ -1160,20 +1354,30 @@
                         <div class="h2-process-promise mt-10">
 
                             <div class="h2-process-promise-icon">
+
                                 <span class="text-lg">
                                     ✦
                                 </span>
+
                             </div>
+
 
                             <div>
 
                                 <p
                                     class="text-xs font-bold uppercase tracking-[.2em] text-[#a8341f]">
+
                                     Our kitchen promise
+
                                 </p>
 
-                                <p class="mt-1 text-sm text-stone-600">
-                                    Freshly cooked. Carefully packed.
+
+                                <p
+                                    class="mt-1 text-sm text-stone-600 dark:text-stone-300">
+
+                                    Freshly cooked.
+                                    Carefully packed.
+
                                 </p>
 
                             </div>
@@ -1194,16 +1398,22 @@
 
                     <div>
 
-                        <div class="mb-7 flex items-center justify-between">
+                        <div
+                            class="mb-7 flex items-center justify-between">
 
                             <p
                                 class="text-xs font-bold uppercase tracking-[.25em] text-stone-500">
+
                                 From kitchen to table
+
                             </p>
+
 
                             <span
                                 class="h2-serif text-2xl italic text-[#a8341f]">
+
                                 Our rhythm
+
                             </span>
 
                         </div>
@@ -1218,16 +1428,23 @@
                                     01
                                 </div>
 
+
                                 <h3
                                     class="h2-process-title mt-7 font-display text-3xl">
+
                                     Cook small
+
                                 </h3>
+
 
                                 <p
                                     class="h2-process-text mt-3 max-w-xs text-sm leading-6">
+
                                     Short batches keep texture,
                                     aroma and flavour at their best.
+
                                 </p>
+
 
                                 <span class="h2-process-label">
                                     Freshness first
@@ -1242,16 +1459,23 @@
                                     02
                                 </div>
 
+
                                 <h3
                                     class="h2-process-title mt-7 font-display text-3xl">
+
                                     Pack smart
+
                                 </h3>
+
 
                                 <p
                                     class="h2-process-text mt-3 max-w-xs text-sm leading-6">
+
                                     Sauces, crisp elements and sides
                                     are packed to travel beautifully.
+
                                 </p>
+
 
                                 <span class="h2-process-label">
                                     Thoughtful packing
@@ -1266,16 +1490,23 @@
                                     03
                                 </div>
 
+
                                 <h3
                                     class="h2-process-title mt-7 font-display text-3xl">
+
                                     Move fast
+
                                 </h3>
+
 
                                 <p
                                     class="h2-process-text mt-3 max-w-xs text-sm leading-6">
+
                                     Local delivery keeps the journey short
                                     and the food closer to the kitchen.
+
                                 </p>
+
 
                                 <span class="h2-process-label">
                                     Close to home
@@ -1290,16 +1521,23 @@
                                     04
                                 </div>
 
+
                                 <h3
                                     class="h2-process-title mt-7 font-display text-3xl">
+
                                     Serve warm
+
                                 </h3>
+
 
                                 <p
                                     class="h2-process-text mt-3 max-w-xs text-sm leading-6">
+
                                     Everything comes together at the right
                                     moment — ready for real mealtimes.
+
                                 </p>
+
 
                                 <span class="h2-process-label">
                                     Made to share
@@ -1331,27 +1569,38 @@
                 <div
                     class="flex flex-col gap-7 md:flex-row md:items-end md:justify-between">
 
+
                     <div>
 
                         <p
                             class="text-xs font-bold uppercase tracking-[.3em]"
                             style="color:#a8341f;">
+
                             This week's rhythm
+
                         </p>
+
 
                         <h2
                             class="h2-serif mt-3 text-5xl font-semibold leading-none sm:text-6xl">
+
                             Four moments.
+
                             <br>
+
                             One kitchen.
+
                         </h2>
 
                     </div>
 
+
                     <a
                         href="menu.html"
                         class="w-fit text-sm font-bold underline underline-offset-4">
+
                         See full menu →
+
                     </a>
 
                 </div>
@@ -1364,9 +1613,7 @@
                 <div class="grid md:grid-cols-2 lg:grid-cols-4">
 
 
-                    <!-- =================================================
-                         BREAKFAST
-                    ================================================== -->
+                    <!-- BREAKFAST -->
 
                     <a
                         href="menu.html"
@@ -1376,23 +1623,36 @@
 
                             <span
                                 class="h2-meal-time text-xs font-black tracking-[.2em]">
+
                                 07 AM
+
                             </span>
 
-                            <h3 class="mt-5 font-display text-4xl text-white">
+
+                            <h3
+                                class="mt-5 font-display text-4xl text-white">
+
                                 Breakfast
+
                             </h3>
+
 
                             <div class="h2-meal-line mt-6"></div>
 
+
                             <p
                                 class="h2-meal-description mt-5 text-sm leading-6">
+
                                 Idli, dosa, bowls & coffee.
+
                             </p>
+
 
                             <span
                                 class="h2-meal-explore mt-8 block text-sm font-bold">
+
                                 Explore →
+
                             </span>
 
                         </div>
@@ -1400,9 +1660,7 @@
                     </a>
 
 
-                    <!-- =================================================
-                         LUNCH
-                    ================================================== -->
+                    <!-- LUNCH -->
 
                     <a
                         href="menu.html"
@@ -1412,23 +1670,36 @@
 
                             <span
                                 class="h2-meal-time text-xs font-black tracking-[.2em]">
+
                                 12 PM
+
                             </span>
 
-                            <h3 class="mt-5 font-display text-4xl text-white">
+
+                            <h3
+                                class="mt-5 font-display text-4xl text-white">
+
                                 Lunch
+
                             </h3>
+
 
                             <div class="h2-meal-line mt-6"></div>
 
+
                             <p
                                 class="h2-meal-description mt-5 text-sm leading-6">
+
                                 Balanced plates for busy days.
+
                             </p>
+
 
                             <span
                                 class="h2-meal-explore mt-8 block text-sm font-bold">
+
                                 Explore →
+
                             </span>
 
                         </div>
@@ -1436,9 +1707,7 @@
                     </a>
 
 
-                    <!-- =================================================
-                         SNACKS
-                    ================================================== -->
+                    <!-- SNACKS -->
 
                     <a
                         href="menu.html"
@@ -1448,23 +1717,36 @@
 
                             <span
                                 class="h2-meal-time text-xs font-black tracking-[.2em]">
+
                                 04 PM
+
                             </span>
 
-                            <h3 class="mt-5 font-display text-4xl text-white">
+
+                            <h3
+                                class="mt-5 font-display text-4xl text-white">
+
                                 Snacks
+
                             </h3>
+
 
                             <div class="h2-meal-line mt-6"></div>
 
+
                             <p
                                 class="h2-meal-description mt-5 text-sm leading-6">
+
                                 Small bites for the in-between.
+
                             </p>
+
 
                             <span
                                 class="h2-meal-explore mt-8 block text-sm font-bold">
+
                                 Explore →
+
                             </span>
 
                         </div>
@@ -1472,9 +1754,7 @@
                     </a>
 
 
-                    <!-- =================================================
-                         DINNER — NEW IMAGE
-                    ================================================== -->
+                    <!-- DINNER -->
 
                     <a
                         href="menu.html"
@@ -1484,28 +1764,42 @@
 
                             <span
                                 class="h2-meal-time text-xs font-black tracking-[.2em]">
+
                                 07 PM
+
                             </span>
 
-                            <h3 class="mt-5 font-display text-4xl text-white">
+
+                            <h3
+                                class="mt-5 font-display text-4xl text-white">
+
                                 Dinner
+
                             </h3>
+
 
                             <div class="h2-meal-line mt-6"></div>
 
+
                             <p
                                 class="h2-meal-description mt-5 text-sm leading-6">
+
                                 Comfort food to finish the day.
+
                             </p>
+
 
                             <span
                                 class="h2-meal-explore mt-8 block text-sm font-bold">
+
                                 Explore →
+
                             </span>
 
                         </div>
 
                     </a>
+
 
                 </div>
 
@@ -1526,27 +1820,40 @@
 
                 <div class="grid gap-8 lg:grid-cols-[.25fr_1fr]">
 
+
                     <div
                         class="h2-serif text-[130px] leading-[.5] text-amber-500 sm:text-[180px]">
+
                         “
+
                     </div>
+
 
                     <div>
 
                         <p
                             class="h2-quote max-w-5xl text-4xl leading-[1.05] text-stone-900 sm:text-6xl lg:text-7xl dark:text-white">
+
                             Bowl &amp; Hearth is the rare cloud kitchen
                             that tastes like someone's actual mother
                             is cooking, not a commissary line.
+
                         </p>
 
-                        <div class="mt-12 flex items-center gap-5">
 
-                            <div class="h-px w-16 bg-[#a8341f]"></div>
+                        <div
+                            class="mt-12 flex items-center gap-5">
+
+                            <div
+                                class="h-px w-16 bg-[#a8341f]">
+                            </div>
+
 
                             <p
                                 class="text-xs font-bold uppercase tracking-[.25em] text-stone-500">
+
                                 Featured in — The City Table, 2025
+
                             </p>
 
                         </div>
@@ -1578,14 +1885,20 @@
                         alt="Chef preparing food in a kitchen"
                         loading="lazy">
 
-                    <div class="absolute inset-0 bg-black/10"></div>
+
+                    <div
+                        class="absolute inset-0 bg-black/10">
+                    </div>
+
 
                     <div
                         class="absolute bottom-7 left-7 sm:bottom-10 sm:left-10">
 
                         <span
                             class="inline-block bg-white px-4 py-2 text-xs font-bold uppercase tracking-[.2em] text-stone-900">
+
                             Our kitchen
+
                         </span>
 
                     </div>
@@ -1596,42 +1909,63 @@
                 <div
                     class="flex flex-col justify-center bg-stone-900 px-7 py-20 text-white sm:px-12 sm:py-24 lg:px-20">
 
+
                     <p
                         class="text-xs font-bold uppercase tracking-[.3em] text-amber-400">
+
                         A philosophy, not a slogan
+
                     </p>
+
 
                     <div class="mt-6 flex items-end gap-5">
 
                         <span
                             class="h2-serif text-[120px] font-semibold leading-[.7] text-amber-400 sm:text-[170px]">
+
                             9
+
                         </span>
+
 
                         <span
                             class="mb-2 max-w-[130px] text-xs font-bold uppercase leading-5 tracking-[.18em] text-white/50">
+
                             years,
                             <br>
                             one spice grinder
+
                         </span>
 
                     </div>
 
-                    <div class="mt-12 h-px w-full bg-white/15"></div>
+
+                    <div
+                        class="mt-12 h-px w-full bg-white/15">
+                    </div>
+
 
                     <p
                         class="mt-10 max-w-lg text-base leading-8 text-white/70">
+
                         We never scaled by outsourcing the masala.
                         The same stone grinder that started this kitchen
                         in 2016 still runs every morning — slower than
                         a machine, impossible to fake.
+
                     </p>
+
 
                     <a
                         href="about.html"
                         class="mt-9 inline-flex w-fit items-center gap-3 text-sm font-bold text-amber-400">
+
                         Read our story
-                        <span>→</span>
+
+                        <span>
+                            →
+                        </span>
+
                     </a>
 
                 </div>
@@ -1659,47 +1993,70 @@
                         <p
                             class="text-xs font-bold uppercase tracking-[.3em]"
                             style="color:#a8341f;">
+
                             Kitchen Notes
+
                         </p>
+
 
                         <h2
                             class="h2-serif mt-4 max-w-xl text-5xl font-semibold leading-[.92] sm:text-6xl lg:text-7xl">
+
                             A few things
+
                             <br>
+
                             worth ordering.
+
                         </h2>
 
-                        <div class="mt-8 h-px w-20 bg-[#c9862f]"></div>
+
+                        <div
+                            class="mt-8 h-px w-20 bg-[#c9862f]">
+                        </div>
+
 
                         <p
                             class="mt-8 max-w-sm text-sm leading-7 text-stone-600 dark:text-stone-400">
+
                             A taste of Tamil Nadu, cooked with familiar
                             ingredients, slow techniques and the kind of
                             warmth that belongs around a family table.
+
                         </p>
 
 
-                        <div class="mt-10 flex items-center gap-4">
+                        <div
+                            class="mt-10 flex items-center gap-4">
 
                             <div
                                 class="flex h-12 w-12 items-center justify-center rounded-full border border-[#a8341f]/30">
 
                                 <span
                                     class="h2-serif text-xl font-bold text-[#a8341f]">
+
                                     TN
+
                                 </span>
 
                             </div>
+
 
                             <div>
 
                                 <p
                                     class="text-xs font-bold uppercase tracking-[.2em] text-stone-500">
+
                                     Tamil Nadu
+
                                 </p>
 
-                                <p class="mt-1 text-sm text-stone-500">
+
+                                <p
+                                    class="mt-1 text-sm text-stone-500">
+
                                     Traditional flavours
+
                                 </p>
 
                             </div>
@@ -1712,43 +2069,67 @@
                     <div class="relative z-10">
 
 
-                        <div class="h2-kitchen-item py-7 sm:py-8">
+                        <!-- ITEM 01 -->
 
-                            <div class="flex items-start gap-5 sm:gap-7">
+                        <div
+                            class="h2-kitchen-item py-7 sm:py-8">
 
-                                <span class="h2-kitchen-number pt-1">
+                            <div
+                                class="flex items-start gap-5 sm:gap-7">
+
+                                <span
+                                    class="h2-kitchen-number pt-1">
+
                                     01
+
                                 </span>
+
 
                                 <div class="flex-1">
 
-                                    <div class="flex items-center gap-3">
+                                    <div
+                                        class="flex items-center gap-3">
 
-                                        <span class="h2-kitchen-dot"></span>
+                                        <span
+                                            class="h2-kitchen-dot">
+                                        </span>
+
 
                                         <h3
                                             class="h2-kitchen-title text-3xl sm:text-4xl">
+
                                             Kuzhi Paniyaram
+
                                         </h3>
 
                                     </div>
 
+
                                     <p
                                         class="mt-3 max-w-2xl text-sm leading-6 text-stone-600 dark:text-stone-400">
+
                                         Golden outside and soft inside,
                                         served with coconut chutney and
                                         a bright tomato-onion dip.
+
                                     </p>
+
 
                                     <p
                                         class="mt-3 text-xs font-bold uppercase tracking-[.18em] text-[#a8341f]">
+
                                         Chettinad-inspired • Breakfast
+
                                     </p>
 
                                 </div>
 
-                                <span class="h2-kitchen-side">
+
+                                <span
+                                    class="h2-kitchen-side">
+
                                     Morning
+
                                 </span>
 
                             </div>
@@ -1756,43 +2137,67 @@
                         </div>
 
 
-                        <div class="h2-kitchen-item py-7 sm:py-8">
+                        <!-- ITEM 02 -->
 
-                            <div class="flex items-start gap-5 sm:gap-7">
+                        <div
+                            class="h2-kitchen-item py-7 sm:py-8">
 
-                                <span class="h2-kitchen-number pt-1">
+                            <div
+                                class="flex items-start gap-5 sm:gap-7">
+
+                                <span
+                                    class="h2-kitchen-number pt-1">
+
                                     02
+
                                 </span>
+
 
                                 <div class="flex-1">
 
-                                    <div class="flex items-center gap-3">
+                                    <div
+                                        class="flex items-center gap-3">
 
-                                        <span class="h2-kitchen-dot"></span>
+                                        <span
+                                            class="h2-kitchen-dot">
+                                        </span>
+
 
                                         <h3
                                             class="h2-kitchen-title text-3xl sm:text-4xl">
+
                                             Vatha Kuzhambu Rice
+
                                         </h3>
 
                                     </div>
 
+
                                     <p
                                         class="mt-3 max-w-2xl text-sm leading-6 text-stone-600 dark:text-stone-400">
+
                                         Tangy tamarind kuzhambu with
                                         roasted spices, steamed rice,
                                         sesame oil and crisp appalam.
+
                                     </p>
+
 
                                     <p
                                         class="mt-3 text-xs font-bold uppercase tracking-[.18em] text-[#a8341f]">
+
                                         Homestyle • Lunch
+
                                     </p>
 
                                 </div>
 
-                                <span class="h2-kitchen-side">
+
+                                <span
+                                    class="h2-kitchen-side">
+
                                     Noon
+
                                 </span>
 
                             </div>
@@ -1800,43 +2205,67 @@
                         </div>
 
 
-                        <div class="h2-kitchen-item py-7 sm:py-8">
+                        <!-- ITEM 03 -->
 
-                            <div class="flex items-start gap-5 sm:gap-7">
+                        <div
+                            class="h2-kitchen-item py-7 sm:py-8">
 
-                                <span class="h2-kitchen-number pt-1">
+                            <div
+                                class="flex items-start gap-5 sm:gap-7">
+
+                                <span
+                                    class="h2-kitchen-number pt-1">
+
                                     03
+
                                 </span>
+
 
                                 <div class="flex-1">
 
-                                    <div class="flex items-center gap-3">
+                                    <div
+                                        class="flex items-center gap-3">
 
-                                        <span class="h2-kitchen-dot"></span>
+                                        <span
+                                            class="h2-kitchen-dot">
+                                        </span>
+
 
                                         <h3
                                             class="h2-kitchen-title text-3xl sm:text-4xl">
+
                                             Kongunadu Chicken
+
                                         </h3>
 
                                     </div>
 
+
                                     <p
                                         class="mt-3 max-w-2xl text-sm leading-6 text-stone-600 dark:text-stone-400">
+
                                         Rustic chicken cooked with shallots,
                                         curry leaves, black pepper and
                                         freshly ground spices.
+
                                     </p>
+
 
                                     <p
                                         class="mt-3 text-xs font-bold uppercase tracking-[.18em] text-[#a8341f]">
+
                                         Kongunadu • Main Course
+
                                     </p>
 
                                 </div>
 
-                                <span class="h2-kitchen-side">
+
+                                <span
+                                    class="h2-kitchen-side">
+
                                     Hearth
+
                                 </span>
 
                             </div>
@@ -1844,43 +2273,67 @@
                         </div>
 
 
-                        <div class="h2-kitchen-item py-7 sm:py-8">
+                        <!-- ITEM 04 -->
 
-                            <div class="flex items-start gap-5 sm:gap-7">
+                        <div
+                            class="h2-kitchen-item py-7 sm:py-8">
 
-                                <span class="h2-kitchen-number pt-1">
+                            <div
+                                class="flex items-start gap-5 sm:gap-7">
+
+                                <span
+                                    class="h2-kitchen-number pt-1">
+
                                     04
+
                                 </span>
+
 
                                 <div class="flex-1">
 
-                                    <div class="flex items-center gap-3">
+                                    <div
+                                        class="flex items-center gap-3">
 
-                                        <span class="h2-kitchen-dot"></span>
+                                        <span
+                                            class="h2-kitchen-dot">
+                                        </span>
+
 
                                         <h3
                                             class="h2-kitchen-title text-3xl sm:text-4xl">
+
                                             Parotta &amp; Salna
+
                                         </h3>
 
                                     </div>
 
+
                                     <p
                                         class="mt-3 max-w-2xl text-sm leading-6 text-stone-600 dark:text-stone-400">
+
                                         Flaky layered parotta paired with
                                         a deeply spiced, aromatic vegetable
                                         or chicken salna.
+
                                     </p>
+
 
                                     <p
                                         class="mt-3 text-xs font-bold uppercase tracking-[.18em] text-[#a8341f]">
+
                                         Street classic • Dinner
+
                                     </p>
 
                                 </div>
 
-                                <span class="h2-kitchen-side">
+
+                                <span
+                                    class="h2-kitchen-side">
+
                                     Evening
+
                                 </span>
 
                             </div>
@@ -1888,43 +2341,67 @@
                         </div>
 
 
-                        <div class="h2-kitchen-item py-7 sm:py-8">
+                        <!-- ITEM 05 -->
 
-                            <div class="flex items-start gap-5 sm:gap-7">
+                        <div
+                            class="h2-kitchen-item py-7 sm:py-8">
 
-                                <span class="h2-kitchen-number pt-1">
+                            <div
+                                class="flex items-start gap-5 sm:gap-7">
+
+                                <span
+                                    class="h2-kitchen-number pt-1">
+
                                     05
+
                                 </span>
+
 
                                 <div class="flex-1">
 
-                                    <div class="flex items-center gap-3">
+                                    <div
+                                        class="flex items-center gap-3">
 
-                                        <span class="h2-kitchen-dot"></span>
+                                        <span
+                                            class="h2-kitchen-dot">
+                                        </span>
+
 
                                         <h3
                                             class="h2-kitchen-title text-3xl sm:text-4xl">
+
                                             Keerai Masiyal
+
                                         </h3>
 
                                     </div>
 
+
                                     <p
                                         class="mt-3 max-w-2xl text-sm leading-6 text-stone-600 dark:text-stone-400">
+
                                         Fresh greens gently mashed with
                                         garlic and tempered spices,
                                         finished with a touch of sesame oil.
+
                                     </p>
+
 
                                     <p
                                         class="mt-3 text-xs font-bold uppercase tracking-[.18em] text-[#a8341f]">
+
                                         Village-style • Comfort food
+
                                     </p>
 
                                 </div>
 
-                                <span class="h2-kitchen-side">
+
+                                <span
+                                    class="h2-kitchen-side">
+
                                     Home
+
                                 </span>
 
                             </div>
@@ -1940,15 +2417,20 @@
                 <div
                     class="relative z-10 mt-14 flex flex-col gap-5 border-t border-stone-400/30 pt-8 sm:flex-row sm:items-center sm:justify-between dark:border-white/10">
 
+
                     <p
                         class="max-w-lg text-sm leading-6 text-stone-500 dark:text-stone-400">
+
                         Menus change with the season, the market and what
                         the kitchen feels is worth cooking that day.
+
                     </p>
+
 
                     <a
                         href="menu.html"
                         class="inline-flex w-fit items-center gap-3 border-b-2 border-[#a8341f] pb-2 text-sm font-bold text-[#a8341f]">
+
                         Explore the full menu
 
                         <span class="text-lg">
@@ -1973,32 +2455,47 @@
             <div
                 class="h2-numbers-inner mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-12">
 
+
                 <div
                     class="mb-14 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+
 
                     <div>
 
                         <p
                             class="text-xs font-bold uppercase tracking-[.3em] text-amber-300">
+
                             By the numbers
+
                         </p>
+
 
                         <h2
                             class="h2-serif mt-4 max-w-3xl text-5xl font-semibold leading-[.95] text-white sm:text-6xl lg:text-7xl">
+
                             What the kitchen
+
                             <br>
+
                             has built.
+
                         </h2>
 
-                        <div class="mt-7 h2-process-gold-line"></div>
+
+                        <div
+                            class="mt-7 h2-process-gold-line">
+                        </div>
 
                     </div>
 
+
                     <p
                         class="max-w-sm text-sm leading-7 text-white/65 sm:text-base">
+
                         Small batches, real people and years of cooking
                         every day — measured not only in numbers,
                         but in meals shared around tables.
+
                     </p>
 
                 </div>
@@ -2007,64 +2504,91 @@
                 <div class="grid gap-5 md:grid-cols-3">
 
 
-                    <div class="h2-number-card h2-stat text-center">
+                    <div
+                        class="h2-number-card h2-stat text-center">
 
                         <strong
                             class="h2-serif block text-6xl font-semibold text-amber-100 sm:text-8xl">
+
                             1,200+
+
                         </strong>
+
 
                         <span
                             class="mt-4 block text-xs font-bold uppercase tracking-[.2em] text-amber-200/70">
+
                             Tiffins served monthly
+
                         </span>
+
 
                         <p
                             class="mx-auto mt-5 max-w-xs text-sm leading-6 text-white/55">
+
                             Freshly prepared meals making their way
                             from our kitchen to local tables.
+
                         </p>
 
                     </div>
 
 
-                    <div class="h2-number-card h2-stat text-center">
+                    <div
+                        class="h2-number-card h2-stat text-center">
 
                         <strong
                             class="h2-serif block text-6xl font-semibold text-amber-100 sm:text-8xl">
+
                             18
+
                         </strong>
+
 
                         <span
                             class="mt-4 block text-xs font-bold uppercase tracking-[.2em] text-amber-200/70">
+
                             People in the kitchen
+
                         </span>
+
 
                         <p
                             class="mx-auto mt-5 max-w-xs text-sm leading-6 text-white/55">
+
                             Cooks, packers and kitchen hands working
                             together behind every order.
+
                         </p>
 
                     </div>
 
 
-                    <div class="h2-number-card h2-stat text-center">
+                    <div
+                        class="h2-number-card h2-stat text-center">
 
                         <strong
                             class="h2-serif block text-6xl font-semibold text-amber-100 sm:text-8xl">
+
                             9
+
                         </strong>
+
 
                         <span
                             class="mt-4 block text-xs font-bold uppercase tracking-[.2em] text-amber-200/70">
+
                             Years cooking daily
+
                         </span>
+
 
                         <p
                             class="mx-auto mt-5 max-w-xs text-sm leading-6 text-white/55">
+
                             Nine years of recipes, family favourites
                             and everyday kitchen stories.
+
                         </p>
 
                     </div>
@@ -2075,13 +2599,20 @@
                 <div
                     class="mt-12 flex flex-col gap-4 border-t border-white/15 pt-7 sm:flex-row sm:items-center sm:justify-between">
 
+
                     <p class="text-sm text-white/50">
-                        Cooked with patience. Served with pride.
+
+                        Cooked with patience.
+                        Served with pride.
+
                     </p>
+
 
                     <span
                         class="text-xs font-bold uppercase tracking-[.25em] text-amber-300/70">
+
                         Bowl &amp; Hearth
+
                     </span>
 
                 </div>
@@ -2101,6 +2632,7 @@
             <div
                 class="mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-32 lg:px-12">
 
+
                 <div
                     class="grid items-center gap-12 lg:grid-cols-[1.2fr_.8fr]">
 
@@ -2110,14 +2642,21 @@
                         <p
                             class="text-xs font-bold uppercase tracking-[.3em]"
                             style="color:#a8341f;">
+
                             Hungry already?
+
                         </p>
+
 
                         <h2
                             class="h2-serif mt-5 max-w-3xl text-6xl font-semibold leading-[.9] sm:text-7xl lg:text-8xl">
+
                             Hungry for
+
                             <br>
+
                             the real thing?
+
                         </h2>
 
                     </div>
@@ -2125,22 +2664,30 @@
 
                     <div>
 
-                        <div class="h-px w-20 bg-[#c9862f]"></div>
+                        <div
+                            class="h-px w-20 bg-[#c9862f]">
+                        </div>
+
 
                         <p
                             class="mt-7 max-w-md text-base leading-8 text-stone-600 dark:text-stone-300">
+
                             Pick a meal window, tell us the headcount,
                             and we'll have it at your door hot.
+
                         </p>
 
 
                         <div
                             class="mt-9 flex flex-wrap items-center gap-6">
 
+
                             <a
                                 href="menu.html"
                                 class="inline-flex items-center justify-center rounded-full bg-[#a8341f] px-7 py-4 text-sm font-bold text-white transition duration-300 hover:-translate-y-1 hover:bg-[#8d2b1b]">
+
                                 Explore today's menu
+
                             </a>
 
 
@@ -2163,20 +2710,28 @@
                 </div>
 
 
-                <div class="mt-20 flex items-center gap-5">
+                <div
+                    class="mt-20 flex items-center gap-5">
+
 
                     <span
                         class="text-[10px] font-bold uppercase tracking-[.3em] text-stone-400">
+
                         Bowl &amp; Hearth
+
                     </span>
+
 
                     <div
                         class="h-px flex-1 bg-stone-300 dark:bg-stone-800">
                     </div>
 
+
                     <span
                         class="text-[10px] font-bold uppercase tracking-[.3em] text-stone-400">
+
                         Made close to home
+
                     </span>
 
                 </div>
@@ -2189,11 +2744,268 @@
     </main>
 
 
+    <!-- =========================================================
+         SHARED FOOTER
+    ========================================================== -->
+
     <div id="site-footer"></div>
 
 
+    <!-- =========================================================
+         SHARED JAVASCRIPT
+    ========================================================== -->
+
     <script src="../js/components.js"></script>
+
     <script src="../js/main.js"></script>
+
+
+    <!-- =========================================================
+         HOME 2 — NAVBAR HEIGHT / HERO OVERLAP FIX
+    ========================================================== -->
+
+    <script>
+
+        (function () {
+
+            /*
+             * Get the real height of the dynamically generated
+             * navigation.
+             */
+
+            function fixHome2NavbarOverlap() {
+
+                const header =
+                    document.getElementById("site-header");
+
+                const main =
+                    document.getElementById("home2-main");
+
+                const hero =
+                    document.getElementById("home2-hero");
+
+
+                if (!header || !main || !hero) {
+                    return;
+                }
+
+
+                /*
+                 * Measure actual visible navbar height.
+                 */
+
+                const headerRect =
+                    header.getBoundingClientRect();
+
+
+                const headerHeight =
+                    Math.ceil(headerRect.height);
+
+
+                /*
+                 * If the header has no height yet,
+                 * try again later.
+                 */
+
+                if (headerHeight <= 0) {
+
+                    setTimeout(
+                        fixHome2NavbarOverlap,
+                        100
+                    );
+
+                    return;
+
+                }
+
+
+                /*
+                 * Small breathing space below navbar.
+                 */
+
+                let extraSpace = 20;
+
+
+                /*
+                 * Mobile.
+                 */
+
+                if (window.innerWidth <= 640) {
+
+                    extraSpace = 14;
+
+                }
+
+
+                /*
+                 * Tablet.
+                 */
+
+                else if (window.innerWidth <= 1024) {
+
+                    extraSpace = 18;
+
+                }
+
+
+                /*
+                 * Calculate final spacing.
+                 */
+
+                const finalTopSpace =
+                    headerHeight + extraSpace;
+
+
+                /*
+                 * Apply exact spacing.
+                 */
+
+                main.style.paddingTop =
+                    finalTopSpace + "px";
+
+
+                /*
+                 * Ensure hero doesn't have a negative
+                 * offset caused by another stylesheet.
+                 */
+
+                hero.style.marginTop = "0px";
+
+                hero.style.transform = "none";
+
+            }
+
+
+            /*
+             * Run after page loads.
+             */
+
+            window.addEventListener(
+                "load",
+                function () {
+
+                    setTimeout(
+                        fixHome2NavbarOverlap,
+                        50
+                    );
+
+                    setTimeout(
+                        fixHome2NavbarOverlap,
+                        200
+                    );
+
+                    setTimeout(
+                        fixHome2NavbarOverlap,
+                        500
+                    );
+
+                }
+            );
+
+
+            /*
+             * Recalculate when window size changes.
+             */
+
+            window.addEventListener(
+                "resize",
+                function () {
+
+                    fixHome2NavbarOverlap();
+
+                }
+            );
+
+
+            /*
+             * Recalculate after device orientation changes.
+             */
+
+            window.addEventListener(
+                "orientationchange",
+                function () {
+
+                    setTimeout(
+                        fixHome2NavbarOverlap,
+                        250
+                    );
+
+                }
+            );
+
+
+            /*
+             * Watch the dynamically loaded navbar.
+             */
+
+            const header =
+                document.getElementById("site-header");
+
+
+            if (header) {
+
+                const observer =
+                    new MutationObserver(function () {
+
+                        setTimeout(
+                            fixHome2NavbarOverlap,
+                            50
+                        );
+
+                    });
+
+
+                observer.observe(
+                    header,
+                    {
+                        childList: true,
+                        subtree: true,
+                        attributes: true
+                    }
+                );
+
+            }
+
+
+            /*
+             * ResizeObserver handles changes such as:
+             *
+             * - mobile menu opening
+             * - dropdown expansion
+             * - navbar wrapping
+             * - tablet layout changes
+             */
+
+            if (
+                typeof ResizeObserver !== "undefined"
+            ) {
+
+                const headerElement =
+                    document.getElementById("site-header");
+
+
+                if (headerElement) {
+
+                    const resizeObserver =
+                        new ResizeObserver(function () {
+
+                            fixHome2NavbarOverlap();
+
+                        });
+
+
+                    resizeObserver.observe(
+                        headerElement
+                    );
+
+                }
+
+            }
+
+        })();
+
+    </script>
+
 
 </body>
 

@@ -9,6 +9,8 @@
 
     <title>Cloud Kitchen Model | Bowl & Hearth</title>
 
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+
 
     <!-- =========================================================
          TAILWIND
@@ -60,9 +62,9 @@
 
         .bulk-order-btn {
 
-            background-color: #e11d48 !important;
+            background-color: #c2410c !important;
             color: #ffffff !important;
-            border-color: #e11d48 !important;
+            border-color: #c2410c !important;
 
             transition: all .3s ease !important;
 
@@ -71,9 +73,9 @@
 
         .bulk-order-btn:hover {
 
-            background-color: #be123c !important;
+            background-color: #9a3412 !important;
             color: #ffffff !important;
-            border-color: #be123c !important;
+            border-color: #9a3412 !important;
 
             transform: translateY(-1px);
 
@@ -85,37 +87,784 @@
             outline: none !important;
 
             box-shadow:
-                0 0 0 3px rgba(225, 29, 72, .25) !important;
+                0 0 0 3px rgba(194, 65, 12, .25) !important;
 
         }
 
 
         /* =========================================================
-           HERO LIGHT OVERLAY
+           =========================================================
+           CLOUD KITCHEN HERO
+           BOWL & HEARTH BRAND THEME
+           =========================================================
         ========================================================== */
 
-        .bh-hero-overlay {
+        .bh-cloud-hero {
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fffaf7 0%,
+                    #f8eee7 48%,
+                    #f4dfce 100%
+                );
+
+            color: #292524;
+
+        }
+
+
+        /* Warm decorative glow */
+
+        .bh-cloud-hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 480px;
+            height: 480px;
+
+            top: -220px;
+            right: -120px;
+
+            border-radius: 9999px;
+
+            background: rgba(194, 65, 12, .10);
+
+            filter: blur(70px);
+
+            pointer-events: none;
+
+        }
+
+
+        .bh-cloud-hero::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 360px;
+            height: 360px;
+
+            bottom: -190px;
+            left: -120px;
+
+            border-radius: 9999px;
+
+            background: rgba(217, 119, 6, .10);
+
+            filter: blur(75px);
+
+            pointer-events: none;
+
+        }
+
+
+        /* Hero image */
+
+        .bh-cloud-hero-image {
+
+            position: absolute;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            object-position: center;
+
+            filter:
+                saturate(.88)
+                sepia(.08)
+                contrast(.96);
+
+        }
+
+
+        /* Brand overlay */
+
+        .bh-cloud-hero-overlay {
+
+            position: absolute;
+
+            inset: 0;
 
             background:
                 linear-gradient(
                     90deg,
-                    rgba(255, 250, 247, .97) 0%,
-                    rgba(255, 250, 247, .90) 38%,
-                    rgba(255, 250, 247, .55) 70%,
-                    rgba(255, 250, 247, .30) 100%
+                    rgba(255, 250, 247, .98) 0%,
+                    rgba(255, 250, 247, .94) 32%,
+                    rgba(255, 250, 247, .76) 58%,
+                    rgba(255, 250, 247, .34) 82%,
+                    rgba(255, 250, 247, .18) 100%
                 );
 
         }
 
 
-        .bh-hero-bottom {
+        /* Bottom fade */
+
+        .bh-cloud-hero-bottom {
+
+            position: absolute;
+
+            inset: 0;
 
             background:
                 linear-gradient(
                     to top,
-                    rgba(255, 250, 247, .95),
-                    transparent
+                    rgba(255, 250, 247, .88) 0%,
+                    transparent 35%
                 );
+
+            pointer-events: none;
+
+        }
+
+
+        /* Hero content */
+
+        .bh-cloud-hero-content {
+
+            position: relative;
+
+            z-index: 5;
+
+        }
+
+
+        /* Hero eyebrow */
+
+        .bh-cloud-eyebrow {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: #9a3412;
+
+            font-size: .72rem;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: .22em;
+
+        }
+
+
+        .bh-cloud-eyebrow-line {
+
+            width: 34px;
+
+            height: 1px;
+
+            background: #c2410c;
+
+        }
+
+
+        /* Hero heading */
+
+        .bh-cloud-heading {
+
+            margin-top: 18px;
+
+            font-family:
+                Georgia,
+                'Times New Roman',
+                serif;
+
+            font-size:
+                clamp(
+                    2.8rem,
+                    6vw,
+                    5.4rem
+                );
+
+            line-height: .98;
+
+            letter-spacing: -.045em;
+
+            font-weight: 700;
+
+            color: #292524;
+
+        }
+
+
+        .bh-cloud-heading-highlight {
+
+            display: block;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #9a3412,
+                    #c2410c,
+                    #d97706
+                );
+
+            background-clip: text;
+
+            -webkit-background-clip: text;
+
+            color: transparent;
+
+        }
+
+
+        /* Hero paragraph */
+
+        .bh-cloud-description {
+
+            max-width: 650px;
+
+            margin-top: 25px;
+
+            color: #57534e;
+
+            font-size: 1.05rem;
+
+            line-height: 1.85;
+
+        }
+
+
+        /* Hero buttons */
+
+        .bh-cloud-primary {
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 9999px;
+
+            background: #292524;
+
+            color: #ffffff;
+
+            padding:
+                13px 24px;
+
+            font-size: .9rem;
+
+            font-weight: 700;
+
+            transition:
+                transform .3s ease,
+                background .3s ease,
+                box-shadow .3s ease;
+
+            box-shadow:
+                0 10px 25px rgba(41, 37, 36, .16);
+
+        }
+
+
+        .bh-cloud-primary:hover {
+
+            background: #1c1917;
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 15px 30px rgba(41, 37, 36, .22);
+
+        }
+
+
+        .bh-cloud-secondary {
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 9999px;
+
+            background: rgba(255, 255, 255, .72);
+
+            color: #9a3412;
+
+            border:
+                1px solid rgba(154, 52, 18, .25);
+
+            padding:
+                12px 23px;
+
+            font-size: .9rem;
+
+            font-weight: 700;
+
+            backdrop-filter: blur(8px);
+
+            transition:
+                transform .3s ease,
+                background .3s ease,
+                color .3s ease,
+                border-color .3s ease;
+
+        }
+
+
+        .bh-cloud-secondary:hover {
+
+            transform: translateY(-2px);
+
+            background: #c2410c;
+
+            color: #ffffff;
+
+            border-color: #c2410c;
+
+        }
+
+
+        /* =========================================================
+           HERO PROCESS PANEL
+        ========================================================== */
+
+        .bh-cloud-process {
+
+            position: relative;
+
+            z-index: 5;
+
+            border:
+                1px solid rgba(255, 255, 255, .72);
+
+            background:
+                rgba(255, 250, 247, .88);
+
+            backdrop-filter: blur(18px);
+
+            -webkit-backdrop-filter: blur(18px);
+
+            box-shadow:
+                0 25px 60px rgba(87, 49, 31, .16);
+
+        }
+
+
+        .bh-cloud-process-top {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding-bottom: 20px;
+
+            border-bottom:
+                1px solid rgba(120, 53, 15, .12);
+
+        }
+
+
+        .bh-cloud-process-label {
+
+            color: #78716c;
+
+            font-size: .7rem;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: .2em;
+
+        }
+
+
+        .bh-cloud-process-status {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            color: #9a3412;
+
+            font-size: .7rem;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: .12em;
+
+        }
+
+
+        .bh-cloud-process-status-dot {
+
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: #d97706;
+
+            box-shadow:
+                0 0 0 4px rgba(217, 119, 6, .12);
+
+        }
+
+
+        .bh-cloud-process-item {
+
+            display: flex;
+
+            gap: 17px;
+
+            padding: 20px 0;
+
+            border-bottom:
+                1px solid rgba(120, 53, 15, .11);
+
+        }
+
+
+        .bh-cloud-process-item:last-child {
+
+            border-bottom: 0;
+
+            padding-bottom: 0;
+
+        }
+
+
+        .bh-cloud-process-number {
+
+            flex-shrink: 0;
+
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                #f4dfce;
+
+            border:
+                1px solid rgba(194, 65, 12, .20);
+
+            color: #9a3412;
+
+            font-family:
+                Georgia,
+                'Times New Roman',
+                serif;
+
+            font-size: .95rem;
+
+            font-weight: 700;
+
+            transition:
+                transform .3s ease,
+                background .3s ease,
+                color .3s ease;
+
+        }
+
+
+        .bh-cloud-process-item:hover
+        .bh-cloud-process-number {
+
+            transform: scale(1.08);
+
+            background: #c2410c;
+
+            color: #ffffff;
+
+        }
+
+
+        .bh-cloud-process-title {
+
+            color: #292524;
+
+            font-family:
+                Georgia,
+                'Times New Roman',
+                serif;
+
+            font-size: 1.05rem;
+
+            font-weight: 700;
+
+        }
+
+
+        .bh-cloud-process-description {
+
+            margin-top: 6px;
+
+            color: #78716c;
+
+            font-size: .83rem;
+
+            line-height: 1.65;
+
+        }
+
+
+        /* =========================================================
+           HERO BRAND STRIP
+        ========================================================== */
+
+        .bh-cloud-brand-strip {
+
+            position: relative;
+
+            z-index: 5;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin-top: 35px;
+
+            color: #78716c;
+
+            font-size: .7rem;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: .16em;
+
+        }
+
+
+        .bh-cloud-brand-line {
+
+            width: 45px;
+
+            height: 1px;
+
+            background: #d6a47c;
+
+        }
+
+
+        /* =========================================================
+           HERO TABLET
+        ========================================================== */
+
+        @media(max-width: 1023px) {
+
+            .bh-cloud-hero-overlay {
+
+                background:
+                    linear-gradient(
+                        90deg,
+                        rgba(255, 250, 247, .98) 0%,
+                        rgba(255, 250, 247, .92) 48%,
+                        rgba(255, 250, 247, .58) 100%
+                    );
+
+            }
+
+            .bh-cloud-heading {
+
+                font-size:
+                    clamp(
+                        2.8rem,
+                        7vw,
+                        4.8rem
+                    );
+
+            }
+
+        }
+
+
+        /* =========================================================
+           HERO MOBILE
+        ========================================================== */
+
+        @media(max-width: 767px) {
+
+            .bh-cloud-hero {
+
+                min-height: auto;
+
+            }
+
+
+            .bh-cloud-hero-image {
+
+                object-position:
+                    62% center;
+
+            }
+
+
+            .bh-cloud-hero-overlay {
+
+                background:
+                    linear-gradient(
+                        180deg,
+                        rgba(255, 250, 247, .97) 0%,
+                        rgba(255, 250, 247, .94) 45%,
+                        rgba(255, 250, 247, .82) 78%,
+                        rgba(255, 250, 247, .74) 100%
+                    );
+
+            }
+
+
+            .bh-cloud-hero-bottom {
+
+                background:
+                    linear-gradient(
+                        to top,
+                        rgba(255, 250, 247, .96),
+                        transparent 45%
+                    );
+
+            }
+
+
+            .bh-cloud-heading {
+
+                font-size:
+                    clamp(
+                        2.65rem,
+                        13vw,
+                        4rem
+                    );
+
+            }
+
+
+            .bh-cloud-description {
+
+                font-size: .92rem;
+
+                line-height: 1.7;
+
+            }
+
+
+            .bh-cloud-process {
+
+                margin-top: 8px;
+
+                border-radius: 1.5rem;
+
+                padding: 22px;
+
+            }
+
+
+            .bh-cloud-process-item {
+
+                padding: 16px 0;
+
+            }
+
+
+            .bh-cloud-process-description {
+
+                font-size: .76rem;
+
+            }
+
+
+            .bh-cloud-brand-strip {
+
+                margin-top: 25px;
+
+                font-size: .58rem;
+
+            }
+
+        }
+
+
+        /* =========================================================
+           VERY SMALL MOBILE
+        ========================================================== */
+
+        @media(max-width: 420px) {
+
+            .bh-cloud-heading {
+
+                font-size: 2.45rem;
+
+            }
+
+
+            .bh-cloud-description {
+
+                font-size: .86rem;
+
+            }
+
+
+            .bh-cloud-primary,
+            .bh-cloud-secondary {
+
+                width: 100%;
+
+            }
+
+
+            .bh-cloud-process {
+
+                padding: 18px;
+
+            }
+
+
+            .bh-cloud-process-number {
+
+                width: 36px;
+                height: 36px;
+
+                font-size: .82rem;
+
+            }
+
+
+            .bh-cloud-process-title {
+
+                font-size: .95rem;
+
+            }
+
+
+            .bh-cloud-process-description {
+
+                font-size: .7rem;
+
+            }
 
         }
 
@@ -136,7 +885,7 @@
                     135deg,
                     #fffaf7 0%,
                     #ffffff 45%,
-                    #fff1f2 100%
+                    #fff1e8 100%
                 );
 
             color: #292524;
@@ -153,7 +902,7 @@
 
             border-radius: 9999px;
 
-            background: rgba(244, 63, 94, .10);
+            background: rgba(194, 65, 12, .08);
 
             filter: blur(80px);
 
@@ -201,7 +950,7 @@
 
             gap: 10px;
 
-            color: #e11d48;
+            color: #c2410c;
 
             font-size: .72rem;
 
@@ -223,7 +972,7 @@
 
             height: 1px;
 
-            background: #e11d48;
+            background: #c2410c;
 
             opacity: .6;
 
@@ -338,7 +1087,7 @@
 
         .bh-model-item:hover .bh-model-number {
 
-            color: #fda4af;
+            color: #d6a47c;
 
             transform: translateX(4px);
 
@@ -357,11 +1106,11 @@
 
             border-radius: 50%;
 
-            border: 1px solid rgba(225, 29, 72, .22);
+            border: 1px solid rgba(194, 65, 12, .22);
 
             background: #ffffff;
 
-            color: #e11d48;
+            color: #c2410c;
 
             font-size: 22px;
 
@@ -380,7 +1129,7 @@
 
             transform: rotate(-5deg) scale(1.08);
 
-            background: #e11d48;
+            background: #c2410c;
 
             color: #fff;
 
@@ -443,9 +1192,9 @@
 
             border-radius: 50%;
 
-            color: #e11d48;
+            color: #c2410c;
 
-            border: 1px solid rgba(225, 29, 72, .18);
+            border: 1px solid rgba(194, 65, 12, .18);
 
             transition:
                 transform .3s ease,
@@ -459,7 +1208,7 @@
 
             transform: translateX(5px);
 
-            background: #e11d48;
+            background: #c2410c;
 
             color: #fff;
 
@@ -694,7 +1443,7 @@
                     135deg,
                     #fff7f3 0%,
                     #ffffff 50%,
-                    #fff1f2 100%
+                    #fff1e8 100%
                 );
 
             color: #292524;
@@ -707,8 +1456,8 @@
             background:
                 linear-gradient(
                     to bottom,
-                    #f43f5e,
-                    #fbbf24,
+                    #c2410c,
+                    #d97706,
                     #d6d3d1
                 );
 
@@ -751,11 +1500,11 @@
 
             transform: scale(1.08);
 
-            background: #f59e0b !important;
+            background: #d97706 !important;
 
             color: #1c1917 !important;
 
-            border-color: #f59e0b;
+            border-color: #d97706;
 
         }
 
@@ -794,27 +1543,6 @@
 
 
         /* =========================================================
-           HERO MOBILE
-        ========================================================== */
-
-        @media(max-width: 767px) {
-
-            .bh-hero-overlay {
-
-                background:
-                    linear-gradient(
-                        180deg,
-                        rgba(255, 250, 247, .96) 0%,
-                        rgba(255, 250, 247, .90) 55%,
-                        rgba(255, 250, 247, .82) 100%
-                    );
-
-            }
-
-        }
-
-
-        /* =========================================================
            SMOOTH IMAGE EFFECT
         ========================================================== */
 
@@ -832,7 +1560,7 @@
         a:focus-visible,
         button:focus-visible {
 
-            outline: 3px solid rgba(225, 29, 72, .35);
+            outline: 3px solid rgba(194, 65, 12, .35);
 
             outline-offset: 3px;
 
@@ -857,56 +1585,54 @@
 
 
         <!-- =========================================================
-             SECTION 1: HERO
+             SECTION 1: CLOUD KITCHEN HERO
         ========================================================== -->
 
-        <section class="relative overflow-hidden bg-[#fffaf7]">
+        <section class="bh-cloud-hero">
 
+
+            <!-- HERO IMAGE -->
 
             <img
-                src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1600&q=80"
+                src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1800&q=85"
                 alt="Cloud kitchen in operation"
-                class="absolute inset-0 h-full w-full object-cover">
+                class="bh-cloud-hero-image">
 
 
-            <!-- LIGHT OVERLAY -->
+            <!-- BRAND OVERLAY -->
 
-            <div
-                class="bh-hero-overlay absolute inset-0">
-            </div>
+            <div class="bh-cloud-hero-overlay"></div>
+
+            <div class="bh-cloud-hero-bottom"></div>
 
 
-            <div
-                class="bh-hero-bottom absolute inset-0">
-            </div>
-
+            <!-- HERO CONTENT -->
 
             <div
-                class="relative mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-8 sm:py-24 lg:grid-cols-2 lg:items-center lg:px-12">
+                class="bh-cloud-hero-content mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-8 sm:py-24 lg:grid-cols-2 lg:items-center lg:px-12">
 
 
-                <!-- LEFT -->
+                <!-- =====================================================
+                     LEFT CONTENT
+                ====================================================== -->
 
                 <div>
 
 
-                    <p
-                        class="eyebrow flex items-center gap-2 text-rose-600">
+                    <p class="bh-cloud-eyebrow">
 
-                        <span class="h-px w-8 bg-rose-600"></span>
+                        <span class="bh-cloud-eyebrow-line"></span>
 
                         How it works
 
                     </p>
 
 
-                    <h1
-                        class="mt-4 font-display text-4xl font-black leading-[1.05] text-stone-900 sm:text-6xl lg:text-7xl">
+                    <h1 class="bh-cloud-heading">
 
                         A kitchen designed
 
-                        <span
-                            class="block bg-gradient-to-r from-rose-600 to-orange-500 bg-clip-text text-transparent">
+                        <span class="bh-cloud-heading-highlight">
 
                             around the plate.
 
@@ -915,8 +1641,7 @@
                     </h1>
 
 
-                    <p
-                        class="mt-7 max-w-xl text-lg leading-8 text-stone-600">
+                    <p class="bh-cloud-description">
 
                         No dining room, no unnecessary steps. Our model puts the team,
                         equipment and prep flow around the food that travels to you.
@@ -924,151 +1649,216 @@
                     </p>
 
 
+                    <!-- BUTTONS -->
+
                     <div class="mt-8 flex flex-wrap gap-4">
 
 
                         <a
                             href="menu.html"
-                            class="btn-primary bg-rose-600 text-white hover:bg-rose-700">
+                            class="bh-cloud-primary">
 
                             Explore the menu
+
+                            <span class="ml-2">
+
+                                →
+
+                            </span>
 
                         </a>
 
 
                         <a
                             href="bulk-orders.html"
-                            class="bulk-order-btn inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-semibold">
+                            class="bh-cloud-secondary">
 
-                            Bulk orders →
+                            Bulk orders
+
+                            <span class="ml-2">
+
+                                →
+
+                            </span>
 
                         </a>
 
+
                     </div>
+
+
+                    <!-- BRAND STRIP -->
+
+                    <div class="bh-cloud-brand-strip">
+
+                        <span class="bh-cloud-brand-line"></span>
+
+                        Thoughtful food. Simple process.
+
+                    </div>
+
 
                 </div>
 
 
-                <!-- RIGHT PROCESS -->
+                <!-- =====================================================
+                     RIGHT PROCESS PANEL
+                ====================================================== -->
 
                 <div
-                    class="rounded-[2rem] border border-white/70 bg-white/90 p-7 shadow-2xl shadow-rose-100/60 backdrop-blur-sm sm:p-10">
+                    class="bh-cloud-process rounded-[2rem] p-7 sm:p-9">
 
 
-                    <div class="grid gap-5">
+                    <!-- PANEL HEADER -->
+
+                    <div class="bh-cloud-process-top">
 
 
-                        <!-- 01 -->
+                        <p class="bh-cloud-process-label">
 
-                        <div
-                            class="flex gap-4 border-b border-stone-200 pb-5">
+                            Our kitchen flow
 
-                            <span
-                                class="font-display text-2xl font-black text-rose-600">
-
-                                01
-
-                            </span>
+                        </p>
 
 
-                            <div>
+                        <p class="bh-cloud-process-status">
 
-                                <b class="text-stone-900">Prep</b>
+                            <span class="bh-cloud-process-status-dot"></span>
 
-                                <p class="mt-2 text-stone-500">
+                            Freshly organised
 
-                                    Ingredients are portioned before the first order window.
+                        </p>
 
-                                </p>
-
-                            </div>
-
-                        </div>
+                    </div>
 
 
-                        <!-- 02 -->
+                    <!-- PROCESS 01 -->
 
-                        <div
-                            class="flex gap-4 border-b border-stone-200 pb-5">
-
-                            <span
-                                class="font-display text-2xl font-black text-rose-600">
-
-                                02
-
-                            </span>
+                    <div class="bh-cloud-process-item">
 
 
-                            <div>
+                        <div class="bh-cloud-process-number">
 
-                                <b class="text-stone-900">Cook</b>
-
-                                <p class="mt-2 text-stone-500">
-
-                                    Orders are cooked in short batches for consistency.
-
-                                </p>
-
-                            </div>
+                            01
 
                         </div>
 
 
-                        <!-- 03 -->
+                        <div>
 
-                        <div
-                            class="flex gap-4 border-b border-stone-200 pb-5">
+                            <h3 class="bh-cloud-process-title">
 
-                            <span
-                                class="font-display text-2xl font-black text-rose-600">
+                                Prep
 
-                                03
-
-                            </span>
+                            </h3>
 
 
-                            <div>
+                            <p class="bh-cloud-process-description">
 
-                                <b class="text-stone-900">Pack</b>
+                                Ingredients are portioned before the first order window.
 
-                                <p class="mt-2 text-stone-500">
-
-                                    Containers are labelled and checked before dispatch.
-
-                                </p>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- 04 -->
-
-                        <div class="flex gap-4">
-
-                            <span
-                                class="font-display text-2xl font-black text-rose-600">
-
-                                04
-
-                            </span>
-
-
-                            <div>
-
-                                <b class="text-stone-900">Deliver</b>
-
-                                <p class="mt-2 text-stone-500">
-
-                                    Local routes keep the final journey short.
-
-                                </p>
-
-                            </div>
+                            </p>
 
                         </div>
 
                     </div>
+
+
+                    <!-- PROCESS 02 -->
+
+                    <div class="bh-cloud-process-item">
+
+
+                        <div class="bh-cloud-process-number">
+
+                            02
+
+                        </div>
+
+
+                        <div>
+
+                            <h3 class="bh-cloud-process-title">
+
+                                Cook
+
+                            </h3>
+
+
+                            <p class="bh-cloud-process-description">
+
+                                Orders are cooked in short batches for consistency.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PROCESS 03 -->
+
+                    <div class="bh-cloud-process-item">
+
+
+                        <div class="bh-cloud-process-number">
+
+                            03
+
+                        </div>
+
+
+                        <div>
+
+                            <h3 class="bh-cloud-process-title">
+
+                                Pack
+
+                            </h3>
+
+
+                            <p class="bh-cloud-process-description">
+
+                                Containers are labelled and checked before dispatch.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PROCESS 04 -->
+
+                    <div class="bh-cloud-process-item">
+
+
+                        <div class="bh-cloud-process-number">
+
+                            04
+
+                        </div>
+
+
+                        <div>
+
+                            <h3 class="bh-cloud-process-title">
+
+                                Deliver
+
+                            </h3>
+
+
+                            <p class="bh-cloud-process-description">
+
+                                Local routes keep the final journey short.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
 
                 </div>
 
@@ -1092,8 +1882,6 @@
             <div
                 class="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-12">
 
-
-                <!-- HEADER -->
 
                 <div class="bh-model-header">
 
@@ -1123,8 +1911,6 @@
                 </div>
 
 
-                <!-- PROCESS LIST -->
-
                 <div class="bh-model-list">
 
 
@@ -1152,17 +1938,9 @@
                                 stroke-linecap="round"
                                 stroke-linejoin="round">
 
-                                <circle
-                                    cx="12"
-                                    cy="12"
-                                    r="8">
-                                </circle>
+                                <circle cx="12" cy="12" r="8"></circle>
 
-                                <circle
-                                    cx="12"
-                                    cy="12"
-                                    r="3">
-                                </circle>
+                                <circle cx="12" cy="12" r="3"></circle>
 
                                 <path d="M12 2v3"></path>
 
@@ -1352,8 +2130,6 @@
                 </div>
 
 
-                <!-- FOOT NOTE -->
-
                 <div class="bh-model-note">
 
                     <span class="bh-model-note-line"></span>
@@ -1374,16 +2150,16 @@
         ========================================================== -->
 
         <section
-            class="relative overflow-hidden bg-gradient-to-br from-rose-50 via-white to-pink-50 text-stone-900">
+            class="relative overflow-hidden bg-gradient-to-br from-orange-50 via-white to-amber-50 text-stone-900">
 
 
             <div
-                class="pointer-events-none absolute -top-20 left-1/4 h-80 w-80 rounded-full bg-rose-200/40 blur-3xl">
+                class="pointer-events-none absolute -top-20 left-1/4 h-80 w-80 rounded-full bg-orange-200/40 blur-3xl">
             </div>
 
 
             <div
-                class="pointer-events-none absolute -bottom-20 right-10 h-72 w-72 rounded-full bg-pink-200/30 blur-3xl">
+                class="pointer-events-none absolute -bottom-20 right-10 h-72 w-72 rounded-full bg-amber-200/30 blur-3xl">
             </div>
 
 
@@ -1394,7 +2170,7 @@
                 <div class="mx-auto mb-12 max-w-2xl text-center">
 
 
-                    <p class="eyebrow justify-center text-rose-600">
+                    <p class="eyebrow justify-center text-orange-700">
 
                         The difference
 
@@ -1420,10 +2196,8 @@
 
 
                 <div
-                    class="grid overflow-hidden rounded-3xl border border-rose-200 bg-white shadow-xl md:grid-cols-2 md:gap-px md:bg-rose-100">
+                    class="grid overflow-hidden rounded-3xl border border-orange-200 bg-white shadow-xl md:grid-cols-2 md:gap-px md:bg-orange-100">
 
-
-                    <!-- HEADERS -->
 
                     <div
                         class="bg-stone-50 px-8 pb-5 pt-8 sm:px-10 sm:pt-10">
@@ -1439,7 +2213,7 @@
 
 
                     <div
-                        class="bg-gradient-to-br from-rose-500 via-rose-400 to-amber-400 px-8 pb-5 pt-8 text-stone-950 sm:px-10 sm:pt-10">
+                        class="bg-gradient-to-br from-orange-500 via-orange-400 to-amber-400 px-8 pb-5 pt-8 text-stone-950 sm:px-10 sm:pt-10">
 
                         <p
                             class="text-sm font-semibold uppercase tracking-wide text-stone-900/70">
@@ -1451,12 +2225,10 @@
                     </div>
 
 
-                    <!-- ROW 1 -->
-
                     <div
                         class="flex items-center gap-3 bg-white px-8 py-5 text-stone-600 sm:px-10">
 
-                        <span class="font-bold text-rose-400">✕</span>
+                        <span class="font-bold text-orange-400">✕</span>
 
                         Rent for dining space &amp; seating
 
@@ -1464,21 +2236,19 @@
 
 
                     <div
-                        class="flex items-center gap-3 bg-gradient-to-br from-rose-100 to-amber-50 px-8 py-5 font-medium text-stone-800 sm:px-10">
+                        class="flex items-center gap-3 bg-gradient-to-br from-orange-100 to-amber-50 px-8 py-5 font-medium text-stone-800 sm:px-10">
 
-                        <span class="font-bold text-rose-600">✓</span>
+                        <span class="font-bold text-orange-700">✓</span>
 
                         Every square foot used for prep &amp; cooking
 
                     </div>
 
 
-                    <!-- ROW 2 -->
-
                     <div
-                        class="flex items-center gap-3 bg-rose-50/50 px-8 py-5 text-stone-600 sm:px-10">
+                        class="flex items-center gap-3 bg-orange-50/50 px-8 py-5 text-stone-600 sm:px-10">
 
-                        <span class="font-bold text-rose-400">✕</span>
+                        <span class="font-bold text-orange-400">✕</span>
 
                         Staff for hosting &amp; table service
 
@@ -1486,21 +2256,19 @@
 
 
                     <div
-                        class="flex items-center gap-3 bg-gradient-to-br from-rose-100 to-amber-50 px-8 py-5 font-medium text-stone-800 sm:px-10">
+                        class="flex items-center gap-3 bg-gradient-to-br from-orange-100 to-amber-50 px-8 py-5 font-medium text-stone-800 sm:px-10">
 
-                        <span class="font-bold text-rose-600">✓</span>
+                        <span class="font-bold text-orange-700">✓</span>
 
                         Kitchen team focused purely on food quality
 
                     </div>
 
 
-                    <!-- ROW 3 -->
-
                     <div
                         class="flex items-center gap-3 bg-white px-8 py-5 text-stone-600 sm:px-10">
 
-                        <span class="font-bold text-rose-400">✕</span>
+                        <span class="font-bold text-orange-400">✕</span>
 
                         Fixed hours tied to footfall
 
@@ -1508,21 +2276,19 @@
 
 
                     <div
-                        class="flex items-center gap-3 bg-gradient-to-br from-rose-100 to-amber-50 px-8 py-5 font-medium text-stone-800 sm:px-10">
+                        class="flex items-center gap-3 bg-gradient-to-br from-orange-100 to-amber-50 px-8 py-5 font-medium text-stone-800 sm:px-10">
 
-                        <span class="font-bold text-rose-600">✓</span>
+                        <span class="font-bold text-orange-700">✓</span>
 
                         Order windows built around real demand
 
                     </div>
 
 
-                    <!-- ROW 4 -->
-
                     <div
-                        class="flex items-center gap-3 bg-rose-50/50 px-8 pb-8 pt-5 text-stone-600 sm:px-10 sm:pb-10">
+                        class="flex items-center gap-3 bg-orange-50/50 px-8 pb-8 pt-5 text-stone-600 sm:px-10 sm:pb-10">
 
-                        <span class="font-bold text-rose-400">✕</span>
+                        <span class="font-bold text-orange-400">✕</span>
 
                         Menu limited by walk-in demand
 
@@ -1530,9 +2296,9 @@
 
 
                     <div
-                        class="flex items-center gap-3 bg-gradient-to-br from-rose-100 to-amber-50 px-8 pb-8 pt-5 font-medium text-stone-800 sm:px-10 sm:pb-10">
+                        class="flex items-center gap-3 bg-gradient-to-br from-orange-100 to-amber-50 px-8 pb-8 pt-5 font-medium text-stone-800 sm:px-10 sm:pb-10">
 
-                        <span class="font-bold text-rose-600">✓</span>
+                        <span class="font-bold text-orange-700">✓</span>
 
                         Menu scales from solo meals to 500+ plates
 
@@ -1550,16 +2316,16 @@
         ========================================================== -->
 
         <section
-            class="relative overflow-hidden bg-gradient-to-br from-white via-rose-50 to-pink-100 text-stone-900">
+            class="relative overflow-hidden bg-gradient-to-br from-white via-orange-50 to-amber-100 text-stone-900">
 
 
             <div
-                class="pointer-events-none absolute -bottom-20 right-0 h-80 w-80 rounded-full bg-rose-300/25 blur-3xl">
+                class="pointer-events-none absolute -bottom-20 right-0 h-80 w-80 rounded-full bg-orange-300/25 blur-3xl">
             </div>
 
 
             <div
-                class="pointer-events-none absolute -top-20 left-0 h-72 w-72 rounded-full bg-pink-200/40 blur-3xl">
+                class="pointer-events-none absolute -top-20 left-0 h-72 w-72 rounded-full bg-amber-200/40 blur-3xl">
             </div>
 
 
@@ -1570,7 +2336,7 @@
                 <div class="mx-auto mb-12 max-w-2xl text-center">
 
 
-                    <p class="eyebrow justify-center text-rose-600">
+                    <p class="eyebrow justify-center text-orange-700">
 
                         A closer look
 
@@ -1720,10 +2486,8 @@
         <section class="bh-journey-section">
 
 
-            <!-- DECORATIVE GLOWS -->
-
             <div
-                class="pointer-events-none absolute -left-40 -top-40 h-96 w-96 rounded-full bg-rose-500/10 blur-3xl">
+                class="pointer-events-none absolute -left-40 -top-40 h-96 w-96 rounded-full bg-orange-500/10 blur-3xl">
             </div>
 
 
@@ -1736,21 +2500,17 @@
                 class="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-12">
 
 
-                <!-- =====================================================
-                     CENTERED INTRO
-                ====================================================== -->
-
                 <div class="mx-auto max-w-3xl text-center">
 
 
                     <p
-                        class="flex items-center justify-center gap-3 text-xs font-bold uppercase tracking-[0.25em] text-rose-600">
+                        class="flex items-center justify-center gap-3 text-xs font-bold uppercase tracking-[0.25em] text-orange-700">
 
-                        <span class="h-px w-8 bg-rose-600"></span>
+                        <span class="h-px w-8 bg-orange-700"></span>
 
                         From kitchen to doorstep
 
-                        <span class="h-px w-8 bg-rose-600"></span>
+                        <span class="h-px w-8 bg-orange-700"></span>
 
                     </p>
 
@@ -1760,7 +2520,7 @@
 
                         Every order has
 
-                        <span class="text-amber-500">
+                        <span class="text-amber-600">
 
                             a journey.
 
@@ -1771,14 +2531,8 @@
                 </div>
 
 
-                <!-- =====================================================
-                     JOURNEY
-                ====================================================== -->
-
                 <div class="relative mt-16">
 
-
-                    <!-- CONNECTING LINE -->
 
                     <div
                         class="bh-journey-line absolute left-[27px] top-8 hidden h-[calc(100%-64px)] w-px md:block">
@@ -1792,7 +2546,7 @@
 
 
                         <div
-                            class="bh-journey-number relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-rose-300 bg-white font-display text-lg font-black text-rose-600 ring-8 ring-[#fff7f3]">
+                            class="bh-journey-number relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-orange-300 bg-white font-display text-lg font-black text-orange-700 ring-8 ring-[#fff7f3]">
 
                             01
 
@@ -1837,7 +2591,7 @@
 
 
                         <div
-                            class="bh-journey-number relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-amber-300 bg-white font-display text-lg font-black text-amber-600 ring-8 ring-[#fff7f3]">
+                            class="bh-journey-number relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-amber-300 bg-white font-display text-lg font-black text-amber-700 ring-8 ring-[#fff7f3]">
 
                             02
 
@@ -1883,7 +2637,7 @@
 
 
                         <div
-                            class="bh-journey-number relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-rose-300 bg-white font-display text-lg font-black text-rose-600 ring-8 ring-[#fff7f3]">
+                            class="bh-journey-number relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-orange-300 bg-white font-display text-lg font-black text-orange-700 ring-8 ring-[#fff7f3]">
 
                             03
 
@@ -1928,7 +2682,7 @@
 
 
                         <div
-                            class="bh-journey-number relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-amber-300 bg-white font-display text-lg font-black text-amber-600 ring-8 ring-[#fff7f3]">
+                            class="bh-journey-number relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-amber-300 bg-white font-display text-lg font-black text-amber-700 ring-8 ring-[#fff7f3]">
 
                             04
 
@@ -1973,7 +2727,7 @@
 
 
                         <div
-                            class="bh-journey-number relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-rose-300 bg-white font-display text-lg font-black text-rose-600 ring-8 ring-[#fff7f3]">
+                            class="bh-journey-number relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-orange-300 bg-white font-display text-lg font-black text-orange-700 ring-8 ring-[#fff7f3]">
 
                             05
 
@@ -2014,12 +2768,8 @@
                 </div>
 
 
-                <!-- =====================================================
-                     BOTTOM STATEMENT
-                ====================================================== -->
-
                 <div
-                    class="mt-14 flex flex-col gap-5 border-l-2 border-amber-400 pl-6 sm:flex-row sm:items-center sm:justify-between">
+                    class="mt-14 flex flex-col gap-5 border-l-2 border-amber-500 pl-6 sm:flex-row sm:items-center sm:justify-between">
 
 
                     <p
@@ -2027,7 +2777,7 @@
 
                         A simple process, carefully repeated,
 
-                        <span class="text-amber-500">
+                        <span class="text-amber-600">
 
                             for every order.
 
@@ -2038,7 +2788,7 @@
 
                     <a
                         href="menu.html"
-                        class="bh-journey-link inline-flex w-fit items-center rounded-full border border-stone-300 px-6 py-3 text-sm font-semibold text-stone-800 hover:border-amber-400 hover:bg-amber-400 hover:text-stone-950">
+                        class="bh-journey-link inline-flex w-fit items-center rounded-full border border-stone-300 px-6 py-3 text-sm font-semibold text-stone-800 hover:border-amber-500 hover:bg-amber-500 hover:text-stone-950">
 
                         See what's cooking
 
@@ -2062,11 +2812,11 @@
         ========================================================== -->
 
         <section
-            class="relative overflow-hidden bg-gradient-to-br from-rose-50 via-white to-rose-100 text-stone-900">
+            class="relative overflow-hidden bg-gradient-to-br from-orange-50 via-white to-amber-50 text-stone-900">
 
 
             <div
-                class="pointer-events-none absolute -top-20 right-1/3 h-64 w-64 rounded-full bg-rose-200/30 blur-3xl">
+                class="pointer-events-none absolute -top-20 right-1/3 h-64 w-64 rounded-full bg-orange-200/30 blur-3xl">
             </div>
 
 
@@ -2078,7 +2828,7 @@
                     class="mx-auto mb-10 max-w-2xl text-center">
 
 
-                    <p class="eyebrow text-rose-600">
+                    <p class="eyebrow text-orange-700">
 
                         Our kitchen at a glance
 
@@ -2096,17 +2846,15 @@
 
 
                 <div
-                    class="grid gap-0 overflow-hidden rounded-3xl border border-rose-200 bg-white shadow-lg sm:grid-cols-2 lg:grid-cols-4">
+                    class="grid gap-0 overflow-hidden rounded-3xl border border-orange-200 bg-white shadow-lg sm:grid-cols-2 lg:grid-cols-4">
 
-
-                    <!-- NUMBER 1 -->
 
                     <div
-                        class="border-b border-rose-100 px-6 py-10 text-center sm:border-r lg:border-b-0">
+                        class="border-b border-orange-100 px-6 py-10 text-center sm:border-r lg:border-b-0">
 
 
                         <p
-                            class="font-display text-4xl font-black text-rose-500 sm:text-5xl">
+                            class="font-display text-4xl font-black text-orange-600 sm:text-5xl">
 
                             1
 
@@ -2123,14 +2871,12 @@
                     </div>
 
 
-                    <!-- NUMBER 2 -->
-
                     <div
-                        class="border-b border-rose-100 px-6 py-10 text-center lg:border-b-0 lg:border-r">
+                        class="border-b border-orange-100 px-6 py-10 text-center lg:border-b-0 lg:border-r">
 
 
                         <p
-                            class="font-display text-4xl font-black text-rose-500 sm:text-5xl">
+                            class="font-display text-4xl font-black text-orange-600 sm:text-5xl">
 
                             4
 
@@ -2147,14 +2893,12 @@
                     </div>
 
 
-                    <!-- NUMBER 3 -->
-
                     <div
-                        class="border-b border-rose-100 px-6 py-10 text-center sm:border-r lg:border-b-0">
+                        class="border-b border-orange-100 px-6 py-10 text-center sm:border-r lg:border-b-0">
 
 
                         <p
-                            class="font-display text-4xl font-black text-rose-500 sm:text-5xl">
+                            class="font-display text-4xl font-black text-orange-600 sm:text-5xl">
 
                             24hr
 
@@ -2171,13 +2915,11 @@
                     </div>
 
 
-                    <!-- NUMBER 4 -->
-
                     <div class="px-6 py-10 text-center">
 
 
                         <p
-                            class="font-display text-4xl font-black text-rose-500 sm:text-5xl">
+                            class="font-display text-4xl font-black text-orange-600 sm:text-5xl">
 
                             500+
 
@@ -2209,7 +2951,7 @@
 
 
             <div
-                class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-amber-400 via-orange-400 to-rose-400 px-8 py-16 text-center text-stone-950 shadow-xl shadow-orange-100 sm:px-16">
+                class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-amber-400 via-orange-400 to-orange-600 px-8 py-16 text-center text-stone-950 shadow-xl shadow-orange-100 sm:px-16">
 
 
                 <div
@@ -2243,8 +2985,6 @@
                     class="relative mt-8 flex flex-wrap justify-center gap-4">
 
 
-                    <!-- VIEW MENU -->
-
                     <a
                         href="menu.html"
                         class="btn-primary bg-stone-950 text-white hover:bg-stone-800">
@@ -2253,8 +2993,6 @@
 
                     </a>
 
-
-                    <!-- BULK ORDERS -->
 
                     <a
                         href="bulk-orders.html"

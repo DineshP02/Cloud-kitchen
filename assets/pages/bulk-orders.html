@@ -8,6 +8,9 @@
 
     <title>Bulk Orders | Bowl & Hearth</title>
 
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+
+
     <!-- =========================================================
          TAILWIND
     ========================================================== -->
@@ -19,6 +22,7 @@
             darkMode: 'class'
         };
     </script>
+
 
     <!-- =========================================================
          SHARED CSS
@@ -32,6 +36,187 @@
     ========================================================== -->
 
     <style>
+
+        /* =====================================================
+           HERO
+        ====================================================== */
+
+        .bh-bulk-hero {
+            position: relative;
+            overflow: hidden;
+            background:
+                linear-gradient(
+                    135deg,
+                    #241209 0%,
+                    #1c120d 50%,
+                    #140b06 100%
+                );
+            color: #fff;
+        }
+
+
+        .bh-bulk-hero-inner {
+            position: relative;
+            z-index: 2;
+        }
+
+
+        .bh-bulk-hero-image {
+            position: relative;
+            overflow: hidden;
+            min-height: 420px;
+            border-radius: 28px;
+        }
+
+
+        .bh-bulk-hero-image img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .7s ease;
+        }
+
+
+        .bh-bulk-hero-image:hover img {
+            transform: scale(1.04);
+        }
+
+
+        .bh-bulk-hero-image::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(20, 11, 6, .25),
+                    transparent 60%
+                );
+        }
+
+
+        .bh-bulk-hero-badge {
+            position: absolute;
+            left: 24px;
+            bottom: 24px;
+            z-index: 3;
+
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            padding: 13px 17px;
+
+            border: 1px solid rgba(255,255,255,.15);
+            border-radius: 999px;
+
+            background: rgba(28,18,13,.78);
+            backdrop-filter: blur(12px);
+        }
+
+
+        .bh-bulk-hero-badge-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 999px;
+            background: #f59e0b;
+            box-shadow: 0 0 0 5px rgba(245,158,11,.12);
+        }
+
+
+        .bh-bulk-hero-content {
+            max-width: 680px;
+        }
+
+
+        .bh-bulk-hero-title {
+            margin-top: 18px;
+
+            font-family:
+                Georgia,
+                'Times New Roman',
+                serif;
+
+            font-size: clamp(
+                2.8rem,
+                5.5vw,
+                5.5rem
+            );
+
+            font-weight: 900;
+            line-height: .98;
+            letter-spacing: -.045em;
+        }
+
+
+        .bh-bulk-hero-title span {
+            display: block;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #fbbf24,
+                    #fb923c
+                );
+
+            background-clip: text;
+            -webkit-background-clip: text;
+
+            color: transparent;
+        }
+
+
+        .bh-bulk-hero-description {
+            max-width: 620px;
+
+            margin-top: 26px;
+
+            color: #d6d3d1;
+
+            font-size: 1.08rem;
+            line-height: 1.8;
+        }
+
+
+        .bh-bulk-hero-stats {
+            display: grid;
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 28px;
+
+            margin-top: 42px;
+
+            padding-top: 28px;
+
+            border-top:
+                1px solid rgba(255,255,255,.1);
+        }
+
+
+        .bh-bulk-hero-stat-value {
+            font-family:
+                Georgia,
+                'Times New Roman',
+                serif;
+
+            font-size: 2rem;
+            font-weight: 900;
+
+            color: #fbbf24;
+        }
+
+
+        .bh-bulk-hero-stat-label {
+            margin-top: 3px;
+
+            font-size: .75rem;
+
+            color: #a8a29e;
+        }
+
 
         /* =====================================================
            ONE KITCHEN — EDITORIAL SECTION
@@ -179,7 +364,8 @@
 
             margin-top: 60px;
 
-            border-top: 1px solid rgba(120, 113, 108, .25);
+            border-top:
+                1px solid rgba(120, 113, 108, .25);
         }
 
 
@@ -300,7 +486,8 @@
 
             border-radius: 50%;
 
-            border: 1px solid rgba(217, 119, 6, .25);
+            border:
+                1px solid rgba(217, 119, 6, .25);
 
             color: #d97706;
 
@@ -371,7 +558,8 @@
 
             flex-shrink: 0;
 
-            border: 1px solid #d6d3d1;
+            border:
+                1px solid #d6d3d1;
 
             border-radius: 9999px;
 
@@ -411,7 +599,8 @@
 
             overflow: hidden;
 
-            border: 1px solid #e7e5e4;
+            border:
+                1px solid #e7e5e4;
 
             border-radius: 18px;
 
@@ -458,6 +647,32 @@
         ====================================================== */
 
         @media(max-width: 767px) {
+
+            .bh-bulk-hero-image {
+                min-height: 300px;
+                border-radius: 20px;
+            }
+
+
+            .bh-bulk-hero-title {
+                font-size: 3rem;
+            }
+
+
+            .bh-bulk-hero-description {
+                font-size: .95rem;
+            }
+
+
+            .bh-bulk-hero-stats {
+                gap: 18px;
+            }
+
+
+            .bh-bulk-hero-stat-value {
+                font-size: 1.6rem;
+            }
+
 
             .bh-occasion-heading {
 
@@ -568,6 +783,17 @@
 
         @media(max-width: 420px) {
 
+            .bh-bulk-hero-title {
+                font-size: 2.5rem;
+            }
+
+
+            .bh-bulk-hero-stats {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+
             .bh-occasion-heading {
 
                 font-size: 2.35rem;
@@ -623,13 +849,15 @@
 
         <!-- =====================================================
              HERO
+             CONTAINER-BASED LAYOUT
         ====================================================== -->
 
-        <section
-            class="relative overflow-hidden bg-gradient-to-br from-[#241209] via-stone-900 to-[#1a0f08] text-white">
+        <section class="bh-bulk-hero">
+
+            <!-- Decorative glow -->
 
             <div
-                class="pointer-events-none absolute -left-20 -top-32 h-96 w-96 rounded-full bg-amber-500/20 blur-3xl">
+                class="pointer-events-none absolute -left-24 -top-32 h-96 w-96 rounded-full bg-amber-500/20 blur-3xl">
             </div>
 
 
@@ -640,129 +868,187 @@
 
             <div
                 class="pointer-events-none absolute inset-0 opacity-[0.04]"
-                style="background-image:radial-gradient(circle,#fff 1px,transparent 1px);background-size:24px 24px;">
+                style="
+                    background-image:
+                    radial-gradient(
+                        circle,
+                        #fff 1px,
+                        transparent 1px
+                    );
+                    background-size:24px 24px;
+                ">
             </div>
 
 
-            <div class="grid lg:grid-cols-2">
+            <!-- =================================================
+                 IMPORTANT:
+                 HERO CONTENT NOW USES SAME CONTAINER AS PAGE
+            ================================================== -->
+
+            <div
+                class="bh-bulk-hero-inner mx-auto max-w-7xl px-5 py-14 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
 
 
                 <div
-                    class="relative z-10 px-5 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-32">
-
-                    <p class="eyebrow flex items-center gap-2 text-amber-400">
-
-                        <span class="h-px w-8 bg-amber-400"></span>
-
-                        Office & events · Local Catering & Cloud Kitchen
-
-                    </p>
+                    class="grid items-center gap-10 lg:grid-cols-[1.02fr_.98fr] lg:gap-14">
 
 
-                    <h1
-                        class="mt-4 font-display text-4xl font-black leading-[1.05] sm:text-6xl">
+                    <!-- =================================================
+                         HERO CONTENT
+                    ================================================== -->
 
-                        Feed a room
-
-                        <span
-                            class="block bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">
-
-                            without turning it
-
-                        </span>
-
-                        into a project.
-
-                    </h1>
+                    <div class="bh-bulk-hero-content">
 
 
-                    <p class="mt-6 max-w-xl text-lg text-stone-300">
+                        <p
+                            class="eyebrow flex items-center gap-2 text-amber-400">
 
-                        We handle recurring office lunches, workshops, launches,
-                        family gatherings and small events — fresh from our kitchen,
-                        delivered on your schedule.
+                            <span
+                                class="h-px w-8 bg-amber-400">
+                            </span>
 
-                    </p>
+                            Office & events · Local Catering & Cloud Kitchen
 
-
-                    <div class="mt-8 flex flex-wrap gap-4">
-
-                        <a
-                            href="contact.html"
-                            class="btn-primary bg-amber-500 text-stone-900 shadow-lg shadow-amber-500/30 hover:bg-amber-400">
-
-                            Send an order enquiry
-
-                        </a>
+                        </p>
 
 
-                        <a
-                            href="#packages"
-                            class="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/40 hover:bg-white/5">
+                        <h1 class="bh-bulk-hero-title">
 
-                            View packages ↓
+                            Feed a room
 
-                        </a>
+                            <span>
+                                without turning it
+                            </span>
+
+                            into a project.
+
+                        </h1>
+
+
+                        <p class="bh-bulk-hero-description">
+
+                            We handle recurring office lunches,
+                            workshops, launches, family gatherings
+                            and small events — fresh from our kitchen,
+                            delivered on your schedule.
+
+                        </p>
+
+
+                        <div class="mt-8 flex flex-wrap gap-4">
+
+                            <a
+                                href="contact.html"
+                                class="btn-primary bg-amber-500 text-stone-900 shadow-lg shadow-amber-500/30 hover:bg-amber-400">
+
+                                Send an order enquiry
+
+                            </a>
+
+
+                            <a
+                                href="#packages"
+                                class="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/40 hover:bg-white/5">
+
+                                View packages
+
+                                <span>
+                                    ↓
+                                </span>
+
+                            </a>
+
+                        </div>
+
+
+                        <!-- HERO STATS -->
+
+                        <div class="bh-bulk-hero-stats">
+
+
+                            <div>
+
+                                <p class="bh-bulk-hero-stat-value">
+                                    500+
+                                </p>
+
+                                <p class="bh-bulk-hero-stat-label">
+                                    Plates / event
+                                </p>
+
+                            </div>
+
+
+                            <div>
+
+                                <p class="bh-bulk-hero-stat-value">
+                                    24hr
+                                </p>
+
+                                <p class="bh-bulk-hero-stat-label">
+                                    Standard turnaround
+                                </p>
+
+                            </div>
+
+
+                            <div>
+
+                                <p class="bh-bulk-hero-stat-value">
+                                    ₹179
+                                </p>
+
+                                <p class="bh-bulk-hero-stat-label">
+                                    Starting price
+                                </p>
+
+                            </div>
+
+
+                        </div>
 
                     </div>
 
 
-                    <div
-                        class="mt-12 flex flex-wrap gap-8 border-t border-white/10 pt-8">
+                    <!-- =================================================
+                         HERO IMAGE
+                    ================================================== -->
 
-                        <div>
+                    <div class="bh-bulk-hero-image">
 
-                            <p class="font-display text-3xl font-black text-amber-400">
-                                500+
-                            </p>
-
-                            <p class="text-xs text-stone-400">
-                                Plates / event
-                            </p>
-
-                        </div>
+                        <img
+                            src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1400&q=85"
+                            alt="Buffet spread prepared for office catering"
+                            loading="eager">
 
 
-                        <div>
+                        <div class="bh-bulk-hero-badge">
 
-                            <p class="font-display text-3xl font-black text-amber-400">
-                                24hr
-                            </p>
-
-                            <p class="text-xs text-stone-400">
-                                Turnaround
-                            </p>
-
-                        </div>
+                            <span
+                                class="bh-bulk-hero-badge-dot">
+                            </span>
 
 
-                        <div>
+                            <div>
 
-                            <p class="font-display text-3xl font-black text-amber-400">
-                                ₹179
-                            </p>
+                                <p
+                                    class="text-xs font-bold text-white">
 
-                            <p class="text-xs text-stone-400">
-                                Starting price
-                            </p>
+                                    Freshly prepared
+
+                                </p>
+
+                                <p
+                                    class="text-[11px] text-stone-400">
+
+                                    Planned around your schedule
+
+                                </p>
+
+                            </div>
 
                         </div>
 
-                    </div>
-
-                </div>
-
-
-                <div class="relative min-h-[320px] lg:min-h-full">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1200&q=80"
-                        alt="Buffet spread for office catering"
-                        class="absolute inset-0 h-full w-full object-cover">
-
-
-                    <div
-                        class="absolute inset-0 bg-gradient-to-r from-[#1a0f08] via-[#1a0f08]/30 to-transparent lg:bg-gradient-to-l">
                     </div>
 
                 </div>
@@ -805,10 +1091,7 @@
             <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
 
 
-                <!-- =================================================
-                     BREAKFAST BOX
-                     LOCAL IMAGE FIXED
-                ================================================== -->
+                <!-- BREAKFAST BOX -->
 
                 <div class="bh-package-card group">
 
@@ -855,9 +1138,7 @@
                 </div>
 
 
-                <!-- =================================================
-                     WORKING LUNCH
-                ================================================== -->
+                <!-- WORKING LUNCH -->
 
                 <div class="bh-package-card group">
 
@@ -903,9 +1184,7 @@
                 </div>
 
 
-                <!-- =================================================
-                     SNACK TABLE
-                ================================================== -->
+                <!-- SNACK TABLE -->
 
                 <div class="bh-package-card group">
 
@@ -951,10 +1230,7 @@
                 </div>
 
 
-                <!-- =================================================
-                     DINNER FEAST
-                     LOCAL IMAGE FIXED
-                ================================================== -->
+                <!-- DINNER FEAST -->
 
                 <div class="bh-package-card group">
 
@@ -1008,6 +1284,7 @@
 
                 </div>
 
+
             </div>
 
 
@@ -1027,11 +1304,10 @@
 
 
         <!-- =====================================================
-             SECTION — ONE KITCHEN. MANY OCCASIONS.
+             ONE KITCHEN — MANY OCCASIONS
         ====================================================== -->
 
         <section class="bh-occasions">
-
 
             <div class="bh-occasions-glow bh-occasions-glow-one"></div>
 
@@ -1045,9 +1321,7 @@
                 <div class="bh-occasion-intro">
 
                     <p class="bh-occasion-kicker">
-
                         One kitchen · Many possibilities
-
                     </p>
 
 
@@ -1247,7 +1521,7 @@
 
 
         <!-- =====================================================
-             SECTION 2 — HOW IT WORKS
+             HOW IT WORKS
         ====================================================== -->
 
         <section class="bg-stone-100 dark:bg-stone-900">
@@ -1281,20 +1555,15 @@
 
                                 <span
                                     class="font-display text-5xl font-black text-amber-500">
-
                                     01
-
                                 </span>
 
                                 <h3 class="mt-2 text-lg font-bold">
                                     Tell us the headcount
                                 </h3>
 
-                                <p
-                                    class="mt-1 text-sm text-stone-600 dark:text-stone-400">
-
+                                <p class="mt-1 text-sm text-stone-600 dark:text-stone-400">
                                     Share group size, date and any dietary notes.
-
                                 </p>
 
                             </div>
@@ -1312,20 +1581,15 @@
 
                                 <span
                                     class="font-display text-5xl font-black text-amber-500">
-
                                     02
-
                                 </span>
 
                                 <h3 class="mt-2 text-lg font-bold">
                                     Pick a package
                                 </h3>
 
-                                <p
-                                    class="mt-1 text-sm text-stone-600 dark:text-stone-400">
-
+                                <p class="mt-1 text-sm text-stone-600 dark:text-stone-400">
                                     Breakfast, Lunch, Snacks or Dinner — or mix items.
-
                                 </p>
 
                             </div>
@@ -1339,20 +1603,15 @@
 
                                 <span
                                     class="font-display text-5xl font-black text-amber-500">
-
                                     03
-
                                 </span>
 
                                 <h3 class="mt-2 text-lg font-bold">
                                     We confirm details
                                 </h3>
 
-                                <p
-                                    class="mt-1 text-sm text-stone-600 dark:text-stone-400">
-
+                                <p class="mt-1 text-sm text-stone-600 dark:text-stone-400">
                                     Menu, timing and delivery coverage locked in within hours.
-
                                 </p>
 
                             </div>
@@ -1370,25 +1629,21 @@
 
                                 <span
                                     class="font-display text-5xl font-black text-amber-500">
-
                                     04
-
                                 </span>
 
                                 <h3 class="mt-2 text-lg font-bold">
                                     Fresh delivery
                                 </h3>
 
-                                <p
-                                    class="mt-1 text-sm text-stone-600 dark:text-stone-400">
-
+                                <p class="mt-1 text-sm text-stone-600 dark:text-stone-400">
                                     Made-to-order food arrives hot, packed and on time.
-
                                 </p>
 
                             </div>
 
                         </div>
+
 
                     </div>
 
@@ -1400,7 +1655,7 @@
 
 
         <!-- =====================================================
-             SECTION 3 — WHY CHOOSE US
+             WHY CHOOSE US
         ====================================================== -->
 
         <section
@@ -1562,7 +1817,7 @@
 
 
         <!-- =====================================================
-             SECTION 4 — DELIVERY COVERAGE
+             DELIVERY COVERAGE
         ====================================================== -->
 
         <section class="bg-stone-100 dark:bg-stone-900">
@@ -1710,7 +1965,7 @@
 
 
         <!-- =====================================================
-             SECTION 5 — FAQ
+             FAQ
         ====================================================== -->
 
         <section
@@ -1867,7 +2122,7 @@
 
 
         <!-- =====================================================
-             SECTION 6 — CTA
+             FINAL CTA
         ====================================================== -->
 
         <section
@@ -1890,8 +2145,16 @@
                 <div class="relative px-8 py-16 sm:px-16">
 
 
+                    <p
+                        class="text-xs font-bold uppercase tracking-[.25em] text-amber-400">
+
+                        Let's plan your next gathering
+
+                    </p>
+
+
                     <h2
-                        class="font-display text-3xl font-black sm:text-4xl">
+                        class="mt-3 font-display text-3xl font-black sm:text-4xl">
 
                         Ready to feed your next event?
 
@@ -1919,6 +2182,7 @@
             </div>
 
         </section>
+
 
     </main>
 
@@ -1958,9 +2222,7 @@
                             .forEach((other) => {
 
                                 if (other !== el) {
-
                                     other.open = false;
-
                                 }
 
                             });
