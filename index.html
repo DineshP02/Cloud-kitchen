@@ -165,7 +165,6 @@ rel="stylesheet"
 
 /* =========================================================
    ORDER TO DOORSTEP
-   PREMIUM VERSION
 ========================================================= */
 
 .bh-order-section{
@@ -195,8 +194,6 @@ rel="stylesheet"
 
 }
 
-
-/* decorative glow */
 
 .bh-order-section::before{
 
@@ -247,8 +244,6 @@ rel="stylesheet"
 }
 
 
-/* Main content */
-
 .bh-order-inner{
 
     position:relative;
@@ -257,8 +252,6 @@ rel="stylesheet"
 
 }
 
-
-/* top eyebrow */
 
 .bh-order-eyebrow{
 
@@ -274,8 +267,6 @@ rel="stylesheet"
 
 }
 
-
-/* heading */
 
 .bh-order-heading{
 
@@ -295,8 +286,6 @@ rel="stylesheet"
 
 }
 
-
-/* subtitle */
 
 .bh-order-subtitle{
 
@@ -323,8 +312,6 @@ rel="stylesheet"
 
 }
 
-
-/* connecting line */
 
 .bh-order-rail::before{
 
@@ -374,8 +361,6 @@ rel="stylesheet"
 }
 
 
-/* number circle */
-
 .bh-order-number{
 
     position:relative;
@@ -422,8 +407,6 @@ rel="stylesheet"
 }
 
 
-/* small gold dot */
-
 .bh-order-number::after{
 
     content:"";
@@ -446,8 +429,6 @@ rel="stylesheet"
 
 }
 
-
-/* card */
 
 .bh-order-card{
 
@@ -479,8 +460,6 @@ rel="stylesheet"
 }
 
 
-/* heading inside each card */
-
 .bh-order-card h3{
 
     margin:0;
@@ -498,8 +477,6 @@ rel="stylesheet"
 }
 
 
-/* description */
-
 .bh-order-card p{
 
     margin-top:.55rem;
@@ -514,8 +491,6 @@ rel="stylesheet"
 
 }
 
-
-/* hover */
 
 .bh-order-step:hover .bh-order-number{
 
@@ -542,7 +517,7 @@ rel="stylesheet"
 
 
 /* =========================================================
-   OLD ORDER CLASSES KEPT COMPATIBLE
+   OLD ORDER CLASSES
 ========================================================= */
 
 .bh-rail{
@@ -653,7 +628,43 @@ rel="stylesheet"
 
 /* =========================================================
    TESTIMONIALS
+   CENTERED
 ========================================================= */
+
+.bh-testimonials{
+
+    text-align:center;
+
+}
+
+
+.bh-testimonials-header{
+
+    width:100%;
+
+    max-width:800px;
+
+    margin-left:auto;
+
+    margin-right:auto;
+
+    text-align:center;
+
+}
+
+
+.bh-testimonials-grid{
+
+    width:100%;
+
+    max-width:1100px;
+
+    margin-left:auto;
+
+    margin-right:auto;
+
+}
+
 
 .bh-quote-card{
 
@@ -684,6 +695,13 @@ rel="stylesheet"
     font-family:'Cormorant Garamond',serif;
 
     line-height:.6;
+
+}
+
+
+.bh-testimonial-text{
+
+    text-align:left;
 
 }
 
@@ -997,7 +1015,6 @@ rel="stylesheet"
 
 /* =========================================================
    TABLET
-   KEEP FOUR STEPS ON ONE LINE
 ========================================================= */
 
 @media (min-width:768px) and (max-width:1023px){
@@ -1187,6 +1204,12 @@ rel="stylesheet"
         line-height:1.35;
 
         white-space:normal;
+
+    }
+
+    .bh-testimonials-grid{
+
+        max-width:420px;
 
     }
 
@@ -1765,12 +1788,8 @@ From your first message to a freshly packed meal at your door.
 </div>
 
 
-<!-- FOUR STEPS -->
-
 <div class="bh-order-rail grid grid-cols-4 gap-2 sm:gap-4 lg:gap-6">
 
-
-<!-- STEP 01 -->
 
 <div class="bh-order-step">
 
@@ -1794,8 +1813,6 @@ call or WhatsApp.
 </div>
 
 
-<!-- STEP 02 -->
-
 <div class="bh-order-step">
 
 <div class="bh-order-number">
@@ -1818,8 +1835,6 @@ level and notes.
 </div>
 
 
-<!-- STEP 03 -->
-
 <div class="bh-order-step">
 
 <div class="bh-order-number">
@@ -1841,8 +1856,6 @@ cooked that morning.
 
 </div>
 
-
-<!-- STEP 04 -->
 
 <div class="bh-order-step">
 
@@ -2106,14 +2119,20 @@ serves 10.
 
 <!-- =====================================================
      TESTIMONIALS
+     CENTERED SECTION
 ===================================================== -->
 
 <section
-class="px-5 py-20 sm:px-8 lg:px-12"
+class="bh-testimonials px-5 py-20 sm:px-8 lg:px-12"
 style="background:var(--bh-cream)"
 >
 
 <div class="mx-auto max-w-7xl">
+
+
+<!-- CENTERED HEADING -->
+
+<div class="bh-testimonials-header">
 
 <p
 class="eyebrow"
@@ -2126,9 +2145,15 @@ Word of mouth
 What neighbours say.
 </h2>
 
+</div>
 
-<div class="mt-14 grid items-stretch gap-8 sm:grid-cols-3">
 
+<!-- CENTERED TESTIMONIAL CARDS -->
+
+<div class="bh-testimonials-grid mt-14 grid items-stretch gap-8 sm:grid-cols-3">
+
+
+<!-- TESTIMONIAL 1 -->
 
 <div class="bh-quote-card flex h-full flex-col rounded-2xl bg-white p-7 shadow-md transition duration-300 hover:-translate-y-2 hover:shadow-xl dark:bg-stone-900">
 
@@ -2174,6 +2199,8 @@ Market Road
 </div>
 
 
+<!-- TESTIMONIAL 2 -->
+
 <div class="bh-quote-card flex h-full flex-col rounded-2xl bg-white p-7 shadow-md transition duration-300 hover:-translate-y-2 hover:shadow-xl dark:bg-stone-900">
 
 <span
@@ -2190,6 +2217,7 @@ Portions are generous and satisfying.<br>
 It is now our weekly favourite.
 
 </p>
+
 
 <div class="mt-auto flex items-center gap-3 pt-6">
 
@@ -2217,6 +2245,8 @@ Riverside
 </div>
 
 
+<!-- TESTIMONIAL 3 -->
+
 <div class="bh-quote-card flex h-full flex-col rounded-2xl bg-white p-7 shadow-md transition duration-300 hover:-translate-y-2 hover:shadow-xl dark:bg-stone-900">
 
 <span
@@ -2233,6 +2263,7 @@ Everything arrived fresh and well packed.<br>
 The whole team enjoyed the meal.
 
 </p>
+
 
 <div class="mt-auto flex items-center gap-3 pt-6">
 
@@ -2258,6 +2289,7 @@ Central City
 </div>
 
 </div>
+
 
 </div>
 

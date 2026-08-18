@@ -5,58 +5,695 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Cloud Kitchen Model | Bowl & Hearth</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config = { darkMode: 'class' }</script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
+
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body class="bg-stone-950 text-white">
+
     <div id="site-header"></div>
+
     <main>
-        <section class="mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-8 lg:grid-cols-2 lg:px-12">
-            <div>
-                <p class="eyebrow">How it works</p>
-                <h1 class="mt-4 font-display text-5xl font-black sm:text-7xl">A kitchen designed around the plate.</h1>
-                <p class="mt-7 max-w-xl text-lg leading-8 text-stone-400">No dining room, no unnecessary steps. Our
-                    model puts the team, equipment and prep flow around the food that travels to you.</p>
-            </div>
-            <div class="rounded-[2rem] bg-stone-900 p-7 sm:p-10">
-                <div class="grid gap-5">
-                    <div class="border-b border-stone-700 pb-5"><b>01 · Prep</b>
-                        <p class="mt-2 text-stone-400">Ingredients are portioned before the first order window.</p>
+
+        <!-- =========================================================
+             SECTION 1: HERO
+             KEPT AS ORIGINAL
+        ========================================================== -->
+        <section class="relative overflow-hidden">
+
+            <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1600&q=80"
+                alt="Cloud kitchen in operation"
+                class="absolute inset-0 h-full w-full object-cover">
+
+            <div class="absolute inset-0 bg-gradient-to-r from-stone-950 via-stone-950/90 to-stone-950/50"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-transparent"></div>
+
+            <div
+                class="relative mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-8 sm:py-24 lg:grid-cols-2 lg:items-center lg:px-12">
+
+                <div>
+
+                    <p class="eyebrow flex items-center gap-2 text-amber-400">
+                        <span class="h-px w-8 bg-amber-400"></span>
+                        How it works
+                    </p>
+
+                    <h1 class="mt-4 font-display text-4xl font-black leading-[1.05] sm:text-6xl lg:text-7xl">
+                        A kitchen designed
+                        <span
+                            class="block bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">
+                            around the plate.
+                        </span>
+                    </h1>
+
+                    <p class="mt-7 max-w-xl text-lg leading-8 text-stone-300">
+                        No dining room, no unnecessary steps. Our model puts the team, equipment and prep
+                        flow around the food that travels to you.
+                    </p>
+
+                    <div class="mt-8 flex flex-wrap gap-4">
+
+                        <a href="menu.html"
+                            class="btn-primary bg-amber-500 text-stone-900 hover:bg-amber-400">
+                            Explore the menu
+                        </a>
+
+                        <a href="bulk-orders.html"
+                            class="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/40 hover:bg-white/5">
+                            Bulk orders →
+                        </a>
+
                     </div>
-                    <div class="border-b border-stone-700 pb-5"><b>02 · Cook</b>
-                        <p class="mt-2 text-stone-400">Orders are cooked in short batches for consistency.</p>
-                    </div>
-                    <div class="border-b border-stone-700 pb-5"><b>03 · Pack</b>
-                        <p class="mt-2 text-stone-400">Containers are labelled and checked before dispatch.</p>
-                    </div>
-                    <div><b>04 · Deliver</b>
-                        <p class="mt-2 text-stone-400">Local routes keep the final journey short.</p>
-                    </div>
+
                 </div>
-            </div>
-        </section>
-        <section class="bg-amber-500 text-stone-950">
-            <div class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12">
-                <h2 class="font-display text-4xl font-black">Why the model works</h2>
-                <div class="mt-10 grid gap-8 md:grid-cols-3">
-                    <div><b>Focused menus</b>
-                        <p class="mt-2 text-stone-800/70">Fewer dishes means better prep discipline.</p>
+
+
+                <div
+                    class="rounded-[2rem] bg-stone-900/80 p-7 ring-1 ring-white/10 backdrop-blur-sm sm:p-10">
+
+                    <div class="grid gap-5">
+
+                        <div class="flex gap-4 border-b border-stone-700 pb-5">
+                            <span class="font-display text-2xl font-black text-amber-400">01</span>
+
+                            <div>
+                                <b>Prep</b>
+
+                                <p class="mt-2 text-stone-400">
+                                    Ingredients are portioned before the first order window.
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <div class="flex gap-4 border-b border-stone-700 pb-5">
+                            <span class="font-display text-2xl font-black text-amber-400">02</span>
+
+                            <div>
+                                <b>Cook</b>
+
+                                <p class="mt-2 text-stone-400">
+                                    Orders are cooked in short batches for consistency.
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <div class="flex gap-4 border-b border-stone-700 pb-5">
+                            <span class="font-display text-2xl font-black text-amber-400">03</span>
+
+                            <div>
+                                <b>Pack</b>
+
+                                <p class="mt-2 text-stone-400">
+                                    Containers are labelled and checked before dispatch.
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <div class="flex gap-4">
+
+                            <span class="font-display text-2xl font-black text-amber-400">
+                                04
+                            </span>
+
+                            <div>
+                                <b>Deliver</b>
+
+                                <p class="mt-2 text-stone-400">
+                                    Local routes keep the final journey short.
+                                </p>
+                            </div>
+
+                        </div>
+
                     </div>
-                    <div><b>Local routes</b>
-                        <p class="mt-2 text-stone-800/70">Delivery is planned around practical neighbourhood zones.</p>
-                    </div>
-                    <div><b>Flexible scale</b>
-                        <p class="mt-2 text-stone-800/70">The same kitchen can handle individual and bulk orders.</p>
-                    </div>
+
                 </div>
+
             </div>
+
         </section>
+
+
+        <!-- =========================================================
+             SECTION 2: WHY THE MODEL WORKS
+             NEW WHITE + ROSE BACKGROUND
+        ========================================================== -->
+        <section
+            class="relative overflow-hidden bg-gradient-to-br from-white via-rose-50 to-rose-100 text-stone-900">
+
+            <!-- Decorative rose glow -->
+            <div
+                class="pointer-events-none absolute -top-24 -right-24 h-80 w-80 rounded-full bg-rose-300/30 blur-3xl">
+            </div>
+
+            <div
+                class="pointer-events-none absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-pink-200/40 blur-3xl">
+            </div>
+
+
+            <div class="relative mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-20 lg:px-12">
+
+                <div class="mx-auto max-w-3xl text-center">
+
+                    <p class="eyebrow text-rose-600">
+                        The Bowl & Hearth model
+                    </p>
+
+                    <h2 class="mt-3 font-display text-3xl font-black text-stone-900 sm:text-4xl">
+                        Why the model works
+                    </h2>
+
+                    <p class="mx-auto mt-4 max-w-2xl text-stone-600">
+                        A simpler kitchen structure helps us focus more closely on preparation,
+                        consistency and getting every order to you at its best.
+                    </p>
+
+                </div>
+
+
+                <div class="mt-10 grid items-stretch gap-8 sm:grid-cols-2 md:grid-cols-3">
+
+                    <!-- CARD 1 -->
+                    <div
+                        class="group flex h-full flex-col rounded-3xl border border-rose-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+
+                        <div
+                            class="flex h-12 w-12 items-center justify-center rounded-2xl bg-rose-100 text-xl text-rose-600 transition group-hover:bg-rose-600 group-hover:text-white">
+                            🎯
+                        </div>
+
+                        <b class="mt-5 block text-lg text-stone-900">
+                            Focused menus
+                        </b>
+
+                        <p class="mt-3 leading-7 text-stone-600">
+                            Fewer dishes means better prep discipline, smoother cooking and faster
+                            service.
+                        </p>
+
+                    </div>
+
+
+                    <!-- CARD 2 -->
+                    <div
+                        class="group flex h-full flex-col rounded-3xl border border-rose-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+
+                        <div
+                            class="flex h-12 w-12 items-center justify-center rounded-2xl bg-rose-100 text-xl text-rose-600 transition group-hover:bg-rose-600 group-hover:text-white">
+                            🗺️
+                        </div>
+
+                        <b class="mt-5 block text-lg text-stone-900">
+                            Local routes
+                        </b>
+
+                        <p class="mt-3 leading-7 text-stone-600">
+                            Delivery is planned around practical neighbourhood zones to keep the
+                            final journey efficient.
+                        </p>
+
+                    </div>
+
+
+                    <!-- CARD 3 -->
+                    <div
+                        class="group flex h-full flex-col rounded-3xl border border-rose-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+
+                        <div
+                            class="flex h-12 w-12 items-center justify-center rounded-2xl bg-rose-100 text-xl text-rose-600 transition group-hover:bg-rose-600 group-hover:text-white">
+                            📈
+                        </div>
+
+                        <b class="mt-5 block text-lg text-stone-900">
+                            Flexible scale
+                        </b>
+
+                        <p class="mt-3 leading-7 text-stone-600">
+                            The same kitchen can handle individual meals as well as larger office
+                            and event orders.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================================
+             SECTION 3: TRADITIONAL VS CLOUD KITCHEN
+             NEW WHITE + ROSE BACKGROUND
+        ========================================================== -->
+        <section
+            class="relative overflow-hidden bg-gradient-to-br from-rose-50 via-white to-pink-50 text-stone-900">
+
+            <div
+                class="pointer-events-none absolute -top-20 left-1/4 h-80 w-80 rounded-full bg-rose-200/40 blur-3xl">
+            </div>
+
+            <div
+                class="pointer-events-none absolute -bottom-20 right-10 h-72 w-72 rounded-full bg-pink-200/30 blur-3xl">
+            </div>
+
+
+            <div class="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12">
+
+                <div class="mx-auto mb-12 max-w-2xl text-center">
+
+                    <p class="eyebrow justify-center text-rose-600">
+                        The difference
+                    </p>
+
+                    <h2 class="mt-4 font-display text-3xl font-black text-stone-900 sm:text-4xl">
+                        Built without the dining room.
+                    </h2>
+
+                    <p class="mt-5 leading-7 text-stone-600">
+                        Every rupee and every minute goes into the food and the delivery — not tables,
+                        hosts or décor.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="grid overflow-hidden rounded-3xl border border-rose-200 bg-white shadow-xl md:grid-cols-2 md:gap-px md:bg-rose-100">
+
+                    <!-- HEADERS -->
+
+                    <div class="bg-stone-50 px-8 pb-5 pt-8 sm:px-10 sm:pt-10">
+
+                        <p class="text-sm font-semibold uppercase tracking-wide text-stone-500">
+                            Traditional restaurant
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        class="bg-gradient-to-br from-rose-500 via-rose-400 to-amber-400 px-8 pb-5 pt-8 text-stone-950 sm:px-10 sm:pt-10">
+
+                        <p class="text-sm font-semibold uppercase tracking-wide text-stone-900/70">
+                            Bowl & Hearth cloud kitchen
+                        </p>
+
+                    </div>
+
+
+                    <!-- ROW 1 -->
+
+                    <div class="flex items-center gap-3 bg-white px-8 py-5 text-stone-600 sm:px-10">
+
+                        <span class="font-bold text-rose-400">
+                            ✕
+                        </span>
+
+                        Rent for dining space & seating
+
+                    </div>
+
+
+                    <div
+                        class="flex items-center gap-3 bg-gradient-to-br from-rose-100 to-amber-50 px-8 py-5 font-medium text-stone-800 sm:px-10">
+
+                        <span class="font-bold text-rose-600">
+                            ✓
+                        </span>
+
+                        Every square foot used for prep & cooking
+
+                    </div>
+
+
+                    <!-- ROW 2 -->
+
+                    <div class="flex items-center gap-3 bg-rose-50/50 px-8 py-5 text-stone-600 sm:px-10">
+
+                        <span class="font-bold text-rose-400">
+                            ✕
+                        </span>
+
+                        Staff for hosting & table service
+
+                    </div>
+
+
+                    <div
+                        class="flex items-center gap-3 bg-gradient-to-br from-rose-100 to-amber-50 px-8 py-5 font-medium text-stone-800 sm:px-10">
+
+                        <span class="font-bold text-rose-600">
+                            ✓
+                        </span>
+
+                        Kitchen team focused purely on food quality
+
+                    </div>
+
+
+                    <!-- ROW 3 -->
+
+                    <div class="flex items-center gap-3 bg-white px-8 py-5 text-stone-600 sm:px-10">
+
+                        <span class="font-bold text-rose-400">
+                            ✕
+                        </span>
+
+                        Fixed hours tied to footfall
+
+                    </div>
+
+
+                    <div
+                        class="flex items-center gap-3 bg-gradient-to-br from-rose-100 to-amber-50 px-8 py-5 font-medium text-stone-800 sm:px-10">
+
+                        <span class="font-bold text-rose-600">
+                            ✓
+                        </span>
+
+                        Order windows built around real demand
+
+                    </div>
+
+
+                    <!-- ROW 4 -->
+
+                    <div
+                        class="flex items-center gap-3 bg-rose-50/50 px-8 pb-8 pt-5 text-stone-600 sm:px-10 sm:pb-10">
+
+                        <span class="font-bold text-rose-400">
+                            ✕
+                        </span>
+
+                        Menu limited by walk-in demand
+
+                    </div>
+
+
+                    <div
+                        class="flex items-center gap-3 bg-gradient-to-br from-rose-100 to-amber-50 px-8 pb-8 pt-5 font-medium text-stone-800 sm:px-10 sm:pb-10">
+
+                        <span class="font-bold text-rose-600">
+                            ✓
+                        </span>
+
+                        Menu scales from solo meals to 500+ plates
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================================
+             SECTION 4: INSIDE THE KITCHEN
+             NEW WHITE + ROSE BACKGROUND
+        ========================================================== -->
+        <section
+            class="relative overflow-hidden bg-gradient-to-br from-white via-rose-50 to-pink-100 text-stone-900">
+
+            <div
+                class="pointer-events-none absolute -bottom-20 right-0 h-80 w-80 rounded-full bg-rose-300/25 blur-3xl">
+            </div>
+
+            <div
+                class="pointer-events-none absolute -top-20 left-0 h-72 w-72 rounded-full bg-pink-200/40 blur-3xl">
+            </div>
+
+
+            <div class="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12">
+
+                <div class="mx-auto mb-12 max-w-2xl text-center">
+
+                    <p class="eyebrow justify-center text-rose-600">
+                        A closer look
+                    </p>
+
+                    <h2 class="mt-4 font-display text-3xl font-black text-stone-900 sm:text-4xl">
+                        Inside the kitchen.
+                    </h2>
+
+                    <p class="mt-5 text-stone-600">
+                        A glimpse of the prep counters, cooking lines and packing stations behind
+                        every order.
+                    </p>
+
+                </div>
+
+
+                <div class="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-5">
+
+                    <!-- MAIN IMAGE -->
+
+                    <div
+                        class="group relative col-span-2 row-span-2 overflow-hidden rounded-3xl border-4 border-white shadow-lg">
+
+                        <img src="https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&w=900&q=80"
+                            alt="Chefs cooking in bulk"
+                            class="h-full w-full object-cover transition duration-500 group-hover:scale-110">
+
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent">
+                        </div>
+
+                        <p class="absolute bottom-5 left-5 text-sm font-semibold text-white">
+                            Cooking line
+                        </p>
+
+                    </div>
+
+
+                    <!-- PREP -->
+
+                    <div
+                        class="group relative overflow-hidden rounded-3xl border-4 border-white shadow-lg">
+
+                        <img src="https://images.unsplash.com/photo-1591189863430-ab87e120f312?auto=format&fit=crop&w=600&q=80"
+                            alt="Ingredient prep station"
+                            class="h-full w-full object-cover transition duration-500 group-hover:scale-110">
+
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent">
+                        </div>
+
+                        <p class="absolute bottom-3 left-3 text-xs font-semibold text-white">
+                            Prep station
+                        </p>
+
+                    </div>
+
+
+                    <!-- PACKING -->
+
+                    <div
+                        class="group relative overflow-hidden rounded-3xl border-4 border-white shadow-lg">
+
+                        <img src="https://images.unsplash.com/photo-1580959375944-abd7e991f971?auto=format&fit=crop&w=600&q=80"
+                            alt="Packed food containers"
+                            class="h-full w-full object-cover transition duration-500 group-hover:scale-110">
+
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent">
+                        </div>
+
+                        <p class="absolute bottom-3 left-3 text-xs font-semibold text-white">
+                            Packing
+                        </p>
+
+                    </div>
+
+
+                    <!-- DISPATCH -->
+
+                    <div
+                        class="group relative col-span-2 overflow-hidden rounded-3xl border-4 border-white shadow-lg sm:col-span-2">
+
+                        <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=900&q=80"
+                            alt="Delivery bags ready for dispatch"
+                            class="h-full w-full object-cover transition duration-500 group-hover:scale-110">
+
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent">
+                        </div>
+
+                        <p class="absolute bottom-5 left-5 text-sm font-semibold text-white">
+                            Ready for dispatch
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================================
+             SECTION 5: BY THE NUMBERS
+             NEW WHITE + ROSE BACKGROUND
+        ========================================================== -->
+        <section
+            class="relative overflow-hidden bg-gradient-to-br from-rose-50 via-white to-rose-100 text-stone-900">
+
+            <div
+                class="pointer-events-none absolute -top-20 right-1/3 h-64 w-64 rounded-full bg-rose-200/30 blur-3xl">
+            </div>
+
+
+            <div class="relative mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12">
+
+                <div class="mx-auto mb-10 max-w-2xl text-center">
+
+                    <p class="eyebrow text-rose-600">
+                        Our kitchen at a glance
+                    </p>
+
+                    <h2 class="mt-3 font-display text-3xl font-black text-stone-900 sm:text-4xl">
+                        By the numbers
+                    </h2>
+
+                </div>
+
+
+                <div
+                    class="grid gap-0 overflow-hidden rounded-3xl border border-rose-200 bg-white shadow-lg sm:grid-cols-2 lg:grid-cols-4">
+
+                    <!-- NUMBER 1 -->
+
+                    <div
+                        class="border-b border-rose-100 px-6 py-10 text-center sm:border-r lg:border-b-0">
+
+                        <p class="font-display text-4xl font-black text-rose-500 sm:text-5xl">
+                            1
+                        </p>
+
+                        <p class="mx-auto mt-3 max-w-xs text-sm leading-6 text-stone-500">
+                            Central kitchen, zero dine-in overhead
+                        </p>
+
+                    </div>
+
+
+                    <!-- NUMBER 2 -->
+
+                    <div
+                        class="border-b border-rose-100 px-6 py-10 text-center lg:border-b-0 lg:border-r">
+
+                        <p class="font-display text-4xl font-black text-rose-500 sm:text-5xl">
+                            4
+                        </p>
+
+                        <p class="mx-auto mt-3 max-w-xs text-sm leading-6 text-stone-500">
+                            Prep, cook, pack, deliver stages tracked
+                        </p>
+
+                    </div>
+
+
+                    <!-- NUMBER 3 -->
+
+                    <div
+                        class="border-b border-rose-100 px-6 py-10 text-center sm:border-r lg:border-b-0">
+
+                        <p class="font-display text-4xl font-black text-rose-500 sm:text-5xl">
+                            24hr
+                        </p>
+
+                        <p class="mx-auto mt-3 max-w-xs text-sm leading-6 text-stone-500">
+                            Fastest turnaround for bulk orders
+                        </p>
+
+                    </div>
+
+
+                    <!-- NUMBER 4 -->
+
+                    <div class="px-6 py-10 text-center">
+
+                        <p class="font-display text-4xl font-black text-rose-500 sm:text-5xl">
+                            500+
+                        </p>
+
+                        <p class="mx-auto mt-3 max-w-xs text-sm leading-6 text-stone-500">
+                            Plates the same kitchen can scale to
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================================
+             SECTION 6: CTA
+             KEPT AS ORIGINAL
+        ========================================================== -->
+        <section class="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12">
+
+            <div
+                class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-amber-500 via-orange-500 to-amber-600 px-8 py-16 text-center text-stone-950 sm:px-16">
+
+                <div
+                    class="pointer-events-none absolute -bottom-16 -left-16 h-56 w-56 rounded-full bg-white/20 blur-3xl">
+                </div>
+
+                <div
+                    class="pointer-events-none absolute -top-16 -right-16 h-56 w-56 rounded-full bg-stone-950/10 blur-3xl">
+                </div>
+
+                <h2 class="relative font-display text-3xl font-black sm:text-4xl">
+                    Curious what this looks like on your plate?
+                </h2>
+
+                <p class="relative mx-auto mt-4 max-w-xl text-stone-900/70">
+                    Browse the menu built around this model, or talk to us about a bulk order for your
+                    office or event.
+                </p>
+
+                <div class="relative mt-8 flex flex-wrap justify-center gap-4">
+
+                    <a href="menu.html"
+                        class="btn-primary bg-stone-950 text-white hover:bg-stone-800">
+                        View the menu
+                    </a>
+
+                    <a href="bulk-orders.html"
+                        class="inline-flex items-center gap-2 rounded-full border border-stone-950/20 px-6 py-3 text-sm font-semibold text-stone-950 transition hover:border-stone-950/40 hover:bg-stone-950/5">
+                        Bulk orders →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
     </main>
+
+
     <div id="site-footer"></div>
+
     <script src="../js/components.js"></script>
     <script src="../js/main.js"></script>
+
 </body>
 
 </html>

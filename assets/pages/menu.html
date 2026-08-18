@@ -1,1 +1,202 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Menu | Bowl & Hearth</title><script src="https://cdn.tailwindcss.com"></script><script>tailwind.config={darkMode:'class'}</script><link rel="stylesheet" href="../css/style.css"></head><body class="bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-100"><div id="site-header"></div><main><section class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12"><p class="eyebrow">Today's menu</p><h1 class="section-title text-5xl sm:text-6xl">Choose by time. Then choose your flavour.</h1><div class="mt-8 flex flex-wrap gap-2" id="filters"><button data-filter="all" class="filter-btn active">All</button><button data-filter="breakfast" class="filter-btn">Breakfast</button><button data-filter="lunch" class="filter-btn">Lunch</button><button data-filter="dinner" class="filter-btn">Dinner</button><button data-filter="snacks" class="filter-btn">Snacks</button></div><div id="menu-grid" class="mt-10 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3"></div></section></main><div id="site-footer"></div><script src="../js/components.js"></script><script src="../js/main.js"></script><script>const dishes=[['breakfast','South Indian','Ghee Podi Idli','₹129','https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=800&q=80'],['breakfast','Healthy','Banana Peanut Oats','₹139','https://images.unsplash.com/photo-1517673400267-0251440c45dc?auto=format&fit=crop&w=800&q=80'],['lunch','Indian','Paneer Lunch Bowl','₹189','https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80'],['lunch','Rice Bowls','Pepper Chicken Rice','₹229','https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=800&q=80'],['dinner','Comfort','Creamy Tomato Pasta','₹219','https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=80'],['dinner','Indian','Coconut Veg Curry','₹199','https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80'],['snacks','Street Food','Crispy Paneer Wrap','₹159','https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=800&q=80'],['snacks','Bites','Masala Corn Cups','₹99','https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=800&q=80']];function renderMenu(f='all'){document.querySelector('#menu-grid').innerHTML=dishes.filter(d=>f==='all'||d[0]===f).map(d=>`<article class="overflow-hidden rounded-3xl bg-white shadow-sm dark:bg-stone-900"><img class="h-60 w-full object-cover" src="${d[4]}" alt="${d[2]}" loading="lazy"><div class="p-5"><div class="flex justify-between gap-3"><span class="text-xs font-bold uppercase tracking-widest text-amber-600">${d[1]}</span><b>${d[3]}</b></div><h2 class="mt-3 text-xl font-bold">${d[2]}</h2><p class="mt-2 text-sm text-stone-500">Freshly prepared to order with locally sourced ingredients where possible.</p></div></article>`).join('')}renderMenu();document.querySelector('#filters').addEventListener('click',e=>{if(e.target.dataset.filter){document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));e.target.classList.add('active');renderMenu(e.target.dataset.filter)}})</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Menu | Bowl & Hearth</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class' }</script>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-100">
+    <div id="site-header"></div>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="relative overflow-hidden">
+            <div class="absolute inset-0">
+                <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=1600&q=80"
+                    alt="Tamil Nadu style thali" class="h-full w-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30"></div>
+            </div>
+            <div class="relative mx-auto flex max-w-7xl flex-col items-start px-5 py-28 sm:px-8 sm:py-36 lg:px-12">
+                <p class="eyebrow text-amber-400">Bowl & Hearth · Cloud Kitchen</p>
+                <h1 class="mt-4 max-w-2xl text-5xl font-bold leading-tight text-white sm:text-6xl lg:text-7xl">
+                    Authentic Tamil Nadu flavours, delivered hot.
+                </h1>
+                <p class="mt-6 max-w-xl text-lg text-stone-200">
+                    From village-style kuzhambu to Kongunadu chicken — every dish is cooked to order
+                    with locally sourced ingredients, no shortcuts.
+                </p>
+                <div class="mt-8 flex flex-wrap gap-4">
+                    <a href="#menu"
+                        class="rounded-full bg-amber-500 px-8 py-3 font-bold text-stone-950 shadow-lg transition hover:bg-amber-400">
+                        Explore the Menu
+                    </a>
+                    <a href="#specials"
+                        class="rounded-full border border-white/40 px-8 py-3 font-bold text-white transition hover:bg-white/10">
+                        See Today's Specials
+                    </a>
+                </div>
+                <div class="mt-14 flex flex-wrap gap-8 text-white">
+                    <div>
+                        <p class="text-3xl font-bold">30 min</p>
+                        <p class="text-sm text-stone-300">Average delivery</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold">100%</p>
+                        <p class="text-sm text-stone-300">Fresh, no freezer stock</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold">4.8★</p>
+                        <p class="text-sm text-stone-300">Customer rating</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MENU / FILTER SECTION -->
+        <section id="menu" class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12">
+            <p class="eyebrow">Today's menu</p>
+            <h1 class="section-title text-5xl sm:text-6xl">Choose by time. Then choose your flavour.</h1>
+            <div class="mt-8 flex flex-wrap gap-2" id="filters">
+                <button data-filter="all" class="filter-btn active">All</button>
+                <button data-filter="breakfast" class="filter-btn">Breakfast</button>
+                <button data-filter="lunch" class="filter-btn">Lunch</button>
+                <button data-filter="dinner" class="filter-btn">Dinner</button>
+                <button data-filter="snacks" class="filter-btn">Snacks</button>
+            </div>
+            <div id="menu-grid" class="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4"></div>
+        </section>
+
+        <!-- EXTRA SECTION 1: CHEF'S SPECIALS -->
+        <section id="specials" class="bg-white py-16 dark:bg-stone-900">
+            <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+                <p class="eyebrow">Hand-picked</p>
+                <h2 class="section-title text-4xl sm:text-5xl">Chef's Specials</h2>
+                <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4" id="specials-grid"></div>
+            </div>
+        </section>
+
+        <!-- EXTRA SECTION 2: COMBO MEALS -->
+        <section class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12">
+            <p class="eyebrow">Better together</p>
+            <h2 class="section-title text-4xl sm:text-5xl">Combo Meals</h2>
+            <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4" id="combos-grid"></div>
+        </section>
+
+        <!-- EXTRA SECTION 3: BEVERAGES -->
+        <section class="bg-white py-16 dark:bg-stone-900">
+            <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+                <p class="eyebrow">Sip something</p>
+                <h2 class="section-title text-4xl sm:text-5xl">Beverages</h2>
+                <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4" id="beverages-grid"></div>
+            </div>
+        </section>
+
+        <!-- EXTRA SECTION 4: DESSERTS -->
+        <section class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12">
+            <p class="eyebrow">A sweet finish</p>
+            <h2 class="section-title text-4xl sm:text-5xl">Sweet Endings</h2>
+            <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4" id="desserts-grid"></div>
+        </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="../js/components.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+        // ---- MAIN MENU: Tamil Nadu style, 4 dishes per category (Veg + Non-Veg) ----
+        const dishes = [
+            // Breakfast
+            ['breakfast', 'Veg', 'Kuzhi Paniyaram', '₹99', 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80'],
+            ['breakfast', 'Veg', 'Ghee Pongal with Sambar', '₹109', 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=800&q=80'],
+            ['breakfast', 'Veg', 'Adai with Aviyal', '₹119', 'https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=800&q=80'],
+            ['breakfast', 'Veg', 'Idiyappam with Vegetable Kurma', '₹129', 'https://images.unsplash.com/photo-1517673400267-0251440c45dc?auto=format&fit=crop&w=800&q=80'],
+
+            // Lunch
+            ['lunch', 'Veg', 'Vatha Kuzhambu Rice', '₹169', 'https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=800&q=80'],
+            ['lunch', 'Veg', 'Keerai Masiyal with Rice', '₹159', 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80'],
+            ['lunch', 'Non-Veg', 'Kongunadu Chicken Curry Meals', '₹239', 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=800&q=80'],
+            ['lunch', 'Non-Veg', 'Chettinad Mutton Kulambu Rice', '₹269', 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80'],
+
+            // Dinner
+            ['dinner', 'Non-Veg', 'Parotta & Salna', '₹149', 'https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=800&q=80'],
+            ['dinner', 'Non-Veg', 'Kothu Parotta with Chicken', '₹199', 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=800&q=80'],
+            ['dinner', 'Non-Veg', 'Nattu Kozhi Meen Kuzhambu Rice', '₹259', 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80'],
+            ['dinner', 'Veg', 'Vegetable Kurma with Chapati', '₹179', 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80'],
+
+            // Snacks
+            ['snacks', 'Veg', 'Masala Vadai', '₹79', 'https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=800&q=80'],
+            ['snacks', 'Veg', 'Onion & Vazhakkai Bajji Platter', '₹99', 'https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=800&q=80'],
+            ['snacks', 'Non-Veg', 'Chicken 65', '₹189', 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=800&q=80'],
+            ['snacks', 'Non-Veg', 'Mutton Sukka Bites', '₹219', 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80'],
+        ];
+
+        function renderMenu(f = 'all') {
+            document.querySelector('#menu-grid').innerHTML = dishes
+                .filter(d => f === 'all' || d[0] === f)
+                .map(d => `<article class="overflow-hidden rounded-3xl bg-white shadow-sm dark:bg-stone-900"><img class="h-60 w-full object-cover" src="${d[4]}" alt="${d[2]}" loading="lazy"><div class="p-5"><div class="flex justify-between gap-3"><span class="text-xs font-bold uppercase tracking-widest ${d[1] === 'Veg' ? 'text-green-600' : 'text-red-600'}">${d[1]}</span><b>${d[3]}</b></div><h2 class="mt-3 text-xl font-bold">${d[2]}</h2><p class="mt-2 text-sm text-stone-500">Traditional Tamil Nadu recipe, freshly prepared to order.</p></div></article>`)
+                .join('');
+        }
+        renderMenu();
+
+        document.querySelector('#filters').addEventListener('click', e => {
+            if (e.target.dataset.filter) {
+                document.querySelectorAll('.filter-btn').forEach(x => x.classList.remove('active'));
+                e.target.classList.add('active');
+                renderMenu(e.target.dataset.filter);
+            }
+        });
+
+        // ---- Helper to render simple card grids for the extra sections ----
+        function renderCardGrid(selector, items) {
+            document.querySelector(selector).innerHTML = items.map(d => `
+                <article class="overflow-hidden rounded-3xl bg-stone-50 shadow-sm dark:bg-stone-950">
+                    <img class="h-44 w-full object-cover" src="${d.img}" alt="${d.name}" loading="lazy">
+                    <div class="p-4">
+                        <div class="flex justify-between gap-3">
+                            <span class="text-xs font-bold uppercase tracking-widest ${d.tag === 'Veg' ? 'text-green-600' : 'text-red-600'}">${d.tag}</span>
+                            <b>${d.price}</b>
+                        </div>
+                        <h3 class="mt-2 text-lg font-bold">${d.name}</h3>
+                    </div>
+                </article>`).join('');
+        }
+
+        // ---- Chef's Specials ----
+        renderCardGrid('#specials-grid', [
+            { tag: 'Non-Veg', name: 'Chettinad Chicken Biryani', price: '₹289', img: 'https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=800&q=80' },
+            { tag: 'Non-Veg', name: 'Karaikudi Fish Fry', price: '₹249', img: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80' },
+            { tag: 'Veg', name: 'Kongunadu Vegetable Kurma', price: '₹189', img: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80' },
+            { tag: 'Non-Veg', name: 'Nattu Kozhi Chicken Chukka', price: '₹259', img: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=800&q=80' },
+        ]);
+
+        // ---- Combo Meals (now 4 combos) ----
+        renderCardGrid('#combos-grid', [
+            { tag: 'Non-Veg', name: 'Parotta + Salna + Chicken Curry', price: '₹329', img: 'https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=800&q=80' },
+            { tag: 'Veg', name: 'Idli + Vada + Sambar + Chutney', price: '₹169', img: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=800&q=80' },
+            { tag: 'Veg', name: 'Kuzhi Paniyaram + Chutney Combo', price: '₹139', img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80' },
+            { tag: 'Non-Veg', name: 'Meen Kuzhambu + Rice + Appalam Combo', price: '₹289', img: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80' },
+        ]);
+
+        // ---- Beverages ----
+        renderCardGrid('#beverages-grid', [
+            { tag: 'Veg', name: 'Filter Coffee', price: '₹49', img: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80' },
+            { tag: 'Veg', name: 'Sukku Malli Coffee', price: '₹59', img: 'https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=800&q=80' },
+            { tag: 'Veg', name: 'Nannari Sarbath', price: '₹69', img: 'https://images.unsplash.com/photo-1523371054106-bbf80586c38c?auto=format&fit=crop&w=800&q=80' },
+            { tag: 'Veg', name: 'Neer Mor (Spiced Buttermilk)', price: '₹39', img: 'https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&fit=crop&w=800&q=80' },
+        ]);
+
+        // ---- Desserts ----
+        renderCardGrid('#desserts-grid', [
+            { tag: 'Veg', name: 'Pal Payasam', price: '₹89', img: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=80' },
+            { tag: 'Veg', name: 'Adhirasam', price: '₹69', img: 'https://images.unsplash.com/photo-1624353365286-3f8d62daad51?auto=format&fit=crop&w=800&q=80' },
+            { tag: 'Veg', name: 'Ariselu', price: '₹79', img: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=800&q=80' },
+            { tag: 'Veg', name: 'Boli (Poli)', price: '₹79', img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80' },
+        ]);
+    </script>
+</body>
+</html>
