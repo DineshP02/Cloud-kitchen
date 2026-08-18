@@ -2,49 +2,848 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width,initial-scale=1">
+
     <title>Cloud Kitchen Model | Bowl & Hearth</title>
+
+
+    <!-- =========================================================
+         TAILWIND
+    ========================================================== -->
 
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
+
         tailwind.config = {
             darkMode: 'class'
-        }
+        };
+
     </script>
+
+
+    <!-- =========================================================
+         SHARED CSS
+    ========================================================== -->
 
     <link rel="stylesheet" href="../css/style.css">
 
+
     <style>
+
+        /* =========================================================
+           GLOBAL LIGHT PAGE
+        ========================================================== */
+
+        html,
+        body {
+
+            background: #fffaf7 !important;
+            color: #292524;
+
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+        }
+
+
         /* =========================================================
            BULK ORDERS BUTTON
-           Dedicated style so shared style.css cannot override it
         ========================================================== */
 
         .bulk-order-btn {
+
             background-color: #e11d48 !important;
             color: #ffffff !important;
             border-color: #e11d48 !important;
-            transition: all 0.3s ease !important;
+
+            transition: all .3s ease !important;
+
         }
 
+
         .bulk-order-btn:hover {
+
             background-color: #be123c !important;
             color: #ffffff !important;
             border-color: #be123c !important;
+
             transform: translateY(-1px);
+
         }
 
+
         .bulk-order-btn:focus {
+
             outline: none !important;
-            box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.25) !important;
+
+            box-shadow:
+                0 0 0 3px rgba(225, 29, 72, .25) !important;
+
         }
+
+
+        /* =========================================================
+           HERO LIGHT OVERLAY
+        ========================================================== */
+
+        .bh-hero-overlay {
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(255, 250, 247, .97) 0%,
+                    rgba(255, 250, 247, .90) 38%,
+                    rgba(255, 250, 247, .55) 70%,
+                    rgba(255, 250, 247, .30) 100%
+                );
+
+        }
+
+
+        .bh-hero-bottom {
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(255, 250, 247, .95),
+                    transparent
+                );
+
+        }
+
+
+        /* =========================================================
+           WHY THE MODEL
+           EDITORIAL / PREMIUM STYLE
+        ========================================================== */
+
+        .bh-model-section {
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fffaf7 0%,
+                    #ffffff 45%,
+                    #fff1f2 100%
+                );
+
+            color: #292524;
+
+        }
+
+
+        .bh-model-glow {
+
+            position: absolute;
+
+            width: 360px;
+            height: 360px;
+
+            border-radius: 9999px;
+
+            background: rgba(244, 63, 94, .10);
+
+            filter: blur(80px);
+
+            pointer-events: none;
+
+        }
+
+
+        .bh-model-glow-one {
+
+            top: -180px;
+            right: -100px;
+
+        }
+
+
+        .bh-model-glow-two {
+
+            bottom: -200px;
+            left: -120px;
+
+            background: rgba(251, 191, 36, .10);
+
+        }
+
+
+        .bh-model-header {
+
+            position: relative;
+
+            max-width: 760px;
+
+            margin: 0 auto;
+
+            text-align: center;
+
+        }
+
+
+        .bh-model-kicker {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: #e11d48;
+
+            font-size: .72rem;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: .25em;
+
+        }
+
+
+        .bh-model-kicker::before,
+        .bh-model-kicker::after {
+
+            content: "";
+
+            width: 28px;
+
+            height: 1px;
+
+            background: #e11d48;
+
+            opacity: .6;
+
+        }
+
+
+        .bh-model-heading {
+
+            margin-top: 16px;
+
+            font-family: Georgia, 'Times New Roman', serif;
+
+            font-size: clamp(2.3rem, 5vw, 4rem);
+
+            font-weight: 700;
+
+            line-height: 1;
+
+            letter-spacing: -.03em;
+
+            color: #1c1917;
+
+        }
+
+
+        .bh-model-intro {
+
+            max-width: 650px;
+
+            margin: 20px auto 0;
+
+            color: #78716c;
+
+            font-size: 1rem;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =========================================================
+           PROCESS LIST
+        ========================================================== */
+
+        .bh-model-list {
+
+            position: relative;
+
+            margin-top: 64px;
+
+            border-top: 1px solid rgba(120, 113, 108, .22);
+
+        }
+
+
+        .bh-model-item {
+
+            position: relative;
+
+            display: grid;
+
+            grid-template-columns:
+                110px
+                90px
+                minmax(0, 1fr);
+
+            align-items: center;
+
+            gap: 25px;
+
+            min-height: 170px;
+
+            padding: 28px 0;
+
+            border-bottom: 1px solid rgba(120, 113, 108, .22);
+
+            transition:
+                padding .35s ease,
+                background .35s ease;
+
+        }
+
+
+        .bh-model-item:hover {
+
+            padding-left: 18px;
+            padding-right: 18px;
+
+            background: rgba(255, 255, 255, .70);
+
+        }
+
+
+        .bh-model-number {
+
+            font-family: Georgia, 'Times New Roman', serif;
+
+            font-size: 3.4rem;
+
+            line-height: 1;
+
+            font-weight: 700;
+
+            color: #e7e5e4;
+
+            transition:
+                color .3s ease,
+                transform .3s ease;
+
+        }
+
+
+        .bh-model-item:hover .bh-model-number {
+
+            color: #fda4af;
+
+            transform: translateX(4px);
+
+        }
+
+
+        .bh-model-icon {
+
+            width: 62px;
+            height: 62px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(225, 29, 72, .22);
+
+            background: #ffffff;
+
+            color: #e11d48;
+
+            font-size: 22px;
+
+            box-shadow:
+                0 8px 25px rgba(120, 53, 48, .08);
+
+            transition:
+                transform .3s ease,
+                background .3s ease,
+                color .3s ease;
+
+        }
+
+
+        .bh-model-item:hover .bh-model-icon {
+
+            transform: rotate(-5deg) scale(1.08);
+
+            background: #e11d48;
+
+            color: #fff;
+
+        }
+
+
+        .bh-model-content {
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(180px, .55fr)
+                minmax(0, 1fr);
+
+            align-items: center;
+
+            gap: 40px;
+
+        }
+
+
+        .bh-model-title {
+
+            font-family: Georgia, 'Times New Roman', serif;
+
+            font-size: 1.6rem;
+
+            font-weight: 700;
+
+            color: #292524;
+
+        }
+
+
+        .bh-model-description {
+
+            max-width: 560px;
+
+            color: #78716c;
+
+            font-size: .95rem;
+
+            line-height: 1.75;
+
+        }
+
+
+        .bh-model-arrow {
+
+            justify-self: end;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 40px;
+            height: 40px;
+
+            border-radius: 50%;
+
+            color: #e11d48;
+
+            border: 1px solid rgba(225, 29, 72, .18);
+
+            transition:
+                transform .3s ease,
+                background .3s ease,
+                color .3s ease;
+
+        }
+
+
+        .bh-model-item:hover .bh-model-arrow {
+
+            transform: translateX(5px);
+
+            background: #e11d48;
+
+            color: #fff;
+
+        }
+
+
+        /* =========================================================
+           MODEL FOOT NOTE
+        ========================================================== */
+
+        .bh-model-note {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            margin-top: 45px;
+
+            text-align: center;
+
+            color: #78716c;
+
+            font-size: .8rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: .15em;
+
+            font-weight: 700;
+
+        }
+
+
+        .bh-model-note-line {
+
+            width: 45px;
+
+            height: 1px;
+
+            background: #d6d3d1;
+
+        }
+
+
+        /* =========================================================
+           MOBILE - WHY MODEL
+        ========================================================== */
+
+        @media(max-width: 767px) {
+
+            .bh-model-heading {
+
+                font-size: 2.5rem;
+
+            }
+
+
+            .bh-model-intro {
+
+                font-size: .9rem;
+
+                line-height: 1.7;
+
+            }
+
+
+            .bh-model-list {
+
+                margin-top: 45px;
+
+            }
+
+
+            .bh-model-item {
+
+                grid-template-columns:
+                    55px
+                    58px
+                    minmax(0, 1fr);
+
+                gap: 12px;
+
+                min-height: 150px;
+
+                padding: 25px 0;
+
+            }
+
+
+            .bh-model-item:hover {
+
+                padding-left: 8px;
+                padding-right: 8px;
+
+            }
+
+
+            .bh-model-number {
+
+                font-size: 2.2rem;
+
+            }
+
+
+            .bh-model-icon {
+
+                width: 50px;
+                height: 50px;
+
+                font-size: 18px;
+
+            }
+
+
+            .bh-model-content {
+
+                display: block;
+
+            }
+
+
+            .bh-model-title {
+
+                font-size: 1.25rem;
+
+            }
+
+
+            .bh-model-description {
+
+                margin-top: 8px;
+
+                font-size: .78rem;
+
+                line-height: 1.6;
+
+            }
+
+
+            .bh-model-arrow {
+
+                display: none;
+
+            }
+
+
+            .bh-model-note {
+
+                font-size: .65rem;
+
+                gap: 10px;
+
+            }
+
+
+            .bh-model-note-line {
+
+                width: 25px;
+
+            }
+
+        }
+
+
+        /* =========================================================
+           VERY SMALL MOBILE
+        ========================================================== */
+
+        @media(max-width: 420px) {
+
+            .bh-model-item {
+
+                grid-template-columns:
+                    42px
+                    48px
+                    minmax(0, 1fr);
+
+                gap: 9px;
+
+            }
+
+
+            .bh-model-number {
+
+                font-size: 1.8rem;
+
+            }
+
+
+            .bh-model-icon {
+
+                width: 43px;
+                height: 43px;
+
+                font-size: 16px;
+
+            }
+
+
+            .bh-model-title {
+
+                font-size: 1.05rem;
+
+            }
+
+
+            .bh-model-description {
+
+                font-size: .7rem;
+
+            }
+
+        }
+
+
+        /* =========================================================
+           ORDER JOURNEY - LIGHT VERSION
+        ========================================================== */
+
+        .bh-journey-section {
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff7f3 0%,
+                    #ffffff 50%,
+                    #fff1f2 100%
+                );
+
+            color: #292524;
+
+        }
+
+
+        .bh-journey-line {
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    #f43f5e,
+                    #fbbf24,
+                    #d6d3d1
+                );
+
+        }
+
+
+        .bh-journey-step {
+
+            transition:
+                transform .35s ease,
+                border-color .35s ease;
+
+        }
+
+
+        .bh-journey-step:hover {
+
+            transform: translateX(8px);
+
+        }
+
+
+        .bh-journey-number {
+
+            background: #ffffff !important;
+
+            box-shadow:
+                0 0 0 8px #fff7f3;
+
+            transition:
+                background .3s ease,
+                color .3s ease,
+                border-color .3s ease,
+                transform .3s ease;
+
+        }
+
+
+        .bh-journey-step:hover .bh-journey-number {
+
+            transform: scale(1.08);
+
+            background: #f59e0b !important;
+
+            color: #1c1917 !important;
+
+            border-color: #f59e0b;
+
+        }
+
+
+        .bh-journey-link {
+
+            transition:
+                background .3s ease,
+                color .3s ease,
+                border-color .3s ease,
+                transform .3s ease;
+
+        }
+
+
+        .bh-journey-link:hover {
+
+            transform: translateY(-2px);
+
+        }
+
+
+        /* =========================================================
+           JOURNEY MOBILE
+        ========================================================== */
+
+        @media(max-width: 767px) {
+
+            .bh-journey-step:hover {
+
+                transform: none;
+
+            }
+
+        }
+
+
+        /* =========================================================
+           HERO MOBILE
+        ========================================================== */
+
+        @media(max-width: 767px) {
+
+            .bh-hero-overlay {
+
+                background:
+                    linear-gradient(
+                        180deg,
+                        rgba(255, 250, 247, .96) 0%,
+                        rgba(255, 250, 247, .90) 55%,
+                        rgba(255, 250, 247, .82) 100%
+                    );
+
+            }
+
+        }
+
+
+        /* =========================================================
+           SMOOTH IMAGE EFFECT
+        ========================================================== */
+
+        img {
+
+            max-width: 100%;
+
+        }
+
+
+        /* =========================================================
+           ACCESSIBILITY
+        ========================================================== */
+
+        a:focus-visible,
+        button:focus-visible {
+
+            outline: 3px solid rgba(225, 29, 72, .35);
+
+            outline-offset: 3px;
+
+        }
+
     </style>
+
 </head>
 
 
-<body class="bg-stone-950 text-white">
+<body class="bg-[#fffaf7] text-stone-900">
 
 
     <!-- =========================================================
@@ -61,19 +860,24 @@
              SECTION 1: HERO
         ========================================================== -->
 
-        <section class="relative overflow-hidden">
+        <section class="relative overflow-hidden bg-[#fffaf7]">
+
 
             <img
                 src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1600&q=80"
                 alt="Cloud kitchen in operation"
                 class="absolute inset-0 h-full w-full object-cover">
 
-            <div
-                class="absolute inset-0 bg-gradient-to-r from-stone-950 via-stone-950/90 to-stone-950/50">
-            </div>
+
+            <!-- LIGHT OVERLAY -->
 
             <div
-                class="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-transparent">
+                class="bh-hero-overlay absolute inset-0">
+            </div>
+
+
+            <div
+                class="bh-hero-bottom absolute inset-0">
             </div>
 
 
@@ -85,9 +889,11 @@
 
                 <div>
 
-                    <p class="eyebrow flex items-center gap-2 text-amber-400">
 
-                        <span class="h-px w-8 bg-amber-400"></span>
+                    <p
+                        class="eyebrow flex items-center gap-2 text-rose-600">
+
+                        <span class="h-px w-8 bg-rose-600"></span>
 
                         How it works
 
@@ -95,12 +901,12 @@
 
 
                     <h1
-                        class="mt-4 font-display text-4xl font-black leading-[1.05] sm:text-6xl lg:text-7xl">
+                        class="mt-4 font-display text-4xl font-black leading-[1.05] text-stone-900 sm:text-6xl lg:text-7xl">
 
                         A kitchen designed
 
                         <span
-                            class="block bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">
+                            class="block bg-gradient-to-r from-rose-600 to-orange-500 bg-clip-text text-transparent">
 
                             around the plate.
 
@@ -109,10 +915,11 @@
                     </h1>
 
 
-                    <p class="mt-7 max-w-xl text-lg leading-8 text-stone-300">
+                    <p
+                        class="mt-7 max-w-xl text-lg leading-8 text-stone-600">
 
-                        No dining room, no unnecessary steps. Our model puts the team, equipment and prep
-                        flow around the food that travels to you.
+                        No dining room, no unnecessary steps. Our model puts the team,
+                        equipment and prep flow around the food that travels to you.
 
                     </p>
 
@@ -120,18 +927,14 @@
                     <div class="mt-8 flex flex-wrap gap-4">
 
 
-                        <!-- EXPLORE MENU -->
-
                         <a
                             href="menu.html"
-                            class="btn-primary bg-amber-500 text-stone-900 hover:bg-amber-400">
+                            class="btn-primary bg-rose-600 text-white hover:bg-rose-700">
 
                             Explore the menu
 
                         </a>
 
-
-                        <!-- BULK ORDERS -->
 
                         <a
                             href="bulk-orders.html"
@@ -146,30 +949,33 @@
                 </div>
 
 
-                <!-- RIGHT PROCESS CARD -->
+                <!-- RIGHT PROCESS -->
 
                 <div
-                    class="rounded-[2rem] bg-stone-900/80 p-7 ring-1 ring-white/10 backdrop-blur-sm sm:p-10">
+                    class="rounded-[2rem] border border-white/70 bg-white/90 p-7 shadow-2xl shadow-rose-100/60 backdrop-blur-sm sm:p-10">
+
 
                     <div class="grid gap-5">
 
 
                         <!-- 01 -->
 
-                        <div class="flex gap-4 border-b border-stone-700 pb-5">
+                        <div
+                            class="flex gap-4 border-b border-stone-200 pb-5">
 
                             <span
-                                class="font-display text-2xl font-black text-amber-400">
+                                class="font-display text-2xl font-black text-rose-600">
 
                                 01
 
                             </span>
 
+
                             <div>
 
-                                <b>Prep</b>
+                                <b class="text-stone-900">Prep</b>
 
-                                <p class="mt-2 text-stone-400">
+                                <p class="mt-2 text-stone-500">
 
                                     Ingredients are portioned before the first order window.
 
@@ -182,20 +988,22 @@
 
                         <!-- 02 -->
 
-                        <div class="flex gap-4 border-b border-stone-700 pb-5">
+                        <div
+                            class="flex gap-4 border-b border-stone-200 pb-5">
 
                             <span
-                                class="font-display text-2xl font-black text-amber-400">
+                                class="font-display text-2xl font-black text-rose-600">
 
                                 02
 
                             </span>
 
+
                             <div>
 
-                                <b>Cook</b>
+                                <b class="text-stone-900">Cook</b>
 
-                                <p class="mt-2 text-stone-400">
+                                <p class="mt-2 text-stone-500">
 
                                     Orders are cooked in short batches for consistency.
 
@@ -208,20 +1016,22 @@
 
                         <!-- 03 -->
 
-                        <div class="flex gap-4 border-b border-stone-700 pb-5">
+                        <div
+                            class="flex gap-4 border-b border-stone-200 pb-5">
 
                             <span
-                                class="font-display text-2xl font-black text-amber-400">
+                                class="font-display text-2xl font-black text-rose-600">
 
                                 03
 
                             </span>
 
+
                             <div>
 
-                                <b>Pack</b>
+                                <b class="text-stone-900">Pack</b>
 
-                                <p class="mt-2 text-stone-400">
+                                <p class="mt-2 text-stone-500">
 
                                     Containers are labelled and checked before dispatch.
 
@@ -237,17 +1047,18 @@
                         <div class="flex gap-4">
 
                             <span
-                                class="font-display text-2xl font-black text-amber-400">
+                                class="font-display text-2xl font-black text-rose-600">
 
                                 04
 
                             </span>
 
+
                             <div>
 
-                                <b>Deliver</b>
+                                <b class="text-stone-900">Deliver</b>
 
-                                <p class="mt-2 text-stone-400">
+                                <p class="mt-2 text-stone-500">
 
                                     Local routes keep the final journey short.
 
@@ -270,133 +1081,286 @@
              SECTION 2: WHY THE MODEL WORKS
         ========================================================== -->
 
-        <section
-            class="relative overflow-hidden bg-gradient-to-br from-white via-rose-50 to-rose-100 text-stone-900">
+        <section class="bh-model-section">
 
-            <div
-                class="pointer-events-none absolute -top-24 -right-24 h-80 w-80 rounded-full bg-rose-300/30 blur-3xl">
-            </div>
 
-            <div
-                class="pointer-events-none absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-pink-200/40 blur-3xl">
-            </div>
+            <div class="bh-model-glow bh-model-glow-one"></div>
+
+            <div class="bh-model-glow bh-model-glow-two"></div>
 
 
             <div
-                class="relative mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-20 lg:px-12">
+                class="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-12">
 
 
-                <div class="mx-auto max-w-3xl text-center">
+                <!-- HEADER -->
 
-                    <p class="eyebrow text-rose-600">
+                <div class="bh-model-header">
+
+
+                    <p class="bh-model-kicker">
 
                         The Bowl &amp; Hearth model
 
                     </p>
 
-                    <h2
-                        class="mt-3 font-display text-3xl font-black text-stone-900 sm:text-4xl">
+
+                    <h2 class="bh-model-heading">
 
                         Why the model works
 
                     </h2>
 
-                    <p class="mx-auto mt-4 max-w-2xl text-stone-600">
 
-                        A simpler kitchen structure helps us focus more closely on preparation,
-                        consistency and getting every order to you at its best.
+                    <p class="bh-model-intro">
+
+                        A simpler kitchen structure lets us put our attention where it matters most:
+                        thoughtful preparation, consistent cooking and a better journey from kitchen
+                        to table.
 
                     </p>
 
                 </div>
 
 
-                <div
-                    class="mt-10 grid items-stretch gap-8 sm:grid-cols-2 md:grid-cols-3">
+                <!-- PROCESS LIST -->
+
+                <div class="bh-model-list">
 
 
-                    <!-- CARD 1 -->
+                    <!-- 01 -->
 
-                    <div
-                        class="group flex h-full flex-col rounded-3xl border border-rose-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+                    <div class="bh-model-item">
 
-                        <div
-                            class="flex h-12 w-12 items-center justify-center rounded-2xl bg-rose-100 text-xl text-rose-600 transition group-hover:bg-rose-600 group-hover:text-white">
 
-                            🎯
+                        <div class="bh-model-number">
+
+                            01
 
                         </div>
 
-                        <b class="mt-5 block text-lg text-stone-900">
 
-                            Focused menus
+                        <div class="bh-model-icon">
 
-                        </b>
+                            <svg
+                                width="25"
+                                height="25"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.6"
+                                stroke-linecap="round"
+                                stroke-linejoin="round">
 
-                        <p class="mt-3 leading-7 text-stone-600">
+                                <circle
+                                    cx="12"
+                                    cy="12"
+                                    r="8">
+                                </circle>
 
-                            Fewer dishes means better prep discipline, smoother cooking and faster
-                            service.
+                                <circle
+                                    cx="12"
+                                    cy="12"
+                                    r="3">
+                                </circle>
 
-                        </p>
+                                <path d="M12 2v3"></path>
+
+                                <path d="M12 19v3"></path>
+
+                                <path d="M2 12h3"></path>
+
+                                <path d="M19 12h3"></path>
+
+                            </svg>
+
+                        </div>
+
+
+                        <div class="bh-model-content">
+
+
+                            <div>
+
+                                <h3 class="bh-model-title">
+
+                                    Focused menus
+
+                                </h3>
+
+                            </div>
+
+
+                            <p class="bh-model-description">
+
+                                Fewer dishes mean better prep discipline, smoother cooking
+                                and more attention on every plate that leaves our kitchen.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="bh-model-arrow">
+
+                            →
+
+                        </div>
 
                     </div>
 
 
-                    <!-- CARD 2 -->
+                    <!-- 02 -->
 
-                    <div
-                        class="group flex h-full flex-col rounded-3xl border border-rose-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+                    <div class="bh-model-item">
 
-                        <div
-                            class="flex h-12 w-12 items-center justify-center rounded-2xl bg-rose-100 text-xl text-rose-600 transition group-hover:bg-rose-600 group-hover:text-white">
 
-                            🗺️
+                        <div class="bh-model-number">
+
+                            02
 
                         </div>
 
-                        <b class="mt-5 block text-lg text-stone-900">
 
-                            Local routes
+                        <div class="bh-model-icon">
 
-                        </b>
+                            <svg
+                                width="25"
+                                height="25"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.6"
+                                stroke-linecap="round"
+                                stroke-linejoin="round">
 
-                        <p class="mt-3 leading-7 text-stone-600">
+                                <path
+                                    d="M9 18l-6 3V6l6-3 6 3 6-3v15l-6 3-6-3z">
+                                </path>
 
-                            Delivery is planned around practical neighbourhood zones to keep the
-                            final journey efficient.
+                                <path d="M9 3v15"></path>
 
-                        </p>
+                                <path d="M15 6v15"></path>
+
+                            </svg>
+
+                        </div>
+
+
+                        <div class="bh-model-content">
+
+
+                            <div>
+
+                                <h3 class="bh-model-title">
+
+                                    Local routes
+
+                                </h3>
+
+                            </div>
+
+
+                            <p class="bh-model-description">
+
+                                Delivery is organised around practical neighbourhood zones,
+                                keeping the final journey short and helping food reach you
+                                at its best.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="bh-model-arrow">
+
+                            →
+
+                        </div>
 
                     </div>
 
 
-                    <!-- CARD 3 -->
+                    <!-- 03 -->
 
-                    <div
-                        class="group flex h-full flex-col rounded-3xl border border-rose-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+                    <div class="bh-model-item">
 
-                        <div
-                            class="flex h-12 w-12 items-center justify-center rounded-2xl bg-rose-100 text-xl text-rose-600 transition group-hover:bg-rose-600 group-hover:text-white">
 
-                            📈
+                        <div class="bh-model-number">
+
+                            03
 
                         </div>
 
-                        <b class="mt-5 block text-lg text-stone-900">
 
-                            Flexible scale
+                        <div class="bh-model-icon">
 
-                        </b>
+                            <svg
+                                width="25"
+                                height="25"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.6"
+                                stroke-linecap="round"
+                                stroke-linejoin="round">
 
-                        <p class="mt-3 leading-7 text-stone-600">
+                                <path d="M3 20h18"></path>
 
-                            The same kitchen can handle individual meals as well as larger office
-                            and event orders.
+                                <path d="M5 17l5-5 4 3 6-8"></path>
 
-                        </p>
+                                <path d="M15 7h5v5"></path>
+
+                            </svg>
+
+                        </div>
+
+
+                        <div class="bh-model-content">
+
+
+                            <div>
+
+                                <h3 class="bh-model-title">
+
+                                    Flexible scale
+
+                                </h3>
+
+                            </div>
+
+
+                            <p class="bh-model-description">
+
+                                The same kitchen can move comfortably from an individual meal
+                                to a large office lunch or event order without losing the
+                                discipline of a small kitchen.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="bh-model-arrow">
+
+                            →
+
+                        </div>
 
                     </div>
+
+                </div>
+
+
+                <!-- FOOT NOTE -->
+
+                <div class="bh-model-note">
+
+                    <span class="bh-model-note-line"></span>
+
+                    Less overhead. More attention on the food.
+
+                    <span class="bh-model-note-line"></span>
 
                 </div>
 
@@ -412,9 +1376,11 @@
         <section
             class="relative overflow-hidden bg-gradient-to-br from-rose-50 via-white to-pink-50 text-stone-900">
 
+
             <div
                 class="pointer-events-none absolute -top-20 left-1/4 h-80 w-80 rounded-full bg-rose-200/40 blur-3xl">
             </div>
+
 
             <div
                 class="pointer-events-none absolute -bottom-20 right-10 h-72 w-72 rounded-full bg-pink-200/30 blur-3xl">
@@ -427,11 +1393,13 @@
 
                 <div class="mx-auto mb-12 max-w-2xl text-center">
 
+
                     <p class="eyebrow justify-center text-rose-600">
 
                         The difference
 
                     </p>
+
 
                     <h2
                         class="mt-4 font-display text-3xl font-black text-stone-900 sm:text-4xl">
@@ -440,10 +1408,11 @@
 
                     </h2>
 
+
                     <p class="mt-5 leading-7 text-stone-600">
 
-                        Every rupee and every minute goes into the food and the delivery — not tables,
-                        hosts or décor.
+                        Every rupee and every minute goes into the food and the delivery —
+                        not tables, hosts or décor.
 
                     </p>
 
@@ -583,9 +1552,11 @@
         <section
             class="relative overflow-hidden bg-gradient-to-br from-white via-rose-50 to-pink-100 text-stone-900">
 
+
             <div
                 class="pointer-events-none absolute -bottom-20 right-0 h-80 w-80 rounded-full bg-rose-300/25 blur-3xl">
             </div>
+
 
             <div
                 class="pointer-events-none absolute -top-20 left-0 h-72 w-72 rounded-full bg-pink-200/40 blur-3xl">
@@ -598,11 +1569,13 @@
 
                 <div class="mx-auto mb-12 max-w-2xl text-center">
 
+
                     <p class="eyebrow justify-center text-rose-600">
 
                         A closer look
 
                     </p>
+
 
                     <h2
                         class="mt-4 font-display text-3xl font-black text-stone-900 sm:text-4xl">
@@ -611,17 +1584,19 @@
 
                     </h2>
 
+
                     <p class="mt-5 text-stone-600">
 
-                        A glimpse of the prep counters, cooking lines and packing stations behind
-                        every order.
+                        A glimpse of the prep counters, cooking lines and packing stations
+                        behind every order.
 
                     </p>
 
                 </div>
 
 
-                <div class="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-5">
+                <div
+                    class="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-5">
 
 
                     <!-- MAIN IMAGE -->
@@ -629,14 +1604,17 @@
                     <div
                         class="group relative col-span-2 row-span-2 overflow-hidden rounded-3xl border-4 border-white shadow-lg">
 
+
                         <img
                             src="https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&w=900&q=80"
                             alt="Chefs cooking in bulk"
                             class="h-full w-full object-cover transition duration-500 group-hover:scale-110">
 
+
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent">
                         </div>
+
 
                         <p
                             class="absolute bottom-5 left-5 text-sm font-semibold text-white">
@@ -653,14 +1631,17 @@
                     <div
                         class="group relative overflow-hidden rounded-3xl border-4 border-white shadow-lg">
 
+
                         <img
                             src="https://images.unsplash.com/photo-1591189863430-ab87e120f312?auto=format&fit=crop&w=600&q=80"
                             alt="Ingredient prep station"
                             class="h-full w-full object-cover transition duration-500 group-hover:scale-110">
 
+
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent">
                         </div>
+
 
                         <p
                             class="absolute bottom-3 left-3 text-xs font-semibold text-white">
@@ -677,14 +1658,17 @@
                     <div
                         class="group relative overflow-hidden rounded-3xl border-4 border-white shadow-lg">
 
+
                         <img
                             src="https://images.unsplash.com/photo-1580959375944-abd7e991f971?auto=format&fit=crop&w=600&q=80"
                             alt="Packed food containers"
                             class="h-full w-full object-cover transition duration-500 group-hover:scale-110">
 
+
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent">
                         </div>
+
 
                         <p
                             class="absolute bottom-3 left-3 text-xs font-semibold text-white">
@@ -701,14 +1685,17 @@
                     <div
                         class="group relative col-span-2 overflow-hidden rounded-3xl border-4 border-white shadow-lg sm:col-span-2">
 
+
                         <img
                             src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=900&q=80"
                             alt="Delivery bags ready for dispatch"
                             class="h-full w-full object-cover transition duration-500 group-hover:scale-110">
 
+
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent">
                         </div>
+
 
                         <p
                             class="absolute bottom-5 left-5 text-sm font-semibold text-white">
@@ -727,11 +1714,356 @@
 
 
         <!-- =========================================================
-             SECTION 5: BY THE NUMBERS
+             SECTION 5: FROM ORDER TO ARRIVAL
+        ========================================================== -->
+
+        <section class="bh-journey-section">
+
+
+            <!-- DECORATIVE GLOWS -->
+
+            <div
+                class="pointer-events-none absolute -left-40 -top-40 h-96 w-96 rounded-full bg-rose-500/10 blur-3xl">
+            </div>
+
+
+            <div
+                class="pointer-events-none absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-amber-500/10 blur-3xl">
+            </div>
+
+
+            <div
+                class="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-12">
+
+
+                <!-- =====================================================
+                     CENTERED INTRO
+                ====================================================== -->
+
+                <div class="mx-auto max-w-3xl text-center">
+
+
+                    <p
+                        class="flex items-center justify-center gap-3 text-xs font-bold uppercase tracking-[0.25em] text-rose-600">
+
+                        <span class="h-px w-8 bg-rose-600"></span>
+
+                        From kitchen to doorstep
+
+                        <span class="h-px w-8 bg-rose-600"></span>
+
+                    </p>
+
+
+                    <h2
+                        class="mt-5 font-display text-4xl font-black leading-tight text-stone-900 sm:text-5xl lg:text-6xl">
+
+                        Every order has
+
+                        <span class="text-amber-500">
+
+                            a journey.
+
+                        </span>
+
+                    </h2>
+
+                </div>
+
+
+                <!-- =====================================================
+                     JOURNEY
+                ====================================================== -->
+
+                <div class="relative mt-16">
+
+
+                    <!-- CONNECTING LINE -->
+
+                    <div
+                        class="bh-journey-line absolute left-[27px] top-8 hidden h-[calc(100%-64px)] w-px md:block">
+                    </div>
+
+
+                    <!-- STEP 01 -->
+
+                    <div
+                        class="bh-journey-step relative grid gap-7 border-t border-stone-200 py-10 md:grid-cols-[70px_180px_1fr] md:items-center md:gap-8">
+
+
+                        <div
+                            class="bh-journey-number relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-rose-300 bg-white font-display text-lg font-black text-rose-600 ring-8 ring-[#fff7f3]">
+
+                            01
+
+                        </div>
+
+
+                        <div>
+
+                            <p
+                                class="text-xs font-bold uppercase tracking-[0.2em] text-stone-400">
+
+                                Order
+
+                            </p>
+
+
+                            <h3
+                                class="mt-2 font-display text-2xl font-bold text-stone-900">
+
+                                It starts with you.
+
+                            </h3>
+
+                        </div>
+
+
+                        <p
+                            class="max-w-2xl text-sm leading-7 text-stone-600">
+
+                            Your order enters our kitchen workflow, giving the team a clear
+                            picture of what needs to be prepared and when it needs to leave.
+
+                        </p>
+
+                    </div>
+
+
+                    <!-- STEP 02 -->
+
+                    <div
+                        class="bh-journey-step relative grid gap-7 border-t border-stone-200 py-10 md:grid-cols-[70px_180px_1fr] md:items-center md:gap-8">
+
+
+                        <div
+                            class="bh-journey-number relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-amber-300 bg-white font-display text-lg font-black text-amber-600 ring-8 ring-[#fff7f3]">
+
+                            02
+
+                        </div>
+
+
+                        <div>
+
+                            <p
+                                class="text-xs font-bold uppercase tracking-[0.2em] text-stone-400">
+
+                                Prepare
+
+                            </p>
+
+
+                            <h3
+                                class="mt-2 font-display text-2xl font-bold text-stone-900">
+
+                                Ingredients come together.
+
+                            </h3>
+
+                        </div>
+
+
+                        <p
+                            class="max-w-2xl text-sm leading-7 text-stone-600">
+
+                            Portioning and preparation happen in a controlled workflow so
+                            ingredients are ready for the cooking stage without unnecessary
+                            delays.
+
+                        </p>
+
+                    </div>
+
+
+                    <!-- STEP 03 -->
+
+                    <div
+                        class="bh-journey-step relative grid gap-7 border-t border-stone-200 py-10 md:grid-cols-[70px_180px_1fr] md:items-center md:gap-8">
+
+
+                        <div
+                            class="bh-journey-number relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-rose-300 bg-white font-display text-lg font-black text-rose-600 ring-8 ring-[#fff7f3]">
+
+                            03
+
+                        </div>
+
+
+                        <div>
+
+                            <p
+                                class="text-xs font-bold uppercase tracking-[0.2em] text-stone-400">
+
+                                Cook
+
+                            </p>
+
+
+                            <h3
+                                class="mt-2 font-display text-2xl font-bold text-stone-900">
+
+                                The kitchen gets moving.
+
+                            </h3>
+
+                        </div>
+
+
+                        <p
+                            class="max-w-2xl text-sm leading-7 text-stone-600">
+
+                            Orders move through the cooking line in short, organised batches,
+                            helping the kitchen maintain consistency while responding to demand.
+
+                        </p>
+
+                    </div>
+
+
+                    <!-- STEP 04 -->
+
+                    <div
+                        class="bh-journey-step relative grid gap-7 border-t border-stone-200 py-10 md:grid-cols-[70px_180px_1fr] md:items-center md:gap-8">
+
+
+                        <div
+                            class="bh-journey-number relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-amber-300 bg-white font-display text-lg font-black text-amber-600 ring-8 ring-[#fff7f3]">
+
+                            04
+
+                        </div>
+
+
+                        <div>
+
+                            <p
+                                class="text-xs font-bold uppercase tracking-[0.2em] text-stone-400">
+
+                                Check
+
+                            </p>
+
+
+                            <h3
+                                class="mt-2 font-display text-2xl font-bold text-stone-900">
+
+                                Packed with purpose.
+
+                            </h3>
+
+                        </div>
+
+
+                        <p
+                            class="max-w-2xl text-sm leading-7 text-stone-600">
+
+                            Containers are packed, labelled and checked before they leave the
+                            kitchen, keeping the final handoff organised and clear.
+
+                        </p>
+
+                    </div>
+
+
+                    <!-- STEP 05 -->
+
+                    <div
+                        class="bh-journey-step relative grid gap-7 border-t border-b border-stone-200 py-10 md:grid-cols-[70px_180px_1fr] md:items-center md:gap-8">
+
+
+                        <div
+                            class="bh-journey-number relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-rose-300 bg-white font-display text-lg font-black text-rose-600 ring-8 ring-[#fff7f3]">
+
+                            05
+
+                        </div>
+
+
+                        <div>
+
+                            <p
+                                class="text-xs font-bold uppercase tracking-[0.2em] text-stone-400">
+
+                                Arrive
+
+                            </p>
+
+
+                            <h3
+                                class="mt-2 font-display text-2xl font-bold text-stone-900">
+
+                                Ready for your table.
+
+                            </h3>
+
+                        </div>
+
+
+                        <p
+                            class="max-w-2xl text-sm leading-7 text-stone-600">
+
+                            Once dispatched, the order begins its final journey to you —
+                            completing a process designed around the food from beginning
+                            to end.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =====================================================
+                     BOTTOM STATEMENT
+                ====================================================== -->
+
+                <div
+                    class="mt-14 flex flex-col gap-5 border-l-2 border-amber-400 pl-6 sm:flex-row sm:items-center sm:justify-between">
+
+
+                    <p
+                        class="max-w-2xl font-display text-xl font-bold leading-relaxed text-stone-700">
+
+                        A simple process, carefully repeated,
+
+                        <span class="text-amber-500">
+
+                            for every order.
+
+                        </span>
+
+                    </p>
+
+
+                    <a
+                        href="menu.html"
+                        class="bh-journey-link inline-flex w-fit items-center rounded-full border border-stone-300 px-6 py-3 text-sm font-semibold text-stone-800 hover:border-amber-400 hover:bg-amber-400 hover:text-stone-950">
+
+                        See what's cooking
+
+                        <span class="ml-2">
+
+                            →
+
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================================
+             SECTION 6: BY THE NUMBERS
         ========================================================== -->
 
         <section
             class="relative overflow-hidden bg-gradient-to-br from-rose-50 via-white to-rose-100 text-stone-900">
+
 
             <div
                 class="pointer-events-none absolute -top-20 right-1/3 h-64 w-64 rounded-full bg-rose-200/30 blur-3xl">
@@ -742,13 +2074,16 @@
                 class="relative mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12">
 
 
-                <div class="mx-auto mb-10 max-w-2xl text-center">
+                <div
+                    class="mx-auto mb-10 max-w-2xl text-center">
+
 
                     <p class="eyebrow text-rose-600">
 
                         Our kitchen at a glance
 
                     </p>
+
 
                     <h2
                         class="mt-3 font-display text-3xl font-black text-stone-900 sm:text-4xl">
@@ -769,12 +2104,14 @@
                     <div
                         class="border-b border-rose-100 px-6 py-10 text-center sm:border-r lg:border-b-0">
 
+
                         <p
                             class="font-display text-4xl font-black text-rose-500 sm:text-5xl">
 
                             1
 
                         </p>
+
 
                         <p
                             class="mx-auto mt-3 max-w-xs text-sm leading-6 text-stone-500">
@@ -791,12 +2128,14 @@
                     <div
                         class="border-b border-rose-100 px-6 py-10 text-center lg:border-b-0 lg:border-r">
 
+
                         <p
                             class="font-display text-4xl font-black text-rose-500 sm:text-5xl">
 
                             4
 
                         </p>
+
 
                         <p
                             class="mx-auto mt-3 max-w-xs text-sm leading-6 text-stone-500">
@@ -813,12 +2152,14 @@
                     <div
                         class="border-b border-rose-100 px-6 py-10 text-center sm:border-r lg:border-b-0">
 
+
                         <p
                             class="font-display text-4xl font-black text-rose-500 sm:text-5xl">
 
                             24hr
 
                         </p>
+
 
                         <p
                             class="mx-auto mt-3 max-w-xs text-sm leading-6 text-stone-500">
@@ -834,12 +2175,14 @@
 
                     <div class="px-6 py-10 text-center">
 
+
                         <p
                             class="font-display text-4xl font-black text-rose-500 sm:text-5xl">
 
                             500+
 
                         </p>
+
 
                         <p
                             class="mx-auto mt-3 max-w-xs text-sm leading-6 text-stone-500">
@@ -858,19 +2201,21 @@
 
 
         <!-- =========================================================
-             SECTION 6: CTA
+             SECTION 7: CTA
         ========================================================== -->
 
         <section
-            class="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12">
+            class="bg-[#fffaf7] mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12">
+
 
             <div
-                class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-amber-500 via-orange-500 to-amber-600 px-8 py-16 text-center text-stone-950 sm:px-16">
+                class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-amber-400 via-orange-400 to-rose-400 px-8 py-16 text-center text-stone-950 shadow-xl shadow-orange-100 sm:px-16">
 
 
                 <div
                     class="pointer-events-none absolute -bottom-16 -left-16 h-56 w-56 rounded-full bg-white/20 blur-3xl">
                 </div>
+
 
                 <div
                     class="pointer-events-none absolute -top-16 -right-16 h-56 w-56 rounded-full bg-stone-950/10 blur-3xl">
@@ -888,8 +2233,8 @@
                 <p
                     class="relative mx-auto mt-4 max-w-xl text-stone-900/70">
 
-                    Browse the menu built around this model, or talk to us about a bulk order for your
-                    office or event.
+                    Browse the menu built around this model, or talk to us about a bulk
+                    order for your office or event.
 
                 </p>
 
@@ -940,6 +2285,7 @@
     ========================================================== -->
 
     <script src="../js/components.js"></script>
+
     <script src="../js/main.js"></script>
 
 

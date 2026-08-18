@@ -2,372 +2,1978 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+
     <title>Bulk Orders | Bowl & Hearth</title>
+
+    <!-- =========================================================
+         TAILWIND
+    ========================================================== -->
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config = { darkMode: 'class' }</script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        };
+    </script>
+
+    <!-- =========================================================
+         SHARED CSS
+    ========================================================== -->
+
     <link rel="stylesheet" href="../css/style.css">
+
+
+    <!-- =========================================================
+         PAGE CSS
+    ========================================================== -->
+
+    <style>
+
+        /* =====================================================
+           ONE KITCHEN — EDITORIAL SECTION
+        ====================================================== */
+
+        .bh-occasions {
+
+            position: relative;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fffaf5 0%,
+                    #ffffff 48%,
+                    #fff1df 100%
+                );
+
+            color: #292524;
+        }
+
+
+        .bh-occasions-glow {
+
+            position: absolute;
+
+            width: 420px;
+            height: 420px;
+
+            border-radius: 9999px;
+
+            filter: blur(90px);
+
+            pointer-events: none;
+        }
+
+
+        .bh-occasions-glow-one {
+
+            top: -220px;
+            right: -100px;
+
+            background: rgba(245, 158, 11, .12);
+        }
+
+
+        .bh-occasions-glow-two {
+
+            bottom: -220px;
+            left: -120px;
+
+            background: rgba(244, 63, 94, .09);
+        }
+
+
+        /* =====================================================
+           CENTERED INTRO
+        ====================================================== */
+
+        .bh-occasion-intro {
+
+            position: relative;
+
+            max-width: 900px;
+
+            margin: 0 auto;
+
+            text-align: center;
+        }
+
+
+        .bh-occasion-kicker {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            color: #d97706;
+
+            font-size: .72rem;
+
+            font-weight: 800;
+
+            letter-spacing: .25em;
+
+            text-transform: uppercase;
+        }
+
+
+        .bh-occasion-kicker::before {
+
+            content: "";
+
+            width: 42px;
+
+            height: 1px;
+
+            background: #d97706;
+        }
+
+
+        /* =====================================================
+           HEADING
+        ====================================================== */
+
+        .bh-occasion-heading {
+
+            margin: 16px auto 0;
+
+            max-width: 800px;
+
+            font-family: Georgia, 'Times New Roman', serif;
+
+            font-size: clamp(2.3rem, 5vw, 4.5rem);
+
+            font-weight: 700;
+
+            line-height: 1;
+
+            letter-spacing: -.035em;
+
+            color: #1c1917;
+
+            text-align: center;
+        }
+
+
+        .bh-occasion-heading span {
+
+            color: #d97706;
+        }
+
+
+        /* =====================================================
+           OCCASION LIST
+        ====================================================== */
+
+        .bh-occasion-list {
+
+            position: relative;
+
+            margin-top: 60px;
+
+            border-top: 1px solid rgba(120, 113, 108, .25);
+        }
+
+
+        .bh-occasion-row {
+
+            position: relative;
+
+            display: grid;
+
+            grid-template-columns:
+                100px
+                minmax(220px, .75fr)
+                minmax(0, 1.25fr)
+                45px;
+
+            align-items: center;
+
+            gap: 35px;
+
+            min-height: 145px;
+
+            padding: 28px 0;
+
+            border-bottom:
+                1px solid rgba(120, 113, 108, .25);
+
+            transition:
+                padding .35s ease,
+                background .35s ease;
+        }
+
+
+        .bh-occasion-row:hover {
+
+            padding-left: 22px;
+            padding-right: 22px;
+
+            background: rgba(255, 255, 255, .75);
+        }
+
+
+        .bh-occasion-number {
+
+            font-family: Georgia, 'Times New Roman', serif;
+
+            font-size: 3.4rem;
+
+            font-weight: 700;
+
+            line-height: 1;
+
+            color: #d6d3d1;
+
+            transition:
+                color .3s ease,
+                transform .3s ease;
+        }
+
+
+        .bh-occasion-row:hover .bh-occasion-number {
+
+            color: #f59e0b;
+
+            transform: translateX(5px);
+        }
+
+
+        .bh-occasion-title {
+
+            font-family: Georgia, 'Times New Roman', serif;
+
+            font-size: 1.65rem;
+
+            font-weight: 700;
+
+            color: #292524;
+        }
+
+
+        .bh-occasion-label {
+
+            margin-top: 5px;
+
+            font-size: .68rem;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: .18em;
+
+            color: #d97706;
+        }
+
+
+        .bh-occasion-description {
+
+            max-width: 560px;
+
+            color: #78716c;
+
+            font-size: .92rem;
+
+            line-height: 1.75;
+        }
+
+
+        .bh-occasion-arrow {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 40px;
+            height: 40px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(217, 119, 6, .25);
+
+            color: #d97706;
+
+            transition:
+                transform .3s ease,
+                background .3s ease,
+                color .3s ease;
+        }
+
+
+        .bh-occasion-row:hover .bh-occasion-arrow {
+
+            transform: translateX(6px);
+
+            background: #d97706;
+
+            color: white;
+        }
+
+
+        /* =====================================================
+           BOTTOM STATEMENT
+        ====================================================== */
+
+        .bh-occasion-bottom {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 30px;
+
+            margin-top: 50px;
+        }
+
+
+        .bh-occasion-bottom-text {
+
+            max-width: 650px;
+
+            font-family: Georgia, 'Times New Roman', serif;
+
+            font-size: 1.4rem;
+
+            font-weight: 700;
+
+            line-height: 1.5;
+
+            color: #44403c;
+        }
+
+
+        .bh-occasion-bottom-text span {
+
+            color: #d97706;
+        }
+
+
+        .bh-occasion-button {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            flex-shrink: 0;
+
+            border: 1px solid #d6d3d1;
+
+            border-radius: 9999px;
+
+            padding: 13px 22px;
+
+            font-size: .85rem;
+
+            font-weight: 700;
+
+            color: #44403c;
+
+            transition:
+                background .3s ease,
+                color .3s ease,
+                border-color .3s ease,
+                transform .3s ease;
+        }
+
+
+        .bh-occasion-button:hover {
+
+            background: #d97706;
+
+            border-color: #d97706;
+
+            color: white;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =====================================================
+           PACKAGE CARDS
+        ====================================================== */
+
+        .bh-package-card {
+
+            overflow: hidden;
+
+            border: 1px solid #e7e5e4;
+
+            border-radius: 18px;
+
+            background: #ffffff;
+
+            transition:
+                transform .3s ease,
+                box-shadow .3s ease,
+                border-color .3s ease;
+        }
+
+
+        .bh-package-card:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 18px 35px rgba(28, 25, 23, .10);
+
+            border-color: #d6d3d1;
+        }
+
+
+        .bh-package-card img {
+
+            display: block;
+
+            width: 100%;
+
+            height: 176px;
+
+            object-fit: cover;
+        }
+
+
+        .bh-package-card-content {
+
+            padding: 30px;
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ====================================================== */
+
+        @media(max-width: 767px) {
+
+            .bh-occasion-heading {
+
+                font-size: 2.7rem;
+
+                line-height: 1.02;
+            }
+
+
+            .bh-occasion-list {
+
+                margin-top: 45px;
+            }
+
+
+            .bh-occasion-row {
+
+                grid-template-columns:
+                    48px
+                    minmax(0, 1fr);
+
+                gap: 15px;
+
+                min-height: auto;
+
+                padding: 25px 0;
+            }
+
+
+            .bh-occasion-row:hover {
+
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+
+
+            .bh-occasion-number {
+
+                font-size: 2rem;
+            }
+
+
+            .bh-occasion-title {
+
+                font-size: 1.25rem;
+            }
+
+
+            .bh-occasion-label {
+
+                font-size: .6rem;
+            }
+
+
+            .bh-occasion-description {
+
+                margin-top: 10px;
+
+                font-size: .8rem;
+
+                line-height: 1.65;
+            }
+
+
+            .bh-occasion-arrow {
+
+                display: none;
+            }
+
+
+            .bh-occasion-bottom {
+
+                display: block;
+
+                margin-top: 35px;
+            }
+
+
+            .bh-occasion-bottom-text {
+
+                font-size: 1.15rem;
+            }
+
+
+            .bh-occasion-button {
+
+                margin-top: 25px;
+            }
+
+
+            .bh-package-card img {
+
+                height: 180px;
+            }
+
+
+            .bh-package-card-content {
+
+                padding: 24px;
+            }
+
+        }
+
+
+        /* =====================================================
+           SMALL MOBILE
+        ====================================================== */
+
+        @media(max-width: 420px) {
+
+            .bh-occasion-heading {
+
+                font-size: 2.35rem;
+            }
+
+
+            .bh-occasion-row {
+
+                grid-template-columns:
+                    40px
+                    minmax(0, 1fr);
+
+                gap: 12px;
+            }
+
+
+            .bh-occasion-number {
+
+                font-size: 1.7rem;
+            }
+
+
+            .bh-occasion-title {
+
+                font-size: 1.1rem;
+            }
+
+
+            .bh-occasion-description {
+
+                font-size: .75rem;
+            }
+
+        }
+
+    </style>
+
 </head>
 
+
 <body class="bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-100">
+
+
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
+
     <div id="site-header"></div>
+
 
     <main>
 
-        <!-- ============ HERO — gradient background + glow ============ -->
-        <section class="relative overflow-hidden bg-gradient-to-br from-[#241209] via-stone-900 to-[#1a0f08] text-white">
-            <div class="pointer-events-none absolute -top-32 -left-20 h-96 w-96 rounded-full bg-amber-500/20 blur-3xl"></div>
-            <div class="pointer-events-none absolute -bottom-24 right-0 h-80 w-80 rounded-full bg-orange-600/20 blur-3xl"></div>
-            <div class="pointer-events-none absolute inset-0 opacity-[0.04]" style="background-image:radial-gradient(circle,#fff 1px,transparent 1px);background-size:24px 24px;"></div>
+
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
+
+        <section
+            class="relative overflow-hidden bg-gradient-to-br from-[#241209] via-stone-900 to-[#1a0f08] text-white">
+
+            <div
+                class="pointer-events-none absolute -left-20 -top-32 h-96 w-96 rounded-full bg-amber-500/20 blur-3xl">
+            </div>
+
+
+            <div
+                class="pointer-events-none absolute -bottom-24 right-0 h-80 w-80 rounded-full bg-orange-600/20 blur-3xl">
+            </div>
+
+
+            <div
+                class="pointer-events-none absolute inset-0 opacity-[0.04]"
+                style="background-image:radial-gradient(circle,#fff 1px,transparent 1px);background-size:24px 24px;">
+            </div>
+
 
             <div class="grid lg:grid-cols-2">
-                <div class="relative z-10 px-5 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-32">
+
+
+                <div
+                    class="relative z-10 px-5 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-32">
+
                     <p class="eyebrow flex items-center gap-2 text-amber-400">
+
                         <span class="h-px w-8 bg-amber-400"></span>
+
                         Office & events · Local Catering & Cloud Kitchen
+
                     </p>
-                    <h1 class="mt-4 font-display text-4xl font-black leading-[1.05] sm:text-6xl">
+
+
+                    <h1
+                        class="mt-4 font-display text-4xl font-black leading-[1.05] sm:text-6xl">
+
                         Feed a room
-                        <span class="block bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">without turning it</span>
+
+                        <span
+                            class="block bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">
+
+                            without turning it
+
+                        </span>
+
                         into a project.
+
                     </h1>
+
+
                     <p class="mt-6 max-w-xl text-lg text-stone-300">
-                        We handle recurring office lunches, workshops, launches, family gatherings and
-                        small events — fresh from our kitchen, delivered on your schedule.
+
+                        We handle recurring office lunches, workshops, launches,
+                        family gatherings and small events — fresh from our kitchen,
+                        delivered on your schedule.
+
                     </p>
+
+
                     <div class="mt-8 flex flex-wrap gap-4">
-                        <a href="contact.html" class="btn-primary bg-amber-500 text-stone-900 shadow-lg shadow-amber-500/30 hover:bg-amber-400">Send an order enquiry</a>
-                        <a href="#packages" class="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/40 hover:bg-white/5">
-                            View packages ↓
+
+                        <a
+                            href="contact.html"
+                            class="btn-primary bg-amber-500 text-stone-900 shadow-lg shadow-amber-500/30 hover:bg-amber-400">
+
+                            Send an order enquiry
+
                         </a>
+
+
+                        <a
+                            href="#packages"
+                            class="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/40 hover:bg-white/5">
+
+                            View packages ↓
+
+                        </a>
+
                     </div>
-                    <div class="mt-12 flex flex-wrap gap-8 border-t border-white/10 pt-8">
-                        <div><p class="font-display text-3xl font-black text-amber-400">500+</p><p class="text-xs text-stone-400">Plates / event</p></div>
-                        <div><p class="font-display text-3xl font-black text-amber-400">24hr</p><p class="text-xs text-stone-400">Turnaround</p></div>
-                        <div><p class="font-display text-3xl font-black text-amber-400">₹179</p><p class="text-xs text-stone-400">Starting price</p></div>
+
+
+                    <div
+                        class="mt-12 flex flex-wrap gap-8 border-t border-white/10 pt-8">
+
+                        <div>
+
+                            <p class="font-display text-3xl font-black text-amber-400">
+                                500+
+                            </p>
+
+                            <p class="text-xs text-stone-400">
+                                Plates / event
+                            </p>
+
+                        </div>
+
+
+                        <div>
+
+                            <p class="font-display text-3xl font-black text-amber-400">
+                                24hr
+                            </p>
+
+                            <p class="text-xs text-stone-400">
+                                Turnaround
+                            </p>
+
+                        </div>
+
+
+                        <div>
+
+                            <p class="font-display text-3xl font-black text-amber-400">
+                                ₹179
+                            </p>
+
+                            <p class="text-xs text-stone-400">
+                                Starting price
+                            </p>
+
+                        </div>
+
                     </div>
+
                 </div>
+
 
                 <div class="relative min-h-[320px] lg:min-h-full">
-                    <img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1200&q=80"
-                         alt="Buffet spread for office catering"
-                         class="absolute inset-0 h-full w-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-r from-[#1a0f08] via-[#1a0f08]/30 to-transparent lg:bg-gradient-to-l"></div>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1200&q=80"
+                        alt="Buffet spread for office catering"
+                        class="absolute inset-0 h-full w-full object-cover">
+
+
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-[#1a0f08] via-[#1a0f08]/30 to-transparent lg:bg-gradient-to-l">
+                    </div>
+
                 </div>
+
             </div>
+
         </section>
 
-        <!-- ============ SECTION 1: PACKAGES — centered header, 4 cards ============ -->
-        <section id="packages" class="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12">
+
+        <!-- =====================================================
+             SECTION 1 — PACKAGES
+        ====================================================== -->
+
+        <section
+            id="packages"
+            class="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12">
+
+
             <div class="mx-auto mb-12 max-w-2xl text-center">
-                <p class="eyebrow justify-center">Simple packages</p>
-                <h2 class="section-title">Built for groups.</h2>
-                <p class="mt-5 text-stone-600 dark:text-stone-300">
-                    Choose a starting format and tell us your headcount. We'll confirm menu, timing and
-                    delivery coverage — no back-and-forth required.
+
+                <p class="eyebrow justify-center">
+                    Simple packages
                 </p>
+
+                <h2 class="section-title">
+                    Built for groups.
+                </h2>
+
+                <p class="mt-5 text-stone-600 dark:text-stone-300">
+
+                    Choose a starting format and tell us your headcount.
+                    We'll confirm menu, timing and delivery coverage —
+                    no back-and-forth required.
+
+                </p>
+
             </div>
+
 
             <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                <div class="group overflow-hidden rounded-2xl border border-stone-200 transition hover:-translate-y-1 hover:shadow-xl dark:border-stone-800">
-                    <div class="relative h-44 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=800&q=80"
-                             alt="Breakfast box spread" class="h-full w-full object-cover transition duration-500 group-hover:scale-110">
+
+
+                <!-- =================================================
+                     BREAKFAST BOX
+                     LOCAL IMAGE FIXED
+                ================================================== -->
+
+                <div class="bh-package-card group">
+
+                    <div class="relative overflow-hidden">
+
+                        <img
+                            src="../images/idly poha with juice.jpg"
+                            alt="Idly and poha with juice breakfast box"
+                            loading="lazy"
+                            onerror="this.style.display='none';">
+
                     </div>
-                    <div class="p-8">
-                        <h3 class="text-xl font-bold">Breakfast Box</h3>
-                        <p class="mt-2 text-sm text-stone-500">Idli/poha + chutney + fruit + juice</p>
-                        <div class="mt-6 flex items-center justify-between border-t border-stone-200 pt-5 dark:border-stone-800">
-                            <b class="text-lg">from ₹149<span class="text-sm font-normal text-stone-500">/person</span></b>
+
+
+                    <div class="bh-package-card-content">
+
+                        <h3 class="text-xl font-bold">
+                            Breakfast Box
+                        </h3>
+
+
+                        <p class="mt-2 text-sm text-stone-500">
+                            Idli/poha + chutney + fruit + juice
+                        </p>
+
+
+                        <div
+                            class="mt-6 flex items-center justify-between border-t border-stone-200 pt-5 dark:border-stone-800">
+
+                            <b class="text-lg">
+
+                                from ₹149
+
+                                <span class="text-sm font-normal text-stone-500">
+                                    /person
+                                </span>
+
+                            </b>
+
                         </div>
+
                     </div>
+
                 </div>
 
-                <div class="group overflow-hidden rounded-2xl border border-stone-200 transition hover:-translate-y-1 hover:shadow-xl dark:border-stone-800">
-                    <div class="relative h-44 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=800&q=80"
-                             alt="Working lunch rice bowl" class="h-full w-full object-cover transition duration-500 group-hover:scale-110">
+
+                <!-- =================================================
+                     WORKING LUNCH
+                ================================================== -->
+
+                <div class="bh-package-card group">
+
+                    <div class="relative overflow-hidden">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=800&q=80"
+                            alt="Working lunch rice bowl"
+                            loading="lazy">
+
                     </div>
-                    <div class="p-8">
-                        <h3 class="text-xl font-bold">Working Lunch</h3>
-                        <p class="mt-2 text-sm text-stone-500">Rice bowl + side + dessert + beverage</p>
-                        <div class="mt-6 flex items-center justify-between border-t border-stone-200 pt-5 dark:border-stone-800">
-                            <b class="text-lg">from ₹249<span class="text-sm font-normal text-stone-500">/person</span></b>
+
+
+                    <div class="bh-package-card-content">
+
+                        <h3 class="text-xl font-bold">
+                            Working Lunch
+                        </h3>
+
+
+                        <p class="mt-2 text-sm text-stone-500">
+                            Rice bowl + side + dessert + beverage
+                        </p>
+
+
+                        <div
+                            class="mt-6 flex items-center justify-between border-t border-stone-200 pt-5 dark:border-stone-800">
+
+                            <b class="text-lg">
+
+                                from ₹249
+
+                                <span class="text-sm font-normal text-stone-500">
+                                    /person
+                                </span>
+
+                            </b>
+
                         </div>
+
                     </div>
+
                 </div>
 
-                <div class="group overflow-hidden rounded-2xl border border-stone-200 transition hover:-translate-y-1 hover:shadow-xl dark:border-stone-800">
-                    <div class="relative h-44 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1541014741259-de529411b96a?auto=format&fit=crop&w=800&q=80"
-                             alt="Snack table savouries" class="h-full w-full object-cover transition duration-500 group-hover:scale-110">
+
+                <!-- =================================================
+                     SNACK TABLE
+                ================================================== -->
+
+                <div class="bh-package-card group">
+
+                    <div class="relative overflow-hidden">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1541014741259-de529411b96a?auto=format&fit=crop&w=800&q=80"
+                            alt="Snack table savouries"
+                            loading="lazy">
+
                     </div>
-                    <div class="p-8">
-                        <h3 class="text-xl font-bold">Snack Table</h3>
-                        <p class="mt-2 text-sm text-stone-500">Three savouries + dip + sweet</p>
-                        <div class="mt-6 flex items-center justify-between border-t border-stone-200 pt-5 dark:border-stone-800">
-                            <b class="text-lg">from ₹179<span class="text-sm font-normal text-stone-500">/person</span></b>
+
+
+                    <div class="bh-package-card-content">
+
+                        <h3 class="text-xl font-bold">
+                            Snack Table
+                        </h3>
+
+
+                        <p class="mt-2 text-sm text-stone-500">
+                            Three savouries + dip + sweet
+                        </p>
+
+
+                        <div
+                            class="mt-6 flex items-center justify-between border-t border-stone-200 pt-5 dark:border-stone-800">
+
+                            <b class="text-lg">
+
+                                from ₹179
+
+                                <span class="text-sm font-normal text-stone-500">
+                                    /person
+                                </span>
+
+                            </b>
+
                         </div>
+
                     </div>
+
                 </div>
 
-                <div class="group relative overflow-hidden rounded-2xl border-2 border-amber-500 transition hover:-translate-y-1 hover:shadow-xl">
-                    <span class="absolute left-4 top-4 z-10 rounded-full bg-amber-500 px-3 py-1 text-xs font-bold text-stone-900">Most booked</span>
-                    <div class="relative h-44 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1576402187878-974f70c890a5?auto=format&fit=crop&w=800&q=80"
-                             alt="Dinner feast spread" class="h-full w-full object-cover transition duration-500 group-hover:scale-110">
+
+                <!-- =================================================
+                     DINNER FEAST
+                     LOCAL IMAGE FIXED
+                ================================================== -->
+
+                <div class="bh-package-card group">
+
+                    <div class="relative overflow-hidden">
+
+                        <img
+                            src="../images/two mains plus bread.webp"
+                            alt="Two mains with bread dinner feast"
+                            loading="lazy"
+                            onerror="this.style.display='none';">
+
+
+                        <span
+                            class="absolute left-4 top-4 z-10 rounded-full bg-amber-500 px-3 py-1 text-xs font-bold text-stone-900">
+
+                            Most booked
+
+                        </span>
+
                     </div>
-                    <div class="p-8">
-                        <h3 class="text-xl font-bold">Dinner Feast</h3>
-                        <p class="mt-2 text-sm text-stone-500">Two mains + rice + breads + sides</p>
-                        <div class="mt-6 flex items-center justify-between border-t border-stone-200 pt-5 dark:border-stone-800">
-                            <b class="text-lg">from ₹399<span class="text-sm font-normal text-stone-500">/person</span></b>
+
+
+                    <div class="bh-package-card-content">
+
+                        <h3 class="text-xl font-bold">
+                            Dinner Feast
+                        </h3>
+
+
+                        <p class="mt-2 text-sm text-stone-500">
+                            Two mains + rice + breads + sides
+                        </p>
+
+
+                        <div
+                            class="mt-6 flex items-center justify-between border-t border-stone-200 pt-5 dark:border-stone-800">
+
+                            <b class="text-lg">
+
+                                from ₹399
+
+                                <span class="text-sm font-normal text-stone-500">
+                                    /person
+                                </span>
+
+                            </b>
+
                         </div>
+
                     </div>
+
                 </div>
+
             </div>
+
 
             <div class="mt-10 text-center">
-                <a href="contact.html" class="btn-primary inline-block">Send an order enquiry</a>
+
+                <a
+                    href="contact.html"
+                    class="btn-primary inline-block">
+
+                    Send an order enquiry
+
+                </a>
+
             </div>
+
         </section>
 
-        <!-- ============ SECTION 2: HOW IT WORKS — zigzag timeline ============ -->
+
+        <!-- =====================================================
+             SECTION — ONE KITCHEN. MANY OCCASIONS.
+        ====================================================== -->
+
+        <section class="bh-occasions">
+
+
+            <div class="bh-occasions-glow bh-occasions-glow-one"></div>
+
+            <div class="bh-occasions-glow bh-occasions-glow-two"></div>
+
+
+            <div
+                class="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-12">
+
+
+                <div class="bh-occasion-intro">
+
+                    <p class="bh-occasion-kicker">
+
+                        One kitchen · Many possibilities
+
+                    </p>
+
+
+                    <h2 class="bh-occasion-heading">
+
+                        One kitchen.
+
+                        <span>
+                            Many occasions.
+                        </span>
+
+                    </h2>
+
+                </div>
+
+
+                <div class="bh-occasion-list">
+
+
+                    <div class="bh-occasion-row">
+
+                        <div class="bh-occasion-number">
+                            01
+                        </div>
+
+
+                        <div>
+
+                            <p class="bh-occasion-label">
+                                Everyday
+                            </p>
+
+                            <h3 class="bh-occasion-title">
+                                Office lunches
+                            </h3>
+
+                        </div>
+
+
+                        <p class="bh-occasion-description">
+
+                            Keep the team fuelled without interrupting the
+                            workday. Fresh individual meals, packed clearly
+                            and delivered around your lunch window.
+
+                        </p>
+
+
+                        <div class="bh-occasion-arrow">
+                            →
+                        </div>
+
+                    </div>
+
+
+                    <div class="bh-occasion-row">
+
+                        <div class="bh-occasion-number">
+                            02
+                        </div>
+
+
+                        <div>
+
+                            <p class="bh-occasion-label">
+                                Gather
+                            </p>
+
+                            <h3 class="bh-occasion-title">
+                                Family occasions
+                            </h3>
+
+                        </div>
+
+
+                        <p class="bh-occasion-description">
+
+                            Birthdays, reunions and celebrations deserve food
+                            that feels generous. Build a spread that lets
+                            everyone eat together.
+
+                        </p>
+
+
+                        <div class="bh-occasion-arrow">
+                            →
+                        </div>
+
+                    </div>
+
+
+                    <div class="bh-occasion-row">
+
+                        <div class="bh-occasion-number">
+                            03
+                        </div>
+
+
+                        <div>
+
+                            <p class="bh-occasion-label">
+                                Events
+                            </p>
+
+                            <h3 class="bh-occasion-title">
+                                Workshops & launches
+                            </h3>
+
+                        </div>
+
+
+                        <p class="bh-occasion-description">
+
+                            When the schedule matters, the food should fit
+                            into it. Planned drop-offs, clear packaging and
+                            dependable quantities keep your event moving.
+
+                        </p>
+
+
+                        <div class="bh-occasion-arrow">
+                            →
+                        </div>
+
+                    </div>
+
+
+                    <div class="bh-occasion-row">
+
+                        <div class="bh-occasion-number">
+                            04
+                        </div>
+
+
+                        <div>
+
+                            <p class="bh-occasion-label">
+                                Large scale
+                            </p>
+
+                            <h3 class="bh-occasion-title">
+                                Big gatherings
+                            </h3>
+
+                        </div>
+
+
+                        <p class="bh-occasion-description">
+
+                            For larger groups, our kitchen workflow scales
+                            without losing its rhythm — from preparation
+                            through packing and final delivery.
+
+                        </p>
+
+
+                        <div class="bh-occasion-arrow">
+                            →
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="bh-occasion-bottom">
+
+                    <p class="bh-occasion-bottom-text">
+
+                        Whatever the occasion,
+
+                        <span>
+                            the kitchen stays focused on the food.
+                        </span>
+
+                    </p>
+
+
+                    <a
+                        href="contact.html"
+                        class="bh-occasion-button">
+
+                        Plan your order
+
+                        <span>
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SECTION 2 — HOW IT WORKS
+        ====================================================== -->
+
         <section class="bg-stone-100 dark:bg-stone-900">
-            <div class="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12">
-                <p class="eyebrow">Process</p>
-                <h2 class="section-title">How ordering works.</h2>
+
+            <div
+                class="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12">
+
+                <p class="eyebrow">
+                    Process
+                </p>
+
+
+                <h2 class="section-title">
+                    How ordering works.
+                </h2>
+
 
                 <div class="relative mt-14">
-                    <div class="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-stone-300 dark:bg-stone-700 lg:block"></div>
+
+                    <div
+                        class="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-stone-300 dark:bg-stone-700">
+                    </div>
+
 
                     <div class="space-y-10 lg:space-y-0">
+
+
                         <div class="grid items-center gap-4 lg:grid-cols-2">
+
                             <div class="lg:pr-14 lg:text-right">
-                                <span class="font-display text-5xl font-black text-amber-500">01</span>
-                                <h3 class="mt-2 text-lg font-bold">Tell us the headcount</h3>
-                                <p class="mt-1 text-sm text-stone-600 dark:text-stone-400">Share group size, date and any dietary notes.</p>
+
+                                <span
+                                    class="font-display text-5xl font-black text-amber-500">
+
+                                    01
+
+                                </span>
+
+                                <h3 class="mt-2 text-lg font-bold">
+                                    Tell us the headcount
+                                </h3>
+
+                                <p
+                                    class="mt-1 text-sm text-stone-600 dark:text-stone-400">
+
+                                    Share group size, date and any dietary notes.
+
+                                </p>
+
                             </div>
+
                             <div class="hidden lg:block"></div>
+
                         </div>
 
+
                         <div class="grid items-center gap-4 lg:grid-cols-2">
+
                             <div class="hidden lg:block"></div>
+
                             <div class="lg:pl-14">
-                                <span class="font-display text-5xl font-black text-amber-500">02</span>
-                                <h3 class="mt-2 text-lg font-bold">Pick a package</h3>
-                                <p class="mt-1 text-sm text-stone-600 dark:text-stone-400">Breakfast, Lunch, Snacks or Dinner — or mix items.</p>
+
+                                <span
+                                    class="font-display text-5xl font-black text-amber-500">
+
+                                    02
+
+                                </span>
+
+                                <h3 class="mt-2 text-lg font-bold">
+                                    Pick a package
+                                </h3>
+
+                                <p
+                                    class="mt-1 text-sm text-stone-600 dark:text-stone-400">
+
+                                    Breakfast, Lunch, Snacks or Dinner — or mix items.
+
+                                </p>
+
                             </div>
+
                         </div>
 
+
                         <div class="grid items-center gap-4 lg:grid-cols-2">
+
                             <div class="lg:pr-14 lg:text-right">
-                                <span class="font-display text-5xl font-black text-amber-500">03</span>
-                                <h3 class="mt-2 text-lg font-bold">We confirm details</h3>
-                                <p class="mt-1 text-sm text-stone-600 dark:text-stone-400">Menu, timing and delivery coverage locked in within hours.</p>
+
+                                <span
+                                    class="font-display text-5xl font-black text-amber-500">
+
+                                    03
+
+                                </span>
+
+                                <h3 class="mt-2 text-lg font-bold">
+                                    We confirm details
+                                </h3>
+
+                                <p
+                                    class="mt-1 text-sm text-stone-600 dark:text-stone-400">
+
+                                    Menu, timing and delivery coverage locked in within hours.
+
+                                </p>
+
                             </div>
+
                             <div class="hidden lg:block"></div>
+
                         </div>
 
+
                         <div class="grid items-center gap-4 lg:grid-cols-2">
+
                             <div class="hidden lg:block"></div>
+
                             <div class="lg:pl-14">
-                                <span class="font-display text-5xl font-black text-amber-500">04</span>
-                                <h3 class="mt-2 text-lg font-bold">Fresh delivery</h3>
-                                <p class="mt-1 text-sm text-stone-600 dark:text-stone-400">Made-to-order food arrives hot, packed and on time.</p>
+
+                                <span
+                                    class="font-display text-5xl font-black text-amber-500">
+
+                                    04
+
+                                </span>
+
+                                <h3 class="mt-2 text-lg font-bold">
+                                    Fresh delivery
+                                </h3>
+
+                                <p
+                                    class="mt-1 text-sm text-stone-600 dark:text-stone-400">
+
+                                    Made-to-order food arrives hot, packed and on time.
+
+                                </p>
+
                             </div>
+
                         </div>
+
                     </div>
+
                 </div>
+
             </div>
+
         </section>
 
-        <!-- ============ SECTION 3: WHY CHOOSE US — image + checklist ============ -->
-        <section class="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12">
+
+        <!-- =====================================================
+             SECTION 3 — WHY CHOOSE US
+        ====================================================== -->
+
+        <section
+            class="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12">
+
             <div class="grid items-center gap-12 lg:grid-cols-2">
+
+
                 <div class="relative order-2 lg:order-1">
-                    <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=900&q=80"
-                         alt="Kitchen preparing bulk order" class="aspect-[4/5] w-full rounded-3xl object-cover">
-                    <div class="absolute -bottom-6 -right-6 hidden rounded-2xl bg-amber-500 p-6 text-stone-900 shadow-xl sm:block">
-                        <p class="font-display text-3xl font-black">100%</p>
-                        <p class="text-xs font-semibold">Made to order</p>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=900&q=80"
+                        alt="Kitchen preparing bulk order"
+                        class="aspect-[4/5] w-full rounded-3xl object-cover">
+
+
+                    <div
+                        class="absolute -bottom-6 -right-6 hidden rounded-2xl bg-amber-500 p-6 text-stone-900 shadow-xl sm:block">
+
+                        <p class="font-display text-3xl font-black">
+                            100%
+                        </p>
+
+                        <p class="text-xs font-semibold">
+                            Made to order
+                        </p>
+
                     </div>
+
                 </div>
+
 
                 <div class="order-1 lg:order-2">
-                    <p class="eyebrow">Why us</p>
-                    <h2 class="section-title">Reliable, every single time.</h2>
-                    <p class="mt-5 text-stone-600 dark:text-stone-300">
-                        From weekly office lunches to one-off launches, our cloud kitchen is built to scale
-                        without cutting corners.
+
+                    <p class="eyebrow">
+                        Why us
                     </p>
+
+
+                    <h2 class="section-title">
+                        Reliable, every single time.
+                    </h2>
+
+
+                    <p class="mt-5 text-stone-600 dark:text-stone-300">
+
+                        From weekly office lunches to one-off launches,
+                        our cloud kitchen is built to scale without cutting corners.
+
+                    </p>
+
 
                     <div class="mt-8 space-y-5">
+
+
                         <div class="flex gap-4">
-                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-amber-500 text-stone-900 font-bold">✓</div>
-                            <div>
-                                <h3 class="font-bold">Consistent quality</h3>
-                                <p class="mt-1 text-sm text-stone-500">Same recipes, same freshness, every order.</p>
+
+                            <div
+                                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-amber-500 font-bold text-stone-900">
+
+                                ✓
+
                             </div>
+
+                            <div>
+
+                                <h3 class="font-bold">
+                                    Consistent quality
+                                </h3>
+
+                                <p class="mt-1 text-sm text-stone-500">
+                                    Same recipes, same freshness, every order.
+                                </p>
+
+                            </div>
+
                         </div>
+
+
                         <div class="flex gap-4">
-                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-amber-500 text-stone-900 font-bold">✓</div>
-                            <div>
-                                <h3 class="font-bold">Flexible scale</h3>
-                                <p class="mt-1 text-sm text-stone-500">From 15 to 500+ plates, no order too big or small.</p>
+
+                            <div
+                                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-amber-500 font-bold text-stone-900">
+
+                                ✓
+
                             </div>
+
+                            <div>
+
+                                <h3 class="font-bold">
+                                    Flexible scale
+                                </h3>
+
+                                <p class="mt-1 text-sm text-stone-500">
+                                    From 15 to 500+ plates, no order too big or small.
+                                </p>
+
+                            </div>
+
                         </div>
+
+
                         <div class="flex gap-4">
-                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-amber-500 text-stone-900 font-bold">✓</div>
-                            <div>
-                                <h3 class="font-bold">On-time delivery</h3>
-                                <p class="mt-1 text-sm text-stone-500">Coordinated drop-offs that respect your schedule.</p>
+
+                            <div
+                                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-amber-500 font-bold text-stone-900">
+
+                                ✓
+
                             </div>
+
+                            <div>
+
+                                <h3 class="font-bold">
+                                    On-time delivery
+                                </h3>
+
+                                <p class="mt-1 text-sm text-stone-500">
+                                    Coordinated drop-offs that respect your schedule.
+                                </p>
+
+                            </div>
+
                         </div>
+
+
                         <div class="flex gap-4">
-                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-amber-500 text-stone-900 font-bold">✓</div>
-                            <div>
-                                <h3 class="font-bold">Dietary friendly</h3>
-                                <p class="mt-1 text-sm text-stone-500">Veg, jain and allergy-conscious options available.</p>
+
+                            <div
+                                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-amber-500 font-bold text-stone-900">
+
+                                ✓
+
                             </div>
+
+                            <div>
+
+                                <h3 class="font-bold">
+                                    Dietary friendly
+                                </h3>
+
+                                <p class="mt-1 text-sm text-stone-500">
+                                    Veg, jain and allergy-conscious options available.
+                                </p>
+
+                            </div>
+
                         </div>
+
+
                     </div>
+
                 </div>
+
             </div>
+
         </section>
 
-        <!-- ============ SECTION 4: DELIVERY COVERAGE — zone cards ============ -->
+
+        <!-- =====================================================
+             SECTION 4 — DELIVERY COVERAGE
+        ====================================================== -->
+
         <section class="bg-stone-100 dark:bg-stone-900">
-            <div class="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12">
-                <div class="mb-12 grid gap-6 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
+
+            <div
+                class="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12">
+
+
+                <div
+                    class="mb-12 grid gap-6 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
+
                     <div>
-                        <p class="eyebrow">Coverage</p>
-                        <h2 class="section-title">Where we deliver.</h2>
+
+                        <p class="eyebrow">
+                            Coverage
+                        </p>
+
+                        <h2 class="section-title">
+                            Where we deliver.
+                        </h2>
+
                     </div>
+
+
                     <p class="text-stone-600 dark:text-stone-300">
-                        Bulk orders are dispatched from our central cloud kitchen with dedicated delivery
-                        slots for offices and event venues across the city.
+
+                        Bulk orders are dispatched from our central cloud kitchen
+                        with dedicated delivery slots for offices and event venues
+                        across the city.
+
                     </p>
+
                 </div>
+
 
                 <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                    <div class="rounded-2xl bg-white p-6 shadow-sm dark:bg-stone-800">
-                        <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-100 text-xl dark:bg-amber-500/10">🏙️</div>
-                        <h3 class="mt-4 font-bold">City Core</h3>
-                        <p class="mt-1 text-sm text-stone-500">Same-day delivery, 2 slots daily</p>
+
+
+                    <div
+                        class="rounded-2xl bg-white p-6 shadow-sm dark:bg-stone-800">
+
+                        <div
+                            class="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-100 text-xl dark:bg-amber-500/10">
+
+                            🏙️
+
+                        </div>
+
+                        <h3 class="mt-4 font-bold">
+                            City Core
+                        </h3>
+
+                        <p class="mt-1 text-sm text-stone-500">
+                            Same-day delivery, 2 slots daily
+                        </p>
+
                     </div>
-                    <div class="rounded-2xl bg-white p-6 shadow-sm dark:bg-stone-800">
-                        <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-100 text-xl dark:bg-amber-500/10">🏢</div>
-                        <h3 class="mt-4 font-bold">Business Parks</h3>
-                        <p class="mt-1 text-sm text-stone-500">Dedicated office-hour drop-offs</p>
+
+
+                    <div
+                        class="rounded-2xl bg-white p-6 shadow-sm dark:bg-stone-800">
+
+                        <div
+                            class="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-100 text-xl dark:bg-amber-500/10">
+
+                            🏢
+
+                        </div>
+
+                        <h3 class="mt-4 font-bold">
+                            Business Parks
+                        </h3>
+
+                        <p class="mt-1 text-sm text-stone-500">
+                            Dedicated office-hour drop-offs
+                        </p>
+
                     </div>
-                    <div class="rounded-2xl bg-white p-6 shadow-sm dark:bg-stone-800">
-                        <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-100 text-xl dark:bg-amber-500/10">🎪</div>
-                        <h3 class="mt-4 font-bold">Event Venues</h3>
-                        <p class="mt-1 text-sm text-stone-500">On-site setup for large gatherings</p>
+
+
+                    <div
+                        class="rounded-2xl bg-white p-6 shadow-sm dark:bg-stone-800">
+
+                        <div
+                            class="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-100 text-xl dark:bg-amber-500/10">
+
+                            🎪
+
+                        </div>
+
+                        <h3 class="mt-4 font-bold">
+                            Event Venues
+                        </h3>
+
+                        <p class="mt-1 text-sm text-stone-500">
+                            On-site setup for large gatherings
+                        </p>
+
                     </div>
-                    <div class="rounded-2xl bg-white p-6 shadow-sm dark:bg-stone-800">
-                        <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-100 text-xl dark:bg-amber-500/10">🏘️</div>
-                        <h3 class="mt-4 font-bold">Nearby Suburbs</h3>
-                        <p class="mt-1 text-sm text-stone-500">Advance booking, 1-day notice</p>
+
+
+                    <div
+                        class="rounded-2xl bg-white p-6 shadow-sm dark:bg-stone-800">
+
+                        <div
+                            class="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-100 text-xl dark:bg-amber-500/10">
+
+                            🏘️
+
+                        </div>
+
+                        <h3 class="mt-4 font-bold">
+                            Nearby Suburbs
+                        </h3>
+
+                        <p class="mt-1 text-sm text-stone-500">
+                            Advance booking, 1-day notice
+                        </p>
+
                     </div>
+
+
                 </div>
+
 
                 <p class="mt-8 text-sm text-stone-500">
-                    Not sure if your location is covered? <a href="contact.html" class="font-semibold text-amber-600 underline underline-offset-2 dark:text-amber-400">Ask us directly</a> — we're expanding coverage every month.
-                </p>
-            </div>
-        </section>
 
-        <!-- ============ SECTION 5: FAQ — accordion (only one open) ============ -->
-        <section class="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12">
-            <div class="grid gap-12 lg:grid-cols-[.8fr_1.2fr]">
-                <div>
-                    <p class="eyebrow">Questions</p>
-                    <h2 class="section-title">Before you book.</h2>
-                    <p class="mt-5 text-stone-600 dark:text-stone-300">
-                        Common questions from offices and event organisers placing bulk orders with us.
-                    </p>
-                </div>
+                    Not sure if your location is covered?
 
-                <div id="faq-accordion" class="divide-y divide-stone-200 dark:divide-stone-800">
-                    <details class="group py-5" open>
-                        <summary class="flex cursor-pointer list-none items-center justify-between font-bold">
-                            What's the minimum headcount for a bulk order?
-                            <span class="ml-4 text-amber-500 transition group-open:rotate-45">+</span>
-                        </summary>
-                        <p class="mt-3 text-sm text-stone-600 dark:text-stone-400">
-                            Working Lunch and Snack Table packages start from 15 people; Dinner Feast from 25 people. Smaller custom orders can be discussed directly.
-                        </p>
-                    </details>
-                    <details class="group py-5">
-                        <summary class="flex cursor-pointer list-none items-center justify-between font-bold">
-                            How much advance notice do you need?
-                            <span class="ml-4 text-amber-500 transition group-open:rotate-45">+</span>
-                        </summary>
-                        <p class="mt-3 text-sm text-stone-600 dark:text-stone-400">
-                            24 hours for standard packages within city core; 48–72 hours for large events or suburb deliveries.
-                        </p>
-                    </details>
-                    <details class="group py-5">
-                        <summary class="flex cursor-pointer list-none items-center justify-between font-bold">
-                            Can we customise the menu?
-                            <span class="ml-4 text-amber-500 transition group-open:rotate-45">+</span>
-                        </summary>
-                        <p class="mt-3 text-sm text-stone-600 dark:text-stone-400">
-                            Yes — mains, sides and dietary substitutions (veg, jain, allergy-friendly) can be adjusted when you send your enquiry.
-                        </p>
-                    </details>
-                    <details class="group py-5">
-                        <summary class="flex cursor-pointer list-none items-center justify-between font-bold">
-                            Do you provide serving staff or setup?
-                            <span class="ml-4 text-amber-500 transition group-open:rotate-45">+</span>
-                        </summary>
-                        <p class="mt-3 text-sm text-stone-600 dark:text-stone-400">
-                            Dinner Feast orders include basic setup at the venue on request; serving staff can be arranged for an additional fee.
-                        </p>
-                    </details>
-                </div>
-            </div>
-        </section>
+                    <a
+                        href="contact.html"
+                        class="font-semibold text-amber-600 underline underline-offset-2 dark:text-amber-400">
 
-        <!-- ============ SECTION 6: CTA BANNER — image background ============ -->
-        <section class="mx-auto max-w-7xl px-5 pb-20 sm:px-8 lg:px-12">
-            <div class="relative overflow-hidden rounded-3xl text-center text-white">
-                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=80"
-                     alt="Table set for a large event" class="absolute inset-0 h-full w-full object-cover">
-                <div class="absolute inset-0 bg-stone-900/80"></div>
-                <div class="relative px-8 py-16 sm:px-16">
-                    <h2 class="font-display text-3xl font-black sm:text-4xl">Ready to feed your next event?</h2>
-                    <p class="mx-auto mt-4 max-w-xl text-stone-300">
-                        Send us your headcount and date — we'll take it from there.
-                    </p>
-                    <a href="contact.html" class="btn-primary mt-8 inline-block bg-amber-500 text-stone-900 hover:bg-amber-400">
-                        Send an order enquiry
+                        Ask us directly
+
                     </a>
-                </div>
+
+                    — we're expanding coverage every month.
+
+                </p>
+
             </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SECTION 5 — FAQ
+        ====================================================== -->
+
+        <section
+            class="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12">
+
+
+            <div class="grid gap-12 lg:grid-cols-[.8fr_1.2fr]">
+
+
+                <div>
+
+                    <p class="eyebrow">
+                        Questions
+                    </p>
+
+                    <h2 class="section-title">
+                        Before you book.
+                    </h2>
+
+                    <p class="mt-5 text-stone-600 dark:text-stone-300">
+
+                        Common questions from offices and event organisers
+                        placing bulk orders with us.
+
+                    </p>
+
+                </div>
+
+
+                <div
+                    id="faq-accordion"
+                    class="divide-y divide-stone-200 dark:divide-stone-800">
+
+
+                    <details class="group py-5" open>
+
+                        <summary
+                            class="flex cursor-pointer list-none items-center justify-between font-bold">
+
+                            What's the minimum headcount for a bulk order?
+
+                            <span
+                                class="ml-4 text-amber-500 transition group-open:rotate-45">
+
+                                +
+
+                            </span>
+
+                        </summary>
+
+
+                        <p
+                            class="mt-3 text-sm text-stone-600 dark:text-stone-400">
+
+                            Working Lunch and Snack Table packages start from
+                            15 people; Dinner Feast from 25 people.
+                            Smaller custom orders can be discussed directly.
+
+                        </p>
+
+                    </details>
+
+
+                    <details class="group py-5">
+
+                        <summary
+                            class="flex cursor-pointer list-none items-center justify-between font-bold">
+
+                            How much advance notice do you need?
+
+                            <span
+                                class="ml-4 text-amber-500 transition group-open:rotate-45">
+
+                                +
+
+                            </span>
+
+                        </summary>
+
+
+                        <p
+                            class="mt-3 text-sm text-stone-600 dark:text-stone-400">
+
+                            24 hours for standard packages within city core;
+                            48–72 hours for large events or suburb deliveries.
+
+                        </p>
+
+                    </details>
+
+
+                    <details class="group py-5">
+
+                        <summary
+                            class="flex cursor-pointer list-none items-center justify-between font-bold">
+
+                            Can we customise the menu?
+
+                            <span
+                                class="ml-4 text-amber-500 transition group-open:rotate-45">
+
+                                +
+
+                            </span>
+
+                        </summary>
+
+
+                        <p
+                            class="mt-3 text-sm text-stone-600 dark:text-stone-400">
+
+                            Yes — mains, sides and dietary substitutions
+                            can be adjusted when you send your enquiry.
+
+                        </p>
+
+                    </details>
+
+
+                    <details class="group py-5">
+
+                        <summary
+                            class="flex cursor-pointer list-none items-center justify-between font-bold">
+
+                            Do you provide serving staff or setup?
+
+                            <span
+                                class="ml-4 text-amber-500 transition group-open:rotate-45">
+
+                                +
+
+                            </span>
+
+                        </summary>
+
+
+                        <p
+                            class="mt-3 text-sm text-stone-600 dark:text-stone-400">
+
+                            Dinner Feast orders include basic setup at the
+                            venue on request; serving staff can be arranged
+                            for an additional fee.
+
+                        </p>
+
+                    </details>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SECTION 6 — CTA
+        ====================================================== -->
+
+        <section
+            class="mx-auto max-w-7xl px-5 pb-20 sm:px-8 lg:px-12">
+
+
+            <div
+                class="relative overflow-hidden rounded-3xl text-center text-white">
+
+
+                <img
+                    src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=80"
+                    alt="Table set for a large event"
+                    class="absolute inset-0 h-full w-full object-cover">
+
+
+                <div class="absolute inset-0 bg-stone-900/80"></div>
+
+
+                <div class="relative px-8 py-16 sm:px-16">
+
+
+                    <h2
+                        class="font-display text-3xl font-black sm:text-4xl">
+
+                        Ready to feed your next event?
+
+                    </h2>
+
+
+                    <p class="mx-auto mt-4 max-w-xl text-stone-300">
+
+                        Send us your headcount and date —
+                        we'll take it from there.
+
+                    </p>
+
+
+                    <a
+                        href="contact.html"
+                        class="btn-primary mt-8 inline-block bg-amber-500 text-stone-900 hover:bg-amber-400">
+
+                        Send an order enquiry
+
+                    </a>
+
+                </div>
+
+            </div>
+
         </section>
 
     </main>
 
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
     <div id="site-footer"></div>
+
+
+    <!-- =========================================================
+         SHARED COMPONENTS
+    ========================================================== -->
+
     <script src="../js/components.js"></script>
+
     <script src="../js/main.js"></script>
 
-    <!-- FAQ accordion: only one open at a time -->
+
+    <!-- =========================================================
+         FAQ ACCORDION
+    ========================================================== -->
+
     <script>
-        document.querySelectorAll('#faq-accordion details').forEach((el) => {
-            el.addEventListener('toggle', () => {
-                if (el.open) {
-                    document.querySelectorAll('#faq-accordion details').forEach((other) => {
-                        if (other !== el) other.open = false;
-                    });
-                }
+
+        document
+            .querySelectorAll('#faq-accordion details')
+            .forEach((el) => {
+
+                el.addEventListener('toggle', () => {
+
+                    if (el.open) {
+
+                        document
+                            .querySelectorAll('#faq-accordion details')
+                            .forEach((other) => {
+
+                                if (other !== el) {
+
+                                    other.open = false;
+
+                                }
+
+                            });
+
+                    }
+
+                });
+
             });
-        });
+
     </script>
+
+
 </body>
 
 </html>
