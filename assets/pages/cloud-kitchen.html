@@ -1731,7 +1731,6 @@
 
         /* =========================================================
            DARK MODE
-           RESPONSIVE + TEXT READABILITY
         ========================================================== */
 
         html.dark,
@@ -1744,9 +1743,9 @@
         }
 
 
-        /* ---------------------------------------------------------
+        /* =========================================================
            HERO DARK MODE
-        --------------------------------------------------------- */
+        ========================================================== */
 
         html.dark .bh-cloud-hero {
 
@@ -1833,9 +1832,9 @@
         }
 
 
-        /* ---------------------------------------------------------
+        /* =========================================================
            MODEL DARK MODE
-        --------------------------------------------------------- */
+        ========================================================== */
 
         html.dark .bh-model-section {
 
@@ -1905,9 +1904,9 @@
         }
 
 
-        /* ---------------------------------------------------------
+        /* =========================================================
            JOURNEY DARK MODE
-        --------------------------------------------------------- */
+        ========================================================== */
 
         html.dark .bh-journey-section {
 
@@ -1968,99 +1967,272 @@
         }
 
 
-        /* ---------------------------------------------------------
-           GENERAL TAILWIND SECTION DARK MODE
-        --------------------------------------------------------- */
+        /* =========================================================
+           IMPORTANT:
+           DO NOT USE A GLOBAL WHITE TEXT RULE FOR ALL SECTIONS
+        ========================================================== */
 
-        html.dark section {
+        /*
+           The previous broad rules such as:
 
-            color: #f5f5f4;
+           html.dark section {
+               color: #f5f5f4;
+           }
 
-        }
+           html.dark section .text-stone-900 {
+               color: #f5f5f4 !important;
+           }
 
+           caused light-background sections to have white text.
 
-        html.dark section .text-stone-900,
-        html.dark section .text-stone-950,
-        html.dark section .text-stone-800 {
-
-            color: #f5f5f4 !important;
-
-        }
-
-
-        html.dark section .text-stone-700,
-        html.dark section .text-stone-600 {
-
-            color: #d6d3d1 !important;
-
-        }
+           The following rules are targeted instead.
+        */
 
 
-        html.dark section .text-stone-500,
-        html.dark section .text-stone-400 {
+        /* =========================================================
+           DARK MODE - LIGHT COMPARISON SECTION
+        ========================================================== */
 
-            color: #a8a29e !important;
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50 {
+
+            color: #292524;
 
         }
 
 
-        /* ---------------------------------------------------------
-           COMPARISON TABLE DARK MODE
-        --------------------------------------------------------- */
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
+        h2 {
 
-        html.dark section .bg-white {
-
-            background: #292524 !important;
+            color: #292524 !important;
 
         }
 
 
-        html.dark section .bg-stone-50 {
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
+        p {
 
-            background: #292524 !important;
-
-        }
-
-
-        html.dark section .bg-orange-50\/50 {
-
-            background: #33251f !important;
+            color: #57534e;
 
         }
 
 
-        html.dark section .border-orange-200,
-        html.dark section .border-orange-100,
-        html.dark section .border-stone-200 {
+        /* Comparison section heading description */
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
+        .text-stone-600 {
+
+            color: #57534e !important;
+
+        }
+
+
+        /* Traditional restaurant column */
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
+        .bg-stone-50 {
+
+            color: #57534e;
+
+        }
+
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
+        .bg-stone-50 p {
+
+            color: #57534e !important;
+
+        }
+
+
+        /* Traditional restaurant rows */
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
+        .bg-white {
+
+            color: #57534e;
+
+        }
+
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
+        .bg-white span {
+
+            color: #c2410c !important;
+
+        }
+
+
+        /* Bowl & Hearth orange header */
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
+        .from-orange-500 {
+
+            color: #292524 !important;
+
+        }
+
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
+        .from-orange-500 p {
+
+            color: #292524 !important;
+
+        }
+
+
+        /* Bowl & Hearth comparison rows */
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
+        .from-orange-100 {
+
+            color: #292524 !important;
+
+        }
+
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
+        .from-orange-100 span {
+
+            color: #c2410c !important;
+
+        }
+
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
+        .from-orange-100 {
 
             border-color:
-                rgba(255, 255, 255, .14) !important;
+                rgba(194, 65, 12, .15) !important;
 
         }
 
 
-        /* ---------------------------------------------------------
-           KITCHEN CARDS DARK MODE
-        --------------------------------------------------------- */
+        /* Orange 50 comparison rows */
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
+        .bg-orange-50\/50 {
 
-        html.dark section .border-white {
-
-            border-color:
-                #44403c !important;
+            color: #57534e !important;
 
         }
 
 
-        /* ---------------------------------------------------------
-           CTA DARK MODE TEXT
-        --------------------------------------------------------- */
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
+        .bg-orange-50\/50 span {
 
-        html.dark section .text-stone-900\/70 {
-
-            color:
-                rgba(245, 245, 244, .78) !important;
+            color: #c2410c !important;
 
         }
+
+
+        /* =========================================================
+           DARK MODE - INSIDE THE KITCHEN SECTION
+        ========================================================== */
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-white {
+
+            color: #292524;
+
+        }
+
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-white
+        h2 {
+
+            color: #292524 !important;
+
+        }
+
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-white
+        p.text-stone-600 {
+
+            color: #57534e !important;
+
+        }
+
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-white
+        .eyebrow {
+
+            color: #c2410c !important;
+
+        }
+
+
+        /* =========================================================
+           DARK MODE - BY THE NUMBERS
+        ========================================================== */
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50.via-white {
+
+            color: #292524;
+
+        }
+
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50.via-white
+        h2 {
+
+            color: #292524 !important;
+
+        }
+
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50.via-white
+        .text-stone-500 {
+
+            color: #78716c !important;
+
+        }
+
+
+        /* =========================================================
+           DARK MODE - CTA
+        ========================================================== */
+
+        html.dark
+        section.bg-\[\#fffaf7\] {
+
+            background: #1c1917 !important;
+
+        }
+
+
+        html.dark
+        section.bg-\[\#fffaf7\]
+        .text-stone-900\/70 {
+
+            color: rgba(41, 37, 36, .78) !important;
+
+        }
+
+
+        /* =========================================================
+           DARK MODE - DO NOT FORCE ALL TAILWIND TEXT TO WHITE
+        ========================================================== */
+
+        /*
+           Only genuinely dark sections need light text.
+           Light gradient sections above have their own explicit
+           dark text colors.
+        */
 
 
         /* =========================================================
@@ -2147,28 +2319,20 @@
         <section class="bh-cloud-hero">
 
 
-            <!-- HERO IMAGE -->
-
             <img
                 src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1800&q=85"
                 alt="Cloud kitchen in operation"
                 class="bh-cloud-hero-image">
 
 
-            <!-- BRAND OVERLAY -->
-
             <div class="bh-cloud-hero-overlay"></div>
 
             <div class="bh-cloud-hero-bottom"></div>
 
 
-            <!-- HERO CONTENT -->
-
             <div
                 class="bh-cloud-hero-content mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-8 sm:py-24 lg:grid-cols-2 lg:items-center lg:px-12">
 
-
-                <!-- LEFT CONTENT -->
 
                 <div>
 
@@ -2202,8 +2366,6 @@
 
                     </p>
 
-
-                    <!-- BUTTONS -->
 
                     <div class="mt-8 flex flex-wrap gap-4">
 
@@ -2241,8 +2403,6 @@
                     </div>
 
 
-                    <!-- BRAND STRIP -->
-
                     <div class="bh-cloud-brand-strip">
 
                         <span class="bh-cloud-brand-line"></span>
@@ -2255,13 +2415,9 @@
                 </div>
 
 
-                <!-- RIGHT PROCESS PANEL -->
-
                 <div
                     class="bh-cloud-process rounded-[2rem] p-7 sm:p-9">
 
-
-                    <!-- PANEL HEADER -->
 
                     <div class="bh-cloud-process-top">
 
@@ -2283,8 +2439,6 @@
 
                     </div>
 
-
-                    <!-- PROCESS 01 -->
 
                     <div class="bh-cloud-process-item">
 
@@ -2316,8 +2470,6 @@
                     </div>
 
 
-                    <!-- PROCESS 02 -->
-
                     <div class="bh-cloud-process-item">
 
 
@@ -2348,8 +2500,6 @@
                     </div>
 
 
-                    <!-- PROCESS 03 -->
-
                     <div class="bh-cloud-process-item">
 
 
@@ -2379,8 +2529,6 @@
 
                     </div>
 
-
-                    <!-- PROCESS 04 -->
 
                     <div class="bh-cloud-process-item">
 
@@ -2466,8 +2614,6 @@
                 <div class="bh-model-list">
 
 
-                    <!-- 01 -->
-
                     <div class="bh-model-item">
 
 
@@ -2509,7 +2655,6 @@
 
                         <div class="bh-model-content">
 
-
                             <div>
 
                                 <h3 class="bh-model-title">
@@ -2539,8 +2684,6 @@
 
                     </div>
 
-
-                    <!-- 02 -->
 
                     <div class="bh-model-item">
 
@@ -2579,7 +2722,6 @@
 
                         <div class="bh-model-content">
 
-
                             <div>
 
                                 <h3 class="bh-model-title">
@@ -2610,8 +2752,6 @@
 
                     </div>
 
-
-                    <!-- 03 -->
 
                     <div class="bh-model-item">
 
@@ -2647,7 +2787,6 @@
 
 
                         <div class="bh-model-content">
-
 
                             <div>
 
@@ -2917,8 +3056,6 @@
                     class="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-5">
 
 
-                    <!-- MAIN IMAGE -->
-
                     <div
                         class="group relative col-span-2 row-span-2 overflow-hidden rounded-3xl border-4 border-white shadow-lg">
 
@@ -2943,8 +3080,6 @@
 
                     </div>
 
-
-                    <!-- PREP -->
 
                     <div
                         class="group relative overflow-hidden rounded-3xl border-4 border-white shadow-lg">
@@ -2971,8 +3106,6 @@
                     </div>
 
 
-                    <!-- PACKING -->
-
                     <div
                         class="group relative overflow-hidden rounded-3xl border-4 border-white shadow-lg">
 
@@ -2997,8 +3130,6 @@
 
                     </div>
 
-
-                    <!-- DISPATCH -->
 
                     <div
                         class="group relative col-span-2 overflow-hidden rounded-3xl border-4 border-white shadow-lg sm:col-span-2">
@@ -3091,8 +3222,6 @@
                     </div>
 
 
-                    <!-- STEP 01 -->
-
                     <div
                         class="bh-journey-step relative grid gap-7 border-t border-stone-200 py-10 md:grid-cols-[70px_180px_1fr] md:items-center md:gap-8">
 
@@ -3135,8 +3264,6 @@
 
                     </div>
 
-
-                    <!-- STEP 02 -->
 
                     <div
                         class="bh-journey-step relative grid gap-7 border-t border-stone-200 py-10 md:grid-cols-[70px_180px_1fr] md:items-center md:gap-8">
@@ -3182,8 +3309,6 @@
                     </div>
 
 
-                    <!-- STEP 03 -->
-
                     <div
                         class="bh-journey-step relative grid gap-7 border-t border-stone-200 py-10 md:grid-cols-[70px_180px_1fr] md:items-center md:gap-8">
 
@@ -3227,8 +3352,6 @@
                     </div>
 
 
-                    <!-- STEP 04 -->
-
                     <div
                         class="bh-journey-step relative grid gap-7 border-t border-stone-200 py-10 md:grid-cols-[70px_180px_1fr] md:items-center md:gap-8">
 
@@ -3271,8 +3394,6 @@
 
                     </div>
 
-
-                    <!-- STEP 05 -->
 
                     <div
                         class="bh-journey-step relative grid gap-7 border-t border-b border-stone-200 py-10 md:grid-cols-[70px_180px_1fr] md:items-center md:gap-8">
