@@ -19,10 +19,37 @@
     <script>
 
         tailwind.config = {
-            darkMode: 'class'
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: [
+                            'Inter',
+                            'ui-sans-serif',
+                            'system-ui',
+                            'sans-serif'
+                        ],
+                        display: [
+                            'Georgia',
+                            'serif'
+                        ]
+                    }
+                }
+            }
         }
 
     </script>
+
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
 
     <!-- =====================================================
          SHARED CSS
@@ -30,61 +57,560 @@
 
     <link rel="stylesheet" href="../css/style.css">
 
+
     <style>
+
+        /* =====================================================
+           GLOBAL
+        ====================================================== */
 
         html {
             scroll-behavior: smooth;
         }
 
+        body {
+            font-family: "DM Sans", sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: "Playfair Display", Georgia, serif;
+        }
+
+
+        /* =====================================================
+           PREMIUM VARIABLES
+        ====================================================== */
+
+        :root {
+            --bh-amber: #c88719;
+            --bh-amber-light: #e7b45a;
+            --bh-cream: #f8f4ec;
+            --bh-ink: #211d18;
+            --bh-muted: #706b63;
+            --bh-border: #e8e2d8;
+        }
+
+
+        /* =====================================================
+           HERO
+        ====================================================== */
+
+        .menu-hero {
+            position: relative;
+            min-height: auto;
+            background: #171411;
+            overflow: hidden;
+        }
+
         .menu-hero-image {
-            transition: transform 1s ease;
+            transition: transform 1.4s cubic-bezier(.2,.7,.2,1);
         }
 
         .menu-hero:hover .menu-hero-image {
-            transform: scale(1.03);
+            transform: scale(1.025);
         }
 
-        .food-image {
-            transition: transform .6s ease;
+        .menu-hero-overlay {
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(0,0,0,.30) 0%,
+                    rgba(0,0,0,.42) 42%,
+                    rgba(0,0,0,.88) 100%
+                );
         }
 
-        article:hover .food-image {
-            transform: scale(1.04);
+        /*
+         * FIX:
+         * The hero content is no longer forced into a fixed
+         * 680px / 720px height.
+         *
+         * This allows the hero to grow naturally according
+         * to the heading, description, buttons and stats.
+         */
+
+        .hero-content {
+            min-height: auto;
+            padding-top: 7rem;
+            padding-bottom: 4.5rem;
         }
+
+        .hero-label {
+            letter-spacing: .28em;
+        }
+
+        .hero-title {
+            text-shadow: 0 8px 35px rgba(0,0,0,.25);
+        }
+
+
+        /* =====================================================
+           EYEBROW
+        ====================================================== */
+
+        .eyebrow {
+            font-family: "DM Sans", sans-serif;
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+        }
+
+
+        /* =====================================================
+           SECTION TITLES
+        ====================================================== */
+
+        .section-title {
+            letter-spacing: -.025em;
+        }
+
+
+        /* =====================================================
+           SECTION DIVIDER
+        ====================================================== */
 
         .section-divider {
             height: 1px;
-            background: linear-gradient(
-                to right,
-                transparent,
-                rgba(245,158,11,.45),
-                transparent
-            );
+            background:
+                linear-gradient(
+                    to right,
+                    transparent,
+                    rgba(200,135,25,.45),
+                    transparent
+                );
         }
 
-        .process-number {
-            font-family: Georgia, serif;
+
+       /* =====================================================
+   FILTERS
+===================================================== */
+
+.filter-wrap {
+    
+    background: rgba(255,255,255,.78);
+    backdrop-filter: blur(10px);
+    padding: 5px;
+    border-radius: 999px;
+    box-shadow: 0 8px 30px rgba(55,45,30,.06);
+}
+
+.filter-btn {
+    border: 0;
+    background: #f3c45b;
+    color: #211d18;
+    padding: .72rem 1.25rem;
+    border-radius: 999px;
+    font-size: .84rem;
+    font-weight: 700;
+    transition:
+        background .25s ease,
+        color .25s ease,
+        transform .25s ease;
+}
+
+.filter-btn:hover {
+    background: #eab94b;
+    color: #211d18;
+}
+
+.filter-btn.active {
+    background: #e11d48;
+    color: white;
+    box-shadow: 0 5px 16px rgba(225,29,72,.22);
+}
+
+/* DARK MODE */
+
+.dark .filter-wrap {
+    background: rgba(28,25,23,.9);
+    border-color: #3c3731;
+}
+
+.dark .filter-btn {
+    background: #f3c45b;
+    color: #211d18;
+}
+
+.dark .filter-btn:hover {
+    background: #eab94b;
+    color: #211d18;
+}
+
+.dark .filter-btn.active {
+    background: #e11d48;
+    color: white;
+}
+
+        /* =====================================================
+           FOOD CARDS
+        ====================================================== */
+
+        .food-card {
+            overflow: hidden;
+            background: white;
+            border: 1px solid #ece6dc;
+            border-radius: 1.25rem;
+            box-shadow: 0 8px 28px rgba(50,40,25,.055);
+            transition:
+                transform .35s ease,
+                box-shadow .35s ease,
+                border-color .35s ease;
         }
+
+        .food-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 45px rgba(50,40,25,.12);
+            border-color: #dfd5c6;
+        }
+
+        .dark .food-card {
+            background: #211f1c;
+            border-color: #36312c;
+            box-shadow: none;
+        }
+
+        .dark .food-card:hover {
+            border-color: #51493f;
+            box-shadow: 0 20px 45px rgba(0,0,0,.25);
+        }
+
+        .food-image-wrap {
+            overflow: hidden;
+            background: #e8e2d8;
+        }
+
+        .food-image {
+            display: block;
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            transition: transform .7s cubic-bezier(.2,.7,.2,1);
+        }
+
+        .food-card:hover .food-image {
+            transform: scale(1.045);
+        }
+
+        .food-card-content {
+            padding: 1.25rem 1.25rem 1.35rem;
+        }
+
+        .food-category {
+            font-family: "DM Sans", sans-serif;
+            font-size: .68rem;
+            font-weight: 800;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+        }
+
+        .food-price {
+            font-size: .95rem;
+            font-weight: 800;
+            color: #9a6611;
+        }
+
+        .dark .food-price {
+            color: #e7b45a;
+        }
+
+        .food-name {
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.3;
+        }
+
+
+        /* =====================================================
+           FEATURE IMAGE
+        ====================================================== */
 
         .menu-feature-image {
-            transition: transform .7s ease;
+            transition: transform .8s cubic-bezier(.2,.7,.2,1);
         }
 
-        .menu-feature-image:hover {
-            transform: scale(1.04);
+        .feature-image-wrap {
+            overflow: hidden;
+            border-radius: 1.5rem;
         }
 
-        .center-section {
-            text-align: center;
+        .feature-image-wrap:hover .menu-feature-image {
+            transform: scale(1.035);
         }
 
-        .center-section .eyebrow {
-            text-align: center;
+
+        /* =====================================================
+           KITCHEN FEATURE
+        ====================================================== */
+
+        .kitchen-section {
+            background: #fff;
         }
 
-        .center-description {
-            margin-left: auto;
-            margin-right: auto;
+        .dark .kitchen-section {
+            background: #1c1917;
+        }
+
+        .kitchen-point {
+            border-top: 1px solid #e9e2d7;
+            padding-top: 1rem;
+        }
+
+        .dark .kitchen-point {
+            border-color: #3a3530;
+        }
+
+        .kitchen-icon {
+            width: 44px;
+            height: 44px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #f6ead4;
+        }
+
+        .dark .kitchen-icon {
+            background: #3b2d18;
+        }
+
+
+        /* =====================================================
+           PREMIUM FEATURE SECTIONS
+        ====================================================== */
+
+        .warm-section {
+            background:
+                linear-gradient(
+                    180deg,
+                    #f8f4ec 0%,
+                    #f5efe4 100%
+                );
+        }
+
+        .dark .warm-section {
+            background: #151310;
+        }
+
+
+        /* =====================================================
+           ORDERING STEPS
+        ====================================================== */
+
+        .step-line {
+            background:
+                linear-gradient(
+                    to right,
+                    transparent,
+                    #d9b77c 15%,
+                    #d9b77c 85%,
+                    transparent
+                );
+        }
+
+        .step-number {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #211d18;
+            color: #fff;
+            font-size: .9rem;
+            font-weight: 800;
+            border: 5px solid #fff;
+            box-shadow: 0 10px 25px rgba(30,25,20,.15);
+            position: relative;
+            z-index: 2;
+        }
+
+        .dark .step-number {
+            background: #d59a32;
+            color: #211d18;
+            border-color: #171513;
+        }
+
+
+        /* =====================================================
+           WHY BOWL & HEARTH
+        ====================================================== */
+
+        .why-panel {
+            border: 1px solid #e5ddcf;
+            background: rgba(255,255,255,.72);
+            box-shadow: 0 18px 55px rgba(50,40,25,.07);
+        }
+
+        .dark .why-panel {
+            border-color: #39342e;
+            background: #211f1c;
+            box-shadow: none;
+        }
+
+        .why-item {
+            transition: background .3s ease;
+        }
+
+        .why-item:hover {
+            background: rgba(200,135,25,.055);
+        }
+
+        .dark .why-item:hover {
+            background: rgba(255,255,255,.025);
+        }
+
+        .why-number {
+            font-family: "DM Sans", sans-serif;
+            font-size: 3rem;
+            line-height: 1;
+            font-weight: 800;
+            color: rgba(200,135,25,.28);
+        }
+
+
+        /* =====================================================
+           CTA
+        ====================================================== */
+
+        .final-cta {
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(200,135,25,.18),
+                    transparent 42%
+                ),
+                #171411;
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ====================================================== */
+
+        @media (max-width: 639px) {
+
+            /*
+             * HERO FIX:
+             * Remove the fixed 680px height.
+             * The hero now grows according to its content.
+             */
+
+            .menu-hero {
+                min-height: auto;
+            }
+
+            .hero-content {
+                min-height: auto;
+                padding-top: 4.5rem;
+                padding-bottom: 3.5rem;
+            }
+
+            .hero-title {
+                font-size: 2.65rem;
+                line-height: 1.08;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+                line-height: 1.7;
+            }
+
+            .filter-wrap {
+                width: 100%;
+                border-radius: 1rem;
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0,1fr));
+                gap: 4px;
+            }
+
+            .filter-btn {
+                width: 100%;
+                padding: .72rem .55rem;
+            }
+
+            .filter-btn:first-child {
+                grid-column: span 2;
+            }
+
+            .food-image {
+                height: 235px;
+            }
+
+            .step-number {
+                margin-inline: auto;
+            }
+
+        }
+
+
+        /* =====================================================
+           TABLET
+        ====================================================== */
+
+        @media (min-width: 640px) and (max-width: 1023px) {
+
+            /*
+             * HERO FIX:
+             * Let the hero grow naturally on tablet.
+             */
+
+            .hero-content {
+                min-height: auto;
+                padding-top: 6.5rem;
+                padding-bottom: 4rem;
+            }
+
+            .food-image {
+                height: 250px;
+            }
+
+        }
+
+
+        /* =====================================================
+           LARGE DESKTOP
+        ====================================================== */
+
+        @media (min-width: 1024px) {
+
+            /*
+             * HERO FIX:
+             * Keep desktop spacing premium without forcing
+             * the content into a fixed-height container.
+             */
+
+            .hero-content {
+                min-height: auto;
+                padding-top: 7rem;
+                padding-bottom: 4.5rem;
+            }
+
+        }
+
+
+        /* =====================================================
+           ACCESSIBILITY
+        ====================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: .01ms !important;
+                animation-duration: .01ms !important;
+            }
+
         }
 
     </style>
@@ -92,8 +618,7 @@
 </head>
 
 
-<body
-    class="bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-100">
+<body class="bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-100">
 
 
     <!-- =====================================================
@@ -110,112 +635,119 @@
              HERO
         ====================================================== -->
 
-        <section
-            class="menu-hero relative overflow-hidden pt-20 text-center sm:pt-24 lg:pt-28">
+        <section class="menu-hero relative overflow-hidden">
 
             <div class="absolute inset-0">
 
                 <img
-                    src="https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=1600&q=80"
+                    src="https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=1800&q=85"
                     alt="Tamil Nadu style thali"
                     class="menu-hero-image h-full w-full object-cover">
 
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/30">
-                </div>
+                <div class="menu-hero-overlay absolute inset-0"></div>
 
             </div>
 
 
             <div
-                class="relative mx-auto flex min-h-[650px] max-w-7xl flex-col items-center justify-center px-5 py-20 sm:px-8 lg:px-12">
-
-                <p class="eyebrow text-amber-400">
-
-                    Bowl &amp; Hearth · Cloud Kitchen
-
-                </p>
+                class="hero-content relative mx-auto flex max-w-7xl flex-col items-center justify-center px-5 text-center sm:px-8 lg:px-12">
 
 
-                <h1
-                    class="mt-4 max-w-4xl text-5xl font-bold leading-[1.05] text-white sm:text-6xl lg:text-7xl">
+                <div class="max-w-4xl">
 
-                    Authentic Tamil Nadu flavours,
-                    <span class="text-amber-400">
-                        delivered hot.
-                    </span>
+                    <p
+                        class="hero-label text-xs font-bold uppercase text-amber-300">
 
-                </h1>
+                        BOWL &amp; HEARTH · CLOUD KITCHEN
 
-
-                <p
-                    class="mx-auto mt-7 max-w-2xl text-lg leading-8 text-stone-200 sm:text-xl">
-
-                    From village-style kuzhambu to Kongunadu chicken —
-                    every dish is cooked to order with carefully selected
-                    ingredients and familiar regional flavours.
-
-                </p>
+                    </p>
 
 
-                <div class="mt-8 flex flex-wrap justify-center gap-4">
+                    <h1
+                        class="hero-title mt-6 font-display text-5xl font-semibold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-8xl">
 
-                    <a
-                        href="#menu"
-                        class="rounded-full bg-amber-500 px-8 py-3.5 font-bold text-stone-950 shadow-xl transition hover:bg-amber-400">
+                        Authentic Tamil Nadu
+                        <span class="block text-amber-300">
+                            flavours, delivered hot.
+                        </span>
 
-                        Explore the Menu
-
-                    </a>
+                    </h1>
 
 
-                    <a
-                        href="#specials"
-                        class="rounded-full border border-white/40 px-8 py-3.5 font-bold text-white transition hover:bg-white/10">
+                    <p
+                        class="hero-description mx-auto mt-7 max-w-2xl text-base leading-7 text-stone-200 sm:text-lg sm:leading-8">
 
-                        Today's Specials →
+                        From village-style kuzhambu to Kongunadu chicken —
+                        every dish is cooked to order with carefully selected
+                        ingredients and familiar regional flavours.
 
-                    </a>
+                    </p>
+
+
+                    <div
+                        class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+
+                        <a
+                            href="#menu"
+                            class="inline-flex min-w-[190px] items-center justify-center rounded-full bg-amber-500 px-7 py-3.5 text-sm font-bold text-stone-950 shadow-xl transition hover:bg-amber-400">
+
+                            Explore the Menu
+
+                        </a>
+
+
+                        <a
+                            href="#specials"
+                            class="inline-flex min-w-[190px] items-center justify-center rounded-full border border-white/30 bg-white/10 px-7 py-3.5 text-sm font-bold text-white backdrop-blur-md transition hover:bg-white/20">
+
+                            Today's Specials
+                            <span class="ml-2">→</span>
+
+                        </a>
+
+                    </div>
 
                 </div>
 
 
+                <!-- HERO STATS -->
+
                 <div
-                    class="mt-14 grid w-full max-w-2xl grid-cols-3 gap-6 border-t border-white/20 pt-8 text-white sm:flex sm:max-w-none sm:flex-wrap sm:justify-center sm:gap-12">
+                    class="mt-14 grid w-full max-w-2xl grid-cols-3 border-t border-white/20 pt-7 sm:mt-16 sm:max-w-3xl sm:pt-8">
 
-                    <div>
+                    <div class="px-2">
 
-                        <p class="text-3xl font-bold">
+                        <p class="text-2xl font-bold text-white sm:text-3xl">
                             30 min
                         </p>
 
-                        <p class="mt-1 text-sm text-stone-300">
+                        <p class="mt-1 text-[11px] uppercase tracking-wider text-stone-300 sm:text-xs">
                             Average delivery
                         </p>
 
                     </div>
 
 
-                    <div>
+                    <div class="border-x border-white/15 px-2">
 
-                        <p class="text-3xl font-bold">
+                        <p class="text-2xl font-bold text-white sm:text-3xl">
                             100%
                         </p>
 
-                        <p class="mt-1 text-sm text-stone-300">
+                        <p class="mt-1 text-[11px] uppercase tracking-wider text-stone-300 sm:text-xs">
                             Fresh preparation
                         </p>
 
                     </div>
 
 
-                    <div>
+                    <div class="px-2">
 
-                        <p class="text-3xl font-bold">
+                        <p class="text-2xl font-bold text-white sm:text-3xl">
                             4.8★
                         </p>
 
-                        <p class="mt-1 text-sm text-stone-300">
+                        <p class="mt-1 text-[11px] uppercase tracking-wider text-stone-300 sm:text-xs">
                             Customer rating
                         </p>
 
@@ -228,73 +760,6 @@
         </section>
 
 
-        <!-- =====================================================
-             QUICK INTRO
-        ====================================================== -->
-
-        <section
-            class="border-b border-amber-200 bg-amber-50 dark:border-stone-800 dark:bg-stone-900">
-
-            <div
-                class="mx-auto max-w-7xl px-5 py-10 text-center sm:px-8 lg:px-12">
-
-                <div
-                    class="grid gap-8 sm:grid-cols-3 sm:divide-x sm:divide-amber-200 dark:sm:divide-stone-700">
-
-
-                    <div class="sm:px-8">
-
-                        <p class="text-xl font-bold">
-                            Cooked fresh
-                        </p>
-
-                        <p class="mx-auto mt-2 max-w-sm text-sm leading-6 text-stone-600 dark:text-stone-400">
-
-                            Your meal is prepared around the order
-                            rather than sitting in storage.
-
-                        </p>
-
-                    </div>
-
-
-                    <div class="sm:px-8">
-
-                        <p class="text-xl font-bold">
-                            Regional flavours
-                        </p>
-
-                        <p class="mx-auto mt-2 max-w-sm text-sm leading-6 text-stone-600 dark:text-stone-400">
-
-                            Recipes inspired by the food traditions
-                            of Tamil Nadu.
-
-                        </p>
-
-                    </div>
-
-
-                    <div class="sm:px-8">
-
-                        <p class="text-xl font-bold">
-                            Delivered with care
-                        </p>
-
-                        <p class="mx-auto mt-2 max-w-sm text-sm leading-6 text-stone-600 dark:text-stone-400">
-
-                            Thoughtfully packed so your meal arrives
-                            ready to enjoy.
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
 
         <!-- =====================================================
              MENU
@@ -302,27 +767,29 @@
 
         <section
             id="menu"
-            class="mx-auto max-w-7xl px-5 py-16 text-center sm:px-8 lg:px-12 lg:py-20">
+            class="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-28">
 
 
-            <div class="mx-auto max-w-4xl">
+            <div class="mx-auto max-w-3xl text-center">
 
-                <p class="eyebrow">
+                <p class="eyebrow text-amber-700 dark:text-amber-400">
                     Today's menu
                 </p>
 
 
                 <h2
-                    class="mt-3 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+                    class="section-title mt-4 text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
 
-                    Choose by time.
-                    Then choose your flavour.
+                    Choose your time.
+                    <span class="block text-stone-500 dark:text-stone-400">
+                        Then choose your flavour.
+                    </span>
 
                 </h2>
 
 
                 <p
-                    class="center-description mt-5 max-w-2xl text-lg leading-8 text-stone-600 dark:text-stone-400">
+                    class="mx-auto mt-6 max-w-2xl text-base leading-8 text-stone-600 dark:text-stone-400 sm:text-lg">
 
                     Explore breakfast, lunch, dinner and snacks made
                     with familiar ingredients and regional inspiration.
@@ -334,49 +801,54 @@
 
             <!-- FILTERS -->
 
-            <div
-                class="mt-9 flex flex-wrap justify-center gap-2"
-                id="filters">
+            <div class="mt-10 flex justify-center">
 
-                <button
-                    data-filter="all"
-                    class="filter-btn active">
-                    All
-                </button>
+                <div
+                    class="filter-wrap"
+                    id="filters">
 
-                <button
-                    data-filter="breakfast"
-                    class="filter-btn">
-                    Breakfast
-                </button>
+                    <button
+                        data-filter="all"
+                        class="filter-btn active">
+                        All
+                    </button>
 
-                <button
-                    data-filter="lunch"
-                    class="filter-btn">
-                    Lunch
-                </button>
+                    <button
+                        data-filter="breakfast"
+                        class="filter-btn">
+                        Breakfast
+                    </button>
 
-                <button
-                    data-filter="dinner"
-                    class="filter-btn">
-                    Dinner
-                </button>
+                    <button
+                        data-filter="lunch"
+                        class="filter-btn">
+                        Lunch
+                    </button>
 
-                <button
-                    data-filter="snacks"
-                    class="filter-btn">
-                    Snacks
-                </button>
+                    <button
+                        data-filter="dinner"
+                        class="filter-btn">
+                        Dinner
+                    </button>
+
+                    <button
+                        data-filter="snacks"
+                        class="filter-btn">
+                        Snacks
+                    </button>
+
+                </div>
 
             </div>
 
 
             <div
                 id="menu-grid"
-                class="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 text-left sm:grid-cols-2 lg:grid-cols-4">
+                class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             </div>
 
         </section>
+
 
 
         <!-- =====================================================
@@ -384,44 +856,45 @@
         ====================================================== -->
 
         <section
-            class="border-y border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
+            class="kitchen-section border-y border-stone-200 dark:border-stone-800">
 
             <div
-                class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-20">
-
+                class="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-28">
 
                 <div
-                    class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+                    class="grid items-center gap-12 lg:grid-cols-[1.05fr_.95fr] lg:gap-20">
 
 
-                    <div class="overflow-hidden rounded-[2rem]">
+                    <div class="feature-image-wrap">
 
                         <img
-                            src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=85"
+                            src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1400&q=85"
                             alt="Fresh ingredients being prepared"
-                            class="menu-feature-image h-[360px] w-full object-cover sm:h-[440px]">
+                            class="menu-feature-image h-[380px] w-full object-cover sm:h-[500px]">
 
                     </div>
 
 
-                    <div class="text-center">
+                    <div>
 
-                        <p class="eyebrow">
+                        <p class="eyebrow text-amber-700 dark:text-amber-400">
                             From our kitchen
                         </p>
 
 
                         <h2
-                            class="mt-4 text-4xl font-bold leading-tight sm:text-5xl">
+                            class="mt-4 text-4xl font-semibold leading-tight sm:text-5xl">
 
                             Simple ingredients.
-                            Serious flavour.
+                            <span class="block text-amber-700 dark:text-amber-400">
+                                Serious flavour.
+                            </span>
 
                         </h2>
 
 
                         <p
-                            class="mx-auto mt-6 max-w-xl text-lg leading-8 text-stone-600 dark:text-stone-300">
+                            class="mt-6 max-w-xl text-base leading-8 text-stone-600 dark:text-stone-300 sm:text-lg">
 
                             Our menu is built around food that feels
                             familiar. We focus on fresh preparation,
@@ -431,16 +904,13 @@
                         </p>
 
 
-                        <div class="mx-auto mt-8 max-w-xl space-y-6">
+                        <div class="mt-9 space-y-6">
 
 
-                            <div class="flex flex-col items-center gap-3 text-center">
+                            <div class="kitchen-point flex gap-4">
 
-                                <span
-                                    class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-xl dark:bg-amber-900">
-
+                                <span class="kitchen-icon text-lg">
                                     🌾
-
                                 </span>
 
                                 <div>
@@ -449,12 +919,9 @@
                                         Carefully selected ingredients
                                     </h3>
 
-                                    <p
-                                        class="mx-auto mt-1 max-w-md text-sm leading-6 text-stone-500 dark:text-stone-400">
-
+                                    <p class="mt-1 text-sm leading-6 text-stone-500 dark:text-stone-400">
                                         Fresh produce and trusted ingredients
                                         form the base of every dish.
-
                                     </p>
 
                                 </div>
@@ -462,13 +929,10 @@
                             </div>
 
 
-                            <div class="flex flex-col items-center gap-3 text-center">
+                            <div class="kitchen-point flex gap-4">
 
-                                <span
-                                    class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-xl dark:bg-amber-900">
-
+                                <span class="kitchen-icon text-lg">
                                     🔥
-
                                 </span>
 
                                 <div>
@@ -477,12 +941,9 @@
                                         Cooked around your order
                                     </h3>
 
-                                    <p
-                                        class="mx-auto mt-1 max-w-md text-sm leading-6 text-stone-500 dark:text-stone-400">
-
+                                    <p class="mt-1 text-sm leading-6 text-stone-500 dark:text-stone-400">
                                         We keep the process focused so food
                                         reaches you at its best.
-
                                     </p>
 
                                 </div>
@@ -490,13 +951,10 @@
                             </div>
 
 
-                            <div class="flex flex-col items-center gap-3 text-center">
+                            <div class="kitchen-point flex gap-4">
 
-                                <span
-                                    class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-xl dark:bg-amber-900">
-
+                                <span class="kitchen-icon text-lg">
                                     ❤️
-
                                 </span>
 
                                 <div>
@@ -505,12 +963,9 @@
                                         Food made for real life
                                     </h3>
 
-                                    <p
-                                        class="mx-auto mt-1 max-w-md text-sm leading-6 text-stone-500 dark:text-stone-400">
-
+                                    <p class="mt-1 text-sm leading-6 text-stone-500 dark:text-stone-400">
                                         Easy enough for busy evenings and
                                         special enough for sharing.
-
                                     </p>
 
                                 </div>
@@ -529,37 +984,43 @@
         </section>
 
 
+
         <!-- =====================================================
              CHEF SPECIALS
         ====================================================== -->
 
         <section
             id="specials"
-            class="bg-stone-50 py-16 text-center dark:bg-stone-950 sm:py-20">
+            class="warm-section py-20 sm:py-24 lg:py-28">
 
             <div
                 class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
 
-                <p class="eyebrow">
-                    Hand-picked
-                </p>
+                <div class="max-w-3xl">
 
+                    <p class="eyebrow text-amber-700 dark:text-amber-400">
+                        Hand-picked
+                    </p>
 
-                <h2 class="mt-3 text-4xl font-bold sm:text-5xl">
-                    Chef's Specials
-                </h2>
+                    <h2
+                        class="mt-4 text-4xl font-semibold sm:text-5xl lg:text-6xl">
 
+                        Chef's Specials
 
-                <p
-                    class="mx-auto mt-4 max-w-2xl text-lg leading-7 text-stone-600 dark:text-stone-400">
+                    </h2>
 
-                    A few dishes we think deserve an extra look.
+                    <p
+                        class="mt-5 max-w-2xl text-base leading-8 text-stone-600 dark:text-stone-400 sm:text-lg">
 
-                </p>
+                        A few dishes we think deserve an extra look.
+
+                    </p>
+
+                </div>
 
 
                 <div
-                    class="mt-10 grid grid-cols-1 gap-6 text-left sm:grid-cols-2 lg:grid-cols-4"
+                    class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
                     id="specials-grid">
                 </div>
 
@@ -568,37 +1029,41 @@
         </section>
 
 
+
         <!-- =====================================================
              COMBO MEALS
         ====================================================== -->
 
         <section
-            class="mx-auto max-w-7xl px-5 py-16 text-center sm:px-8 lg:px-12 lg:py-20">
+            class="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-28">
 
-            <p class="eyebrow">
-                Better together
-            </p>
+            <div class="text-center">
 
+                <p class="eyebrow text-amber-700 dark:text-amber-400">
+                    Better together
+                </p>
 
-            <h2 class="mt-3 text-4xl font-bold sm:text-5xl">
-                Combo Meals
-            </h2>
+                <h2 class="mt-4 text-4xl font-semibold sm:text-5xl">
+                    Combo Meals
+                </h2>
 
+                <p
+                    class="mx-auto mt-5 max-w-2xl text-base leading-8 text-stone-600 dark:text-stone-400 sm:text-lg">
 
-            <p
-                class="mx-auto mt-4 max-w-2xl text-lg leading-7 text-stone-600 dark:text-stone-400">
+                    Complete meals when one dish simply isn't enough.
 
-                Complete meals when one dish simply isn't enough.
+                </p>
 
-            </p>
+            </div>
 
 
             <div
-                class="mt-10 grid grid-cols-1 gap-6 text-left sm:grid-cols-2 lg:grid-cols-4"
+                class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
                 id="combos-grid">
             </div>
 
         </section>
+
 
 
         <!-- =====================================================
@@ -606,23 +1071,21 @@
         ====================================================== -->
 
         <section
-            class="bg-white py-16 text-center dark:bg-stone-900 sm:py-20">
+            class="kitchen-section border-y border-stone-200 dark:border-stone-800">
 
             <div
-                class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+                class="mx-auto max-w-7xl px-5 py-20 text-center sm:px-8 sm:py-24 lg:px-12 lg:py-28">
 
-                <p class="eyebrow">
+                <p class="eyebrow text-amber-700 dark:text-amber-400">
                     Sip something
                 </p>
 
-
-                <h2 class="mt-3 text-4xl font-bold sm:text-5xl">
+                <h2 class="mt-4 text-4xl font-semibold sm:text-5xl">
                     Beverages
                 </h2>
 
-
                 <p
-                    class="mx-auto mt-4 max-w-2xl text-lg leading-7 text-stone-600 dark:text-stone-400">
+                    class="mx-auto mt-5 max-w-2xl text-base leading-8 text-stone-600 dark:text-stone-400 sm:text-lg">
 
                     Familiar South Indian drinks to pair with your meal.
 
@@ -630,7 +1093,7 @@
 
 
                 <div
-                    class="mt-10 grid grid-cols-1 gap-6 text-left sm:grid-cols-2 lg:grid-cols-4"
+                    class="mt-12 grid grid-cols-1 gap-6 text-left sm:grid-cols-2 lg:grid-cols-4"
                     id="beverages-grid">
                 </div>
 
@@ -639,25 +1102,24 @@
         </section>
 
 
+
         <!-- =====================================================
              DESSERTS
         ====================================================== -->
 
         <section
-            class="mx-auto max-w-7xl px-5 py-16 text-center sm:px-8 lg:px-12 lg:py-20">
+            class="mx-auto max-w-7xl px-5 py-20 text-center sm:px-8 sm:py-24 lg:px-12 lg:py-28">
 
-            <p class="eyebrow">
+            <p class="eyebrow text-amber-700 dark:text-amber-400">
                 A sweet finish
             </p>
 
-
-            <h2 class="mt-3 text-4xl font-bold sm:text-5xl">
+            <h2 class="mt-4 text-4xl font-semibold sm:text-5xl">
                 Sweet Endings
             </h2>
 
-
             <p
-                class="mx-auto mt-4 max-w-2xl text-lg leading-7 text-stone-600 dark:text-stone-400">
+                class="mx-auto mt-5 max-w-2xl text-base leading-8 text-stone-600 dark:text-stone-400 sm:text-lg">
 
                 Traditional sweets to finish your meal on a happy note.
 
@@ -665,11 +1127,12 @@
 
 
             <div
-                class="mt-10 grid grid-cols-1 gap-6 text-left sm:grid-cols-2 lg:grid-cols-4"
+                class="mt-12 grid grid-cols-1 gap-6 text-left sm:grid-cols-2 lg:grid-cols-4"
                 id="desserts-grid">
             </div>
 
         </section>
+
 
 
         <!-- =====================================================
@@ -677,301 +1140,162 @@
         ====================================================== -->
 
         <section
-            class="border-y border-amber-200 bg-amber-50 py-20 text-center dark:border-stone-800 dark:bg-stone-900 sm:py-24">
+            class="border-y border-stone-200 bg-white py-20 dark:border-stone-800 dark:bg-stone-950 sm:py-24 lg:py-28">
 
             <div
                 class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
 
-                <div class="mx-auto max-w-3xl">
 
-                    <p class="eyebrow">
-                        Easy from start to finish
-                    </p>
-
-
-                    <h2
-                        class="mt-3 text-4xl font-bold sm:text-5xl">
-
-                        How your meal gets to you.
-
-                    </h2>
-
-
-                    <p
-                        class="mx-auto mt-5 max-w-2xl text-lg leading-8 text-stone-600 dark:text-stone-400">
-
-                        We keep ordering simple, so you can spend less
-                        time thinking about food and more time enjoying it.
-
-                    </p>
-
-                </div>
-
-
-                <div
-                    class="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-
-
-                    <div class="text-center">
-
-                        <span
-                            class="process-number mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-amber-500 text-xl font-black text-white">
-                            01
-                        </span>
-
-                        <h3 class="mt-5 text-xl font-bold">
-                            Pick your food
-                        </h3>
-
-                        <p
-                            class="mx-auto mt-3 max-w-xs text-sm leading-6 text-stone-600 dark:text-stone-400">
-
-                            Browse the menu and choose what sounds good.
-
-                        </p>
-
-                    </div>
-
-
-                    <div class="text-center">
-
-                        <span
-                            class="process-number mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-amber-500 text-xl font-black text-white">
-                            02
-                        </span>
-
-                        <h3 class="mt-5 text-xl font-bold">
-                            Place your order
-                        </h3>
-
-                        <p
-                            class="mx-auto mt-3 max-w-xs text-sm leading-6 text-stone-600 dark:text-stone-400">
-
-                            Select your meal and get your order moving.
-
-                        </p>
-
-                    </div>
-
-
-                    <div class="text-center">
-
-                        <span
-                            class="process-number mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-amber-500 text-xl font-black text-white">
-                            03
-                        </span>
-
-                        <h3 class="mt-5 text-xl font-bold">
-                            We cook fresh
-                        </h3>
-
-                        <p
-                            class="mx-auto mt-3 max-w-xs text-sm leading-6 text-stone-600 dark:text-stone-400">
-
-                            Our kitchen prepares the meal with care.
-
-                        </p>
-
-                    </div>
-
-
-                    <div class="text-center">
-
-                        <span
-                            class="process-number mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-amber-500 text-xl font-black text-white">
-                            04
-                        </span>
-
-                        <h3 class="mt-5 text-xl font-bold">
-                            Enjoy
-                        </h3>
-
-                        <p
-                            class="mx-auto mt-3 max-w-xs text-sm leading-6 text-stone-600 dark:text-stone-400">
-
-                            Your meal arrives ready for the table.
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             WHY BOWL & HEARTH
-        ====================================================== -->
-
-        <section
-            class="relative overflow-hidden border-y border-amber-200 bg-[#F6EEDC] py-20 text-center dark:border-stone-700 dark:bg-stone-900 sm:py-24">
-
-
-            <div
-                class="absolute -left-24 -top-24 h-64 w-64 rounded-full bg-amber-300/20 blur-3xl">
-            </div>
-
-
-            <div
-                class="absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-orange-300/20 blur-3xl">
-            </div>
-
-
-            <div
-                class="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
-
-
-                <div class="mx-auto max-w-3xl">
-
+                <div class="mx-auto max-w-3xl text-center">
 
                     <p class="eyebrow text-amber-700 dark:text-amber-400">
-
-                        Why Bowl &amp; Hearth
-
+                        Easy ordering
                     </p>
 
-
                     <h2
-                        class="mt-3 text-4xl font-bold leading-tight text-stone-900 sm:text-5xl lg:text-6xl dark:text-white">
+                        class="mt-4 text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
 
-                        Food that feels like home.
+                        From our kitchen
+                        <span class="block text-amber-600 dark:text-amber-400">
+                            to your table.
+                        </span>
 
                     </h2>
 
-
                     <p
-                        class="mx-auto mt-5 max-w-2xl text-base leading-7 text-stone-600 sm:text-lg dark:text-stone-300">
+                        class="mx-auto mt-6 max-w-2xl text-base leading-8 text-stone-600 dark:text-stone-400 sm:text-lg">
 
-                        Traditional flavours, honest ingredients and
-                        freshly prepared meals — made with the warmth
-                        of a home kitchen.
+                        A simple four-step journey from choosing your favourite
+                        dish to enjoying it fresh at home.
 
                     </p>
 
                 </div>
 
 
-                <div
-                    class="mt-16 grid grid-cols-1 divide-y divide-amber-200 sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4 lg:divide-amber-200 dark:divide-stone-700">
+                <div class="relative mt-16">
 
-
-                    <div class="px-4 py-8 text-center sm:px-8">
-
-                        <div
-                            class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-amber-500 text-3xl shadow-md">
-
-                            🍲
-
-                        </div>
-
-                        <h3 class="mt-6 text-xl font-bold">
-                            Freshly Cooked
-                        </h3>
-
-                        <p
-                            class="mx-auto mt-3 max-w-xs text-sm leading-6 text-stone-600 dark:text-stone-300">
-
-                            Every order is cooked fresh so your meal arrives
-                            hot, aromatic and full of flavour.
-
-                        </p>
-
+                    <div
+                        class="step-line absolute left-[12%] right-[12%] top-8 hidden h-px lg:block">
                     </div>
 
 
-                    <div class="px-4 py-8 text-center sm:px-8">
-
-                        <div
-                            class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-amber-500 text-3xl shadow-md">
-
-                            🌾
-
-                        </div>
-
-                        <h3 class="mt-6 text-xl font-bold">
-                            Local Ingredients
-                        </h3>
-
-                        <p
-                            class="mx-auto mt-3 max-w-xs text-sm leading-6 text-stone-600 dark:text-stone-300">
-
-                            Carefully selected ingredients from trusted local
-                            sources keep our food fresh and authentic.
-
-                        </p>
-
-                    </div>
+                    <div
+                        class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
 
 
-                    <div class="px-4 py-8 text-center sm:px-8">
+                        <div class="relative text-center">
 
-                        <div
-                            class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-amber-500 text-3xl shadow-md">
+                            <div class="step-number mx-auto">
+                                01
+                            </div>
 
-                            👨‍🍳
+                            <p class="mt-6 text-xs font-bold uppercase tracking-[.2em] text-amber-600">
+                                Choose
+                            </p>
+
+                            <h3 class="mt-2 text-xl font-semibold">
+                                Pick your favourites
+                            </h3>
+
+                            <p class="mx-auto mt-3 max-w-xs text-sm leading-7 text-stone-600 dark:text-stone-400">
+                                Browse our menu and select the dishes
+                                you're craving.
+                            </p>
 
                         </div>
 
-                        <h3 class="mt-6 text-xl font-bold">
-                            Authentic Recipes
-                        </h3>
 
-                        <p
-                            class="mx-auto mt-3 max-w-xs text-sm leading-6 text-stone-600 dark:text-stone-300">
+                        <div class="relative text-center">
 
-                            Regional Tamil recipes prepared with traditional
-                            methods and familiar flavours.
+                            <div class="step-number mx-auto">
+                                02
+                            </div>
 
-                        </p>
+                            <p class="mt-6 text-xs font-bold uppercase tracking-[.2em] text-amber-600">
+                                Order
+                            </p>
 
-                    </div>
+                            <h3 class="mt-2 text-xl font-semibold">
+                                Place your order
+                            </h3>
 
-
-                    <div class="px-4 py-8 text-center sm:px-8">
-
-                        <div
-                            class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-amber-500 text-3xl shadow-md">
-
-                            🚴
+                            <p class="mx-auto mt-3 max-w-xs text-sm leading-7 text-stone-600 dark:text-stone-400">
+                                Choose your meal, confirm your details
+                                and let us handle the rest.
+                            </p>
 
                         </div>
 
-                        <h3 class="mt-6 text-xl font-bold">
-                            Fast Delivery
-                        </h3>
 
-                        <p
-                            class="mx-auto mt-3 max-w-xs text-sm leading-6 text-stone-600 dark:text-stone-300">
+                        <div class="relative text-center">
 
-                            Carefully packed and delivered hot so your meal
-                            reaches you ready to enjoy.
+                            <div class="step-number mx-auto">
+                                03
+                            </div>
 
-                        </p>
+                            <p class="mt-6 text-xs font-bold uppercase tracking-[.2em] text-amber-600">
+                                Prepare
+                            </p>
+
+                            <h3 class="mt-2 text-xl font-semibold">
+                                We cook it fresh
+                            </h3>
+
+                            <p class="mx-auto mt-3 max-w-xs text-sm leading-7 text-stone-600 dark:text-stone-400">
+                                Your food is freshly prepared with care
+                                in our kitchen.
+                            </p>
+
+                        </div>
+
+
+                        <div class="relative text-center">
+
+                            <div class="step-number mx-auto">
+                                04
+                            </div>
+
+                            <p class="mt-6 text-xs font-bold uppercase tracking-[.2em] text-amber-600">
+                                Enjoy
+                            </p>
+
+                            <h3 class="mt-2 text-xl font-semibold">
+                                Delivered to you
+                            </h3>
+
+                            <p class="mx-auto mt-3 max-w-xs text-sm leading-7 text-stone-600 dark:text-stone-400">
+                                Your meal arrives warm, packed carefully
+                                and ready to enjoy.
+                            </p>
+
+                        </div>
 
                     </div>
-
 
                 </div>
 
 
                 <div
-                    class="mt-14 flex flex-col items-center justify-center gap-5 text-center sm:flex-row">
+                    class="mx-auto mt-16 flex max-w-3xl flex-col items-center justify-between gap-5 border border-amber-200 bg-amber-50 px-6 py-6 text-center sm:flex-row sm:rounded-2xl sm:px-8 sm:text-left dark:border-stone-700 dark:bg-stone-900">
 
-                    <p class="text-lg font-semibold text-stone-800 dark:text-stone-200">
+                    <div>
 
-                        Hungry for something delicious?
+                        <p class="text-xs font-bold uppercase tracking-[.18em] text-amber-700 dark:text-amber-400">
+                            Freshness first
+                        </p>
 
-                    </p>
+                        <p class="mt-2 font-semibold text-stone-800 dark:text-stone-200">
+                            Made fresh. Packed with care. Delivered hot.
+                        </p>
 
+                    </div>
 
                     <a
                         href="#menu"
-                        class="rounded-full bg-stone-900 px-7 py-3 font-bold text-white shadow-md transition hover:bg-stone-700 dark:bg-amber-500 dark:text-stone-950 dark:hover:bg-amber-400">
+                        class="inline-flex rounded-full bg-stone-900 px-6 py-3 text-sm font-bold text-white transition hover:bg-stone-700 dark:bg-amber-500 dark:text-stone-950 dark:hover:bg-amber-400">
 
-                        Explore Today's Menu
+                        Explore Menu →
 
                     </a>
 
@@ -982,50 +1306,238 @@
         </section>
 
 
+
+        <!-- =====================================================
+             WHY BOWL & HEARTH
+        ====================================================== -->
+
+        <section
+            class="warm-section border-b border-amber-100 py-20 sm:py-24 lg:py-28 dark:border-stone-800">
+
+            <div
+                class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+
+
+                <div class="mx-auto max-w-4xl text-center">
+
+                    <p class="eyebrow text-amber-700 dark:text-amber-400">
+                        Why Bowl &amp; Hearth
+                    </p>
+
+                    <h2
+                        class="mt-5 text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
+
+                        Good food doesn't need
+                        <span class="block text-amber-600 dark:text-amber-400">
+                            to be complicated.
+                        </span>
+
+                    </h2>
+
+                    <p
+                        class="mx-auto mt-6 max-w-2xl text-base leading-8 text-stone-600 dark:text-stone-400 sm:text-lg">
+
+                        We keep things simple — familiar recipes, quality ingredients,
+                        careful cooking and food that arrives ready to enjoy.
+
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="why-panel mx-auto mt-14 max-w-5xl overflow-hidden rounded-[1.5rem]">
+
+
+                    <!-- 01 -->
+
+                    <div
+                        class="why-item grid gap-5 border-b border-stone-200 px-6 py-8 sm:grid-cols-[100px_1fr_auto] sm:items-center sm:px-10 sm:py-9 dark:border-stone-800">
+
+                        <div class="why-number">
+                            01
+                        </div>
+
+                        <div>
+
+                            <h3 class="text-xl font-semibold sm:text-2xl">
+                                Freshly Cooked
+                            </h3>
+
+                            <p class="mt-2 max-w-2xl text-sm leading-7 text-stone-600 dark:text-stone-400">
+                                Every order is cooked fresh so your meal arrives
+                                hot, aromatic and full of flavour.
+                            </p>
+
+                        </div>
+
+                        <div
+                            class="hidden h-12 w-12 items-center justify-center rounded-full bg-amber-100 text-xl sm:flex dark:bg-amber-900/40">
+                            🍲
+                        </div>
+
+                    </div>
+
+
+                    <!-- 02 -->
+
+                    <div
+                        class="why-item grid gap-5 border-b border-stone-200 px-6 py-8 sm:grid-cols-[100px_1fr_auto] sm:items-center sm:px-10 sm:py-9 dark:border-stone-800">
+
+                        <div class="why-number">
+                            02
+                        </div>
+
+                        <div>
+
+                            <h3 class="text-xl font-semibold sm:text-2xl">
+                                Local Ingredients
+                            </h3>
+
+                            <p class="mt-2 max-w-2xl text-sm leading-7 text-stone-600 dark:text-stone-400">
+                                Carefully selected ingredients from trusted local
+                                sources keep our food fresh and authentic.
+                            </p>
+
+                        </div>
+
+                        <div
+                            class="hidden h-12 w-12 items-center justify-center rounded-full bg-amber-100 text-xl sm:flex dark:bg-amber-900/40">
+                            🌾
+                        </div>
+
+                    </div>
+
+
+                    <!-- 03 -->
+
+                    <div
+                        class="why-item grid gap-5 border-b border-stone-200 px-6 py-8 sm:grid-cols-[100px_1fr_auto] sm:items-center sm:px-10 sm:py-9 dark:border-stone-800">
+
+                        <div class="why-number">
+                            03
+                        </div>
+
+                        <div>
+
+                            <h3 class="text-xl font-semibold sm:text-2xl">
+                                Authentic Recipes
+                            </h3>
+
+                            <p class="mt-2 max-w-2xl text-sm leading-7 text-stone-600 dark:text-stone-400">
+                                Regional Tamil recipes prepared with traditional
+                                methods and familiar flavours.
+                            </p>
+
+                        </div>
+
+                        <div
+                            class="hidden h-12 w-12 items-center justify-center rounded-full bg-amber-100 text-xl sm:flex dark:bg-amber-900/40">
+                            👨‍🍳
+                        </div>
+
+                    </div>
+
+
+                    <!-- 04 -->
+
+                    <div
+                        class="why-item grid gap-5 px-6 py-8 sm:grid-cols-[100px_1fr_auto] sm:items-center sm:px-10 sm:py-9">
+
+                        <div class="why-number">
+                            04
+                        </div>
+
+                        <div>
+
+                            <h3 class="text-xl font-semibold sm:text-2xl">
+                                Fast Delivery
+                            </h3>
+
+                            <p class="mt-2 max-w-2xl text-sm leading-7 text-stone-600 dark:text-stone-400">
+                                Carefully packed and delivered hot so your meal
+                                reaches you ready to enjoy.
+                            </p>
+
+                        </div>
+
+                        <div
+                            class="hidden h-12 w-12 items-center justify-center rounded-full bg-amber-100 text-xl sm:flex dark:bg-amber-900/40">
+                            🚴
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mx-auto mt-14 max-w-3xl text-center">
+
+                    <p
+                        class="font-display text-2xl font-semibold leading-relaxed text-stone-900 sm:text-3xl dark:text-white">
+
+                        “Simple food.
+                        <span class="text-amber-600 dark:text-amber-400">
+                            Honest flavours.
+                        </span>
+                        Made with care.”
+
+                    </p>
+
+
+                    <a
+                        href="#menu"
+                        class="mt-7 inline-flex rounded-full bg-stone-900 px-7 py-3.5 text-sm font-bold text-white shadow-lg transition hover:bg-stone-700 dark:bg-amber-500 dark:text-stone-950 dark:hover:bg-amber-400">
+
+                        Explore Today's Menu →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
         <!-- =====================================================
              FINAL CTA
         ====================================================== -->
 
-        <section
-            class="bg-stone-950 py-20 text-center text-white sm:py-24">
+        <section class="final-cta py-20 text-center text-white sm:py-28">
 
-
-            <div
-                class="mx-auto max-w-4xl px-5 sm:px-8">
-
+            <div class="mx-auto max-w-4xl px-5 sm:px-8">
 
                 <p class="eyebrow text-amber-400">
-
                     Bowl &amp; Hearth
-
                 </p>
 
-
                 <h2
-                    class="mt-4 text-4xl font-bold leading-tight sm:text-5xl">
+                    class="mt-5 text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
 
-                    Your next comfort meal is waiting.
+                    Your next comfort meal
+                    <span class="block text-amber-400">
+                        is waiting.
+                    </span>
 
                 </h2>
 
-
                 <p
-                    class="mx-auto mt-5 max-w-2xl text-lg leading-8 text-stone-300">
+                    class="mx-auto mt-6 max-w-2xl text-base leading-8 text-stone-300 sm:text-lg">
 
                     Freshly prepared, thoughtfully packed and made
                     for the way you actually live.
 
                 </p>
 
-
                 <a
                     href="#menu"
-                    class="mt-8 inline-flex rounded-full bg-amber-500 px-8 py-4 font-bold text-stone-950 shadow-lg transition hover:bg-amber-400">
+                    class="mt-9 inline-flex rounded-full bg-amber-500 px-8 py-4 text-sm font-bold text-stone-950 shadow-xl transition hover:bg-amber-400">
 
                     Browse the full menu →
 
                 </a>
-
 
             </div>
 
@@ -1346,25 +1858,24 @@
 
                     return `
 
-                    <article
-                        class="group overflow-hidden rounded-3xl bg-white text-center shadow-sm transition hover:-translate-y-1 hover:shadow-xl dark:bg-stone-900">
+                    <article class="food-card group">
 
-                        <div class="overflow-hidden">
+                        <div class="food-image-wrap">
 
                             <img
                                 id="menu-image-${index}"
-                                class="food-image h-60 w-full object-cover"
+                                class="food-image"
                                 alt="${d.name}"
                                 loading="lazy">
 
                         </div>
 
-                        <div class="p-5">
+                        <div class="food-card-content">
 
-                            <div class="flex items-center justify-center gap-5">
+                            <div class="flex items-center justify-between gap-3">
 
                                 <span
-                                    class="text-xs font-bold uppercase tracking-widest ${
+                                    class="food-category ${
                                         d.tag === "Veg"
                                             ? "text-green-600"
                                             : "text-red-600"
@@ -1374,16 +1885,15 @@
 
                                 </span>
 
-                                <b>
+                                <span class="food-price">
                                     ${d.price}
-                                </b>
+                                </span>
 
                             </div>
 
-                            <h2 class="mt-3 text-xl font-bold">
 
+                            <h2 class="food-name mt-3 break-words">
                                 ${d.name}
-
                             </h2>
 
                         </div>
@@ -1469,25 +1979,25 @@
 
                     return `
 
-                    <article
-                        class="group overflow-hidden rounded-3xl bg-white text-center shadow-sm transition hover:-translate-y-1 hover:shadow-xl dark:bg-stone-950">
+                    <article class="food-card group">
 
-                        <div class="overflow-hidden">
+                        <div class="food-image-wrap">
 
                             <img
                                 id="${gridName}-image-${index}"
-                                class="food-image h-52 w-full object-cover"
+                                class="food-image"
                                 alt="${d.name}"
                                 loading="lazy">
 
                         </div>
 
-                        <div class="p-5">
 
-                            <div class="flex items-center justify-center gap-5">
+                        <div class="food-card-content">
+
+                            <div class="flex items-center justify-between gap-3">
 
                                 <span
-                                    class="text-xs font-bold uppercase tracking-widest ${
+                                    class="food-category ${
                                         d.tag === "Veg"
                                             ? "text-green-600"
                                             : "text-red-600"
@@ -1497,16 +2007,16 @@
 
                                 </span>
 
-                                <b>
+
+                                <span class="food-price">
                                     ${d.price}
-                                </b>
+                                </span>
 
                             </div>
 
-                            <h3 class="mt-3 text-lg font-bold">
 
+                            <h3 class="food-name mt-3 break-words">
                                 ${d.name}
-
                             </h3>
 
                         </div>

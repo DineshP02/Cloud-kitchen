@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Delivery FAQ | Bowl & Hearth</title>
-<link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="icon" type="image/png" href="../images/favicon.png">
 
     <!-- =====================================================
          TAILWIND CSS
@@ -55,6 +55,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
         }
 
         .font-display {
@@ -176,11 +177,15 @@
                 0 8px 25px rgba(120, 53, 15, 0.06);
 
             backdrop-filter: blur(10px);
+
+            max-width: 100%;
         }
 
         .hero-badge-dot {
             width: 8px;
             height: 8px;
+
+            flex-shrink: 0;
 
             border-radius: 50%;
 
@@ -221,6 +226,8 @@
                 0 30px 80px rgba(120, 53, 15, 0.12);
 
             backdrop-filter: blur(15px);
+
+            overflow: hidden;
         }
 
         .hero-bowl {
@@ -228,6 +235,8 @@
 
             width: 235px;
             height: 235px;
+
+            flex-shrink: 0;
 
             border-radius: 50%;
 
@@ -343,6 +352,10 @@
             backdrop-filter: blur(12px);
 
             border-radius: 20px;
+
+            z-index: 5;
+
+            max-width: calc(100% - 30px);
         }
 
         .hero-reveal {
@@ -403,6 +416,8 @@
             border-radius: 50%;
 
             border: 1px solid rgba(194, 65, 12, 0.10);
+
+            pointer-events: none;
         }
 
         .faq-decoration-one {
@@ -752,6 +767,8 @@
             position: relative;
 
             text-align: center;
+
+            min-width: 0;
         }
 
         .delivery-icon {
@@ -959,7 +976,6 @@
 
 
         /* =====================================================
-           NEW SECTION
            MORE THAN A DELIVERY
         ====================================================== */
 
@@ -1040,6 +1056,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
+
+            min-width: 0;
         }
 
         .care-ring {
@@ -1107,6 +1125,8 @@
 
             width: 285px;
             height: 285px;
+
+            flex-shrink: 0;
 
             border-radius: 50%;
 
@@ -1204,6 +1224,8 @@
 
             transition:
                 transform 0.35s ease;
+
+            max-width: 210px;
         }
 
         .care-floating:hover {
@@ -1230,6 +1252,8 @@
             width: 42px;
             height: 42px;
 
+            flex-shrink: 0;
+
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1245,6 +1269,8 @@
         .care-content {
             position: relative;
             z-index: 3;
+
+            min-width: 0;
         }
 
         .care-number {
@@ -1430,10 +1456,23 @@
 
         @media (max-width: 768px) {
 
+            /* HERO */
+
+            .hero-content {
+                width: 100%;
+                max-width: 100%;
+            }
+
             .hero-bowl-area {
                 min-height: 330px;
 
+                width: 100%;
+
                 border-radius: 28px;
+
+                padding: 20px;
+
+                box-sizing: border-box;
             }
 
             .hero-bowl {
@@ -1449,6 +1488,18 @@
                 top: 40px;
             }
 
+            .hero-bowl::after {
+                width: 140px;
+                left: 25px;
+            }
+
+            .hero-floating-card {
+                max-width: calc(100% - 30px);
+            }
+
+
+            /* FAQ */
+
             .faq-question {
                 padding: 22px 18px;
             }
@@ -1458,6 +1509,9 @@
                     0 20px 25px 78px;
             }
 
+
+            /* DELIVERY */
+
             .delivery-line {
                 display: none;
             }
@@ -1465,7 +1519,7 @@
             .delivery-step {
                 display: grid;
 
-                grid-template-columns: 90px 1fr;
+                grid-template-columns: 90px minmax(0, 1fr);
 
                 gap: 20px;
 
@@ -1506,6 +1560,8 @@
                 max-width: none;
 
                 margin: 0;
+
+                min-width: 0;
             }
 
             .delivery-step-content h3 {
@@ -1527,10 +1583,14 @@
             }
 
 
-            /* NEW SECTION MOBILE */
+            /* CARE SECTION */
 
             .care-visual {
                 min-height: 420px;
+
+                width: 100%;
+
+                overflow: hidden;
             }
 
             .care-ring {
@@ -1550,6 +1610,10 @@
 
             .care-floating {
                 padding: 10px 12px;
+
+                max-width: 170px;
+
+                gap: 8px;
             }
 
             .care-floating-one {
@@ -1587,13 +1651,161 @@
         }
 
 
+        /* =====================================================
+           SMALL MOBILE
+        ====================================================== */
+
         @media (max-width: 480px) {
 
+            /* HERO */
+
+            .hero-content {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+                padding-top: 45px !important;
+                padding-bottom: 50px !important;
+            }
+
+            .hero-badge {
+                font-size: 0.62rem;
+
+                letter-spacing: 0.08em;
+
+                gap: 8px;
+
+                padding: 8px 12px;
+            }
+
+            .hero-badge-dot {
+                width: 7px;
+                height: 7px;
+            }
+
+            .hero-bowl-area {
+                min-height: 300px;
+
+                border-radius: 24px;
+
+                padding: 15px;
+
+                margin-top: 0;
+
+                overflow: hidden;
+            }
+
+            .hero-bowl {
+                width: 165px;
+                height: 165px;
+            }
+
+            .hero-bowl::before {
+                width: 105px;
+                height: 66px;
+
+                left: 30px;
+                top: 35px;
+            }
+
+            .hero-bowl::after {
+                width: 120px;
+                height: 30px;
+
+                left: 22px;
+
+                bottom: 33px;
+            }
+
+            .hero-floating-card {
+                border-radius: 14px;
+
+                padding: 9px 11px !important;
+
+                max-width: 145px;
+
+                box-shadow:
+                    0 12px 25px rgba(120, 53, 15, 0.10);
+            }
+
+            .hero-floating-card.left-5 {
+                left: 10px !important;
+            }
+
+            .hero-floating-card.top-5 {
+                top: 10px !important;
+            }
+
+            .hero-floating-card.bottom-6 {
+                bottom: 10px !important;
+            }
+
+            .hero-floating-card.right-5 {
+                right: 10px !important;
+            }
+
+            .hero-floating-card p {
+                line-height: 1.3;
+            }
+
+            .hero-bowl-area > .absolute.bottom-10 {
+                bottom: 65px;
+                left: 18px;
+            }
+
+            .hero-bowl-area > .absolute.right-12 {
+                right: 20px;
+                top: 75px;
+            }
+
+            .hero-bowl-area > .absolute.bottom-20 {
+                right: 45px;
+                bottom: 65px;
+            }
+
+
+            /* HERO BUTTONS */
+
+            .hero-content .mt-9.flex {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-content .mt-9.flex a {
+                width: 100%;
+
+                justify-content: center;
+            }
+
+            .hero-content .mt-10.flex {
+                gap: 8px;
+            }
+
+            .hero-content .mt-10.flex span {
+                padding-left: 11px;
+                padding-right: 11px;
+            }
+
+
+            /* FAQ */
+
             .faq-question {
-                gap: 12px;
+                gap: 10px;
 
                 padding:
-                    20px 15px;
+                    18px 14px;
+            }
+
+            .faq-question > div:first-child {
+                gap: 10px;
+
+                min-width: 0;
+            }
+
+            .faq-question > div:first-child > span:last-child {
+                min-width: 0;
+
+                overflow-wrap: anywhere;
+
+                line-height: 1.45;
             }
 
             .faq-number {
@@ -1611,39 +1823,101 @@
             .faq-answer-content {
                 padding:
                     0 15px 24px 15px;
+
+                font-size: 0.9rem;
+
+                line-height: 1.75;
             }
 
-            .delivery-step {
-                grid-template-columns: 72px 1fr;
+            .faq-note {
+                gap: 12px;
+            }
 
-                gap: 15px;
+            .faq-note h3 {
+                font-size: 0.95rem;
+            }
+
+            .faq-note p {
+                font-size: 0.82rem;
+            }
+
+
+            /* FOOD IMAGE */
+
+            .food-image-wrap {
+                border-radius: 24px;
+            }
+
+
+            /* DELIVERY */
+
+            .delivery-step {
+                grid-template-columns: 68px minmax(0, 1fr);
+
+                gap: 14px;
             }
 
             .delivery-icon {
-                width: 72px;
-                height: 72px;
+                width: 68px;
+                height: 68px;
 
                 border-width: 5px;
             }
 
             .delivery-icon-inner {
-                width: 44px;
-                height: 44px;
+                width: 42px;
+                height: 42px;
 
-                border-radius: 14px;
+                border-radius: 13px;
 
-                font-size: 20px;
+                font-size: 19px;
+            }
+
+            .delivery-step-number {
+                width: 25px;
+                height: 25px;
+
+                top: -2px;
+                right: -2px;
+
+                border-width: 3px;
+
+                font-size: 9px;
             }
 
             .delivery-step-content h3 {
-                font-size: 1.2rem;
+                font-size: 1.15rem;
+
+                line-height: 1.25;
+            }
+
+            .delivery-step-content p {
+                font-size: 0.8rem;
+
+                line-height: 1.65;
+            }
+
+            .delivery-step-label {
+                font-size: 8px;
+
+                letter-spacing: 0.13em;
+            }
+
+            .delivery-bottom-note {
+                padding: 16px 17px;
+
+                font-size: 0.82rem;
             }
 
 
-            /* NEW SECTION SMALL MOBILE */
+            /* CARE SECTION */
 
             .care-visual {
-                min-height: 360px;
+                min-height: 365px;
+
+                width: 100%;
+
+                overflow: hidden;
             }
 
             .care-ring {
@@ -1661,27 +1935,344 @@
                 height: 105px;
             }
 
+            .care-floating {
+                padding: 8px 9px;
+
+                max-width: 145px;
+
+                gap: 7px;
+
+                border-radius: 14px;
+            }
+
             .care-floating-one {
-                top: 10px;
+                top: 5px;
+                left: 0;
             }
 
             .care-floating-two {
-                bottom: 15px;
+                right: 0;
+                bottom: 18px;
             }
 
             .care-floating-three {
-                bottom: 5px;
+                left: 0;
+                bottom: 8px;
+            }
+
+            .care-floating-icon {
+                width: 31px;
+                height: 31px;
+
+                border-radius: 9px;
+
+                font-size: 14px;
+            }
+
+            .care-floating p {
+                font-size: 10px;
+
+                line-height: 1.25;
+            }
+
+            .care-floating span {
+                font-size: 8px;
+
+                line-height: 1.2;
             }
 
             .care-list-item {
-                grid-template-columns: 42px 1fr;
+                grid-template-columns: 40px minmax(0, 1fr);
 
-                gap: 13px;
+                gap: 12px;
             }
 
             .care-list-icon {
-                width: 40px;
-                height: 40px;
+                width: 38px;
+                height: 38px;
+            }
+
+
+            /* CTA */
+
+            .cta-section .flex.flex-wrap {
+                flex-direction: column;
+
+                align-items: stretch;
+            }
+
+            .cta-section .flex.flex-wrap a {
+                width: 100%;
+
+                justify-content: center;
+            }
+
+        }
+
+
+        /* =====================================================
+           VERY SMALL PHONES
+        ====================================================== */
+
+        @media (max-width: 360px) {
+
+            /* HERO */
+
+            .hero-bowl-area {
+                min-height: 275px;
+
+                padding: 10px;
+            }
+
+            .hero-bowl {
+                width: 145px;
+                height: 145px;
+            }
+
+            .hero-bowl::before {
+                width: 92px;
+                height: 58px;
+
+                left: 26px;
+                top: 31px;
+            }
+
+            .hero-bowl::after {
+                width: 105px;
+                height: 25px;
+
+                left: 20px;
+
+                bottom: 29px;
+            }
+
+            .hero-floating-card {
+                max-width: 125px;
+
+                padding: 7px 9px !important;
+
+                border-radius: 12px;
+            }
+
+            .hero-floating-card p {
+                font-size: 9px !important;
+            }
+
+            .hero-floating-card .text-\[10px\] {
+                font-size: 8px !important;
+            }
+
+            .hero-floating-card .text-lg {
+                font-size: 0.95rem !important;
+            }
+
+            .hero-floating-card .h-9 {
+                width: 28px;
+                height: 28px;
+            }
+
+            .hero-floating-card .gap-3 {
+                gap: 7px;
+            }
+
+            .hero-bowl-area > .absolute.bottom-10 {
+                bottom: 58px;
+
+                left: 12px;
+
+                font-size: 18px;
+            }
+
+            .hero-bowl-area > .absolute.right-12 {
+                right: 12px;
+
+                top: 65px;
+
+                font-size: 15px;
+            }
+
+            .hero-bowl-area > .absolute.bottom-20 {
+                right: 30px;
+
+                bottom: 55px;
+
+                font-size: 10px;
+            }
+
+
+            /* FAQ */
+
+            .faq-question {
+                padding-left: 11px;
+                padding-right: 11px;
+
+                gap: 7px;
+            }
+
+            .faq-question > div:first-child {
+                gap: 7px;
+            }
+
+            .faq-number {
+                width: 32px;
+                height: 32px;
+
+                border-radius: 9px;
+
+                font-size: 0.65rem;
+            }
+
+            .faq-plus {
+                width: 32px;
+                height: 32px;
+            }
+
+            .faq-plus::before,
+            .faq-plus::after {
+                width: 12px;
+            }
+
+            .faq-question > div:first-child > span:last-child {
+                font-size: 0.82rem;
+            }
+
+
+            /* DELIVERY */
+
+            .delivery-step {
+                grid-template-columns: 60px minmax(0, 1fr);
+
+                gap: 11px;
+            }
+
+            .delivery-icon {
+                width: 60px;
+                height: 60px;
+
+                border-width: 4px;
+            }
+
+            .delivery-icon-inner {
+                width: 38px;
+                height: 38px;
+
+                border-radius: 11px;
+
+                font-size: 17px;
+            }
+
+            .delivery-step-number {
+                width: 22px;
+                height: 22px;
+
+                font-size: 8px;
+
+                border-width: 2px;
+            }
+
+            .delivery-step-content h3 {
+                font-size: 1.05rem;
+            }
+
+            .delivery-step-content p {
+                font-size: 0.76rem;
+            }
+
+
+            /* CARE */
+
+            .care-visual {
+                min-height: 335px;
+            }
+
+            .care-ring {
+                width: 235px;
+                height: 235px;
+            }
+
+            .care-plate {
+                width: 165px;
+                height: 165px;
+            }
+
+            .care-food {
+                width: 92px;
+                height: 92px;
+            }
+
+            .care-floating {
+                max-width: 125px;
+
+                padding: 7px 8px;
+
+                gap: 5px;
+            }
+
+            .care-floating-one {
+                top: 3px;
+                left: 0;
+            }
+
+            .care-floating-two {
+                right: 0;
+                bottom: 10px;
+            }
+
+            .care-floating-three {
+                left: 0;
+                bottom: 3px;
+            }
+
+            .care-floating-icon {
+                width: 27px;
+                height: 27px;
+
+                font-size: 12px;
+
+                border-radius: 8px;
+            }
+
+            .care-floating p {
+                font-size: 9px;
+            }
+
+            .care-floating span {
+                font-size: 7px;
+            }
+
+        }
+
+
+        /* =====================================================
+           TOUCH DEVICES
+        ====================================================== */
+
+        @media (hover: none) {
+
+            .info-card:hover {
+                transform: none;
+
+                box-shadow: none;
+            }
+
+            .food-image-wrap:hover .food-image {
+                transform: none;
+            }
+
+            .delivery-step:hover .delivery-icon {
+                transform: none;
+
+                box-shadow:
+                    0 20px 45px rgba(120, 53, 15, 0.12);
+            }
+
+            .care-floating:hover {
+                transform: none;
+            }
+
+            .care-plate:hover {
+                transform:
+                    rotate(-8deg);
             }
 
         }
@@ -1731,13 +2322,7 @@
                     <div class="hero-reveal">
 
 
-                        <div class="hero-badge">
-
-                            <span class="hero-badge-dot"></span>
-
-                            Delivery &amp; Ordering Guide
-
-                        </div>
+                       
 
 
                         <h1
@@ -2974,8 +3559,7 @@
 
 
         <!-- =================================================
-             6. NEW UNIQUE SECTION
-             MORE THAN A DELIVERY
+             6. MORE THAN A DELIVERY
         ================================================== -->
 
         <section
@@ -2997,17 +3581,13 @@
                     class="grid items-center gap-10 lg:grid-cols-[1fr_1fr] lg:gap-20">
 
 
-                    <!-- =====================================
-                         VISUAL
-                    ====================================== -->
+                    <!-- VISUAL -->
 
                     <div class="care-visual reveal">
 
 
                         <div class="care-ring"></div>
 
-
-                        <!-- FLOATING DETAIL 01 -->
 
                         <div class="care-floating care-floating-one">
 
@@ -3036,8 +3616,6 @@
                         </div>
 
 
-                        <!-- FLOATING DETAIL 02 -->
-
                         <div class="care-floating care-floating-two">
 
                             <div class="care-floating-icon">
@@ -3064,8 +3642,6 @@
 
                         </div>
 
-
-                        <!-- FLOATING DETAIL 03 -->
 
                         <div class="care-floating care-floating-three">
 
@@ -3094,8 +3670,6 @@
                         </div>
 
 
-                        <!-- PLATE -->
-
                         <div class="care-plate">
 
                             <div class="care-food"></div>
@@ -3106,9 +3680,7 @@
                     </div>
 
 
-                    <!-- =====================================
-                         CONTENT
-                    ====================================== -->
+                    <!-- CONTENT -->
 
                     <div class="care-content reveal">
 
@@ -3150,8 +3722,6 @@
                         <div class="care-list">
 
 
-                            <!-- LIST 01 -->
-
                             <div class="care-list-item">
 
                                 <div class="care-list-icon">
@@ -3179,8 +3749,6 @@
 
                             </div>
 
-
-                            <!-- LIST 02 -->
 
                             <div class="care-list-item">
 
@@ -3210,8 +3778,6 @@
 
                             </div>
 
-
-                            <!-- LIST 03 -->
 
                             <div class="care-list-item">
 

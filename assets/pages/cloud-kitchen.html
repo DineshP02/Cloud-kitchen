@@ -46,12 +46,24 @@
             background: #fffaf7 !important;
             color: #292524;
 
+            max-width: 100%;
+            overflow-x: hidden;
+
         }
 
 
         body {
 
             min-height: 100vh;
+
+        }
+
+
+        *,
+        *::before,
+        *::after {
+
+            box-sizing: border-box;
 
         }
 
@@ -93,10 +105,7 @@
 
 
         /* =========================================================
-           =========================================================
            CLOUD KITCHEN HERO
-           BOWL & HEARTH BRAND THEME
-           =========================================================
         ========================================================== */
 
         .bh-cloud-hero {
@@ -117,8 +126,6 @@
 
         }
 
-
-        /* Warm decorative glow */
 
         .bh-cloud-hero::before {
 
@@ -166,8 +173,6 @@
         }
 
 
-        /* Hero image */
-
         .bh-cloud-hero-image {
 
             position: absolute;
@@ -189,8 +194,6 @@
         }
 
 
-        /* Brand overlay */
-
         .bh-cloud-hero-overlay {
 
             position: absolute;
@@ -210,8 +213,6 @@
         }
 
 
-        /* Bottom fade */
-
         .bh-cloud-hero-bottom {
 
             position: absolute;
@@ -230,18 +231,16 @@
         }
 
 
-        /* Hero content */
-
         .bh-cloud-hero-content {
 
             position: relative;
 
             z-index: 5;
 
+            min-width: 0;
+
         }
 
-
-        /* Hero eyebrow */
 
         .bh-cloud-eyebrow {
 
@@ -275,8 +274,6 @@
         }
 
 
-        /* Hero heading */
-
         .bh-cloud-heading {
 
             margin-top: 18px;
@@ -300,6 +297,8 @@
             font-weight: 700;
 
             color: #292524;
+
+            overflow-wrap: normal;
 
         }
 
@@ -325,8 +324,6 @@
         }
 
 
-        /* Hero paragraph */
-
         .bh-cloud-description {
 
             max-width: 650px;
@@ -341,8 +338,6 @@
 
         }
 
-
-        /* Hero buttons */
 
         .bh-cloud-primary {
 
@@ -444,6 +439,11 @@
 
             z-index: 5;
 
+            width: 100%;
+            max-width: 100%;
+
+            min-width: 0;
+
             border:
                 1px solid rgba(255, 255, 255, .72);
 
@@ -467,6 +467,8 @@
             align-items: center;
 
             justify-content: space-between;
+
+            gap: 12px;
 
             padding-bottom: 20px;
 
@@ -509,10 +511,14 @@
 
             letter-spacing: .12em;
 
+            text-align: right;
+
         }
 
 
         .bh-cloud-process-status-dot {
+
+            flex-shrink: 0;
 
             width: 7px;
             height: 7px;
@@ -534,6 +540,8 @@
             gap: 17px;
 
             padding: 20px 0;
+
+            min-width: 0;
 
             border-bottom:
                 1px solid rgba(120, 53, 15, .11);
@@ -589,6 +597,13 @@
         }
 
 
+        .bh-cloud-process-item > div:last-child {
+
+            min-width: 0;
+
+        }
+
+
         .bh-cloud-process-item:hover
         .bh-cloud-process-number {
 
@@ -626,6 +641,8 @@
             font-size: .83rem;
 
             line-height: 1.65;
+
+            overflow-wrap: anywhere;
 
         }
 
@@ -668,6 +685,8 @@
             height: 1px;
 
             background: #d6a47c;
+
+            flex-shrink: 0;
 
         }
 
@@ -769,6 +788,8 @@
 
                 line-height: 1.7;
 
+                max-width: 100%;
+
             }
 
 
@@ -805,6 +826,14 @@
 
             }
 
+
+            .bh-cloud-primary,
+            .bh-cloud-secondary {
+
+                max-width: 100%;
+
+            }
+
         }
 
 
@@ -814,9 +843,19 @@
 
         @media(max-width: 420px) {
 
+            .bh-cloud-hero-content {
+
+                padding-left: 16px !important;
+                padding-right: 16px !important;
+
+            }
+
+
             .bh-cloud-heading {
 
-                font-size: 2.45rem;
+                font-size: 2.3rem;
+
+                letter-spacing: -.035em;
 
             }
 
@@ -838,7 +877,32 @@
 
             .bh-cloud-process {
 
+                width: 100%;
+
                 padding: 18px;
+
+            }
+
+
+            .bh-cloud-process-top {
+
+                gap: 12px;
+
+            }
+
+
+            .bh-cloud-process-status {
+
+                font-size: .58rem;
+
+                letter-spacing: .08em;
+
+            }
+
+
+            .bh-cloud-process-item {
+
+                gap: 12px;
 
             }
 
@@ -871,7 +935,6 @@
 
         /* =========================================================
            WHY THE MODEL
-           EDITORIAL / PREMIUM STYLE
         ========================================================== */
 
         .bh-model-section {
@@ -1037,7 +1100,8 @@
             grid-template-columns:
                 110px
                 90px
-                minmax(0, 1fr);
+                minmax(0, 1fr)
+                40px;
 
             align-items: center;
 
@@ -1052,6 +1116,8 @@
             transition:
                 padding .35s ease,
                 background .35s ease;
+
+            min-width: 0;
 
         }
 
@@ -1148,6 +1214,8 @@
 
             gap: 40px;
 
+            min-width: 0;
+
         }
 
 
@@ -1173,6 +1241,8 @@
             font-size: .95rem;
 
             line-height: 1.75;
+
+            overflow-wrap: anywhere;
 
         }
 
@@ -1258,6 +1328,52 @@
 
 
         /* =========================================================
+           TABLET - WHY MODEL
+        ========================================================== */
+
+        @media (min-width: 768px) and (max-width: 1100px) {
+
+            .bh-model-item {
+
+                grid-template-columns:
+                    75px
+                    65px
+                    minmax(0, 1fr)
+                    40px;
+
+                gap: 18px;
+
+            }
+
+
+            .bh-model-content {
+
+                grid-template-columns:
+                    minmax(140px, .5fr)
+                    minmax(0, 1fr);
+
+                gap: 22px;
+
+            }
+
+
+            .bh-model-title {
+
+                font-size: 1.35rem;
+
+            }
+
+
+            .bh-model-description {
+
+                font-size: .86rem;
+
+            }
+
+        }
+
+
+        /* =========================================================
            MOBILE - WHY MODEL
         ========================================================== */
 
@@ -1304,8 +1420,8 @@
 
             .bh-model-item:hover {
 
-                padding-left: 8px;
-                padding-right: 8px;
+                padding-left: 4px;
+                padding-right: 4px;
 
             }
 
@@ -1331,6 +1447,8 @@
 
                 display: block;
 
+                min-width: 0;
+
             }
 
 
@@ -1348,6 +1466,8 @@
                 font-size: .78rem;
 
                 line-height: 1.6;
+
+                max-width: 100%;
 
             }
 
@@ -1378,7 +1498,7 @@
 
 
         /* =========================================================
-           VERY SMALL MOBILE
+           VERY SMALL MOBILE - WHY MODEL
         ========================================================== */
 
         @media(max-width: 420px) {
@@ -1386,11 +1506,11 @@
             .bh-model-item {
 
                 grid-template-columns:
-                    42px
-                    48px
+                    38px
+                    44px
                     minmax(0, 1fr);
 
-                gap: 9px;
+                gap: 8px;
 
             }
 
@@ -1416,6 +1536,8 @@
 
                 font-size: 1.05rem;
 
+                line-height: 1.2;
+
             }
 
 
@@ -1429,7 +1551,7 @@
 
 
         /* =========================================================
-           ORDER JOURNEY - LIGHT VERSION
+           ORDER JOURNEY
         ========================================================== */
 
         .bh-journey-section {
@@ -1469,6 +1591,8 @@
             transition:
                 transform .35s ease,
                 border-color .35s ease;
+
+            min-width: 0;
 
         }
 
@@ -1517,12 +1641,24 @@
                 border-color .3s ease,
                 transform .3s ease;
 
+            max-width: 100%;
+
         }
 
 
         .bh-journey-link:hover {
 
             transform: translateY(-2px);
+
+        }
+
+
+        .bh-journey-step > div,
+        .bh-journey-step > p {
+
+            min-width: 0;
+
+            max-width: 100%;
 
         }
 
@@ -1554,6 +1690,32 @@
 
 
         /* =========================================================
+           KITCHEN IMAGE RESPONSIVE SAFETY
+        ========================================================== */
+
+        @media(max-width: 767px) {
+
+            .group.relative.overflow-hidden {
+
+                min-height: 180px;
+
+            }
+
+        }
+
+
+        @media(min-width: 768px) and (max-width: 1023px) {
+
+            .group.relative.overflow-hidden {
+
+                min-height: 190px;
+
+            }
+
+        }
+
+
+        /* =========================================================
            ACCESSIBILITY
         ========================================================== */
 
@@ -1563,6 +1725,400 @@
             outline: 3px solid rgba(194, 65, 12, .35);
 
             outline-offset: 3px;
+
+        }
+
+
+        /* =========================================================
+           DARK MODE
+           RESPONSIVE + TEXT READABILITY
+        ========================================================== */
+
+        html.dark,
+        html.dark body {
+
+            background: #1c1917 !important;
+
+            color: #f5f5f4;
+
+        }
+
+
+        /* ---------------------------------------------------------
+           HERO DARK MODE
+        --------------------------------------------------------- */
+
+        html.dark .bh-cloud-hero {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #1c1917 0%,
+                    #29211d 48%,
+                    #33251f 100%
+                );
+
+            color: #f5f5f4;
+
+        }
+
+
+        html.dark .bh-cloud-hero-overlay {
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(28, 25, 23, .98) 0%,
+                    rgba(28, 25, 23, .94) 32%,
+                    rgba(28, 25, 23, .78) 58%,
+                    rgba(28, 25, 23, .48) 82%,
+                    rgba(28, 25, 23, .30) 100%
+                );
+
+        }
+
+
+        html.dark .bh-cloud-hero-bottom {
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(28, 25, 23, .90) 0%,
+                    transparent 35%
+                );
+
+        }
+
+
+        html.dark .bh-cloud-heading,
+        html.dark .bh-cloud-process-title {
+
+            color: #fafaf9;
+
+        }
+
+
+        html.dark .bh-cloud-description,
+        html.dark .bh-cloud-process-description {
+
+            color: #d6d3d1;
+
+        }
+
+
+        html.dark .bh-cloud-process {
+
+            background: rgba(41, 37, 36, .88);
+
+            border-color:
+                rgba(255, 255, 255, .12);
+
+        }
+
+
+        html.dark .bh-cloud-process-top,
+        html.dark .bh-cloud-process-item {
+
+            border-color:
+                rgba(255, 255, 255, .12);
+
+        }
+
+
+        html.dark .bh-cloud-process-label,
+        html.dark .bh-cloud-brand-strip {
+
+            color: #d6d3d1;
+
+        }
+
+
+        /* ---------------------------------------------------------
+           MODEL DARK MODE
+        --------------------------------------------------------- */
+
+        html.dark .bh-model-section {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #1c1917 0%,
+                    #292524 45%,
+                    #33251f 100%
+                );
+
+            color: #f5f5f4;
+
+        }
+
+
+        html.dark .bh-model-heading,
+        html.dark .bh-model-title {
+
+            color: #fafaf9;
+
+        }
+
+
+        html.dark .bh-model-intro,
+        html.dark .bh-model-description,
+        html.dark .bh-model-note {
+
+            color: #d6d3d1;
+
+        }
+
+
+        html.dark .bh-model-list,
+        html.dark .bh-model-item {
+
+            border-color:
+                rgba(255, 255, 255, .14);
+
+        }
+
+
+        html.dark .bh-model-icon {
+
+            background: #292524;
+
+            border-color:
+                rgba(251, 146, 60, .35);
+
+            color: #fb923c;
+
+        }
+
+
+        html.dark .bh-model-number {
+
+            color: #57534e;
+
+        }
+
+
+        html.dark .bh-model-item:hover {
+
+            background:
+                rgba(68, 64, 60, .55);
+
+        }
+
+
+        /* ---------------------------------------------------------
+           JOURNEY DARK MODE
+        --------------------------------------------------------- */
+
+        html.dark .bh-journey-section {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #1c1917 0%,
+                    #292524 50%,
+                    #33251f 100%
+                );
+
+            color: #f5f5f4;
+
+        }
+
+
+        html.dark .bh-journey-step {
+
+            border-color:
+                rgba(255, 255, 255, .14);
+
+        }
+
+
+        html.dark .bh-journey-number {
+
+            background: #292524 !important;
+
+            color: #fb923c !important;
+
+            box-shadow:
+                0 0 0 8px #1c1917;
+
+        }
+
+
+        html.dark .bh-journey-step h3 {
+
+            color: #fafaf9;
+
+        }
+
+
+        html.dark .bh-journey-step p {
+
+            color: #d6d3d1;
+
+        }
+
+
+        html.dark .bh-journey-link {
+
+            color: #f5f5f4;
+
+            border-color:
+                rgba(255, 255, 255, .25);
+
+        }
+
+
+        /* ---------------------------------------------------------
+           GENERAL TAILWIND SECTION DARK MODE
+        --------------------------------------------------------- */
+
+        html.dark section {
+
+            color: #f5f5f4;
+
+        }
+
+
+        html.dark section .text-stone-900,
+        html.dark section .text-stone-950,
+        html.dark section .text-stone-800 {
+
+            color: #f5f5f4 !important;
+
+        }
+
+
+        html.dark section .text-stone-700,
+        html.dark section .text-stone-600 {
+
+            color: #d6d3d1 !important;
+
+        }
+
+
+        html.dark section .text-stone-500,
+        html.dark section .text-stone-400 {
+
+            color: #a8a29e !important;
+
+        }
+
+
+        /* ---------------------------------------------------------
+           COMPARISON TABLE DARK MODE
+        --------------------------------------------------------- */
+
+        html.dark section .bg-white {
+
+            background: #292524 !important;
+
+        }
+
+
+        html.dark section .bg-stone-50 {
+
+            background: #292524 !important;
+
+        }
+
+
+        html.dark section .bg-orange-50\/50 {
+
+            background: #33251f !important;
+
+        }
+
+
+        html.dark section .border-orange-200,
+        html.dark section .border-orange-100,
+        html.dark section .border-stone-200 {
+
+            border-color:
+                rgba(255, 255, 255, .14) !important;
+
+        }
+
+
+        /* ---------------------------------------------------------
+           KITCHEN CARDS DARK MODE
+        --------------------------------------------------------- */
+
+        html.dark section .border-white {
+
+            border-color:
+                #44403c !important;
+
+        }
+
+
+        /* ---------------------------------------------------------
+           CTA DARK MODE TEXT
+        --------------------------------------------------------- */
+
+        html.dark section .text-stone-900\/70 {
+
+            color:
+                rgba(245, 245, 244, .78) !important;
+
+        }
+
+
+        /* =========================================================
+           DARK MODE MOBILE HERO
+        ========================================================== */
+
+        @media(max-width: 767px) {
+
+            html.dark .bh-cloud-hero-overlay {
+
+                background:
+                    linear-gradient(
+                        180deg,
+                        rgba(28, 25, 23, .98) 0%,
+                        rgba(28, 25, 23, .95) 45%,
+                        rgba(28, 25, 23, .88) 78%,
+                        rgba(28, 25, 23, .82) 100%
+                    );
+
+            }
+
+
+            html.dark .bh-cloud-hero-bottom {
+
+                background:
+                    linear-gradient(
+                        to top,
+                        rgba(28, 25, 23, .96),
+                        transparent 45%
+                    );
+
+            }
+
+        }
+
+
+        /* =========================================================
+           REDUCE MOTION
+        ========================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                scroll-behavior: auto !important;
+
+                transition-duration:
+                    .01ms !important;
+
+                animation-duration:
+                    .01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+            }
 
         }
 
@@ -1612,9 +2168,7 @@
                 class="bh-cloud-hero-content mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-8 sm:py-24 lg:grid-cols-2 lg:items-center lg:px-12">
 
 
-                <!-- =====================================================
-                     LEFT CONTENT
-                ====================================================== -->
+                <!-- LEFT CONTENT -->
 
                 <div>
 
@@ -1701,9 +2255,7 @@
                 </div>
 
 
-                <!-- =====================================================
-                     RIGHT PROCESS PANEL
-                ====================================================== -->
+                <!-- RIGHT PROCESS PANEL -->
 
                 <div
                     class="bh-cloud-process rounded-[2rem] p-7 sm:p-9">

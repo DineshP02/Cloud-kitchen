@@ -22,7 +22,8 @@
       theme: {
         extend: {
           fontFamily: {
-            display: ['Georgia', 'serif'],
+            display: ['Playfair Display', 'Georgia', 'serif'],
+            body: ['Inter', 'sans-serif']
           }
         }
       }
@@ -33,15 +34,39 @@
 
   <style>
 
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800;900&display=swap');
 
 
     /* =====================================================
-       FONTS
+       GLOBAL
     ====================================================== */
+
+    html,
+    body {
+      max-width: 100%;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    img,
+    svg {
+      max-width: 100%;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      letter-spacing: -0.01em;
+    }
 
     .font-display {
       font-family: 'Playfair Display', Georgia, serif;
+      letter-spacing: -0.035em;
     }
 
     .font-body {
@@ -50,72 +75,85 @@
 
 
     /* =====================================================
-       IMPORTANT HEADER / HERO OVERLAP FIX
+       HEADER OFFSET
     ====================================================== */
 
-    /*
-      The shared navbar is fixed on the page.
-      This creates enough space below the navbar so that
-      the hero section never goes underneath it.
-    */
-
     main.about-page-main {
-      padding-top: 88px;
+      padding-top: 92px;
     }
 
     @media (max-width: 767px) {
-
       main.about-page-main {
         padding-top: 76px;
       }
-
-    }
-
-    @media (min-width: 768px) and (max-width: 1023px) {
-
-      main.about-page-main {
-        padding-top: 88px;
-      }
-
-    }
-
-    @media (min-width: 1024px) {
-
-      main.about-page-main {
-        padding-top: 92px;
-      }
-
     }
 
 
     /* =====================================================
-       ANIMATIONS
+       PREMIUM CONTAINERS
     ====================================================== */
 
-    @keyframes float {
-
-      0%,
-      100% {
-        transform: translateY(0px);
-      }
-
-      50% {
-        transform: translateY(-10px);
-      }
-
+    .premium-section {
+      position: relative;
+      overflow: hidden;
     }
 
-    .float-card {
-      animation: float 4s ease-in-out infinite;
+    .premium-container {
+      width: 100%;
+      max-width: 1280px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 32px;
+      padding-right: 32px;
     }
 
+    @media (max-width: 767px) {
+      .premium-container {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+
+
+    /* =====================================================
+       EYEBROW
+    ====================================================== */
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      line-height: 1;
+      text-transform: uppercase;
+      color: #b45309;
+    }
+
+    .eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: #d97706;
+    }
+
+    .dark .eyebrow {
+      color: #fbbf24;
+    }
+
+
+    /* =====================================================
+       REVEAL
+    ====================================================== */
 
     .reveal {
       opacity: 0;
-      transform: translateY(32px);
+      transform: translateY(28px);
       transition:
-        opacity 0.7s ease,
-        transform 0.7s ease;
+        opacity 0.8s cubic-bezier(.2,.65,.25,1),
+        transform 0.8s cubic-bezier(.2,.65,.25,1);
     }
 
     .reveal.visible {
@@ -125,33 +163,214 @@
 
 
     /* =====================================================
-       EYEBROW
+       HERO
     ====================================================== */
 
-    .eyebrow {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: #b45309;
+    .about-hero {
+      min-height: calc(100vh - 92px);
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(
+          circle at 85% 10%,
+          rgba(245, 158, 11, 0.10),
+          transparent 30%
+        ),
+        #fafaf9;
+    }
+
+    .dark .about-hero {
+      background:
+        radial-gradient(
+          circle at 85% 10%,
+          rgba(245, 158, 11, 0.07),
+          transparent 30%
+        ),
+        #0c0a09;
+    }
+
+    .hero-title {
+      max-width: 760px;
+      font-size: clamp(3rem, 6vw, 6.7rem);
+      line-height: 0.98;
+      font-weight: 800;
+    }
+
+    .hero-copy {
+      max-width: 590px;
+      font-size: 1.08rem;
+      line-height: 1.85;
+    }
+
+    .hero-image-frame {
+      position: relative;
+      overflow: visible;
+    }
+
+    .hero-image {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 610px;
+      object-fit: cover;
+      border-radius: 34px;
+      box-shadow:
+        0 30px 80px rgba(28, 25, 23, 0.18);
+    }
+
+    .hero-image-frame::before {
+      content: '';
+      position: absolute;
+      width: 82%;
+      height: 82%;
+      right: -22px;
+      bottom: -22px;
+      border: 1px solid rgba(180, 83, 9, 0.25);
+      border-radius: 34px;
+    }
+
+    .hero-image-frame::after {
+      content: '';
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      left: -32px;
+      top: -28px;
+      background-image: radial-gradient(
+        #b45309 1.5px,
+        transparent 1.5px
+      );
+      background-size: 12px 12px;
+      opacity: 0.22;
     }
 
 
     /* =====================================================
-       VALUE CARD
+       PREMIUM BUTTONS
     ====================================================== */
 
-    .value-card {
+    .premium-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 24px;
+      border-radius: 999px;
+      background: #b45309;
+      color: white;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      box-shadow:
+        0 12px 30px rgba(180, 83, 9, 0.20);
       transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
     }
 
-    .value-card:hover {
-      transform: translateY(-6px);
+    .premium-button:hover {
+      transform: translateY(-2px);
+      background: #92400e;
       box-shadow:
-        0 20px 40px rgba(0, 0, 0, 0.1);
+        0 16px 34px rgba(180, 83, 9, 0.28);
+    }
+
+    .premium-link {
+      color: #92400e;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(146, 64, 14, 0.35);
+      padding-bottom: 4px;
+      transition:
+        color 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .premium-link:hover {
+      color: #b45309;
+      border-color: #b45309;
+    }
+
+    .dark .premium-link {
+      color: #fbbf24;
+      border-color: rgba(251, 191, 36, 0.35);
+    }
+
+
+    /* =====================================================
+       STAT CARDS
+    ====================================================== */
+
+    .premium-stat {
+      padding: 18px 20px;
+      min-width: 145px;
+      border: 1px solid rgba(180, 83, 9, 0.14);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(12px);
+    }
+
+    .dark .premium-stat {
+      background: rgba(28, 25, 23, 0.65);
+      border-color: rgba(251, 191, 36, 0.12);
+    }
+
+
+    /* =====================================================
+       FLOATING BADGES
+    ====================================================== */
+
+    .float-card {
+      animation: premiumFloat 5s ease-in-out infinite;
+    }
+
+    @keyframes premiumFloat {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+
+    /* =====================================================
+       SECTION HEADINGS
+    ====================================================== */
+
+    .section-title {
+      font-size: clamp(2.5rem, 4vw, 4.3rem);
+      line-height: 1.04;
+      font-weight: 800;
+    }
+
+    .section-copy {
+      font-size: 1.02rem;
+      line-height: 1.85;
+    }
+
+
+    /* =====================================================
+       STORY
+    ====================================================== */
+
+    .story-section {
+      background: #f5eadb;
+    }
+
+    .dark .story-section {
+      background: #1c1917;
+    }
+
+    .story-quote {
+      position: relative;
+      padding-left: 28px;
+      border-left: 2px solid #d97706;
     }
 
 
@@ -159,140 +378,409 @@
        TIMELINE
     ====================================================== */
 
-    @keyframes pulse-ring {
-
-      0% {
-        box-shadow:
-          0 0 0 0 rgba(245, 158, 11, 0.4);
-      }
-
-      70% {
-        box-shadow:
-          0 0 0 12px rgba(245, 158, 11, 0);
-      }
-
-      100% {
-        box-shadow:
-          0 0 0 0 rgba(245, 158, 11, 0);
-      }
-
+    .timeline-line {
+      background: #e7cda7;
     }
 
-    .timeline-dot {
-      animation:
-        pulse-ring 2.5s ease-out infinite;
+    .dark .timeline-line {
+      background: #78350f;
     }
 
-
-    /* =====================================================
-       STAT
-    ====================================================== */
-
-    .stat-card {
-      background:
-        linear-gradient(
-          135deg,
-          #fef3c7 0%,
-          #fde68a 100%
-        );
+    .timeline-item {
+      position: relative;
     }
 
-    .dark .stat-card {
-      background:
-        linear-gradient(
-          135deg,
-          #451a03 0%,
-          #78350f 100%
-        );
+    .timeline-number {
+      position: relative;
+      z-index: 2;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: #b45309;
+      color: white;
+      box-shadow:
+        0 0 0 8px rgba(180, 83, 9, 0.08);
     }
 
 
     /* =====================================================
-       HERO IMAGE
+       VALUE CARDS
     ====================================================== */
 
-    .hero-img-wrap::after {
+    .value-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 300px;
+      padding: 34px;
+      border: 1px solid #e7e5e4;
+      border-radius: 26px;
+      background: white;
+      transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+    }
+
+    .value-card::after {
       content: '';
       position: absolute;
-      inset: 0;
-      border-radius: 2rem;
-      background:
-        linear-gradient(
-          to top,
-          rgba(0, 0, 0, 0.18) 0%,
-          transparent 50%
-        );
-      pointer-events: none;
+      right: -40px;
+      bottom: -50px;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: #fef3c7;
+      opacity: 0.5;
+    }
+
+    .value-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(180, 83, 9, 0.25);
+      box-shadow:
+        0 24px 55px rgba(28, 25, 23, 0.10);
+    }
+
+    .dark .value-card {
+      border-color: #292524;
+      background: #1c1917;
+    }
+
+    .dark .value-card::after {
+      background: #451a03;
     }
 
 
     /* =====================================================
-       WHY IMAGE
+       ICON BOX
     ====================================================== */
 
-    .why-image {
-      transition:
-        transform 0.7s ease;
+    .premium-icon {
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 16px;
+      background: #fef3c7;
+      font-size: 1.35rem;
     }
 
-    .why-image:hover {
-      transform: scale(1.05);
+    .dark .premium-icon {
+      background: #451a03;
     }
 
 
     /* =====================================================
-       HIGHLIGHT
+       FULL IMAGE CTA
+    ====================================================== */
+
+    .image-cta {
+      position: relative;
+      overflow: hidden;
+      border-radius: 30px;
+    }
+
+    .image-cta img {
+      transition: transform 0.8s ease;
+    }
+
+    .image-cta:hover img {
+      transform: scale(1.025);
+    }
+
+    .image-cta-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(28, 25, 23, 0.88) 0%,
+          rgba(28, 25, 23, 0.52) 48%,
+          rgba(28, 25, 23, 0.05) 100%
+        );
+    }
+
+
+    /* =====================================================
+       KITCHEN SECTION
+    ====================================================== */
+
+    .kitchen-frame {
+      position: relative;
+    }
+
+    .kitchen-frame::before {
+      content: '';
+      position: absolute;
+      inset: 18px -18px -18px 18px;
+      border: 1px solid rgba(180, 83, 9, 0.20);
+      border-radius: 32px;
+    }
+
+    .kitchen-image {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 560px;
+      object-fit: cover;
+      border-radius: 30px;
+      transition: transform 0.7s ease;
+    }
+
+    .kitchen-frame:hover .kitchen-image {
+      transform: scale(1.02);
+    }
+
+
+    /* =====================================================
+       HIGHLIGHT CARDS
     ====================================================== */
 
     .highlight-card {
+      display: flex;
+      gap: 18px;
+      padding: 21px;
+      border: 1px solid rgba(180, 83, 9, 0.12);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.75);
       transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
     }
 
     .highlight-card:hover {
-      transform: translateX(6px);
+      transform: translateX(5px);
       box-shadow:
-        0 12px 30px rgba(0, 0, 0, 0.08);
+        0 15px 35px rgba(28, 25, 23, 0.08);
+    }
+
+    .dark .highlight-card {
+      background: rgba(12, 10, 9, 0.65);
+      border-color: #292524;
     }
 
 
     /* =====================================================
-       NEW KITCHEN SECTION
+       PROMISE
     ====================================================== */
 
-    .kitchen-image {
-      transition:
-        transform 0.7s ease;
+    .promise-row {
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 32px;
+      padding: 34px 0;
+      border-top: 1px solid #e7e5e4;
     }
 
-    .kitchen-image:hover {
-      transform: scale(1.04);
+    .promise-row:last-child {
+      border-bottom: 1px solid #e7e5e4;
     }
 
-    .kitchen-line {
-      width: 52px;
-      height: 3px;
-      background: #f59e0b;
+    .dark .promise-row {
+      border-color: #292524;
+    }
+
+    .promise-number {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #d97706;
     }
 
 
     /* =====================================================
-       MOBILE SAFETY
+       RESPONSIVE
     ====================================================== */
 
-    @media (max-width: 639px) {
+    @media (max-width: 1023px) {
 
-      .hero-img-wrap {
-        border-radius: 1.5rem;
+      .about-hero {
+        min-height: auto;
       }
 
-      .hero-img-wrap img {
-        height: 380px;
+      .hero-image {
+        height: 520px;
+      }
+
+      .kitchen-image {
+        height: 500px;
+      }
+
+    }
+
+
+    @media (max-width: 767px) {
+
+      .premium-container {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .about-hero {
+        min-height: auto;
+      }
+
+      .hero-title {
+        font-size: clamp(2.8rem, 13vw, 4.4rem);
+        line-height: 1;
+      }
+
+      .hero-copy {
+        font-size: 1rem;
+        line-height: 1.75;
+      }
+
+      .hero-image-frame {
+        margin-top: 15px;
+      }
+
+      .hero-image {
+        height: clamp(330px, 105vw, 500px);
+        border-radius: 24px;
+      }
+
+      .hero-image-frame::before {
+        right: -10px;
+        bottom: -10px;
+        border-radius: 24px;
+      }
+
+      .hero-image-frame::after {
+        left: -12px;
+        top: -14px;
+        width: 80px;
+        height: 80px;
       }
 
       .float-card {
         animation: none;
+      }
+
+      .hero-badge {
+        left: 12px !important;
+        right: auto !important;
+        top: 15px !important;
+        max-width: calc(100% - 24px);
+      }
+
+      .hero-rating {
+        right: 12px !important;
+        left: auto !important;
+        bottom: 15px !important;
+        max-width: calc(100% - 24px);
+      }
+
+      .premium-stat {
+        flex: 1 1 140px;
+        min-width: 0;
+      }
+
+      .value-card {
+        min-height: auto;
+        padding: 27px;
+      }
+
+      .image-cta {
+        border-radius: 24px;
+      }
+
+      .image-cta-overlay {
+        background:
+          linear-gradient(
+            90deg,
+            rgba(28, 25, 23, 0.88),
+            rgba(28, 25, 23, 0.55)
+          );
+      }
+
+      .kitchen-image {
+        height: clamp(360px, 105vw, 500px);
+        border-radius: 24px;
+      }
+
+      .kitchen-frame::before {
+        inset: 10px -8px -8px 8px;
+        border-radius: 24px;
+      }
+
+      .promise-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 27px 0;
+      }
+
+      .promise-number {
+        font-size: 1.3rem;
+      }
+
+    }
+
+
+    @media (max-width: 480px) {
+
+      .premium-button {
+        width: 100%;
+      }
+
+      .hero-cta-group {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .premium-link {
+        text-align: center;
+      }
+
+      .premium-stat {
+        width: 100%;
+        flex-basis: 100%;
+      }
+
+      .hero-badge {
+        padding: 10px 12px !important;
+      }
+
+      .hero-rating {
+        padding: 10px 14px !important;
+      }
+
+      .hero-rating p:first-child {
+        font-size: 1.25rem !important;
+      }
+
+      .section-copy {
+        font-size: 0.97rem;
+      }
+
+      .highlight-card {
+        padding: 17px;
+      }
+
+    }
+
+
+    /* =====================================================
+       REDUCED MOTION
+    ====================================================== */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      .reveal,
+      .float-card,
+      .kitchen-image,
+      .image-cta img,
+      .value-card,
+      .highlight-card {
+        animation: none !important;
+        transition: none !important;
       }
 
     }
@@ -321,28 +809,15 @@
 
 
     <!-- ===================================================
-         SECTION 1 — HERO
+         SECTION 1 — PREMIUM HERO
     ==================================================== -->
 
-    <section
-      class="relative overflow-hidden bg-stone-50 dark:bg-stone-950">
+    <section class="about-hero premium-section">
 
-      <!-- Decorative background -->
-
-      <div
-        class="pointer-events-none absolute -top-32 -right-32 h-[520px] w-[520px] rounded-full bg-amber-100 opacity-60 blur-3xl dark:bg-amber-900 dark:opacity-20">
-      </div>
-
-      <div
-        class="pointer-events-none absolute bottom-0 left-0 h-72 w-72 rounded-full bg-amber-50 opacity-80 blur-2xl dark:bg-amber-950">
-      </div>
-
-
-      <div
-        class="relative mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
+      <div class="premium-container py-16 sm:py-20 lg:py-24">
 
         <div
-          class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          class="grid items-center gap-14 lg:grid-cols-[1.02fr,0.98fr] lg:gap-20">
 
 
           <!-- LEFT -->
@@ -354,12 +829,9 @@
             </p>
 
 
-            <h1
-              class="font-display mt-4 text-5xl font-black leading-tight sm:text-6xl xl:text-7xl">
+            <h1 class="font-display hero-title mt-7">
 
               Built for the gap between
-
-              <br>
 
               <span class="relative inline-block">
 
@@ -368,7 +840,7 @@
                 </span>
 
                 <span
-                  class="absolute bottom-1 left-0 -z-0 h-4 w-full bg-amber-300 opacity-50 dark:bg-amber-600">
+                  class="absolute bottom-1 left-0 z-0 h-3 w-full bg-amber-300/60 dark:bg-amber-600/50">
                 </span>
 
               </span>
@@ -379,7 +851,7 @@
 
 
             <p
-              class="mt-6 max-w-lg text-lg leading-relaxed text-stone-500 dark:text-stone-400">
+              class="hero-copy mt-7 text-stone-500 dark:text-stone-400">
 
               A cloud kitchen obsessed with local sourcing,
               small-batch cooking, and getting a warm meal to
@@ -391,11 +863,11 @@
             <!-- CTA -->
 
             <div
-              class="mt-8 flex flex-wrap items-center gap-4">
+              class="hero-cta-group mt-9 flex flex-wrap items-center gap-5">
 
               <a
                 href="#story"
-                class="inline-flex items-center gap-2 rounded-full bg-amber-500 px-7 py-3.5 text-sm font-semibold text-white shadow-md transition hover:bg-amber-600 hover:shadow-lg">
+                class="premium-button">
 
                 Read our story
 
@@ -420,7 +892,7 @@
               <a
                 id="about-menu-link-1"
                 href="#"
-                class="inline-flex items-center gap-2 text-sm font-semibold text-amber-600 underline underline-offset-4 transition hover:text-amber-700 dark:text-amber-400">
+                class="premium-link">
 
                 View the menu →
 
@@ -431,11 +903,9 @@
 
             <!-- STATS -->
 
-            <div
-              class="mt-10 flex flex-wrap gap-6">
+            <div class="mt-12 flex flex-wrap gap-3">
 
-              <div
-                class="stat-card rounded-2xl px-6 py-4">
+              <div class="premium-stat">
 
                 <p
                   class="font-display text-3xl font-black text-amber-700 dark:text-amber-300">
@@ -443,15 +913,14 @@
                 </p>
 
                 <p
-                  class="mt-0.5 text-xs font-medium uppercase tracking-wider text-stone-500 dark:text-stone-400">
+                  class="mt-1 text-[10px] font-bold uppercase tracking-[0.16em] text-stone-500 dark:text-stone-400">
                   Delivery zones
                 </p>
 
               </div>
 
 
-              <div
-                class="stat-card rounded-2xl px-6 py-4">
+              <div class="premium-stat">
 
                 <p
                   class="font-display text-3xl font-black text-amber-700 dark:text-amber-300">
@@ -459,15 +928,14 @@
                 </p>
 
                 <p
-                  class="mt-0.5 text-xs font-medium uppercase tracking-wider text-stone-500 dark:text-stone-400">
+                  class="mt-1 text-[10px] font-bold uppercase tracking-[0.16em] text-stone-500 dark:text-stone-400">
                   Years cooking
                 </p>
 
               </div>
 
 
-              <div
-                class="stat-card rounded-2xl px-6 py-4">
+              <div class="premium-stat">
 
                 <p
                   class="font-display text-3xl font-black text-amber-700 dark:text-amber-300">
@@ -475,7 +943,7 @@
                 </p>
 
                 <p
-                  class="mt-0.5 text-xs font-medium uppercase tracking-wider text-stone-500 dark:text-stone-400">
+                  class="mt-1 text-[10px] font-bold uppercase tracking-[0.16em] text-stone-500 dark:text-stone-400">
                   Local sourcing
                 </p>
 
@@ -486,27 +954,22 @@
           </div>
 
 
-          <!-- RIGHT IMAGE -->
+          <!-- RIGHT -->
 
           <div
-            class="relative reveal"
-            style="transition-delay:0.15s">
+            class="hero-image-frame reveal"
+            style="transition-delay:0.12s">
+
+            <img
+              src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1200&q=85"
+              alt="Chef preparing food in the Bowl & Hearth kitchen"
+              class="hero-image">
+
+
+            <!-- FRESH BADGE -->
 
             <div
-              class="hero-img-wrap relative overflow-hidden rounded-[2rem]">
-
-              <img
-                src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1200&q=85"
-                alt="Chef preparing food in the Bowl & Hearth kitchen"
-                class="h-[480px] w-full object-cover">
-
-            </div>
-
-
-            <!-- Badge -->
-
-            <div
-              class="float-card absolute -left-6 top-8 z-20 flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-xl dark:bg-stone-800">
+              class="hero-badge float-card absolute -left-6 top-10 z-20 flex items-center gap-3 rounded-2xl border border-stone-100 bg-white/95 px-4 py-3 shadow-xl backdrop-blur dark:border-stone-700 dark:bg-stone-800/95">
 
               <span
                 class="flex h-9 w-9 items-center justify-center rounded-full bg-green-100 text-xl dark:bg-green-900">
@@ -516,11 +979,11 @@
               <div>
 
                 <p
-                  class="text-xs font-semibold text-stone-800 dark:text-stone-100">
+                  class="text-xs font-bold text-stone-800 dark:text-stone-100">
                   Made fresh daily
                 </p>
 
-                <p class="text-xs text-stone-400">
+                <p class="text-[11px] text-stone-400">
                   No frozen shortcuts
                 </p>
 
@@ -529,10 +992,10 @@
             </div>
 
 
-            <!-- Rating -->
+            <!-- RATING -->
 
             <div
-              class="float-card absolute -right-4 bottom-10 z-20 rounded-2xl bg-amber-500 px-5 py-3 text-center shadow-xl"
+              class="hero-rating float-card absolute -right-5 bottom-12 z-20 rounded-2xl bg-amber-600 px-5 py-3.5 text-center shadow-xl"
               style="animation-delay:1.2s">
 
               <p
@@ -541,47 +1004,11 @@
               </p>
 
               <p
-                class="text-xs font-medium text-amber-100">
+                class="text-[10px] font-semibold uppercase tracking-wider text-amber-100">
                 from 2 400+ orders
               </p>
 
             </div>
-
-
-            <!-- Dot pattern -->
-
-            <svg
-              class="absolute -bottom-6 -left-8 z-0 opacity-20 dark:opacity-10"
-              width="120"
-              height="120"
-              viewBox="0 0 120 120">
-
-              <defs>
-
-                <pattern
-                  id="dots"
-                  x="0"
-                  y="0"
-                  width="12"
-                  height="12"
-                  patternUnits="userSpaceOnUse">
-
-                  <circle
-                    cx="2"
-                    cy="2"
-                    r="2"
-                    fill="#b45309" />
-
-                </pattern>
-
-              </defs>
-
-              <rect
-                width="120"
-                height="120"
-                fill="url(#dots)" />
-
-            </svg>
 
           </div>
 
@@ -598,13 +1025,12 @@
 
     <section
       id="story"
-      class="bg-amber-50 dark:bg-stone-900">
+      class="story-section premium-section">
 
-      <div
-        class="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12">
+      <div class="premium-container py-20 sm:py-24 lg:py-32">
 
         <div
-          class="grid gap-12 lg:grid-cols-2 lg:gap-20">
+          class="grid gap-14 lg:grid-cols-[0.85fr,1.15fr] lg:gap-24">
 
 
           <div class="reveal">
@@ -614,7 +1040,7 @@
             </p>
 
             <h2
-              class="font-display mt-4 text-4xl font-black sm:text-5xl">
+              class="font-display section-title mt-6">
 
               A kitchen born out of one simple frustration.
 
@@ -624,7 +1050,7 @@
 
 
           <div
-            class="reveal space-y-6 text-lg leading-8 text-stone-600 dark:text-stone-300"
+            class="reveal space-y-7 text-[1.03rem] leading-8 text-stone-600 dark:text-stone-300"
             style="transition-delay:0.1s">
 
             <p>
@@ -643,7 +1069,7 @@
             </p>
 
             <blockquote
-              class="border-l-4 border-amber-500 pl-6 font-display text-2xl font-bold text-stone-900 dark:text-white">
+              class="story-quote font-display text-2xl font-bold leading-relaxed text-stone-900 dark:text-white sm:text-3xl">
 
               "Good food should fit into your day,
               not take over your day."
@@ -658,30 +1084,27 @@
         <!-- TIMELINE -->
 
         <div
-          class="mt-16 reveal"
+          class="mt-20 reveal"
           style="transition-delay:0.2s">
 
           <div class="relative">
 
             <div
-              class="absolute left-0 right-0 top-5 hidden h-0.5 bg-amber-200 dark:bg-amber-800 lg:block">
+              class="timeline-line absolute left-0 right-0 top-[22px] hidden h-px lg:block">
             </div>
 
 
             <div
-              class="grid gap-10 lg:grid-cols-3">
+              class="grid gap-12 lg:grid-cols-3 lg:gap-14">
 
 
               <!-- 2019 -->
 
-              <div
-                class="relative flex gap-5 lg:block">
+              <div class="timeline-item flex gap-5 lg:block">
 
-                <div
-                  class="relative flex-shrink-0">
+                <div class="relative flex-shrink-0">
 
-                  <div
-                    class="timeline-dot relative z-10 flex h-10 w-10 items-center justify-center rounded-full bg-amber-500 text-white shadow-md lg:mb-6">
+                  <div class="timeline-number">
 
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -700,27 +1123,22 @@
 
                   </div>
 
-                  <div
-                    class="absolute left-5 top-10 h-full w-0.5 bg-amber-200 dark:bg-amber-800 lg:hidden">
-                  </div>
-
                 </div>
 
-
-                <div>
+                <div class="pt-1 lg:pt-7">
 
                   <b
-                    class="text-sm font-bold text-amber-600 dark:text-amber-400">
+                    class="text-xs font-bold uppercase tracking-[0.16em] text-amber-700 dark:text-amber-400">
                     2019
                   </b>
 
                   <h3
-                    class="mt-1 text-xl font-bold">
+                    class="mt-2 text-xl font-bold">
                     One neighbourhood
                   </h3>
 
                   <p
-                    class="mt-2 text-stone-500 dark:text-stone-400">
+                    class="mt-3 leading-7 text-stone-500 dark:text-stone-400">
 
                     The first delivery route served a tight
                     local radius — twelve streets, zero fanfare,
@@ -735,15 +1153,11 @@
 
               <!-- 2023 -->
 
-              <div
-                class="relative flex gap-5 lg:block">
+              <div class="timeline-item flex gap-5 lg:block">
 
-                <div
-                  class="relative flex-shrink-0">
+                <div class="relative flex-shrink-0">
 
-                  <div
-                    class="timeline-dot relative z-10 flex h-10 w-10 items-center justify-center rounded-full bg-amber-500 text-white shadow-md lg:mb-6"
-                    style="animation-delay:0.8s">
+                  <div class="timeline-number">
 
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -762,27 +1176,22 @@
 
                   </div>
 
-                  <div
-                    class="absolute left-5 top-10 h-full w-0.5 bg-amber-200 dark:bg-amber-800 lg:hidden">
-                  </div>
-
                 </div>
 
-
-                <div>
+                <div class="pt-1 lg:pt-7">
 
                   <b
-                    class="text-sm font-bold text-amber-600 dark:text-amber-400">
+                    class="text-xs font-bold uppercase tracking-[0.16em] text-amber-700 dark:text-amber-400">
                     2023
                   </b>
 
                   <h3
-                    class="mt-1 text-xl font-bold">
+                    class="mt-2 text-xl font-bold">
                     Office catering
                   </h3>
 
                   <p
-                    class="mt-2 text-stone-500 dark:text-stone-400">
+                    class="mt-3 leading-7 text-stone-500 dark:text-stone-400">
 
                     Bulk meal trays for teams became a core
                     part of our kitchen — offices wanted
@@ -797,15 +1206,11 @@
 
               <!-- 2026 -->
 
-              <div
-                class="relative flex gap-5 lg:block">
+              <div class="timeline-item flex gap-5 lg:block">
 
-                <div
-                  class="relative flex-shrink-0">
+                <div class="relative flex-shrink-0">
 
-                  <div
-                    class="timeline-dot relative z-10 flex h-10 w-10 items-center justify-center rounded-full bg-amber-500 text-white shadow-md lg:mb-6"
-                    style="animation-delay:1.6s">
+                  <div class="timeline-number">
 
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -831,21 +1236,20 @@
 
                 </div>
 
-
-                <div>
+                <div class="pt-1 lg:pt-7">
 
                   <b
-                    class="text-sm font-bold text-amber-600 dark:text-amber-400">
+                    class="text-xs font-bold uppercase tracking-[0.16em] text-amber-700 dark:text-amber-400">
                     2026
                   </b>
 
                   <h3
-                    class="mt-1 text-xl font-bold">
+                    class="mt-2 text-xl font-bold">
                     12 delivery zones
                   </h3>
 
                   <p
-                    class="mt-2 text-stone-500 dark:text-stone-400">
+                    class="mt-3 leading-7 text-stone-500 dark:text-stone-400">
 
                     A wider local network — still the same
                     small-batch kitchen philosophy, just
@@ -872,22 +1276,20 @@
          SECTION 3 — VALUES
     ==================================================== -->
 
-    <section
-      class="bg-stone-50 dark:bg-stone-950">
+    <section class="premium-section bg-stone-50 dark:bg-stone-950">
 
-      <div
-        class="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12">
+      <div class="premium-container py-20 sm:py-24 lg:py-32">
 
 
         <div
-          class="reveal text-center">
+          class="reveal max-w-3xl">
 
           <p class="eyebrow">
             What drives us
           </p>
 
           <h2
-            class="font-display mx-auto mt-4 max-w-2xl text-4xl font-black sm:text-5xl">
+            class="font-display section-title mt-6">
 
             Three things we refuse to compromise on.
 
@@ -897,27 +1299,26 @@
 
 
         <div
-          class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
 
 
           <!-- CARD 1 -->
 
           <div
-            class="value-card reveal rounded-[1.5rem] border border-stone-100 bg-white p-8 dark:border-stone-800 dark:bg-stone-900"
+            class="value-card reveal"
             style="transition-delay:0.05s">
 
-            <div
-              class="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-2xl dark:bg-amber-900">
+            <div class="premium-icon">
               🌾
             </div>
 
             <h3
-              class="font-display mt-5 text-xl font-bold">
+              class="font-display mt-7 text-2xl font-bold">
               Local sourcing, always
             </h3>
 
             <p
-              class="mt-3 leading-7 text-stone-500 dark:text-stone-400">
+              class="mt-4 leading-7 text-stone-500 dark:text-stone-400">
 
               Every ingredient traces back to a named supplier
               within 150 km. We know our farmers, and our farmers
@@ -926,7 +1327,7 @@
             </p>
 
             <div
-              class="mt-6 h-0.5 w-10 bg-amber-400">
+              class="mt-8 h-px w-12 bg-amber-500">
             </div>
 
           </div>
@@ -935,21 +1336,20 @@
           <!-- CARD 2 -->
 
           <div
-            class="value-card reveal rounded-[1.5rem] border border-stone-100 bg-white p-8 dark:border-stone-800 dark:bg-stone-900"
+            class="value-card reveal"
             style="transition-delay:0.12s">
 
-            <div
-              class="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-2xl dark:bg-amber-900">
+            <div class="premium-icon">
               🔥
             </div>
 
             <h3
-              class="font-display mt-5 text-xl font-bold">
+              class="font-display mt-7 text-2xl font-bold">
               Small-batch every time
             </h3>
 
             <p
-              class="mt-3 leading-7 text-stone-500 dark:text-stone-400">
+              class="mt-4 leading-7 text-stone-500 dark:text-stone-400">
 
               We cap daily production so nothing sits waiting.
               If we sell out, we sell out — quality over quantity
@@ -958,7 +1358,7 @@
             </p>
 
             <div
-              class="mt-6 h-0.5 w-10 bg-amber-400">
+              class="mt-8 h-px w-12 bg-amber-500">
             </div>
 
           </div>
@@ -967,21 +1367,20 @@
           <!-- CARD 3 -->
 
           <div
-            class="value-card reveal rounded-[1.5rem] border border-stone-100 bg-white p-8 dark:border-stone-800 dark:bg-stone-900 sm:col-span-2 lg:col-span-1"
+            class="value-card reveal"
             style="transition-delay:0.2s">
 
-            <div
-              class="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-2xl dark:bg-amber-900">
+            <div class="premium-icon">
               📦
             </div>
 
             <h3
-              class="font-display mt-5 text-xl font-bold">
+              class="font-display mt-7 text-2xl font-bold">
               Packaging that doesn't embarrass us
             </h3>
 
             <p
-              class="mt-3 leading-7 text-stone-500 dark:text-stone-400">
+              class="mt-4 leading-7 text-stone-500 dark:text-stone-400">
 
               Fully compostable, sized right to avoid waste.
               The container should honour the food inside,
@@ -990,7 +1389,7 @@
             </p>
 
             <div
-              class="mt-6 h-0.5 w-10 bg-amber-400">
+              class="mt-8 h-px w-12 bg-amber-500">
             </div>
 
           </div>
@@ -998,33 +1397,35 @@
         </div>
 
 
-        <!-- KITCHEN IMAGE -->
+        <!-- IMAGE CTA -->
 
         <div
-          class="mt-16 reveal overflow-hidden rounded-[2rem]"
+          class="image-cta mt-16 reveal"
           style="transition-delay:0.1s">
 
-          <div class="relative">
+          <img
+            src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=85"
+            alt="Bowls of fresh food prepared in the Bowl & Hearth kitchen"
+            class="h-[420px] w-full object-cover sm:h-[500px]">
 
-            <img
-              src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=85"
-              alt="Bowls of fresh food prepared in the Bowl & Hearth kitchen"
-              class="h-64 w-full object-cover sm:h-80 lg:h-96">
-
-
-            <div
-              class="absolute inset-0 bg-gradient-to-r from-stone-950/80 via-stone-950/40 to-transparent">
-            </div>
+          <div class="image-cta-overlay"></div>
 
 
-            <div
-              class="absolute inset-0 flex flex-col items-start justify-center px-8 sm:px-14">
+          <div
+            class="absolute inset-0 z-10 flex items-center px-7 sm:px-12 lg:px-16">
+
+            <div class="max-w-xl">
 
               <p
-                class="font-display text-2xl font-black text-white sm:text-4xl">
+                class="text-xs font-bold uppercase tracking-[0.2em] text-amber-300">
+                From our kitchen
+              </p>
+
+              <p
+                class="font-display mt-4 text-3xl font-black leading-tight text-white sm:text-5xl">
 
                 Hungry? Our kitchen is
-                <br>
+                <br class="hidden sm:block">
                 open right now.
 
               </p>
@@ -1033,7 +1434,7 @@
               <a
                 id="about-menu-link-2"
                 href="#"
-                class="mt-6 inline-flex items-center gap-2 rounded-full bg-amber-500 px-7 py-3.5 text-sm font-semibold text-white shadow-lg transition hover:bg-amber-600">
+                class="premium-button mt-7">
 
                 Explore the menu
 
@@ -1066,53 +1467,33 @@
 
 
     <!-- ===================================================
-         NEW SECTION 4 — MEET THE KITCHEN
+         SECTION 4 — MEET THE KITCHEN
     ==================================================== -->
 
     <section
-      class="relative overflow-hidden bg-white dark:bg-stone-950">
+      class="premium-section bg-white dark:bg-stone-950">
 
-      <!-- Background decoration -->
-
-      <div
-        class="pointer-events-none absolute -right-32 top-20 h-80 w-80 rounded-full bg-amber-100/70 blur-3xl dark:bg-amber-900/20">
-      </div>
-
-      <div
-        class="pointer-events-none absolute -left-32 bottom-10 h-72 w-72 rounded-full bg-orange-100/60 blur-3xl dark:bg-orange-950/20">
-      </div>
-
-
-      <div
-        class="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
-
+      <div class="premium-container py-20 sm:py-24 lg:py-32">
 
         <div
-          class="grid items-center gap-12 lg:grid-cols-[0.95fr,1.05fr] lg:gap-20">
+          class="grid items-center gap-14 lg:grid-cols-[0.92fr,1.08fr] lg:gap-24">
 
 
           <!-- IMAGE -->
 
           <div
-            class="reveal relative overflow-hidden rounded-[2rem]">
+            class="kitchen-frame reveal">
 
             <img
               src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1200&q=85"
               alt="Bowl and Hearth kitchen team preparing fresh food"
-              class="kitchen-image h-[420px] w-full object-cover sm:h-[500px] lg:h-[560px]">
+              class="kitchen-image">
 
             <div
-              class="absolute inset-0 bg-gradient-to-t from-stone-950/50 via-transparent to-transparent">
-            </div>
-
-
-            <!-- Image label -->
-
-            <div
-              class="absolute bottom-6 left-6 rounded-2xl bg-white/95 px-5 py-4 shadow-xl backdrop-blur dark:bg-stone-900/95">
+              class="absolute bottom-6 left-6 z-10 rounded-2xl border border-white/40 bg-white/95 px-5 py-4 shadow-xl backdrop-blur dark:border-stone-700 dark:bg-stone-900/95">
 
               <p
-                class="text-xs font-semibold uppercase tracking-[0.18em] text-amber-600 dark:text-amber-400">
+                class="text-[10px] font-bold uppercase tracking-[0.18em] text-amber-600 dark:text-amber-400">
                 Inside our kitchen
               </p>
 
@@ -1138,11 +1519,10 @@
 
 
             <h2
-              class="font-display mt-4 text-4xl font-black leading-tight sm:text-5xl">
+              class="font-display section-title mt-6">
 
               More than a kitchen.
-              <span
-                class="text-amber-600 dark:text-amber-400">
+              <span class="text-amber-600 dark:text-amber-400">
                 It's our craft.
               </span>
 
@@ -1150,7 +1530,7 @@
 
 
             <p
-              class="mt-6 text-lg leading-8 text-stone-600 dark:text-stone-300">
+              class="section-copy mt-7 text-stone-600 dark:text-stone-300">
 
               Our team keeps the kitchen deliberately focused:
               fewer distractions, better ingredients and more
@@ -1160,21 +1540,19 @@
 
 
             <div
-              class="kitchen-line mt-8">
+              class="mt-8 h-px w-14 bg-amber-500">
             </div>
 
 
             <!-- POINTS -->
 
-            <div
-              class="mt-8 space-y-7">
+            <div class="mt-9 space-y-7">
 
 
-              <div
-                class="flex gap-5">
+              <div class="flex gap-5">
 
                 <div
-                  class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-lg dark:bg-amber-900">
+                  class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800 dark:bg-amber-900 dark:text-amber-200">
                   01
                 </div>
 
@@ -1199,11 +1577,10 @@
               </div>
 
 
-              <div
-                class="flex gap-5">
+              <div class="flex gap-5">
 
                 <div
-                  class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-lg dark:bg-amber-900">
+                  class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800 dark:bg-amber-900 dark:text-amber-200">
                   02
                 </div>
 
@@ -1228,11 +1605,10 @@
               </div>
 
 
-              <div
-                class="flex gap-5">
+              <div class="flex gap-5">
 
                 <div
-                  class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-lg dark:bg-amber-900">
+                  class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800 dark:bg-amber-900 dark:text-amber-200">
                   03
                 </div>
 
@@ -1259,12 +1635,10 @@
             </div>
 
 
-            <!-- CTA -->
-
             <a
               id="about-menu-link-kitchen"
               href="#"
-              class="mt-9 inline-flex items-center gap-2 rounded-full bg-amber-500 px-7 py-3.5 text-sm font-semibold text-white shadow-md transition hover:bg-amber-600 hover:shadow-lg">
+              class="premium-button mt-9">
 
               Taste what we make
 
@@ -1299,26 +1673,12 @@
     ==================================================== -->
 
     <section
-      class="relative overflow-hidden bg-amber-50 dark:bg-stone-900">
+      class="premium-section bg-amber-50 dark:bg-stone-900">
 
-
-      <!-- Decorative blobs -->
-
-      <div
-        class="pointer-events-none absolute -right-24 top-20 h-72 w-72 rounded-full bg-amber-200/50 blur-3xl dark:bg-amber-800/20">
-      </div>
-
-      <div
-        class="pointer-events-none absolute -left-20 bottom-0 h-64 w-64 rounded-full bg-orange-100/70 blur-3xl dark:bg-orange-950/30">
-      </div>
-
-
-      <div
-        class="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12 lg:py-24">
-
+      <div class="premium-container py-20 sm:py-24 lg:py-32">
 
         <div
-          class="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+          class="grid items-center gap-14 lg:grid-cols-[0.92fr,1.08fr] lg:gap-24">
 
 
           <!-- IMAGE -->
@@ -1327,12 +1687,12 @@
             class="reveal relative order-2 lg:order-1">
 
             <div
-              class="overflow-hidden rounded-[2rem] shadow-xl">
+              class="overflow-hidden rounded-[30px] shadow-2xl">
 
               <img
                 src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=85"
                 alt="Fresh home-style meal prepared by Bowl & Hearth"
-                class="why-image h-[420px] w-full object-cover sm:h-[500px]">
+                class="why-image h-[420px] w-full object-cover sm:h-[540px]">
 
             </div>
 
@@ -1340,31 +1700,24 @@
             <!-- QUALITY BADGE -->
 
             <div
-              class="float-card absolute -bottom-6 -right-4 rounded-2xl bg-white px-5 py-4 shadow-xl dark:bg-stone-800 sm:-right-6">
+              class="float-card absolute -bottom-6 right-4 z-20 rounded-2xl border border-stone-100 bg-white px-5 py-4 shadow-xl dark:border-stone-700 dark:bg-stone-800 sm:-right-6">
 
-              <div
-                class="flex items-center gap-3">
+              <div class="flex items-center gap-3">
 
                 <span
                   class="flex h-11 w-11 items-center justify-center rounded-full bg-green-100 text-xl dark:bg-green-900">
-
                   ✓
-
                 </span>
 
                 <div>
 
                   <p
                     class="text-sm font-bold text-stone-900 dark:text-white">
-
                     Made with care
-
                   </p>
 
                   <p class="text-xs text-stone-400">
-
                     Fresh. Local. Reliable.
-
                   </p>
 
                 </div>
@@ -1388,12 +1741,11 @@
 
 
             <h2
-              class="font-display mt-4 text-4xl font-black leading-tight sm:text-5xl">
+              class="font-display section-title mt-6">
 
               The comfort of home,
 
-              <span
-                class="text-amber-600 dark:text-amber-400">
+              <span class="text-amber-600 dark:text-amber-400">
                 without the work.
               </span>
 
@@ -1401,7 +1753,7 @@
 
 
             <p
-              class="mt-6 text-lg leading-8 text-stone-600 dark:text-stone-300">
+              class="section-copy mt-7 text-stone-600 dark:text-stone-300">
 
               From the first ingredient to the final doorstep,
               every part of our kitchen is designed to make
@@ -1412,29 +1764,21 @@
 
             <!-- HIGHLIGHTS -->
 
-            <div class="mt-8 space-y-5">
+            <div class="mt-9 space-y-4">
 
 
-              <!-- 1 -->
-
-              <div
-                class="highlight-card flex gap-4 rounded-2xl border border-amber-100 bg-white/80 p-5 shadow-sm dark:border-stone-800 dark:bg-stone-950/60">
+              <div class="highlight-card">
 
                 <div
-                  class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-amber-100 text-xl dark:bg-amber-900">
-
+                  class="premium-icon flex-shrink-0">
                   🥕
-
                 </div>
-
 
                 <div>
 
                   <h3
                     class="font-bold text-stone-900 dark:text-white">
-
                     Fresh ingredients
-
                   </h3>
 
                   <p
@@ -1450,26 +1794,18 @@
               </div>
 
 
-              <!-- 2 -->
-
-              <div
-                class="highlight-card flex gap-4 rounded-2xl border border-amber-100 bg-white/80 p-5 shadow-sm dark:border-stone-800 dark:bg-stone-950/60">
+              <div class="highlight-card">
 
                 <div
-                  class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-amber-100 text-xl dark:bg-amber-900">
-
+                  class="premium-icon flex-shrink-0">
                   🚚
-
                 </div>
-
 
                 <div>
 
                   <h3
                     class="font-bold text-stone-900 dark:text-white">
-
                     Reliable delivery
-
                   </h3>
 
                   <p
@@ -1485,26 +1821,18 @@
               </div>
 
 
-              <!-- 3 -->
-
-              <div
-                class="highlight-card flex gap-4 rounded-2xl border border-amber-100 bg-white/80 p-5 shadow-sm dark:border-stone-800 dark:bg-stone-950/60">
+              <div class="highlight-card">
 
                 <div
-                  class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-amber-100 text-xl dark:bg-amber-900">
-
+                  class="premium-icon flex-shrink-0">
                   ❤️
-
                 </div>
-
 
                 <div>
 
                   <h3
                     class="font-bold text-stone-900 dark:text-white">
-
                     Made for real life
-
                   </h3>
 
                   <p
@@ -1525,7 +1853,7 @@
             <a
               id="about-menu-link-3"
               href="#"
-              class="mt-8 inline-flex items-center gap-2 rounded-full bg-amber-500 px-7 py-3.5 text-sm font-semibold text-white shadow-md transition hover:bg-amber-600 hover:shadow-lg">
+              class="premium-button mt-8">
 
               Order something good
 
@@ -1560,10 +1888,10 @@
     ==================================================== -->
 
     <section
-      class="bg-stone-50 dark:bg-stone-950">
+      class="premium-section bg-stone-50 dark:bg-stone-950">
 
       <div
-        class="mx-auto max-w-5xl px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
+        class="mx-auto max-w-5xl px-5 py-20 sm:px-8 lg:py-32">
 
 
         <div class="reveal">
@@ -1573,7 +1901,7 @@
           </p>
 
           <h2
-            class="font-display mt-4 max-w-2xl text-4xl font-black leading-tight sm:text-5xl">
+            class="font-display section-title mt-6 max-w-3xl">
 
             Four things you can count on,
             every single order.
@@ -1583,30 +1911,28 @@
         </div>
 
 
-        <div
-          class="mt-14 divide-y divide-stone-200 dark:divide-stone-800">
+        <div class="mt-12">
 
 
           <!-- 01 -->
 
           <div
-            class="reveal grid gap-3 py-8 sm:grid-cols-[auto,1fr] sm:items-baseline sm:gap-10"
+            class="promise-row reveal"
             style="transition-delay:0.05s">
 
-            <span
-              class="font-display text-2xl font-black text-amber-500">
+            <span class="promise-number">
               01
             </span>
 
             <div>
 
               <h3
-                class="font-display text-2xl font-bold">
+                class="font-display text-2xl font-bold sm:text-3xl">
                 Nothing pre-cooked, nothing frozen
               </h3>
 
               <p
-                class="mt-2 max-w-2xl leading-7 text-stone-500 dark:text-stone-400">
+                class="mt-3 max-w-2xl leading-7 text-stone-500 dark:text-stone-400">
 
                 Every dish starts from raw ingredients on the day
                 it's ordered. We don't batch-cook a week ahead
@@ -1622,23 +1948,22 @@
           <!-- 02 -->
 
           <div
-            class="reveal grid gap-3 py-8 sm:grid-cols-[auto,1fr] sm:items-baseline sm:gap-10"
+            class="promise-row reveal"
             style="transition-delay:0.1s">
 
-            <span
-              class="font-display text-2xl font-black text-amber-500">
+            <span class="promise-number">
               02
             </span>
 
             <div>
 
               <h3
-                class="font-display text-2xl font-bold">
+                class="font-display text-2xl font-bold sm:text-3xl">
                 A menu that follows the season
               </h3>
 
               <p
-                class="mt-2 max-w-2xl leading-7 text-stone-500 dark:text-stone-400">
+                class="mt-3 max-w-2xl leading-7 text-stone-500 dark:text-stone-400">
 
                 What's on offer shifts as local produce shifts.
                 If it isn't in season nearby, it isn't on the menu
@@ -1654,23 +1979,22 @@
           <!-- 03 -->
 
           <div
-            class="reveal grid gap-3 py-8 sm:grid-cols-[auto,1fr] sm:items-baseline sm:gap-10"
+            class="promise-row reveal"
             style="transition-delay:0.15s">
 
-            <span
-              class="font-display text-2xl font-black text-amber-500">
+            <span class="promise-number">
               03
             </span>
 
             <div>
 
               <h3
-                class="font-display text-2xl font-bold">
+                class="font-display text-2xl font-bold sm:text-3xl">
                 Prices that don't move with delivery apps
               </h3>
 
               <p
-                class="mt-2 max-w-2xl leading-7 text-stone-500 dark:text-stone-400">
+                class="mt-3 max-w-2xl leading-7 text-stone-500 dark:text-stone-400">
 
                 What you see on our menu is what you pay. We keep
                 pricing steady instead of surging it around
@@ -1686,23 +2010,22 @@
           <!-- 04 -->
 
           <div
-            class="reveal grid gap-3 py-8 sm:grid-cols-[auto,1fr] sm:items-baseline sm:gap-10"
+            class="promise-row reveal"
             style="transition-delay:0.2s">
 
-            <span
-              class="font-display text-2xl font-black text-amber-500">
+            <span class="promise-number">
               04
             </span>
 
             <div>
 
               <h3
-                class="font-display text-2xl font-bold">
+                class="font-display text-2xl font-bold sm:text-3xl">
                 A real person if something's wrong
               </h3>
 
               <p
-                class="mt-2 max-w-2xl leading-7 text-stone-500 dark:text-stone-400">
+                class="mt-3 max-w-2xl leading-7 text-stone-500 dark:text-stone-400">
 
                 No chatbot loops. If an order arrives late, cold,
                 or wrong, you'll reach someone from our kitchen
@@ -1786,9 +2109,7 @@
     menuButtons.forEach(function (button) {
 
       if (button) {
-
         button.href = menuPageUrl;
-
       }
 
     });
@@ -1806,37 +2127,46 @@
       document.querySelectorAll(".reveal");
 
 
-    const observer =
-      new IntersectionObserver(
+    if ("IntersectionObserver" in window) {
 
-        (entries) => {
+      const observer =
+        new IntersectionObserver(
 
-          entries.forEach(entry => {
+          (entries) => {
 
-            if (entry.isIntersecting) {
+            entries.forEach(entry => {
 
-              entry.target.classList.add("visible");
+              if (entry.isIntersecting) {
 
-              observer.unobserve(entry.target);
+                entry.target.classList.add("visible");
 
-            }
+                observer.unobserve(entry.target);
 
-          });
+              }
 
-        },
+            });
 
-        {
-          threshold: 0.12
-        }
+          },
 
-      );
+          {
+            threshold: 0.10,
+            rootMargin: "0px 0px -40px 0px"
+          }
+
+        );
 
 
-    revealEls.forEach(el => {
+      revealEls.forEach(el => {
+        observer.observe(el);
+      });
 
-      observer.observe(el);
+    } else {
 
-    });
+      revealEls.forEach(el => {
+        el.classList.add("visible");
+      });
+
+    }
 
   </script>
 

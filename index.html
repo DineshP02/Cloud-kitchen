@@ -1103,6 +1103,10 @@
 
             text-transform: uppercase;
 
+            line-height: 1.5;
+
+            min-height: 3em;
+
         }
 
 
@@ -1215,6 +1219,8 @@
             line-height: 1;
 
             font-weight: 600;
+
+            min-height: 2em;
 
         }
 
@@ -1404,6 +1410,10 @@
 
         .bh-testimonial {
 
+            display: flex;
+
+            flex-direction: column;
+
             padding: 40px 32px;
 
             background: var(--bh-cream);
@@ -1445,7 +1455,9 @@
 
             gap: 12px;
 
-            margin-top: 30px;
+            margin-top: auto;
+
+            padding-top: 20px;
 
         }
 
@@ -2082,6 +2094,7 @@
 
 
 <style id="bh-premium-redesign">
+
 /* =========================================================
    BOWL & HEARTH — PREMIUM HOME REDESIGN OVERRIDES
    ========================================================= */
@@ -2332,9 +2345,14 @@ body{
 }
 
 .bh-food-grid{
-    grid-template-columns:1.18fr .82fr .82fr;
     gap:20px;
     margin-top:58px;
+}
+
+@media(min-width:1024px){
+    .bh-food-grid{
+        grid-template-columns:1.18fr .82fr .82fr;
+    }
 }
 
 .bh-food-main,
@@ -2736,6 +2754,774 @@ body{
         transform:none;
     }
 }
+
+
+/* =========================================================
+   DARK MODE — TEXT CLARITY & CONTRAST FIX
+   ========================================================= */
+
+.dark {
+
+    --bh-ink: #F7F1E8;
+    --bh-dark: #110C09;
+    --bh-paper: #18120E;
+    --bh-cream: #211813;
+    --bh-terracotta: #E05A3F;
+    --bh-gold: #E6B563;
+    --bh-sage: #A8B58F;
+    --bh-muted: #C5B9AE;
+    --bh-line: rgba(255,255,255,.14);
+
+}
+
+
+/* Body */
+
+.dark body {
+
+    background: #15100C !important;
+
+    color: #F7F1E8 !important;
+
+}
+
+
+/* General text */
+
+.dark p,
+.dark span,
+.dark div,
+.dark li,
+.dark label {
+
+    border-color: rgba(255,255,255,.12);
+
+}
+
+
+/* Section backgrounds */
+
+.dark .bh-intro,
+.dark .bh-process,
+.dark .bh-delivery {
+
+    background: #18120E;
+
+    color: #F7F1E8;
+
+}
+
+
+.dark .bh-menu-section {
+
+    background:
+        linear-gradient(
+            180deg,
+            #211813 0%,
+            #1C1510 100%
+        );
+
+}
+
+
+.dark .bh-testimonials {
+
+    background: #211813;
+
+}
+
+
+.dark .bh-specials {
+
+    background:
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(200,138,58,.14),
+            transparent 30%
+        ),
+        #17100C;
+
+}
+
+
+/* Section headings */
+
+.dark .bh-section-title {
+
+    color: #FFF8EF !important;
+
+}
+
+
+.dark .bh-intro-lead {
+
+    color: #FFF8EF !important;
+
+}
+
+
+.dark .bh-script {
+
+    color: #F0A28F !important;
+
+}
+
+
+/* Section descriptions */
+
+.dark .bh-section-copy {
+
+    color: #D7CCC2 !important;
+
+}
+
+
+/* Eyebrows */
+
+.dark .bh-eyebrow {
+
+    color: #F0C675 !important;
+
+}
+
+
+.dark .bh-eyebrow::before {
+
+    background: #E6B563 !important;
+
+}
+
+
+/* Intro detail text */
+
+.dark .bh-detail p {
+
+    color: #E8DED5 !important;
+
+}
+
+
+.dark .bh-detail p.text-stone-500 {
+
+    color: #BEB1A6 !important;
+
+}
+
+
+.dark .bh-detail-icon {
+
+    background: rgba(224,90,63,.12);
+
+    border-color: rgba(224,90,63,.25);
+
+    color: #F0785D;
+
+}
+
+
+/* Menu cards */
+
+.dark .bh-food-side {
+
+    background: #211813;
+
+    border-color: rgba(255,255,255,.10);
+
+}
+
+
+.dark .bh-food-side-content {
+
+    color: #F7F1E8;
+
+}
+
+
+.dark .bh-food-side-content p.text-stone-500 {
+
+    color: #C5B9AE !important;
+
+}
+
+
+.dark .bh-food-name {
+
+    color: #FFF8EF !important;
+
+}
+
+
+.dark .bh-food-tag {
+
+    color: #F0A15C !important;
+
+}
+
+
+.dark .bh-food-price {
+
+    color: #E6B563 !important;
+
+}
+
+
+/* Main food card */
+
+.dark .bh-food-main-content {
+
+    color: #FFF8EF;
+
+}
+
+
+.dark .bh-food-main-content p {
+
+    color: rgba(255,255,255,.78) !important;
+
+}
+
+
+/* Numbers section */
+
+.dark .bh-numbers {
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(200,138,58,.15),
+            transparent 42%
+        ),
+        #110C09;
+
+}
+
+
+.dark .bh-number-label {
+
+    color: rgba(255,255,255,.72) !important;
+
+}
+
+
+.dark .bh-number-value {
+
+    color: #EBC47B !important;
+
+}
+
+
+/* Process section */
+
+.dark .bh-process {
+
+    color: #F7F1E8;
+
+}
+
+
+.dark .bh-process-number {
+
+    background: #18120E;
+
+    color: #F0A15C;
+
+    border-color: rgba(224,90,63,.42);
+
+    box-shadow:
+        0 0 0 11px #18120E,
+        0 12px 30px rgba(0,0,0,.25);
+
+}
+
+
+.dark .bh-process-title {
+
+    color: #FFF8EF !important;
+
+}
+
+
+.dark .bh-process-copy {
+
+    color: #C5B9AE !important;
+
+}
+
+
+/* Specials */
+
+.dark .bh-specials-title {
+
+    color: #FFF8EF !important;
+
+}
+
+
+.dark .bh-special-row h3 {
+
+    color: #FFF8EF !important;
+
+}
+
+
+.dark .bh-special-row p {
+
+    color: rgba(255,255,255,.68) !important;
+
+}
+
+
+.dark .bh-special-price {
+
+    color: #EBC47B !important;
+
+}
+
+
+/* Testimonials */
+
+.dark .bh-testimonials {
+
+    color: #FFF8EF;
+
+}
+
+
+.dark .bh-testimonial-grid {
+
+    background: rgba(255,255,255,.12);
+
+    border-color: rgba(255,255,255,.12);
+
+}
+
+
+.dark .bh-testimonial {
+
+    background: #211813;
+
+    color: #FFF8EF;
+
+}
+
+
+.dark .bh-testimonial:hover {
+
+    background: #281E17;
+
+}
+
+
+.dark .bh-testimonial-text {
+
+    color: #F4EAE0 !important;
+
+}
+
+
+.dark .bh-person-name {
+
+    color: #FFF8EF !important;
+
+}
+
+
+.dark .bh-person-location {
+
+    color: #BEB1A6 !important;
+
+}
+
+
+/* CTA */
+
+.dark .bh-cta {
+
+    color: #FFF8EF;
+
+}
+
+
+.dark .bh-cta-title {
+
+    color: #FFF8EF !important;
+
+}
+
+
+.dark .bh-cta-copy {
+
+    color: rgba(255,255,255,.78) !important;
+
+}
+
+
+/* Delivery */
+
+.dark .bh-delivery {
+
+    background: #18120E;
+
+}
+
+
+.dark .bh-delivery-grid {
+
+    border-color: rgba(255,255,255,.13);
+
+    background: #18120E;
+
+}
+
+
+.dark .bh-delivery-copy {
+
+    background:
+        radial-gradient(
+            circle at 20% 15%,
+            rgba(200,138,58,.10),
+            transparent 35%
+        ),
+        #18120E;
+
+}
+
+
+.dark .bh-zone {
+
+    color: #EDE3DA !important;
+
+    border-color: rgba(255,255,255,.12);
+
+}
+
+
+.dark .bh-zone:hover {
+
+    background: rgba(255,255,255,.035);
+
+}
+
+
+.dark .bh-zone-list {
+
+    border-color: rgba(255,255,255,.12);
+
+}
+
+
+/* Map information box */
+
+.dark .bh-map-info {
+
+    background: rgba(25,19,15,.96) !important;
+
+    color: #FFF8EF !important;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+}
+
+
+.dark .bh-map-info small {
+
+    color: #C5B9AE !important;
+
+}
+
+
+.dark .bh-map-info strong {
+
+    color: #FFF8EF !important;
+
+}
+
+
+/* Leaflet popup */
+
+.dark .leaflet-popup-content-wrapper,
+.dark .leaflet-popup-tip {
+
+    background: #211813;
+
+    color: #FFF8EF;
+
+}
+
+
+.dark .leaflet-popup-content {
+
+    color: #FFF8EF;
+
+}
+
+
+.dark .leaflet-popup-content span {
+
+    color: #C5B9AE !important;
+
+}
+
+
+/* Map labels */
+
+.dark .bh-zone-label {
+
+    background: #211813 !important;
+
+    color: #FFF8EF !important;
+
+    border: 1px solid rgba(255,255,255,.12) !important;
+
+}
+
+
+/* Tailwind text utility classes */
+
+.dark .text-stone-500 {
+
+    color: #BEB1A6 !important;
+
+}
+
+
+.dark .text-stone-600 {
+
+    color: #C9BDB2 !important;
+
+}
+
+
+.dark .text-stone-700 {
+
+    color: #DDD2C8 !important;
+
+}
+
+
+.dark .text-stone-800 {
+
+    color: #F0E7DE !important;
+
+}
+
+
+/* Fixed custom colors */
+
+.dark .text-\[\#241A14\] {
+
+    color: #FFF8EF !important;
+
+}
+
+
+.dark .text-\[\#766A60\] {
+
+    color: #C5B9AE !important;
+
+}
+
+
+/* Links */
+
+.dark a {
+
+    color: inherit;
+
+}
+
+
+.dark .bh-btn-text {
+
+    color: #F0A15C !important;
+
+}
+
+
+.dark .bh-btn-text:hover {
+
+    color: #F4C777 !important;
+
+}
+
+
+/* Primary button */
+
+.dark .bh-btn-primary {
+
+    background: #C94A32;
+
+    color: #FFFFFF !important;
+
+}
+
+
+.dark .bh-btn-primary:hover {
+
+    background: #E05A3F;
+
+}
+
+
+/* Outline button */
+
+.dark .bh-btn-outline {
+
+    color: #FFFFFF !important;
+
+    border-color: rgba(255,255,255,.45);
+
+    background: rgba(255,255,255,.03);
+
+}
+
+
+.dark .bh-btn-outline:hover {
+
+    background: #FFFFFF;
+
+    color: #211710 !important;
+
+}
+
+
+/* Hero */
+
+.dark .bh-hero-description {
+
+    color: rgba(255,255,255,.82) !important;
+
+}
+
+
+.dark .bh-hero-title {
+
+    color: #FFFFFF !important;
+
+}
+
+
+.dark .bh-hero-title em {
+
+    color: #F1C978 !important;
+
+}
+
+
+.dark .bh-hero-kicker {
+
+    color: #F4C777 !important;
+
+    border-color: rgba(255,255,255,.25);
+
+}
+
+
+/* Mobile dark-mode readability */
+
+@media(max-width:767px) {
+
+    .dark .bh-section-copy {
+
+        color: #D8CDC3 !important;
+
+    }
+
+    .dark .bh-intro-lead {
+
+        color: #FFF8EF !important;
+
+    }
+
+    .dark .bh-food-side-content p {
+
+        color: #C5B9AE !important;
+
+    }
+
+    .dark .bh-process-copy {
+
+        color: #C8BCB1 !important;
+
+    }
+
+    .dark .bh-special-row p {
+
+        color: rgba(255,255,255,.72) !important;
+
+    }
+
+    .dark .bh-testimonial-text {
+
+        color: #F4EAE0 !important;
+
+    }
+
+    .dark .bh-person-location {
+
+        color: #BEB1A6 !important;
+
+    }
+
+    .dark .bh-zone {
+
+        color: #EDE3DA !important;
+
+    }
+
+}
+
+
+/* Prevent low-contrast Tailwind text */
+
+.dark .text-xs,
+.dark .text-sm,
+.dark .text-\[11px\],
+.dark .text-\[12px\] {
+
+    color: #D8CDC3;
+
+}
+
+
+.dark .font-bold,
+.dark .font-semibold,
+.dark .font-medium {
+
+    color: inherit;
+
+}
+
+
+/* Intentional white text */
+
+.dark .text-white,
+.dark .text-white\/70,
+.dark .text-white\/75,
+.dark .text-white\/80 {
+
+    color: rgba(255,255,255,.85) !important;
+
+}
+
+
+.dark .text-white {
+
+    color: #FFFFFF !important;
+
+}
+
+
+/* Dark selection */
+
+.dark ::selection {
+
+    background: #E05A3F;
+
+    color: #FFFFFF;
+
+}
+
 </style>
 
 
@@ -3314,9 +4100,9 @@ body{
         <div class="mx-auto max-w-[1250px]">
 
 
-            <div class="max-w-2xl">
+            <div class="max-w-2xl mx-auto text-center">
 
-                <p class="bh-eyebrow">
+                <p class="bh-eyebrow justify-center">
                     From kitchen to doorstep
                 </p>
 
@@ -3433,9 +4219,9 @@ body{
         <div class="mx-auto max-w-[1250px]">
 
 
-            <div>
+            <div class="max-w-2xl mx-auto text-center">
 
-                <p class="bh-eyebrow">
+                <p class="bh-eyebrow justify-center">
                     From the pass
                 </p>
 
@@ -3564,9 +4350,9 @@ body{
         <div class="mx-auto max-w-[1250px]">
 
 
-            <div class="max-w-2xl">
+            <div class="max-w-2xl mx-auto text-center">
 
-                <p class="bh-eyebrow">
+                <p class="bh-eyebrow justify-center">
                     Word of mouth
                 </p>
 
@@ -3780,9 +4566,9 @@ body{
         <div class="mx-auto max-w-[1250px]">
 
 
-            <div class="mb-12 px-6 sm:px-0">
+            <div class="mb-12 px-6 sm:px-0 max-w-2xl mx-auto text-center">
 
-                <p class="bh-eyebrow">
+                <p class="bh-eyebrow justify-center">
                     Delivery coverage
                 </p>
 
@@ -4299,8 +5085,8 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
-
 <script id="bh-premium-motion">
+
 document.addEventListener("DOMContentLoaded", function () {
 
     const revealTargets = document.querySelectorAll(
@@ -4309,34 +5095,61 @@ document.addEventListener("DOMContentLoaded", function () {
         ".bh-cta-inner, .bh-delivery-grid"
     );
 
+
     revealTargets.forEach(function (element, index) {
+
         element.classList.add("bh-reveal");
-        element.style.transitionDelay = Math.min(index * 45, 260) + "ms";
+
+        element.style.transitionDelay =
+            Math.min(index * 45, 260) + "ms";
+
     });
 
+
     if ("IntersectionObserver" in window) {
-        const observer = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("bh-visible");
-                    observer.unobserve(entry.target);
-                }
+
+        const observer =
+            new IntersectionObserver(function (entries) {
+
+                entries.forEach(function (entry) {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("bh-visible");
+
+                        observer.unobserve(entry.target);
+
+                    }
+
+                });
+
+            }, {
+
+                threshold: 0.12,
+
+                rootMargin: "0px 0px -45px 0px"
+
             });
-        }, {
-            threshold: 0.12,
-            rootMargin: "0px 0px -45px 0px"
-        });
+
 
         revealTargets.forEach(function (element) {
+
             observer.observe(element);
+
         });
+
     } else {
+
         revealTargets.forEach(function (element) {
+
             element.classList.add("bh-visible");
+
         });
+
     }
 
 });
+
 </script>
 
 

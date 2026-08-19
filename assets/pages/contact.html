@@ -133,12 +133,6 @@
         }
 
 
-        /*
-         * Main hero container.
-         * Same max-width and horizontal spacing
-         * as the rest of the page.
-         */
-
         .contact-hero-container {
 
             position: relative;
@@ -406,8 +400,7 @@
 
 
         /* =====================================================
-           NEW HERO IMAGE
-           DIFFERENT IMAGE FROM PREVIOUS SVG
+           HERO IMAGE
         ====================================================== */
 
         .contact-hero-art {
@@ -446,10 +439,6 @@
         }
 
 
-        /*
-         * Soft image overlay.
-         */
-
         .contact-hero-art::after {
 
             content: "";
@@ -468,10 +457,6 @@
             pointer-events: none;
         }
 
-
-        /*
-         * Small editorial label over image.
-         */
 
         .hero-image-caption {
 
@@ -1429,6 +1414,541 @@
 
         }
 
+
+        /* =====================================================
+           ALL-SCREEN RESPONSIVE + OVERLAP FIXES
+           ONLY RESPONSIVE CHANGES
+        ====================================================== */
+
+        /* Global overflow protection */
+
+        html,
+        body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        .contact-hero-inner > *,
+        .grid > *,
+        .help-row > *,
+        .location-info,
+        .contact-detail,
+        .map-info-card {
+            min-width: 0;
+        }
+
+        .contact-hero-text,
+        .help-description,
+        .location-info-text,
+        .contact-detail,
+        .map-info-card,
+        .help-title,
+        .hero-image-caption-text {
+            overflow-wrap: anywhere;
+        }
+
+
+        /* =====================================================
+           MOBILE HERO
+        ====================================================== */
+
+        @media (max-width: 639px) {
+
+            .contact-hero-container {
+                width: 100%;
+                max-width: 100%;
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .contact-hero-inner {
+                width: 100%;
+                grid-template-columns: minmax(0, 1fr);
+                gap: 28px;
+            }
+
+            .contact-hero-inner > * {
+                width: 100%;
+                min-width: 0;
+            }
+
+            .contact-hero-heading {
+                width: 100%;
+                max-width: 100%;
+                font-size: clamp(2.5rem, 12vw, 4.2rem);
+                line-height: 0.95;
+                overflow-wrap: normal;
+            }
+
+            .contact-hero-text {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .contact-hero-cta {
+                max-width: 100%;
+            }
+
+            .contact-hero-art {
+                width: 100%;
+                min-height: 300px;
+                height: auto;
+                border-radius: 20px;
+                background-position: center center;
+            }
+
+            .hero-image-caption {
+                max-width: calc(100% - 28px);
+                margin-left: 14px;
+                margin-right: 14px;
+                margin-bottom: 14px;
+            }
+
+        }
+
+
+        /* =====================================================
+           VERY SMALL PHONES
+        ====================================================== */
+
+        @media (max-width: 359px) {
+
+            .contact-hero-container {
+                padding-left: 0.875rem;
+                padding-right: 0.875rem;
+            }
+
+            .contact-hero-inner {
+                gap: 24px;
+            }
+
+            .contact-hero-heading {
+                font-size: 2.35rem;
+                line-height: 0.96;
+            }
+
+            .contact-hero-subline {
+                font-size: 10px;
+                letter-spacing: 0.12em;
+            }
+
+            .contact-hero-text {
+                font-size: 0.92rem;
+                line-height: 1.7;
+            }
+
+            .contact-hero-cta {
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+
+            .contact-hero-art {
+                min-height: 280px;
+                border-radius: 18px;
+            }
+
+            .hero-image-caption {
+                padding: 10px 12px;
+            }
+
+            .hero-image-caption-text {
+                font-size: 0.9rem;
+            }
+
+        }
+
+
+        /* =====================================================
+           MOBILE HELP SECTION
+        ====================================================== */
+
+        @media (max-width: 639px) {
+
+            .help-row {
+                width: 100%;
+                grid-template-columns: 42px minmax(0, 1fr);
+                gap: 12px;
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            .help-number {
+                font-size: 1.7rem;
+                min-width: 0;
+            }
+
+            .help-content {
+                min-width: 0;
+                width: 100%;
+            }
+
+            .help-title-line {
+                min-width: 0;
+                width: 100%;
+                align-items: flex-start;
+            }
+
+            .help-icon {
+                flex-shrink: 0;
+                font-size: 19px;
+            }
+
+            .help-title {
+                min-width: 0;
+                font-size: 1.35rem;
+                line-height: 1.2;
+                overflow-wrap: anywhere;
+            }
+
+            .help-description {
+                width: 100%;
+                max-width: 100%;
+                font-size: 13px;
+                line-height: 1.7;
+            }
+
+            .help-link {
+                max-width: 100%;
+                white-space: normal;
+            }
+
+            .help-row:hover {
+                padding-left: 0;
+            }
+
+        }
+
+
+        /* =====================================================
+           TABLET HELP SECTION
+        ====================================================== */
+
+        @media (min-width: 640px) and (max-width: 1023px) {
+
+            .help-row {
+                grid-template-columns:
+                    72px
+                    minmax(0, 1fr)
+                    150px;
+
+                gap: 20px;
+            }
+
+            .help-content {
+                min-width: 0;
+            }
+
+            .help-title {
+                min-width: 0;
+                line-height: 1.15;
+                overflow-wrap: anywhere;
+            }
+
+            .help-description {
+                max-width: 100%;
+            }
+
+            .help-link {
+                min-width: 0;
+                white-space: nowrap;
+            }
+
+        }
+
+
+        /* =====================================================
+           HERO TABLET
+        ====================================================== */
+
+        @media (min-width: 640px) and (max-width: 1023px) {
+
+            .contact-hero-container {
+                width: 100%;
+                max-width: 1280px;
+            }
+
+            .contact-hero-inner {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 36px;
+            }
+
+            .contact-hero-art {
+                width: 100%;
+                min-height: 380px;
+            }
+
+        }
+
+
+        /* =====================================================
+           TABLET FORM PROTECTION
+        ====================================================== */
+
+        @media (min-width: 640px) and (max-width: 1023px) {
+
+            #enquiry .grid {
+                min-width: 0;
+            }
+
+            #enquiry .grid > * {
+                min-width: 0;
+            }
+
+            .contact-input {
+                max-width: 100%;
+                min-width: 0;
+            }
+
+        }
+
+
+        /* =====================================================
+           MAP MOBILE
+        ====================================================== */
+
+        @media (max-width: 639px) {
+
+            .map-wrapper {
+                width: 100%;
+                min-height: 360px;
+            }
+
+            #contact-map {
+                width: 100%;
+                height: 360px;
+            }
+
+            #contact-map iframe {
+                width: 100%;
+                height: 100%;
+            }
+
+            .map-info-card {
+                left: 10px;
+                right: 10px;
+                bottom: 10px;
+                width: auto;
+                max-width: none;
+                padding: 13px;
+                border-radius: 16px;
+            }
+
+        }
+
+
+        /* =====================================================
+           MAP VERY SMALL MOBILE
+        ====================================================== */
+
+        @media (max-width: 359px) {
+
+            .map-wrapper {
+                min-height: 340px;
+            }
+
+            #contact-map {
+                height: 340px;
+            }
+
+            .map-info-card {
+                left: 8px;
+                right: 8px;
+                bottom: 8px;
+                padding: 11px;
+                border-radius: 14px;
+            }
+
+        }
+
+
+        /* =====================================================
+           MAP TABLET
+        ====================================================== */
+
+        @media (min-width: 640px) and (max-width: 1023px) {
+
+            .map-wrapper {
+                width: 100%;
+                min-height: 430px;
+            }
+
+            #contact-map {
+                width: 100%;
+                height: 430px;
+            }
+
+            .map-info-card {
+                max-width: calc(100% - 48px);
+            }
+
+        }
+
+
+        /* =====================================================
+           LOCATION INFO
+        ====================================================== */
+
+        @media (max-width: 639px) {
+
+            .location-info {
+                width: 100%;
+                min-width: 0;
+            }
+
+            .location-info-text {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .location-info:hover {
+                transform: none;
+            }
+
+        }
+
+
+        /* =====================================================
+           FINAL CTA MOBILE
+        ====================================================== */
+
+        @media (max-width: 639px) {
+
+            .final-contact-cta {
+                width: 100%;
+                overflow: hidden;
+            }
+
+            .final-contact-cta .relative {
+                width: 100%;
+                min-width: 0;
+            }
+
+            .final-contact-cta h2 {
+                line-height: 1.1;
+                overflow-wrap: normal;
+            }
+
+            .final-contact-cta p {
+                max-width: 100%;
+            }
+
+            .final-contact-cta a {
+                max-width: 100%;
+            }
+
+        }
+
+
+        /* =====================================================
+           FINAL CTA VERY SMALL PHONES
+        ====================================================== */
+
+        @media (max-width: 359px) {
+
+            .final-contact-cta h2 {
+                font-size: 2rem;
+                line-height: 1.08;
+            }
+
+            .final-contact-cta .flex {
+                gap: 10px;
+            }
+
+        }
+
+
+        /* =====================================================
+           DESKTOP CONTAINER
+        ====================================================== */
+
+        @media (min-width: 1024px) {
+
+            .contact-hero-container {
+                width: 100%;
+                max-width: 1280px;
+            }
+
+            .contact-hero-inner {
+                width: 100%;
+            }
+
+            .contact-hero-inner > * {
+                min-width: 0;
+            }
+
+        }
+
+
+        /* =====================================================
+           LARGE DESKTOP
+        ====================================================== */
+
+        @media (min-width: 1280px) {
+
+            .contact-hero-container {
+                padding-left: 3rem;
+                padding-right: 3rem;
+            }
+
+        }
+
+
+        /* =====================================================
+           EXTRA LARGE SCREENS
+        ====================================================== */
+
+        @media (min-width: 1536px) {
+
+            .contact-hero-container {
+                max-width: 1280px;
+            }
+
+        }
+
+
+        /* =====================================================
+           TOUCH DEVICES
+        ====================================================== */
+
+        @media (hover: none) {
+
+            .help-row:hover {
+                padding-left: 0;
+            }
+
+            .location-info:hover {
+                transform: none;
+            }
+
+        }
+
+
+        /* =====================================================
+           FINAL HORIZONTAL OVERFLOW SAFETY
+        ====================================================== */
+
+        main,
+        section,
+        .contact-hero,
+        .help-section,
+        .map-wrapper,
+        .final-contact-cta {
+            max-width: 100%;
+        }
+
+        img,
+        iframe,
+        video {
+            max-width: 100%;
+        }
+
     </style>
 
 </head>
@@ -1453,33 +1973,14 @@
 
         <section class="contact-hero">
 
-            <!--
-                IMPORTANT:
-                Hero now uses a proper container.
-                It is aligned with the rest of the page.
-            -->
-
             <div class="contact-hero-container py-12 sm:py-20 lg:py-24">
 
                 <div class="contact-hero-inner">
 
 
-                    <!-- =================================================
-                         HERO LEFT
-                    ================================================== -->
+                    <!-- HERO LEFT -->
 
                     <div class="hero-reveal">
-
-                        <div class="contact-hero-eyebrow">
-
-                            <span
-                                class="contact-hero-eyebrow-dot">
-                            </span>
-
-                            Get in touch
-
-                        </div>
-
 
                         <h1 class="contact-hero-heading">
 
@@ -1520,9 +2021,7 @@
                     </div>
 
 
-                    <!-- =================================================
-                         NEW HERO IMAGE
-                    ================================================== -->
+                    <!-- HERO IMAGE -->
 
                     <div class="hero-reveal-delay">
 
