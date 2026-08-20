@@ -161,12 +161,13 @@
 
             --bh-ink: #241A14;
             --bh-dark: #17110D;
-            --bh-cream: #F8F2E8;
             --bh-paper: #FCF9F3;
+            --bh-cream: #F8F2E8;
             --bh-terracotta: #A8341F;
             --bh-gold: #C9862F;
             --bh-sage: #545F42;
             --bh-muted: #766A60;
+            --bh-line: rgba(36,26,20,.12);
 
         }
 
@@ -945,9 +946,16 @@
         }
 
 
+        /* ---------------------------------------------------
+           SIDE CARDS — now match the main card:
+           full-bleed photo + gradient overlay + text on top
+        --------------------------------------------------- */
+
         .bh-food-side {
 
-            background: var(--bh-paper);
+            position: relative;
+
+            min-height: 600px;
 
             overflow: hidden;
 
@@ -956,6 +964,30 @@
             transition:
                 transform .35s ease,
                 box-shadow .35s ease;
+
+        }
+
+
+        .bh-food-side img {
+
+            position: absolute;
+
+            inset: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: transform .7s ease;
+
+        }
+
+
+        .bh-food-side:hover img {
+
+            transform: scale(1.04);
 
         }
 
@@ -969,20 +1001,37 @@
         }
 
 
-        .bh-food-side img {
+        .bh-food-side::after {
 
-            width: 100%;
+            content: "";
 
-            aspect-ratio: 1.15 / 1;
+            position: absolute;
 
-            object-fit: cover;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    0deg,
+                    rgba(24,15,10,.90),
+                    rgba(24,15,10,.05) 65%
+                );
 
         }
 
 
         .bh-food-side-content {
 
-            padding: 22px;
+            position: absolute;
+
+            z-index: 2;
+
+            left: 22px;
+
+            right: 22px;
+
+            bottom: 22px;
+
+            color: white;
 
         }
 
@@ -1244,23 +1293,23 @@
 
         .bh-specials {
 
-            background: #211812;
+            background: #f7f5ed;
 
-            color: white;
+            color: var(--bh-ink);
 
         }
 
 
         .bh-specials .bh-eyebrow {
 
-            color: #E6B563;
+            color: var(--bh-terracotta);
 
         }
 
 
         .bh-specials-title {
 
-            color: white;
+            color: var(--bh-ink);
 
         }
 
@@ -1319,7 +1368,7 @@
 
         .bh-special-list {
 
-            border-top: 1px solid rgba(255,255,255,.16);
+            border-top: 1px solid rgba(36,26,20,.14);
 
         }
 
@@ -1334,7 +1383,7 @@
 
             padding: 24px 0;
 
-            border-bottom: 1px solid rgba(255,255,255,.16);
+            border-bottom: 1px solid rgba(36,26,20,.14);
 
         }
 
@@ -1347,6 +1396,8 @@
 
             font-weight: 600;
 
+            color: var(--bh-ink);
+
         }
 
 
@@ -1356,7 +1407,7 @@
 
             max-width: 420px;
 
-            color: rgba(255,255,255,.55);
+            color: var(--bh-muted);
 
             font-size: .75rem;
 
@@ -1367,7 +1418,7 @@
 
         .bh-special-price {
 
-            color: #E6B563;
+            color: var(--bh-terracotta);
 
             font-size: .8rem;
 
@@ -1836,6 +1887,13 @@
             }
 
 
+            .bh-food-side {
+
+                min-height: 420px;
+
+            }
+
+
             .bh-specials-grid {
 
                 grid-template-columns: 1fr;
@@ -1946,6 +2004,13 @@
                 grid-column: auto;
 
                 min-height: 460px;
+
+            }
+
+
+            .bh-food-side {
+
+                min-height: 380px;
 
             }
 
@@ -2360,38 +2425,23 @@ body{
     border-radius:6px;
 }
 
-.bh-food-main{
+.bh-food-main,
+.bh-food-side{
     min-height:620px;
     box-shadow:0 22px 60px rgba(36,26,20,.10);
 }
 
-.bh-food-main::after{
+.bh-food-main::after,
+.bh-food-side::after{
     background:
         linear-gradient(180deg,transparent 35%,rgba(17,10,7,.90) 100%);
 }
 
-.bh-food-main-content{
+.bh-food-main-content,
+.bh-food-side-content{
     left:36px;
     right:36px;
     bottom:36px;
-}
-
-.bh-food-side{
-    border:1px solid rgba(36,26,20,.07);
-    box-shadow:0 14px 35px rgba(36,26,20,.06);
-}
-
-.bh-food-side img{
-    aspect-ratio:1.08 / 1;
-    transition:transform .65s cubic-bezier(.2,.8,.2,1);
-}
-
-.bh-food-side:hover img{
-    transform:scale(1.045);
-}
-
-.bh-food-side-content{
-    padding:25px;
 }
 
 .bh-food-name{
@@ -2461,9 +2511,7 @@ body{
 
 /* Specials */
 .bh-specials{
-    background:
-        radial-gradient(circle at 85% 15%,rgba(200,138,58,.13),transparent 30%),
-        #211812;
+    background: #f7f5ed;
 }
 
 .bh-specials-grid{
@@ -2611,7 +2659,8 @@ body{
         gap:16px;
     }
 
-    .bh-food-main{
+    .bh-food-main,
+    .bh-food-side{
         min-height:540px;
     }
 
@@ -2660,18 +2709,16 @@ body{
         font-size:clamp(3rem,13vw,4.3rem);
     }
 
-    .bh-food-main{
-        min-height:470px;
+    .bh-food-main,
+    .bh-food-side{
+        min-height:420px;
     }
 
-    .bh-food-main-content{
+    .bh-food-main-content,
+    .bh-food-side-content{
         left:24px;
         right:24px;
         bottom:25px;
-    }
-
-    .bh-food-side-content{
-        padding:22px;
     }
 
     .bh-number{
@@ -2729,8 +2776,9 @@ body{
         padding-bottom:84px !important;
     }
 
-    .bh-food-main{
-        min-height:430px;
+    .bh-food-main,
+    .bh-food-side{
+        min-height:380px;
     }
 
     .bh-special-row{
@@ -2921,25 +2969,9 @@ body{
 
 /* Menu cards */
 
-.dark .bh-food-side {
-
-    background: #211813;
-
-    border-color: rgba(255,255,255,.10);
-
-}
-
-
 .dark .bh-food-side-content {
 
-    color: #F7F1E8;
-
-}
-
-
-.dark .bh-food-side-content p.text-stone-500 {
-
-    color: #C5B9AE !important;
+    color: #FFF8EF;
 
 }
 
@@ -3966,24 +3998,37 @@ body{
 
                     <div class="bh-food-side-content">
 
-                        <span class="bh-food-tag">
+                        <span class="bh-food-tag text-[#E6B563]">
                             Vegetarian
                         </span>
 
-                        <h3 class="bh-food-name">
+                        <h3 class="bh-display mt-2 text-2xl font-semibold">
                             Garden paneer bowl
                         </h3>
 
-                        <p class="mt-2 text-xs leading-6 text-stone-500">
+                        <p class="mt-2 max-w-xs text-xs leading-6 text-white/70">
 
                             Seasonal vegetables,
                             soft paneer and coconut gravy.
 
                         </p>
 
-                        <p class="bh-food-price">
-                            ₹189
-                        </p>
+                        <div class="mt-4 flex items-center justify-between">
+
+                            <p class="mt-0 text-sm font-bold text-[#E6B563]">
+                                ₹189
+                            </p>
+
+                            <a
+                                href="assets/pages/menu.html"
+                                class="bh-btn-text text-[11px]"
+                                style="color:#E6B563"
+                            >
+                                Order this
+                                <span>→</span>
+                            </a>
+
+                        </div>
 
                     </div>
 
@@ -4003,24 +4048,37 @@ body{
 
                     <div class="bh-food-side-content">
 
-                        <span class="bh-food-tag">
+                        <span class="bh-food-tag text-[#E6B563]">
                             Comfort food
                         </span>
 
-                        <h3 class="bh-food-name">
+                        <h3 class="bh-display mt-2 text-2xl font-semibold">
                             Grandmother's dal-chawal
                         </h3>
 
-                        <p class="mt-2 text-xs leading-6 text-stone-500">
+                        <p class="mt-2 max-w-xs text-xs leading-6 text-white/70">
 
                             Slow-simmered dal,
                             ghee rice and mango pickle.
 
                         </p>
 
-                        <p class="bh-food-price">
-                            ₹159
-                        </p>
+                        <div class="mt-4 flex items-center justify-between">
+
+                            <p class="mt-0 text-sm font-bold text-[#E6B563]">
+                                ₹159
+                            </p>
+
+                            <a
+                                href="assets/pages/menu.html"
+                                class="bh-btn-text text-[11px]"
+                                style="color:#E6B563"
+                            >
+                                Order this
+                                <span>→</span>
+                            </a>
+
+                        </div>
 
                     </div>
 
@@ -4322,7 +4380,6 @@ body{
                     <a
                         href="assets/pages/menu.html"
                         class="bh-btn-text mt-7"
-                        style="color:#E6B563"
                     >
 
                         View the complete menu

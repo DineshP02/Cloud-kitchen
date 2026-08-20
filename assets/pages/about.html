@@ -3,2172 +3,3015 @@
 
 <head>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="UTF-8">
 
-  <title>About | Bowl & Hearth</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
 
-  <link rel="icon" type="image/png" href="../images/favicon.png">
+    <title>About | Bowl & Hearth</title>
 
-  <!-- =====================================================
-       TAILWIND
-  ====================================================== -->
+    <link
+        rel="icon"
+        type="image/png"
+        href="../images/favicon.png"
+    >
 
-  <script src="https://cdn.tailwindcss.com"></script>
+    <!-- =====================================================
+         TAILWIND
+    ====================================================== -->
 
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            display: ['Playfair Display', 'Georgia', 'serif'],
-            body: ['Inter', 'sans-serif']
-          }
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: [
+                            'Playfair Display',
+                            'Georgia',
+                            'serif'
+                        ],
+                        body: [
+                            'Inter',
+                            'sans-serif'
+                        ]
+                    }
+                }
+            }
+        };
+    </script>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600;1,700&display=swap');
+
+
+        /* =====================================================
+           GLOBAL
+        ====================================================== */
+
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
-      }
-    }
-  </script>
-
-  <link rel="stylesheet" href="../css/style.css">
-
-  <style>
-
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800;900&display=swap');
-
-
-    /* =====================================================
-       GLOBAL
-    ====================================================== */
-
-    html,
-    body {
-      max-width: 100%;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-    }
-
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
-
-    img,
-    svg {
-      max-width: 100%;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      letter-spacing: -0.01em;
-    }
-
-    .font-display {
-      font-family: 'Playfair Display', Georgia, serif;
-      letter-spacing: -0.035em;
-    }
-
-    .font-body {
-      font-family: 'Inter', sans-serif;
-    }
-
-
-    /* =====================================================
-       HEADER OFFSET
-    ====================================================== */
-
-    main.about-page-main {
-      padding-top: 92px;
-    }
-
-    @media (max-width: 767px) {
-      main.about-page-main {
-        padding-top: 76px;
-      }
-    }
-
-
-    /* =====================================================
-       PREMIUM CONTAINERS
-    ====================================================== */
-
-    .premium-section {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .premium-container {
-      width: 100%;
-      max-width: 1280px;
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: 32px;
-      padding-right: 32px;
-    }
-
-    @media (max-width: 767px) {
-      .premium-container {
-        padding-left: 20px;
-        padding-right: 20px;
-      }
-    }
-
-
-    /* =====================================================
-       EYEBROW
-    ====================================================== */
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      line-height: 1;
-      text-transform: uppercase;
-      color: #b45309;
-    }
-
-    .eyebrow::before {
-      content: '';
-      width: 28px;
-      height: 1px;
-      background: #d97706;
-    }
-
-    .dark .eyebrow {
-      color: #fbbf24;
-    }
-
-
-    /* =====================================================
-       REVEAL
-    ====================================================== */
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition:
-        opacity 0.8s cubic-bezier(.2,.65,.25,1),
-        transform 0.8s cubic-bezier(.2,.65,.25,1);
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-
-    /* =====================================================
-       HERO
-    ====================================================== */
-
-    .about-hero {
-      min-height: calc(100vh - 92px);
-      display: flex;
-      align-items: center;
-      background:
-        radial-gradient(
-          circle at 85% 10%,
-          rgba(245, 158, 11, 0.10),
-          transparent 30%
-        ),
-        #fafaf9;
-    }
-
-    .dark .about-hero {
-      background:
-        radial-gradient(
-          circle at 85% 10%,
-          rgba(245, 158, 11, 0.07),
-          transparent 30%
-        ),
-        #0c0a09;
-    }
-
-    .hero-title {
-      max-width: 760px;
-      font-size: clamp(3rem, 6vw, 6.7rem);
-      line-height: 0.98;
-      font-weight: 800;
-    }
-
-    .hero-copy {
-      max-width: 590px;
-      font-size: 1.08rem;
-      line-height: 1.85;
-    }
-
-    .hero-image-frame {
-      position: relative;
-      overflow: visible;
-    }
-
-    .hero-image {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      height: 610px;
-      object-fit: cover;
-      border-radius: 34px;
-      box-shadow:
-        0 30px 80px rgba(28, 25, 23, 0.18);
-    }
-
-    .hero-image-frame::before {
-      content: '';
-      position: absolute;
-      width: 82%;
-      height: 82%;
-      right: -22px;
-      bottom: -22px;
-      border: 1px solid rgba(180, 83, 9, 0.25);
-      border-radius: 34px;
-    }
-
-    .hero-image-frame::after {
-      content: '';
-      position: absolute;
-      width: 120px;
-      height: 120px;
-      left: -32px;
-      top: -28px;
-      background-image: radial-gradient(
-        #b45309 1.5px,
-        transparent 1.5px
-      );
-      background-size: 12px 12px;
-      opacity: 0.22;
-    }
-
-
-    /* =====================================================
-       PREMIUM BUTTONS
-    ====================================================== */
-
-    .premium-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 52px;
-      padding: 0 24px;
-      border-radius: 999px;
-      background: #b45309;
-      color: white;
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.01em;
-      box-shadow:
-        0 12px 30px rgba(180, 83, 9, 0.20);
-      transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        box-shadow 0.25s ease;
-    }
-
-    .premium-button:hover {
-      transform: translateY(-2px);
-      background: #92400e;
-      box-shadow:
-        0 16px 34px rgba(180, 83, 9, 0.28);
-    }
-
-    .premium-link {
-      color: #92400e;
-      font-size: 0.82rem;
-      font-weight: 700;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(146, 64, 14, 0.35);
-      padding-bottom: 4px;
-      transition:
-        color 0.25s ease,
-        border-color 0.25s ease;
-    }
-
-    .premium-link:hover {
-      color: #b45309;
-      border-color: #b45309;
-    }
-
-    .dark .premium-link {
-      color: #fbbf24;
-      border-color: rgba(251, 191, 36, 0.35);
-    }
-
-
-    /* =====================================================
-       STAT CARDS
-    ====================================================== */
-
-    .premium-stat {
-      padding: 18px 20px;
-      min-width: 145px;
-      border: 1px solid rgba(180, 83, 9, 0.14);
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.65);
-      backdrop-filter: blur(12px);
-    }
-
-    .dark .premium-stat {
-      background: rgba(28, 25, 23, 0.65);
-      border-color: rgba(251, 191, 36, 0.12);
-    }
-
-
-    /* =====================================================
-       FLOATING BADGES
-    ====================================================== */
-
-    .float-card {
-      animation: premiumFloat 5s ease-in-out infinite;
-    }
-
-    @keyframes premiumFloat {
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-8px);
-      }
-    }
-
-
-    /* =====================================================
-       SECTION HEADINGS
-    ====================================================== */
-
-    .section-title {
-      font-size: clamp(2.5rem, 4vw, 4.3rem);
-      line-height: 1.04;
-      font-weight: 800;
-    }
-
-    .section-copy {
-      font-size: 1.02rem;
-      line-height: 1.85;
-    }
-
-
-    /* =====================================================
-       STORY
-    ====================================================== */
-
-    .story-section {
-      background: #f5eadb;
-    }
-
-    .dark .story-section {
-      background: #1c1917;
-    }
-
-    .story-quote {
-      position: relative;
-      padding-left: 28px;
-      border-left: 2px solid #d97706;
-    }
-
-
-    /* =====================================================
-       TIMELINE
-    ====================================================== */
-
-    .timeline-line {
-      background: #e7cda7;
-    }
-
-    .dark .timeline-line {
-      background: #78350f;
-    }
-
-    .timeline-item {
-      position: relative;
-    }
-
-    .timeline-number {
-      position: relative;
-      z-index: 2;
-      width: 44px;
-      height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      border-radius: 50%;
-      background: #b45309;
-      color: white;
-      box-shadow:
-        0 0 0 8px rgba(180, 83, 9, 0.08);
-    }
-
-
-    /* =====================================================
-       VALUE CARDS
-    ====================================================== */
-
-    .value-card {
-      position: relative;
-      overflow: hidden;
-      min-height: 300px;
-      padding: 34px;
-      border: 1px solid #e7e5e4;
-      border-radius: 26px;
-      background: white;
-      transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease,
-        border-color 0.35s ease;
-    }
-
-    .value-card::after {
-      content: '';
-      position: absolute;
-      right: -40px;
-      bottom: -50px;
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      background: #fef3c7;
-      opacity: 0.5;
-    }
-
-    .value-card:hover {
-      transform: translateY(-7px);
-      border-color: rgba(180, 83, 9, 0.25);
-      box-shadow:
-        0 24px 55px rgba(28, 25, 23, 0.10);
-    }
-
-    .dark .value-card {
-      border-color: #292524;
-      background: #1c1917;
-    }
-
-    .dark .value-card::after {
-      background: #451a03;
-    }
-
-
-    /* =====================================================
-       ICON BOX
-    ====================================================== */
-
-    .premium-icon {
-      width: 52px;
-      height: 52px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 16px;
-      background: #fef3c7;
-      font-size: 1.35rem;
-    }
-
-    .dark .premium-icon {
-      background: #451a03;
-    }
-
-
-    /* =====================================================
-       FULL IMAGE CTA
-    ====================================================== */
-
-    .image-cta {
-      position: relative;
-      overflow: hidden;
-      border-radius: 30px;
-    }
-
-    .image-cta img {
-      transition: transform 0.8s ease;
-    }
-
-    .image-cta:hover img {
-      transform: scale(1.025);
-    }
-
-    .image-cta-overlay {
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(
-          90deg,
-          rgba(28, 25, 23, 0.88) 0%,
-          rgba(28, 25, 23, 0.52) 48%,
-          rgba(28, 25, 23, 0.05) 100%
-        );
-    }
-
-
-    /* =====================================================
-       KITCHEN SECTION
-    ====================================================== */
-
-    .kitchen-frame {
-      position: relative;
-    }
-
-    .kitchen-frame::before {
-      content: '';
-      position: absolute;
-      inset: 18px -18px -18px 18px;
-      border: 1px solid rgba(180, 83, 9, 0.20);
-      border-radius: 32px;
-    }
-
-    .kitchen-image {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      height: 560px;
-      object-fit: cover;
-      border-radius: 30px;
-      transition: transform 0.7s ease;
-    }
-
-    .kitchen-frame:hover .kitchen-image {
-      transform: scale(1.02);
-    }
-
-
-    /* =====================================================
-       HIGHLIGHT CARDS
-    ====================================================== */
-
-    .highlight-card {
-      display: flex;
-      gap: 18px;
-      padding: 21px;
-      border: 1px solid rgba(180, 83, 9, 0.12);
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.75);
-      transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-    }
-
-    .highlight-card:hover {
-      transform: translateX(5px);
-      box-shadow:
-        0 15px 35px rgba(28, 25, 23, 0.08);
-    }
-
-    .dark .highlight-card {
-      background: rgba(12, 10, 9, 0.65);
-      border-color: #292524;
-    }
-
-
-    /* =====================================================
-       PROMISE
-    ====================================================== */
-
-    .promise-row {
-      display: grid;
-      grid-template-columns: 70px 1fr;
-      gap: 32px;
-      padding: 34px 0;
-      border-top: 1px solid #e7e5e4;
-    }
-
-    .promise-row:last-child {
-      border-bottom: 1px solid #e7e5e4;
-    }
-
-    .dark .promise-row {
-      border-color: #292524;
-    }
-
-    .promise-number {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.6rem;
-      font-weight: 800;
-      color: #d97706;
-    }
-
-
-    /* =====================================================
-       RESPONSIVE
-    ====================================================== */
-
-    @media (max-width: 1023px) {
-
-      .about-hero {
-        min-height: auto;
-      }
-
-      .hero-image {
-        height: 520px;
-      }
-
-      .kitchen-image {
-        height: 500px;
-      }
-
-    }
-
-
-    @media (max-width: 767px) {
-
-      .premium-container {
-        padding-left: 20px;
-        padding-right: 20px;
-      }
-
-      .about-hero {
-        min-height: auto;
-      }
-
-      .hero-title {
-        font-size: clamp(2.8rem, 13vw, 4.4rem);
-        line-height: 1;
-      }
-
-      .hero-copy {
-        font-size: 1rem;
-        line-height: 1.75;
-      }
-
-      .hero-image-frame {
-        margin-top: 15px;
-      }
-
-      .hero-image {
-        height: clamp(330px, 105vw, 500px);
-        border-radius: 24px;
-      }
-
-      .hero-image-frame::before {
-        right: -10px;
-        bottom: -10px;
-        border-radius: 24px;
-      }
-
-      .hero-image-frame::after {
-        left: -12px;
-        top: -14px;
-        width: 80px;
-        height: 80px;
-      }
-
-      .float-card {
-        animation: none;
-      }
-
-      .hero-badge {
-        left: 12px !important;
-        right: auto !important;
-        top: 15px !important;
-        max-width: calc(100% - 24px);
-      }
-
-      .hero-rating {
-        right: 12px !important;
-        left: auto !important;
-        bottom: 15px !important;
-        max-width: calc(100% - 24px);
-      }
-
-      .premium-stat {
-        flex: 1 1 140px;
-        min-width: 0;
-      }
-
-      .value-card {
-        min-height: auto;
-        padding: 27px;
-      }
-
-      .image-cta {
-        border-radius: 24px;
-      }
-
-      .image-cta-overlay {
-        background:
-          linear-gradient(
-            90deg,
-            rgba(28, 25, 23, 0.88),
-            rgba(28, 25, 23, 0.55)
-          );
-      }
-
-      .kitchen-image {
-        height: clamp(360px, 105vw, 500px);
-        border-radius: 24px;
-      }
-
-      .kitchen-frame::before {
-        inset: 10px -8px -8px 8px;
-        border-radius: 24px;
-      }
-
-      .promise-row {
-        grid-template-columns: 1fr;
-        gap: 10px;
-        padding: 27px 0;
-      }
-
-      .promise-number {
-        font-size: 1.3rem;
-      }
-
-    }
-
-
-    @media (max-width: 480px) {
-
-      .premium-button {
-        width: 100%;
-      }
-
-      .hero-cta-group {
-        align-items: stretch;
-        flex-direction: column;
-      }
-
-      .premium-link {
-        text-align: center;
-      }
-
-      .premium-stat {
-        width: 100%;
-        flex-basis: 100%;
-      }
-
-      .hero-badge {
-        padding: 10px 12px !important;
-      }
-
-      .hero-rating {
-        padding: 10px 14px !important;
-      }
-
-      .hero-rating p:first-child {
-        font-size: 1.25rem !important;
-      }
-
-      .section-copy {
-        font-size: 0.97rem;
-      }
-
-      .highlight-card {
-        padding: 17px;
-      }
-
-    }
-
-
-    /* =====================================================
-       REDUCED MOTION
-    ====================================================== */
-
-    @media (prefers-reduced-motion: reduce) {
-
-      html {
-        scroll-behavior: auto;
-      }
-
-      .reveal,
-      .float-card,
-      .kitchen-image,
-      .image-cta img,
-      .value-card,
-      .highlight-card {
-        animation: none !important;
-        transition: none !important;
-      }
-
-    }
-
-  </style>
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        img,
+        svg {
+            max-width: 100%;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            letter-spacing: -0.01em;
+        }
+
+        .font-display {
+            font-family: 'Playfair Display', Georgia, serif;
+            letter-spacing: -0.035em;
+        }
+
+        .font-body {
+            font-family: 'Inter', sans-serif;
+        }
+
+
+        /* =====================================================
+           BH SECTION TITLE
+        ====================================================== */
+
+        .bh-section-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(2.7rem, 5vw, 5.2rem);
+            line-height: 0.98;
+            font-weight: 800;
+            letter-spacing: -0.045em;
+            color: #1c1917;
+            text-wrap: balance;
+        }
+
+        .dark .bh-section-title {
+            color: #fafaf9;
+        }
+
+
+        /* =====================================================
+           BH SCRIPT
+        ====================================================== */
+
+        .bh-script {
+            display: inline-block;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-style: italic;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+            color: #b45309;
+        }
+
+        .dark .bh-script {
+            color: #fbbf24;
+        }
+
+
+        /* =====================================================
+           SECTION TITLE RESPONSIVE
+        ====================================================== */
+
+        @media (max-width: 767px) {
+
+            .bh-section-title {
+                font-size: clamp(
+                    2.45rem,
+                    11vw,
+                    4rem
+                );
+
+                line-height: 1;
+                letter-spacing: -0.04em;
+            }
+
+            .bh-script {
+                letter-spacing: -0.02em;
+            }
+        }
+
+
+        @media (max-width: 480px) {
+
+            .bh-section-title {
+                font-size: clamp(
+                    2.25rem,
+                    11.5vw,
+                    3.35rem
+                );
+
+                line-height: 1.02;
+            }
+        }
+
+
+        /* =====================================================
+           HEADER OFFSET
+        ====================================================== */
+
+        main.about-page-main {
+            padding-top: 92px;
+        }
+
+        @media (max-width: 767px) {
+
+            main.about-page-main {
+                padding-top: 76px;
+            }
+
+        }
+
+
+        /* =====================================================
+           PREMIUM CONTAINERS
+        ====================================================== */
+
+        .premium-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .premium-container {
+            width: 100%;
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 32px;
+            padding-right: 32px;
+        }
+
+        @media (max-width: 767px) {
+
+            .premium-container {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+        }
+
+
+        /* =====================================================
+           EYEBROW
+        ====================================================== */
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            line-height: 1;
+            text-transform: uppercase;
+            color: #b45309;
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 28px;
+            height: 1px;
+            background: #d97706;
+        }
+
+        .dark .eyebrow {
+            color: #fbbf24;
+        }
+
+
+        /* =====================================================
+           REVEAL
+        ====================================================== */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition:
+                opacity 0.8s cubic-bezier(.2, .65, .25, 1),
+                transform 0.8s cubic-bezier(.2, .65, .25, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* =====================================================
+           HERO
+        ====================================================== */
+
+        .about-hero {
+            min-height: calc(100vh - 92px);
+            display: flex;
+            align-items: center;
+
+            background:
+                radial-gradient(
+                    circle at 85% 10%,
+                    rgba(245, 158, 11, 0.10),
+                    transparent 30%
+                ),
+                #fafaf9;
+        }
+
+        .dark .about-hero {
+            background:
+                radial-gradient(
+                    circle at 85% 10%,
+                    rgba(245, 158, 11, 0.07),
+                    transparent 30%
+                ),
+                #0c0a09;
+        }
+
+
+        /* =====================================================
+           HERO TITLE
+        ====================================================== */
+
+        .hero-title {
+            max-width: 760px;
+            font-size: clamp(3rem, 6vw, 6.7rem);
+            line-height: 0.98;
+            font-weight: 800;
+        }
+
+        .hero-copy {
+            max-width: 590px;
+            font-size: 1.08rem;
+            line-height: 1.85;
+        }
+
+        .hero-image-frame {
+            position: relative;
+            overflow: visible;
+        }
+
+        .hero-image {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: 610px;
+            object-fit: cover;
+            border-radius: 34px;
+
+            box-shadow:
+                0 30px 80px rgba(28, 25, 23, 0.18);
+        }
+
+        .hero-image-frame::before {
+            content: '';
+            position: absolute;
+            width: 82%;
+            height: 82%;
+            right: -22px;
+            bottom: -22px;
+            border: 1px solid rgba(180, 83, 9, 0.25);
+            border-radius: 34px;
+        }
+
+        .hero-image-frame::after {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            left: -32px;
+            top: -28px;
+
+            background-image:
+                radial-gradient(
+                    #b45309 1.5px,
+                    transparent 1.5px
+                );
+
+            background-size: 12px 12px;
+            opacity: 0.22;
+        }
+
+
+        /* =====================================================
+           PREMIUM BUTTONS
+        ====================================================== */
+
+        .premium-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            min-height: 52px;
+            padding: 0 24px;
+
+            border-radius: 999px;
+            background: #b45309;
+            color: white;
+
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.01em;
+
+            box-shadow:
+                0 12px 30px rgba(180, 83, 9, 0.20);
+
+            transition:
+                transform 0.25s ease,
+                background 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .premium-button:hover {
+            transform: translateY(-2px);
+            background: #92400e;
+
+            box-shadow:
+                0 16px 34px rgba(180, 83, 9, 0.28);
+        }
+
+        .premium-link {
+            color: #92400e;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-decoration: none;
+
+            border-bottom:
+                1px solid rgba(146, 64, 14, 0.35);
+
+            padding-bottom: 4px;
+
+            transition:
+                color 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .premium-link:hover {
+            color: #b45309;
+            border-color: #b45309;
+        }
+
+        .dark .premium-link {
+            color: #fbbf24;
+            border-color:
+                rgba(251, 191, 36, 0.35);
+        }
+
+
+        /* =====================================================
+           STAT CARDS
+        ====================================================== */
+
+        .premium-stat {
+            padding: 18px 20px;
+            min-width: 145px;
+
+            border:
+                1px solid rgba(180, 83, 9, 0.14);
+
+            border-radius: 18px;
+
+            background:
+                rgba(255, 255, 255, 0.65);
+
+            backdrop-filter: blur(12px);
+        }
+
+        .dark .premium-stat {
+            background:
+                rgba(28, 25, 23, 0.65);
+
+            border-color:
+                rgba(251, 191, 36, 0.12);
+        }
+
+
+        /* =====================================================
+           FLOATING BADGES
+        ====================================================== */
+
+        .float-card {
+            animation:
+                premiumFloat 5s ease-in-out infinite;
+        }
+
+        @keyframes premiumFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+
+        }
+
+
+        /* =====================================================
+           SECTION HEADINGS
+        ====================================================== */
+
+        .section-title {
+            font-size: clamp(
+                2.5rem,
+                4vw,
+                4.3rem
+            );
+
+            line-height: 1.04;
+            font-weight: 800;
+        }
+
+        .section-copy {
+            font-size: 1.02rem;
+            line-height: 1.85;
+        }
+
+
+        /* =====================================================
+           STORY
+        ====================================================== */
+
+        .story-section {
+            background: #f7f5ed;
+        }
+
+        .dark .story-section {
+            background: #1c1917;
+        }
+
+        .story-quote {
+            position: relative;
+            padding-left: 28px;
+            border-left: 2px solid #d97706;
+        }
+
+
+        /* =====================================================
+           TIMELINE
+        ====================================================== */
+
+        .timeline-line {
+            background: #e7cda7;
+        }
+
+        .dark .timeline-line {
+            background: #78350f;
+        }
+
+        .timeline-item {
+            position: relative;
+        }
+
+        .timeline-number {
+            position: relative;
+            z-index: 2;
+
+            width: 44px;
+            height: 44px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            flex-shrink: 0;
+
+            border-radius: 50%;
+            background: #b45309;
+            color: white;
+
+            box-shadow:
+                0 0 0 8px rgba(180, 83, 9, 0.08);
+        }
+
+
+        /* =====================================================
+           VALUE CARDS
+        ====================================================== */
+
+        .value-card {
+            position: relative;
+            overflow: hidden;
+
+            min-height: 300px;
+            padding: 34px;
+
+            border: 1px solid #e7e5e4;
+            border-radius: 26px;
+
+            background: white;
+
+            transition:
+                transform 0.35s ease,
+                box-shadow 0.35s ease,
+                border-color 0.35s ease;
+        }
+
+        .value-card::after {
+            content: '';
+
+            position: absolute;
+            right: -40px;
+            bottom: -50px;
+
+            width: 130px;
+            height: 130px;
+
+            border-radius: 50%;
+            background: #fef3c7;
+            opacity: 0.5;
+        }
+
+        .value-card:hover {
+            transform: translateY(-7px);
+
+            border-color:
+                rgba(180, 83, 9, 0.25);
+
+            box-shadow:
+                0 24px 55px rgba(28, 25, 23, 0.10);
+        }
+
+        .dark .value-card {
+            border-color: #292524;
+            background: #1c1917;
+        }
+
+        .dark .value-card::after {
+            background: #451a03;
+        }
+
+
+        /* =====================================================
+           ICON BOX
+        ====================================================== */
+
+        .premium-icon {
+            width: 52px;
+            height: 52px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 16px;
+
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .premium-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .dark .premium-icon {
+            background: #451a03;
+            color: #fbbf24;
+        }
+
+
+        /* =====================================================
+           FULL IMAGE CTA
+        ====================================================== */
+
+        .image-cta {
+            position: relative;
+            overflow: hidden;
+            border-radius: 30px;
+        }
+
+        .image-cta img {
+            transition:
+                transform 0.8s ease;
+        }
+
+        .image-cta:hover img {
+            transform: scale(1.025);
+        }
+
+        .image-cta-overlay {
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(28, 25, 23, 0.88) 0%,
+                    rgba(28, 25, 23, 0.52) 48%,
+                    rgba(28, 25, 23, 0.05) 100%
+                );
+        }
+
+
+        /* =====================================================
+           KITCHEN SECTION
+        ====================================================== */
+
+        .kitchen-frame {
+            position: relative;
+        }
+
+        .kitchen-frame::before {
+            content: '';
+
+            position: absolute;
+            inset: 18px -18px -18px 18px;
+
+            border:
+                1px solid rgba(180, 83, 9, 0.20);
+
+            border-radius: 32px;
+        }
+
+        .kitchen-image {
+            position: relative;
+            z-index: 2;
+
+            width: 100%;
+            height: 560px;
+
+            object-fit: cover;
+
+            border-radius: 30px;
+
+            transition:
+                transform 0.7s ease;
+        }
+
+        .kitchen-frame:hover .kitchen-image {
+            transform: scale(1.02);
+        }
+
+
+        /* =====================================================
+           HIGHLIGHT CARDS
+        ====================================================== */
+
+        .highlight-card {
+            display: flex;
+            gap: 18px;
+
+            padding: 21px;
+
+            border:
+                1px solid rgba(180, 83, 9, 0.12);
+
+            border-radius: 20px;
+
+            background:
+                rgba(255, 255, 255, 0.75);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .highlight-card:hover {
+            transform: translateX(5px);
+
+            box-shadow:
+                0 15px 35px rgba(28, 25, 23, 0.08);
+        }
+
+        .dark .highlight-card {
+            background:
+                rgba(12, 10, 9, 0.65);
+
+            border-color: #292524;
+        }
+
+
+        /* =====================================================
+           PROMISE
+        ====================================================== */
+
+        .promise-row {
+            display: grid;
+
+            grid-template-columns: 70px 1fr;
+
+            gap: 32px;
+
+            padding: 34px 0;
+
+            border-top: 1px solid #e7e5e4;
+        }
+
+        .promise-row:last-child {
+            border-bottom: 1px solid #e7e5e4;
+        }
+
+        .dark .promise-row {
+            border-color: #292524;
+        }
+
+        .promise-number {
+            font-family:
+                'Playfair Display',
+                Georgia,
+                serif;
+
+            font-size: 1.6rem;
+            font-weight: 800;
+
+            color: #d97706;
+        }
+
+
+        /* =====================================================
+           MADE FOR YOUR TABLE
+        ====================================================== */
+
+        .table-section {
+            position: relative;
+            overflow: hidden;
+            background: #f7f5ed;
+            color: #1c1917;
+        }
+
+        .dark .table-section {
+            background: #f7f5ed;
+            color: #1c1917;
+        }
+
+        .table-image-wrap {
+            position: relative;
+            overflow: hidden;
+            border-radius: 32px;
+        }
+
+        .table-image-wrap::before {
+            content: '';
+
+            position: absolute;
+            inset: 0;
+
+            z-index: 1;
+
+            pointer-events: none;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(28, 25, 23, 0.02) 30%,
+                    rgba(28, 25, 23, 0.82) 100%
+                );
+        }
+
+        .table-image {
+            transition:
+                transform 0.8s ease;
+        }
+
+        .table-image-wrap:hover .table-image {
+            transform: scale(1.05);
+        }
+
+        .table-floating-card {
+            position: absolute;
+            z-index: 3;
+            left: 28px;
+            right: 28px;
+            bottom: 28px;
+
+            padding: 20px;
+
+            border:
+                1px solid rgba(255, 255, 255, 0.20);
+
+            border-radius: 20px;
+
+            background:
+                rgba(255, 255, 255, 0.10);
+
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .table-number {
+            position: absolute;
+            z-index: 3;
+
+            top: 24px;
+            right: 24px;
+
+            width: 62px;
+            height: 62px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border:
+                1px solid rgba(255, 255, 255, 0.20);
+
+            border-radius: 50%;
+
+            background:
+                rgba(0, 0, 0, 0.18);
+
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+
+        /* =====================================================
+           WHY BOWL & HEARTH — CIRCLE IMAGE
+           ONLY CHANGE FOR THIS SECTION
+        ====================================================== */
+
+        .why-image-wrap {
+            width: min(100%, 540px);
+            aspect-ratio: 1 / 1;
+            margin-left: auto;
+            margin-right: auto;
+
+            overflow: hidden;
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 30px 70px rgba(28, 25, 23, 0.18);
+        }
+
+        .why-image {
+            display: block;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            transition:
+                transform 0.8s ease;
+        }
+
+        .why-image-wrap:hover .why-image {
+            transform: scale(1.04);
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ====================================================== */
+
+        @media (max-width: 1023px) {
+
+            .about-hero {
+                min-height: auto;
+            }
+
+            .hero-image {
+                height: 520px;
+            }
+
+            .kitchen-image {
+                height: 500px;
+            }
+
+        }
+
+
+        @media (max-width: 767px) {
+
+            .premium-container {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .about-hero {
+                min-height: auto;
+            }
+
+            .hero-title {
+                font-size:
+                    clamp(
+                        2.8rem,
+                        13vw,
+                        4.4rem
+                    );
+
+                line-height: 1;
+            }
+
+            .hero-copy {
+                font-size: 1rem;
+                line-height: 1.75;
+            }
+
+            .hero-image-frame {
+                margin-top: 15px;
+            }
+
+            .hero-image {
+                height:
+                    clamp(
+                        330px,
+                        105vw,
+                        500px
+                    );
+
+                border-radius: 24px;
+            }
+
+            .hero-image-frame::before {
+                right: -10px;
+                bottom: -10px;
+                border-radius: 24px;
+            }
+
+            .hero-image-frame::after {
+                left: -12px;
+                top: -14px;
+
+                width: 80px;
+                height: 80px;
+            }
+
+            .float-card {
+                animation: none;
+            }
+
+            .hero-badge {
+                left: 12px !important;
+                right: auto !important;
+                top: 15px !important;
+
+                max-width:
+                    calc(100% - 24px);
+            }
+
+            .hero-rating {
+                right: 12px !important;
+                left: auto !important;
+                bottom: 15px !important;
+
+                max-width:
+                    calc(100% - 24px);
+            }
+
+            .premium-stat {
+                flex: 1 1 140px;
+                min-width: 0;
+            }
+
+            .value-card {
+                min-height: auto;
+                padding: 27px;
+            }
+
+            .image-cta {
+                border-radius: 24px;
+            }
+
+            .image-cta-overlay {
+                background:
+                    linear-gradient(
+                        90deg,
+                        rgba(28, 25, 23, 0.88),
+                        rgba(28, 25, 23, 0.55)
+                    );
+            }
+
+            .kitchen-image {
+                height:
+                    clamp(
+                        360px,
+                        105vw,
+                        500px
+                    );
+
+                border-radius: 24px;
+            }
+
+            .kitchen-frame::before {
+                inset: 10px -8px -8px 8px;
+                border-radius: 24px;
+            }
+
+            .promise-row {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                padding: 27px 0;
+            }
+
+            .promise-number {
+                font-size: 1.3rem;
+            }
+
+            .table-image-wrap {
+                border-radius: 24px;
+            }
+
+            .table-floating-card {
+                left: 16px;
+                right: 16px;
+                bottom: 16px;
+                padding: 17px;
+            }
+
+            .table-number {
+                top: 16px;
+                right: 16px;
+
+                width: 52px;
+                height: 52px;
+            }
+
+            /* WHY BOWL & HEARTH CIRCLE IMAGE */
+
+            .why-image-wrap {
+                width: min(100%, 480px);
+            }
+
+        }
+
+
+        @media (max-width: 480px) {
+
+            .premium-button {
+                width: 100%;
+            }
+
+            .hero-cta-group {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .premium-link {
+                text-align: center;
+            }
+
+            .premium-stat {
+                width: 100%;
+                flex-basis: 100%;
+            }
+
+            .hero-badge {
+                padding: 10px 12px !important;
+            }
+
+            .hero-rating {
+                padding: 10px 14px !important;
+            }
+
+            .hero-rating p:first-child {
+                font-size: 1.25rem !important;
+            }
+
+            .section-copy {
+                font-size: 0.97rem;
+            }
+
+            .highlight-card {
+                padding: 17px;
+            }
+
+            .table-floating-card {
+                padding: 15px;
+            }
+
+            /* WHY BOWL & HEARTH CIRCLE IMAGE */
+
+            .why-image-wrap {
+                width: min(100%, 360px);
+            }
+
+        }
+
+
+        /* =====================================================
+           REDUCED MOTION
+        ====================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            .reveal,
+            .float-card,
+            .kitchen-image,
+            .image-cta img,
+            .value-card,
+            .highlight-card,
+            .table-image,
+            .why-image {
+                animation: none !important;
+                transition: none !important;
+            }
+
+        }
+
+    </style>
 
 </head>
 
 
 <body
-  class="bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-100 font-body antialiased">
+    class="bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-100 font-body antialiased"
+>
 
 
-  <!-- =====================================================
-       HEADER
-  ====================================================== -->
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
 
-  <div id="site-header"></div>
+    <div id="site-header"></div>
 
 
-  <!-- =====================================================
-       MAIN
-  ====================================================== -->
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
 
-  <main class="about-page-main">
+    <main class="about-page-main">
 
 
-    <!-- ===================================================
-         SECTION 1 — PREMIUM HERO
-    ==================================================== -->
+        <!-- ===================================================
+             SECTION 1 — PREMIUM HERO
+        ==================================================== -->
 
-    <section class="about-hero premium-section">
+        <section class="about-hero premium-section">
 
-      <div class="premium-container py-16 sm:py-20 lg:py-24">
-
-        <div
-          class="grid items-center gap-14 lg:grid-cols-[1.02fr,0.98fr] lg:gap-20">
-
-
-          <!-- LEFT -->
-
-          <div class="reveal">
-
-            <p class="eyebrow">
-              Our story
-            </p>
-
-
-            <h1 class="font-display hero-title mt-7">
-
-              Built for the gap between
-
-              <span class="relative inline-block">
-
-                <span class="relative z-10">
-                  homemade
-                </span>
-
-                <span
-                  class="absolute bottom-1 left-0 z-0 h-3 w-full bg-amber-300/60 dark:bg-amber-600/50">
-                </span>
-
-              </span>
-
-              &amp; convenient.
-
-            </h1>
-
-
-            <p
-              class="hero-copy mt-7 text-stone-500 dark:text-stone-400">
-
-              A cloud kitchen obsessed with local sourcing,
-              small-batch cooking, and getting a warm meal to
-              your door before the evening rush starts.
-
-            </p>
-
-
-            <!-- CTA -->
-
-            <div
-              class="hero-cta-group mt-9 flex flex-wrap items-center gap-5">
-
-              <a
-                href="#story"
-                class="premium-button">
-
-                Read our story
-
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2.5">
-
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M19 9l-7 7-7-7" />
-
-                </svg>
-
-              </a>
-
-
-              <a
-                id="about-menu-link-1"
-                href="#"
-                class="premium-link">
-
-                View the menu →
-
-              </a>
-
-            </div>
-
-
-            <!-- STATS -->
-
-            <div class="mt-12 flex flex-wrap gap-3">
-
-              <div class="premium-stat">
-
-                <p
-                  class="font-display text-3xl font-black text-amber-700 dark:text-amber-300">
-                  12
-                </p>
-
-                <p
-                  class="mt-1 text-[10px] font-bold uppercase tracking-[0.16em] text-stone-500 dark:text-stone-400">
-                  Delivery zones
-                </p>
-
-              </div>
-
-
-              <div class="premium-stat">
-
-                <p
-                  class="font-display text-3xl font-black text-amber-700 dark:text-amber-300">
-                  6+
-                </p>
-
-                <p
-                  class="mt-1 text-[10px] font-bold uppercase tracking-[0.16em] text-stone-500 dark:text-stone-400">
-                  Years cooking
-                </p>
-
-              </div>
-
-
-              <div class="premium-stat">
-
-                <p
-                  class="font-display text-3xl font-black text-amber-700 dark:text-amber-300">
-                  100%
-                </p>
-
-                <p
-                  class="mt-1 text-[10px] font-bold uppercase tracking-[0.16em] text-stone-500 dark:text-stone-400">
-                  Local sourcing
-                </p>
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <!-- RIGHT -->
-
-          <div
-            class="hero-image-frame reveal"
-            style="transition-delay:0.12s">
-
-            <img
-              src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1200&q=85"
-              alt="Chef preparing food in the Bowl & Hearth kitchen"
-              class="hero-image">
-
-
-            <!-- FRESH BADGE -->
-
-            <div
-              class="hero-badge float-card absolute -left-6 top-10 z-20 flex items-center gap-3 rounded-2xl border border-stone-100 bg-white/95 px-4 py-3 shadow-xl backdrop-blur dark:border-stone-700 dark:bg-stone-800/95">
-
-              <span
-                class="flex h-9 w-9 items-center justify-center rounded-full bg-green-100 text-xl dark:bg-green-900">
-                🌿
-              </span>
-
-              <div>
-
-                <p
-                  class="text-xs font-bold text-stone-800 dark:text-stone-100">
-                  Made fresh daily
-                </p>
-
-                <p class="text-[11px] text-stone-400">
-                  No frozen shortcuts
-                </p>
-
-              </div>
-
-            </div>
-
-
-            <!-- RATING -->
-
-            <div
-              class="hero-rating float-card absolute -right-5 bottom-12 z-20 rounded-2xl bg-amber-600 px-5 py-3.5 text-center shadow-xl"
-              style="animation-delay:1.2s">
-
-              <p
-                class="font-display text-2xl font-black text-white">
-                4.9 ★
-              </p>
-
-              <p
-                class="text-[10px] font-semibold uppercase tracking-wider text-amber-100">
-                from 2 400+ orders
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ===================================================
-         SECTION 2 — STORY
-    ==================================================== -->
-
-    <section
-      id="story"
-      class="story-section premium-section">
-
-      <div class="premium-container py-20 sm:py-24 lg:py-32">
-
-        <div
-          class="grid gap-14 lg:grid-cols-[0.85fr,1.15fr] lg:gap-24">
-
-
-          <div class="reveal">
-
-            <p class="eyebrow">
-              Where it started
-            </p>
-
-            <h2
-              class="font-display section-title mt-6">
-
-              A kitchen born out of one simple frustration.
-
-            </h2>
-
-          </div>
-
-
-          <div
-            class="reveal space-y-7 text-[1.03rem] leading-8 text-stone-600 dark:text-stone-300"
-            style="transition-delay:0.1s">
-
-            <p>
-              We started Bowl &amp; Hearth with a simple
-              observation: local families and teams wanted
-              food that was more thoughtful than a quick
-              takeaway, without the planning required for
-              a full restaurant meal.
-            </p>
-
-            <p>
-              Our cloud kitchen model lets us focus entirely
-              on cooking, packing and delivery — no dining-room
-              overhead. That means seasonal menus, focused
-              prep and neighbourhood delivery, done right.
-            </p>
-
-            <blockquote
-              class="story-quote font-display text-2xl font-bold leading-relaxed text-stone-900 dark:text-white sm:text-3xl">
-
-              "Good food should fit into your day,
-              not take over your day."
-
-            </blockquote>
-
-          </div>
-
-        </div>
-
-
-        <!-- TIMELINE -->
-
-        <div
-          class="mt-20 reveal"
-          style="transition-delay:0.2s">
-
-          <div class="relative">
-
-            <div
-              class="timeline-line absolute left-0 right-0 top-[22px] hidden h-px lg:block">
-            </div>
-
-
-            <div
-              class="grid gap-12 lg:grid-cols-3 lg:gap-14">
-
-
-              <!-- 2019 -->
-
-              <div class="timeline-item flex gap-5 lg:block">
-
-                <div class="relative flex-shrink-0">
-
-                  <div class="timeline-number">
-
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="2">
-
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-
-                    </svg>
-
-                  </div>
-
-                </div>
-
-                <div class="pt-1 lg:pt-7">
-
-                  <b
-                    class="text-xs font-bold uppercase tracking-[0.16em] text-amber-700 dark:text-amber-400">
-                    2019
-                  </b>
-
-                  <h3
-                    class="mt-2 text-xl font-bold">
-                    One neighbourhood
-                  </h3>
-
-                  <p
-                    class="mt-3 leading-7 text-stone-500 dark:text-stone-400">
-
-                    The first delivery route served a tight
-                    local radius — twelve streets, zero fanfare,
-                    all heart.
-
-                  </p>
-
-                </div>
-
-              </div>
-
-
-              <!-- 2023 -->
-
-              <div class="timeline-item flex gap-5 lg:block">
-
-                <div class="relative flex-shrink-0">
-
-                  <div class="timeline-number">
-
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="2">
-
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-
-                    </svg>
-
-                  </div>
-
-                </div>
-
-                <div class="pt-1 lg:pt-7">
-
-                  <b
-                    class="text-xs font-bold uppercase tracking-[0.16em] text-amber-700 dark:text-amber-400">
-                    2023
-                  </b>
-
-                  <h3
-                    class="mt-2 text-xl font-bold">
-                    Office catering
-                  </h3>
-
-                  <p
-                    class="mt-3 leading-7 text-stone-500 dark:text-stone-400">
-
-                    Bulk meal trays for teams became a core
-                    part of our kitchen — offices wanted
-                    something better than sandwiches.
-
-                  </p>
-
-                </div>
-
-              </div>
-
-
-              <!-- 2026 -->
-
-              <div class="timeline-item flex gap-5 lg:block">
-
-                <div class="relative flex-shrink-0">
-
-                  <div class="timeline-number">
-
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="2">
-
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-
-                    </svg>
-
-                  </div>
-
-                </div>
-
-                <div class="pt-1 lg:pt-7">
-
-                  <b
-                    class="text-xs font-bold uppercase tracking-[0.16em] text-amber-700 dark:text-amber-400">
-                    2026
-                  </b>
-
-                  <h3
-                    class="mt-2 text-xl font-bold">
-                    12 delivery zones
-                  </h3>
-
-                  <p
-                    class="mt-3 leading-7 text-stone-500 dark:text-stone-400">
-
-                    A wider local network — still the same
-                    small-batch kitchen philosophy, just
-                    reaching more tables.
-
-                  </p>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ===================================================
-         SECTION 3 — VALUES
-    ==================================================== -->
-
-    <section class="premium-section bg-stone-50 dark:bg-stone-950">
-
-      <div class="premium-container py-20 sm:py-24 lg:py-32">
-
-
-        <div
-          class="reveal max-w-3xl">
-
-          <p class="eyebrow">
-            What drives us
-          </p>
-
-          <h2
-            class="font-display section-title mt-6">
-
-            Three things we refuse to compromise on.
-
-          </h2>
-
-        </div>
-
-
-        <div
-          class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-
-
-          <!-- CARD 1 -->
-
-          <div
-            class="value-card reveal"
-            style="transition-delay:0.05s">
-
-            <div class="premium-icon">
-              🌾
-            </div>
-
-            <h3
-              class="font-display mt-7 text-2xl font-bold">
-              Local sourcing, always
-            </h3>
-
-            <p
-              class="mt-4 leading-7 text-stone-500 dark:text-stone-400">
-
-              Every ingredient traces back to a named supplier
-              within 150 km. We know our farmers, and our farmers
-              know our standards.
-
-            </p>
-
-            <div
-              class="mt-8 h-px w-12 bg-amber-500">
-            </div>
-
-          </div>
-
-
-          <!-- CARD 2 -->
-
-          <div
-            class="value-card reveal"
-            style="transition-delay:0.12s">
-
-            <div class="premium-icon">
-              🔥
-            </div>
-
-            <h3
-              class="font-display mt-7 text-2xl font-bold">
-              Small-batch every time
-            </h3>
-
-            <p
-              class="mt-4 leading-7 text-stone-500 dark:text-stone-400">
-
-              We cap daily production so nothing sits waiting.
-              If we sell out, we sell out — quality over quantity
-              is the only rule in this kitchen.
-
-            </p>
-
-            <div
-              class="mt-8 h-px w-12 bg-amber-500">
-            </div>
-
-          </div>
-
-
-          <!-- CARD 3 -->
-
-          <div
-            class="value-card reveal"
-            style="transition-delay:0.2s">
-
-            <div class="premium-icon">
-              📦
-            </div>
-
-            <h3
-              class="font-display mt-7 text-2xl font-bold">
-              Packaging that doesn't embarrass us
-            </h3>
-
-            <p
-              class="mt-4 leading-7 text-stone-500 dark:text-stone-400">
-
-              Fully compostable, sized right to avoid waste.
-              The container should honour the food inside,
-              not be an afterthought.
-
-            </p>
-
-            <div
-              class="mt-8 h-px w-12 bg-amber-500">
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- IMAGE CTA -->
-
-        <div
-          class="image-cta mt-16 reveal"
-          style="transition-delay:0.1s">
-
-          <img
-            src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=85"
-            alt="Bowls of fresh food prepared in the Bowl & Hearth kitchen"
-            class="h-[420px] w-full object-cover sm:h-[500px]">
-
-          <div class="image-cta-overlay"></div>
-
-
-          <div
-            class="absolute inset-0 z-10 flex items-center px-7 sm:px-12 lg:px-16">
-
-            <div class="max-w-xl">
-
-              <p
-                class="text-xs font-bold uppercase tracking-[0.2em] text-amber-300">
-                From our kitchen
-              </p>
-
-              <p
-                class="font-display mt-4 text-3xl font-black leading-tight text-white sm:text-5xl">
-
-                Hungry? Our kitchen is
-                <br class="hidden sm:block">
-                open right now.
-
-              </p>
-
-
-              <a
-                id="about-menu-link-2"
-                href="#"
-                class="premium-button mt-7">
-
-                Explore the menu
-
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2.5">
-
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M9 5l7 7-7 7" />
-
-                </svg>
-
-              </a>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ===================================================
-         SECTION 4 — MEET THE KITCHEN
-    ==================================================== -->
-
-    <section
-      class="premium-section bg-white dark:bg-stone-950">
-
-      <div class="premium-container py-20 sm:py-24 lg:py-32">
-
-        <div
-          class="grid items-center gap-14 lg:grid-cols-[0.92fr,1.08fr] lg:gap-24">
-
-
-          <!-- IMAGE -->
-
-          <div
-            class="kitchen-frame reveal">
-
-            <img
-              src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1200&q=85"
-              alt="Bowl and Hearth kitchen team preparing fresh food"
-              class="kitchen-image">
-
-            <div
-              class="absolute bottom-6 left-6 z-10 rounded-2xl border border-white/40 bg-white/95 px-5 py-4 shadow-xl backdrop-blur dark:border-stone-700 dark:bg-stone-900/95">
-
-              <p
-                class="text-[10px] font-bold uppercase tracking-[0.18em] text-amber-600 dark:text-amber-400">
-                Inside our kitchen
-              </p>
-
-              <p
-                class="mt-1 font-display text-xl font-bold text-stone-900 dark:text-white">
-                Cooked with intention.
-              </p>
-
-            </div>
-
-          </div>
-
-
-          <!-- CONTENT -->
-
-          <div
-            class="reveal"
-            style="transition-delay:0.12s">
-
-            <p class="eyebrow">
-              Behind every bowl
-            </p>
-
-
-            <h2
-              class="font-display section-title mt-6">
-
-              More than a kitchen.
-              <span class="text-amber-600 dark:text-amber-400">
-                It's our craft.
-              </span>
-
-            </h2>
-
-
-            <p
-              class="section-copy mt-7 text-stone-600 dark:text-stone-300">
-
-              Our team keeps the kitchen deliberately focused:
-              fewer distractions, better ingredients and more
-              attention on every order that leaves our door.
-
-            </p>
-
-
-            <div
-              class="mt-8 h-px w-14 bg-amber-500">
-            </div>
-
-
-            <!-- POINTS -->
-
-            <div class="mt-9 space-y-7">
-
-
-              <div class="flex gap-5">
+            <div class="premium-container py-16 sm:py-20 lg:py-24">
 
                 <div
-                  class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800 dark:bg-amber-900 dark:text-amber-200">
-                  01
+                    class="grid items-center gap-14 lg:grid-cols-[1.02fr,0.98fr] lg:gap-20"
+                >
+
+                    <!-- LEFT -->
+
+                    <div class="reveal">
+
+                        <p class="eyebrow">
+                            Our story
+                        </p>
+
+                        <h1
+                            class="bh-section-title mt-7"
+                        >
+
+                            Built for the gap between
+
+                            <span class="relative inline-block">
+
+                                <span class="bh-script relative z-10">
+                                    homemade
+                                </span>
+
+                                <span
+                                    class="absolute bottom-1 left-0 z-0 h-3 w-full bg-amber-300/60 dark:bg-amber-600/50"
+                                ></span>
+
+                            </span>
+
+                            &amp; convenient.
+
+                        </h1>
+
+                        <p
+                            class="hero-copy mt-7 text-stone-500 dark:text-stone-400"
+                        >
+                            A cloud kitchen obsessed with local sourcing,
+                            small-batch cooking, and getting a warm meal to
+                            your door before the evening rush starts.
+                        </p>
+
+                        <div
+                            class="hero-cta-group mt-9 flex flex-wrap items-center gap-5"
+                        >
+
+                            <a
+                                href="#story"
+                                class="premium-button"
+                            >
+                                Read our story
+
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-4 w-4"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    stroke-width="2.5"
+                                >
+
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M19 9l-7 7-7-7"
+                                    />
+
+                                </svg>
+
+                            </a>
+
+                            <a
+                                id="about-menu-link-1"
+                                href="#"
+                                class="premium-link"
+                            >
+                                View the menu →
+                            </a>
+
+                        </div>
+
+                        <div class="mt-12 flex flex-wrap gap-3">
+
+                            <div class="premium-stat">
+
+                                <p
+                                    class="font-display text-3xl font-black text-amber-700 dark:text-amber-300"
+                                >
+                                    12
+                                </p>
+
+                                <p
+                                    class="mt-1 text-[10px] font-bold uppercase tracking-[0.16em] text-stone-500 dark:text-stone-400"
+                                >
+                                    Delivery zones
+                                </p>
+
+                            </div>
+
+                            <div class="premium-stat">
+
+                                <p
+                                    class="font-display text-3xl font-black text-amber-700 dark:text-amber-300"
+                                >
+                                    6+
+                                </p>
+
+                                <p
+                                    class="mt-1 text-[10px] font-bold uppercase tracking-[0.16em] text-stone-500 dark:text-stone-400"
+                                >
+                                    Years cooking
+                                </p>
+
+                            </div>
+
+                            <div class="premium-stat">
+
+                                <p
+                                    class="font-display text-3xl font-black text-amber-700 dark:text-amber-300"
+                                >
+                                    100%
+                                </p>
+
+                                <p
+                                    class="mt-1 text-[10px] font-bold uppercase tracking-[0.16em] text-stone-500 dark:text-stone-400"
+                                >
+                                    Local sourcing
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- RIGHT -->
+
+                    <div
+                        class="hero-image-frame reveal"
+                        style="transition-delay:0.12s"
+                    >
+
+                        <img
+                            src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=85"
+                            alt="A warm, freshly plated Bowl & Hearth meal"
+                            class="hero-image"
+                        >
+
+                        <div
+                            class="hero-badge float-card absolute -left-6 top-10 z-20 flex items-center gap-3 rounded-2xl border border-stone-100 bg-white/95 px-4 py-3 shadow-xl backdrop-blur dark:border-stone-700 dark:bg-stone-800/95"
+                        >
+
+                            <span
+                                class="flex h-9 w-9 items-center justify-center rounded-full bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300"
+                            >
+
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-5 w-5"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                >
+
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M12 21c4.5-2.8 7-6.7 7-11.5C14.2 9.5 9.5 12 8 16c-.4 1.1-.5 2.3-.3 3.4M12 21c-2.8-2-4.5-4.4-5-7.2C10.2 13.8 13 15.3 12 21z"
+                                    />
+
+                                </svg>
+
+                            </span>
+
+                            <div>
+
+                                <p
+                                    class="text-xs font-bold text-stone-800 dark:text-stone-100"
+                                >
+                                    Made fresh daily
+                                </p>
+
+                                <p class="text-[11px] text-stone-400">
+                                    No frozen shortcuts
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div
+                            class="hero-rating float-card absolute -right-5 bottom-12 z-20 rounded-2xl bg-amber-600 px-5 py-3.5 text-center shadow-xl"
+                            style="animation-delay:1.2s"
+                        >
+
+                            <p
+                                class="font-display text-2xl font-black text-white"
+                            >
+                                4.9 / 5
+                            </p>
+
+                            <p
+                                class="text-[10px] font-semibold uppercase tracking-wider text-amber-100"
+                            >
+                                from 2 400+ orders
+                            </p>
+
+                        </div>
+
+                    </div>
+
                 </div>
-
-                <div>
-
-                  <h3
-                    class="font-display text-xl font-bold">
-                    Prep starts early
-                  </h3>
-
-                  <p
-                    class="mt-2 leading-7 text-stone-500 dark:text-stone-400">
-
-                    Our cooks prepare ingredients throughout
-                    the day so every order gets the attention
-                    it deserves.
-
-                  </p>
-
-                </div>
-
-              </div>
-
-
-              <div class="flex gap-5">
-
-                <div
-                  class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800 dark:bg-amber-900 dark:text-amber-200">
-                  02
-                </div>
-
-                <div>
-
-                  <h3
-                    class="font-display text-xl font-bold">
-                    Every order gets checked
-                  </h3>
-
-                  <p
-                    class="mt-2 leading-7 text-stone-500 dark:text-stone-400">
-
-                    Before a meal leaves the kitchen, our team
-                    checks the portions, packaging and order
-                    details.
-
-                  </p>
-
-                </div>
-
-              </div>
-
-
-              <div class="flex gap-5">
-
-                <div
-                  class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800 dark:bg-amber-900 dark:text-amber-200">
-                  03
-                </div>
-
-                <div>
-
-                  <h3
-                    class="font-display text-xl font-bold">
-                    People come first
-                  </h3>
-
-                  <p
-                    class="mt-2 leading-7 text-stone-500 dark:text-stone-400">
-
-                    We cook for real people with real schedules,
-                    which means reliability matters just as much
-                    as flavour.
-
-                  </p>
-
-                </div>
-
-              </div>
 
             </div>
 
-
-            <a
-              id="about-menu-link-kitchen"
-              href="#"
-              class="premium-button mt-9">
-
-              Taste what we make
-
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-4 w-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2.5">
-
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M9 5l7 7-7 7" />
-
-              </svg>
-
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
+        </section>
 
 
-    <!-- ===================================================
-         SECTION 5 — WHY CHOOSE US
-    ==================================================== -->
+        <!-- ===================================================
+             SECTION 2 — STORY
+        ==================================================== -->
 
-    <section
-      class="premium-section bg-amber-50 dark:bg-stone-900">
+        <section
+            id="story"
+            class="story-section premium-section"
+        >
 
-      <div class="premium-container py-20 sm:py-24 lg:py-32">
+            <div class="premium-container py-20 sm:py-24 lg:py-32">
 
-        <div
-          class="grid items-center gap-14 lg:grid-cols-[0.92fr,1.08fr] lg:gap-24">
+                <div
+                    class="grid gap-14 lg:grid-cols-[0.85fr,1.15fr] lg:gap-24"
+                >
+
+                    <div class="reveal">
+
+                        <p class="eyebrow">
+                            Where it started
+                        </p>
+
+                        <h2
+                            class="bh-section-title mt-6"
+                        >
+                            A kitchen born out of
+                            <span class="bh-script">
+                                one simple frustration.
+                            </span>
+                        </h2>
+
+                    </div>
+
+                    <div
+                        class="reveal space-y-7 text-[1.03rem] leading-8 text-stone-600 dark:text-stone-300"
+                        style="transition-delay:0.1s"
+                    >
+
+                        <p>
+                            We started Bowl &amp; Hearth with a simple
+                            observation: local families and teams wanted
+                            food that was more thoughtful than a quick
+                            takeaway, without the planning required for
+                            a full restaurant meal.
+                        </p>
+
+                        <p>
+                            Our cloud kitchen model lets us focus entirely
+                            on cooking, packing and delivery — no dining-room
+                            overhead. That means seasonal menus, focused
+                            prep and neighbourhood delivery, done right.
+                        </p>
+
+                        <blockquote
+                            class="story-quote font-display text-2xl font-bold leading-relaxed text-stone-900 dark:text-white sm:text-3xl"
+                        >
+                            "Good food should fit into your day,
+                            not take over your day."
+                        </blockquote>
+
+                    </div>
+
+                </div>
 
 
-          <!-- IMAGE -->
+                <div
+                    class="mt-20 reveal"
+                    style="transition-delay:0.2s"
+                >
 
-          <div
-            class="reveal relative order-2 lg:order-1">
+                    <div class="relative">
+
+                        <div
+                            class="timeline-line absolute left-0 right-0 top-[22px] hidden h-px lg:block"
+                        ></div>
+
+                        <div
+                            class="grid gap-12 lg:grid-cols-3 lg:gap-14"
+                        >
+
+                            <div class="timeline-item flex gap-5 lg:block">
+
+                                <div class="relative flex-shrink-0">
+
+                                    <div class="timeline-number">
+
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            class="h-5 w-5"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a2 2 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                                            />
+
+                                        </svg>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="pt-1 lg:pt-7">
+
+                                    <b
+                                        class="text-xs font-bold uppercase tracking-[0.16em] text-amber-700 dark:text-amber-400"
+                                    >
+                                        2019
+                                    </b>
+
+                                    <h3 class="mt-2 text-xl font-bold">
+                                        One neighbourhood
+                                    </h3>
+
+                                    <p
+                                        class="mt-3 leading-7 text-stone-500 dark:text-stone-400"
+                                    >
+                                        The first delivery route served a tight
+                                        local radius — twelve streets, zero fanfare,
+                                        all heart.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="timeline-item flex gap-5 lg:block">
+
+                                <div class="relative flex-shrink-0">
+
+                                    <div class="timeline-number">
+
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            class="h-5 w-5"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                                            />
+
+                                        </svg>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="pt-1 lg:pt-7">
+
+                                    <b
+                                        class="text-xs font-bold uppercase tracking-[0.16em] text-amber-700 dark:text-amber-400"
+                                    >
+                                        2023
+                                    </b>
+
+                                    <h3 class="mt-2 text-xl font-bold">
+                                        Office catering
+                                    </h3>
+
+                                    <p
+                                        class="mt-3 leading-7 text-stone-500 dark:text-stone-400"
+                                    >
+                                        Bulk meal trays for teams became a core
+                                        part of our kitchen — offices wanted
+                                        something better than sandwiches.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="timeline-item flex gap-5 lg:block">
+
+                                <div class="relative flex-shrink-0">
+
+                                    <div class="timeline-number">
+
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            class="h-5 w-5"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                                            />
+
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                                            />
+
+                                        </svg>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="pt-1 lg:pt-7">
+
+                                    <b
+                                        class="text-xs font-bold uppercase tracking-[0.16em] text-amber-700 dark:text-amber-400"
+                                    >
+                                        2026
+                                    </b>
+
+                                    <h3 class="mt-2 text-xl font-bold">
+                                        12 delivery zones
+                                    </h3>
+
+                                    <p
+                                        class="mt-3 leading-7 text-stone-500 dark:text-stone-400"
+                                    >
+                                        A wider local network — still the same
+                                        small-batch kitchen philosophy, just
+                                        reaching more tables.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ===================================================
+             SECTION 3 — VALUES
+        ==================================================== -->
+
+        <section
+            class="premium-section bg-[#f7f5ed] dark:bg-stone-950"
+        >
+
+            <div class="premium-container py-20 sm:py-24 lg:py-32">
+
+                <div class="reveal max-w-3xl">
+
+                    <p class="eyebrow">
+                        What drives us
+                    </p>
+
+                    <h2
+                        class="bh-section-title mt-6"
+                    >
+                        Three things we refuse to
+                        <span class="bh-script">
+                            compromise on.
+                        </span>
+                    </h2>
+
+                </div>
+
+
+                <div
+                    class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3"
+                >
+
+                    <div
+                        class="value-card reveal"
+                        style="transition-delay:0.05s"
+                    >
+
+                        <div class="premium-icon">
+
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            >
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M12 21c4.5-2.8 7-6.7 7-11.5C14.2 9.5 9.5 12 8 16c-.4 1.1-.5 2.3-.3 3.4M12 21c-2.8-2-4.5-4.4-5-7.2C10.2 13.8 13 15.3 12 21z"
+                                />
+
+                            </svg>
+
+                        </div>
+
+                        <h3
+                            class="font-display mt-7 text-2xl font-bold"
+                        >
+                            Local sourcing, always
+                        </h3>
+
+                        <p
+                            class="mt-4 leading-7 text-stone-500 dark:text-stone-400"
+                        >
+                            Every ingredient traces back to a named supplier
+                            within 150 km. We know our farmers, and our farmers
+                            know our standards.
+                        </p>
+
+                        <div
+                            class="mt-8 h-px w-12 bg-amber-500"
+                        ></div>
+
+                    </div>
+
+
+                    <div
+                        class="value-card reveal"
+                        style="transition-delay:0.12s"
+                    >
+
+                        <div class="premium-icon">
+
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            >
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M12 3v3m6.36-.36l-2.12 2.12M21 12h-3m.36 6.36l-2.12-2.12M12 21v-3m-6.36.36l2.12-2.12M3 12h3m-.36-6.36l2.12 2.12M8.5 16.5c-1.9-1.9-1.9-5 0-6.9 1.9-1.9 5-1.9 6.9 0 1.9 1.9 1.9 5 0 6.9-1.9 1.9-5-1.9-6.9-1.9-5-1.9-6.9 0z"
+                                />
+
+                            </svg>
+
+                        </div>
+
+                        <h3
+                            class="font-display mt-7 text-2xl font-bold"
+                        >
+                            Small-batch every time
+                        </h3>
+
+                        <p
+                            class="mt-4 leading-7 text-stone-500 dark:text-stone-400"
+                        >
+                            We cap daily production so nothing sits waiting.
+                            If we sell out, we sell out — quality over quantity
+                            is the only rule in this kitchen.
+                        </p>
+
+                        <div
+                            class="mt-8 h-px w-12 bg-amber-500"
+                        ></div>
+
+                    </div>
+
+
+                    <div
+                        class="value-card reveal"
+                        style="transition-delay:0.2s"
+                    >
+
+                        <div class="premium-icon">
+
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            >
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M4 7h16M6 7v12h12V7M8 7V4h8v3M9 11h6M9 15h6"
+                                />
+
+                            </svg>
+
+                        </div>
+
+                        <h3
+                            class="font-display mt-7 text-2xl font-bold"
+                        >
+                            Packaging that doesn't embarrass us
+                        </h3>
+
+                        <p
+                            class="mt-4 leading-7 text-stone-500 dark:text-stone-400"
+                        >
+                            Fully compostable, sized right to avoid waste.
+                            The container should honour the food inside,
+                            not be an afterthought.
+                        </p>
+
+                        <div
+                            class="mt-8 h-px w-12 bg-amber-500"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="image-cta mt-16 reveal"
+                    style="transition-delay:0.1s"
+                >
+
+                    <img
+                        src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=85"
+                        alt="Bowls of fresh food prepared in the Bowl & Hearth kitchen"
+                        class="h-[420px] w-full object-cover sm:h-[500px]"
+                    >
+
+                    <div class="image-cta-overlay"></div>
+
+                    <div
+                        class="absolute inset-0 z-10 flex items-center px-7 sm:px-12 lg:px-16"
+                    >
+
+                        <div class="max-w-xl">
+
+                            <p
+                                class="text-xs font-bold uppercase tracking-[0.2em] text-amber-300"
+                            >
+                                From our kitchen
+                            </p>
+
+                            <p
+                                class="font-display mt-4 text-3xl font-black leading-tight text-white sm:text-5xl"
+                            >
+                                Hungry? Our kitchen is
+
+                                <br class="hidden sm:block">
+
+                                <span class="bh-script">
+                                    open right now.
+                                </span>
+
+                            </p>
+
+                            <a
+                                id="about-menu-link-2"
+                                href="#"
+                                class="premium-button mt-7"
+                            >
+                                Explore the menu
+
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-4 w-4"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    stroke-width="2.5"
+                                >
+
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M9 5l7 7-7-7"
+                                    />
+
+                                </svg>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ===================================================
+             SECTION 4 — MEET THE KITCHEN
+        ==================================================== -->
+
+        <section
+            class="premium-section bg-[#f7f5ed] dark:bg-stone-950"
+        >
+
+            <div class="premium-container py-20 sm:py-24 lg:py-32">
+
+                <div
+                    class="grid items-center gap-14 lg:grid-cols-[0.92fr,1.08fr] lg:gap-24"
+                >
+
+                    <div
+                        class="kitchen-frame reveal"
+                    >
+
+                        <img
+                            src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1200&q=85"
+                            alt="Bowl and Hearth kitchen team preparing fresh food"
+                            class="kitchen-image"
+                        >
+
+                        <div
+                            class="absolute bottom-6 left-6 z-10 rounded-2xl border border-white/40 bg-white/95 px-5 py-4 shadow-xl backdrop-blur dark:border-stone-700 dark:bg-stone-900/95"
+                        >
+
+                            <p
+                                class="text-[10px] font-bold uppercase tracking-[0.18em] text-amber-600 dark:text-amber-400"
+                            >
+                                Inside our kitchen
+                            </p>
+
+                            <p
+                                class="mt-1 font-display text-xl font-bold text-stone-900 dark:text-white"
+                            >
+                                Cooked with intention.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="reveal"
+                        style="transition-delay:0.12s"
+                    >
+
+                        <p class="eyebrow">
+                            Behind every bowl
+                        </p>
+
+                        <h2
+                            class="bh-section-title mt-6"
+                        >
+                            More than a kitchen.
+
+                            <span class="bh-script">
+                                It's our craft.
+                            </span>
+
+                        </h2>
+
+                        <p
+                            class="section-copy mt-7 text-stone-600 dark:text-stone-300"
+                        >
+                            Our team keeps the kitchen deliberately focused:
+                            fewer distractions, better ingredients and more
+                            attention on every order that leaves our door.
+                        </p>
+
+                        <div
+                            class="mt-8 h-px w-14 bg-amber-500"
+                        ></div>
+
+                        <div class="mt-9 space-y-7">
+
+                            <div class="flex gap-5">
+
+                                <div
+                                    class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800 dark:bg-amber-900 dark:text-amber-200"
+                                >
+                                    01
+                                </div>
+
+                                <div>
+
+                                    <h3
+                                        class="font-display text-xl font-bold"
+                                    >
+                                        Prep starts early
+                                    </h3>
+
+                                    <p
+                                        class="mt-2 leading-7 text-stone-500 dark:text-stone-400"
+                                    >
+                                        Our cooks prepare ingredients throughout
+                                        the day so every order gets the attention
+                                        it deserves.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="flex gap-5">
+
+                                <div
+                                    class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800 dark:bg-amber-900 dark:text-amber-200"
+                                >
+                                    02
+                                </div>
+
+                                <div>
+
+                                    <h3
+                                        class="font-display text-xl font-bold"
+                                    >
+                                        Every order gets checked
+                                    </h3>
+
+                                    <p
+                                        class="mt-2 leading-7 text-stone-500 dark:text-stone-400"
+                                    >
+                                        Before a meal leaves the kitchen, our team
+                                        checks the portions, packaging and order
+                                        details.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="flex gap-5">
+
+                                <div
+                                    class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800 dark:bg-amber-900 dark:text-amber-200"
+                                >
+                                    03
+                                </div>
+
+                                <div>
+
+                                    <h3
+                                        class="font-display text-xl font-bold"
+                                    >
+                                        People come first
+                                    </h3>
+
+                                    <p
+                                        class="mt-2 leading-7 text-stone-500 dark:text-stone-400"
+                                    >
+                                        We cook for real people with real schedules,
+                                        which means reliability matters just as much
+                                        as flavour.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <a
+                            id="about-menu-link-kitchen"
+                            href="#"
+                            class="premium-button mt-9"
+                        >
+                            Taste what we make
+
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-4 w-4"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                stroke-width="2.5"
+                            >
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M9 5l7 7-7-7"
+                                />
+
+                            </svg>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ===================================================
+             SECTION 5 — WHY CHOOSE US
+        ==================================================== -->
+
+        <section
+            class="premium-section bg-[#f7f5ed] dark:bg-stone-900"
+        >
+
+            <div class="premium-container py-20 sm:py-24 lg:py-32">
+
+                <div
+                    class="grid items-center gap-14 lg:grid-cols-[0.92fr,1.08fr] lg:gap-24"
+                >
+
+                    <div
+                        class="reveal relative order-2 lg:order-1"
+                    >
+
+                        <!-- CIRCLE IMAGE -->
+
+                        <div class="why-image-wrap">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=85"
+                                alt="Fresh home-style meal prepared by Bowl & Hearth"
+                                class="why-image"
+                            >
+
+                        </div>
+
+
+                        <div
+                            class="float-card absolute -bottom-6 right-4 z-20 rounded-2xl border border-stone-100 bg-white px-5 py-4 shadow-xl dark:border-stone-700 dark:bg-stone-800 sm:-right-6"
+                        >
+
+                            <div class="flex items-center gap-3">
+
+                                <span
+                                    class="flex h-11 w-11 items-center justify-center rounded-full bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300"
+                                >
+
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        class="h-5 w-5"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="2.5"
+                                    >
+
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M5 13l4 4L19 7"
+                                        />
+
+                                    </svg>
+
+                                </span>
+
+
+                                <div>
+
+                                    <p
+                                        class="text-sm font-bold text-stone-900 dark:text-white"
+                                    >
+                                        Made with care
+                                    </p>
+
+                                    <p class="text-xs text-stone-400">
+                                        Fresh. Local. Reliable.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="reveal order-1 lg:order-2"
+                        style="transition-delay:0.12s"
+                    >
+
+                        <p class="eyebrow">
+                            Why Bowl &amp; Hearth
+                        </p>
+
+
+                        <h2
+                            class="bh-section-title mt-6"
+                        >
+                            The comfort of home,
+
+                            <span class="bh-script">
+                                without the work.
+                            </span>
+
+                        </h2>
+
+
+                        <p
+                            class="section-copy mt-7 text-stone-600 dark:text-stone-300"
+                        >
+                            From the first ingredient to the final doorstep,
+                            every part of our kitchen is designed to make
+                            everyday meals easier, warmer and more dependable.
+                        </p>
+
+
+                        <div class="mt-9 space-y-4">
+
+                            <div class="highlight-card">
+
+                                <div
+                                    class="premium-icon flex-shrink-0"
+                                >
+
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="1.8"
+                                    >
+
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M12 3v18M8 7c0-2 1.8-3 4-3s4 1 4 3-1.8 3-4 3-4 1-4 3 1.8 3 4 3 4-1 4-3"
+                                        />
+
+                                    </svg>
+
+                                </div>
+
+
+                                <div>
+
+                                    <h3
+                                        class="font-bold text-stone-900 dark:text-white"
+                                    >
+                                        Fresh ingredients
+                                    </h3>
+
+                                    <p
+                                        class="mt-1 text-sm leading-6 text-stone-500 dark:text-stone-400"
+                                    >
+                                        Seasonal produce and carefully selected
+                                        ingredients go into every small batch.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="highlight-card">
+
+                                <div
+                                    class="premium-icon flex-shrink-0"
+                                >
+
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="1.8"
+                                    >
+
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M3 6h11v10H3zM14 9h4l3 3v4h-7zM6.5 19a2 2 0 100-4 2 2 0 000 4zm11 0a2 2 0 100-4 2 2 0 000 4z"
+                                        />
+
+                                    </svg>
+
+                                </div>
+
+
+                                <div>
+
+                                    <h3
+                                        class="font-bold text-stone-900 dark:text-white"
+                                    >
+                                        Reliable delivery
+                                    </h3>
+
+                                    <p
+                                        class="mt-1 text-sm leading-6 text-stone-500 dark:text-stone-400"
+                                    >
+                                        Thoughtfully packed meals delivered across
+                                        our local zones while they're at their best.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="highlight-card">
+
+                                <div
+                                    class="premium-icon flex-shrink-0"
+                                >
+
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="1.8"
+                                    >
+
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"
+                                        />
+
+                                    </svg>
+
+                                </div>
+
+
+                                <div>
+
+                                    <h3
+                                        class="font-bold text-stone-900 dark:text-white"
+                                    >
+                                        Made for real life
+                                    </h3>
+
+                                    <p
+                                        class="mt-1 text-sm leading-6 text-stone-500 dark:text-stone-400"
+                                    >
+                                        Easy meals for busy families, office teams,
+                                        gatherings and quiet nights at home.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <a
+                            id="about-menu-link-3"
+                            href="#"
+                            class="premium-button mt-8"
+                        >
+                            Order something good
+
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-4 w-4"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                stroke-width="2.5"
+                            >
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M9 5l7 7-7-7"
+                                />
+
+                            </svg>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ===================================================
+             SECTION 6 — MADE FOR YOUR TABLE
+        ==================================================== -->
+
+        <section
+            class="table-section premium-section bg-[#f7f5ed] text-stone-900 dark:bg-[#f7f5ed] dark:text-stone-900"
+        >
 
             <div
-              class="overflow-hidden rounded-[30px] shadow-2xl">
+                class="premium-container py-20 sm:py-24 lg:py-32"
+            >
 
-              <img
-                src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=85"
-                alt="Fresh home-style meal prepared by Bowl & Hearth"
-                class="why-image h-[420px] w-full object-cover sm:h-[540px]">
+                <div
+                    class="grid items-center gap-14 lg:grid-cols-[1.05fr,0.95fr] lg:gap-24"
+                >
+
+                    <div class="reveal">
+
+                        <p
+                            class="eyebrow !text-amber-700"
+                        >
+                            Made for your table
+                        </p>
+
+
+                        <h2
+                            class="mt-6 font-display text-4xl font-black leading-[1.02] tracking-[-0.04em] text-stone-900 sm:text-5xl lg:text-6xl"
+                        >
+
+                            Food that brings
+
+                            <span
+                                class="bh-script text-amber-700"
+                            >
+                                people together.
+                            </span>
+
+                        </h2>
+
+
+                        <p
+                            class="mt-7 max-w-xl text-base leading-8 text-stone-600 sm:text-lg"
+                        >
+                            Whether it's a quiet dinner for two, a busy office
+                            lunch, or a table full of friends and family, we
+                            believe good food has a way of making ordinary
+                            moments feel special.
+                        </p>
+
+
+                        <div class="mt-10 space-y-5">
+
+                            <div
+                                class="flex items-start gap-4"
+                            >
+
+                                <div
+                                    class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-amber-700"
+                                >
+
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        class="h-5 w-5"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="1.8"
+                                    >
+
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M5 12h14M12 5l7 7-7 7"
+                                        />
+
+                                    </svg>
+
+                                </div>
+
+
+                                <div>
+
+                                    <h3
+                                        class="font-display text-xl font-bold text-stone-900"
+                                    >
+                                        For busy weekdays
+                                    </h3>
+
+                                    <p
+                                        class="mt-1 text-sm leading-6 text-stone-500"
+                                    >
+                                        Warm, dependable meals when your day is
+                                        already packed.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div
+                                class="flex items-start gap-4"
+                            >
+
+                                <div
+                                    class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-amber-700"
+                                >
+
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        class="h-5 w-5"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="1.8"
+                                    >
+
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M17 20h5v-2a4 4 0 00-4-4h-1M9 20H4v-2a4 4 0 014-4h1m4-9a4 4 0 110 8 4 4 0 010-8z"
+                                        />
+
+                                    </svg>
+
+                                </div>
+
+
+                                <div>
+
+                                    <h3
+                                        class="font-display text-xl font-bold text-stone-900"
+                                    >
+                                        For the people you love
+                                    </h3>
+
+                                    <p
+                                        class="mt-1 text-sm leading-6 text-stone-500"
+                                    >
+                                        Comforting food made for sharing,
+                                        celebrating and slowing down together.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div
+                                class="flex items-start gap-4"
+                            >
+
+                                <div
+                                    class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-amber-700"
+                                >
+
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        class="h-5 w-5"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="1.8"
+                                    >
+
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                                        />
+
+                                    </svg>
+
+                                </div>
+
+
+                                <div>
+
+                                    <h3
+                                        class="font-display text-xl font-bold text-stone-900"
+                                    >
+                                        For the moments in between
+                                    </h3>
+
+                                    <p
+                                        class="mt-1 text-sm leading-6 text-stone-500"
+                                    >
+                                        Because sometimes the best meal is simply
+                                        the one you didn't have to worry about.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="mt-10 flex flex-wrap items-center gap-5"
+                        >
+
+                            <a
+                                id="about-menu-link-table"
+                                href="#"
+                                class="premium-button"
+                            >
+
+                                Explore our menu
+
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-4 w-4"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    stroke-width="2.5"
+                                >
+
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M9 5l7 7-7-7"
+                                    />
+
+                                </svg>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="reveal"
+                        style="transition-delay:0.12s"
+                    >
+
+                        <div class="table-image-wrap">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1200&q=85"
+                                alt="A beautiful shared meal prepared for a table"
+                                class="table-image h-[480px] w-full object-cover sm:h-[560px]"
+                            >
+
+
+                            <div
+                                class="table-floating-card"
+                            >
+
+                                <p
+                                    class="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-300"
+                                >
+                                    The Bowl &amp; Hearth way
+                                </p>
+
+                                <p
+                                    class="mt-2 font-display text-2xl font-bold text-white"
+                                >
+                                    Simple food.
+
+                                    <span class="text-amber-300">
+                                        Beautifully made.
+                                    </span>
+
+                                </p>
+
+                            </div>
+
+
+                            <div
+                                class="table-number"
+                            >
+
+                                <span
+                                    class="font-display text-xl font-bold text-white"
+                                >
+                                    06
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
 
             </div>
 
+        </section>
 
-            <!-- QUALITY BADGE -->
+
+        <!-- ===================================================
+             SECTION 7 — OUR PROMISE
+        ==================================================== -->
+
+        <section
+            class="premium-section bg-[#f7f5ed] dark:bg-stone-950"
+        >
 
             <div
-              class="float-card absolute -bottom-6 right-4 z-20 rounded-2xl border border-stone-100 bg-white px-5 py-4 shadow-xl dark:border-stone-700 dark:bg-stone-800 sm:-right-6">
+                class="mx-auto max-w-5xl px-5 py-20 sm:px-8 lg:py-32"
+            >
 
-              <div class="flex items-center gap-3">
+                <div class="reveal">
 
-                <span
-                  class="flex h-11 w-11 items-center justify-center rounded-full bg-green-100 text-xl dark:bg-green-900">
-                  ✓
-                </span>
+                    <p class="eyebrow">
+                        Our promise
+                    </p>
 
-                <div>
 
-                  <p
-                    class="text-sm font-bold text-stone-900 dark:text-white">
-                    Made with care
-                  </p>
+                    <h2
+                        class="bh-section-title mt-6 max-w-3xl"
+                    >
+                        Four things you can count on,
 
-                  <p class="text-xs text-stone-400">
-                    Fresh. Local. Reliable.
-                  </p>
+                        <span class="bh-script">
+                            every single order.
+                        </span>
+
+                    </h2>
 
                 </div>
 
-              </div>
+
+                <div class="mt-12">
+
+                    <div
+                        class="promise-row reveal"
+                        style="transition-delay:0.05s"
+                    >
+
+                        <span class="promise-number">
+                            01
+                        </span>
+
+
+                        <div>
+
+                            <h3
+                                class="font-display text-2xl font-bold sm:text-3xl"
+                            >
+                                Nothing pre-cooked, nothing frozen
+                            </h3>
+
+                            <p
+                                class="mt-3 max-w-2xl leading-7 text-stone-500 dark:text-stone-400"
+                            >
+                                Every dish starts from raw ingredients on the day
+                                it's ordered. We don't batch-cook a week ahead
+                                and reheat — that's not what "fresh" means to us.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="promise-row reveal"
+                        style="transition-delay:0.1s"
+                    >
+
+                        <span class="promise-number">
+                            02
+                        </span>
+
+
+                        <div>
+
+                            <h3
+                                class="font-display text-2xl font-bold sm:text-3xl"
+                            >
+                                A menu that follows the season
+                            </h3>
+
+                            <p
+                                class="mt-3 max-w-2xl leading-7 text-stone-500 dark:text-stone-400"
+                            >
+                                What's on offer shifts as local produce shifts.
+                                If it isn't in season nearby, it isn't on the menu
+                                — no exceptions for convenience.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="promise-row reveal"
+                        style="transition-delay:0.15s"
+                    >
+
+                        <span class="promise-number">
+                            03
+                        </span>
+
+
+                        <div>
+
+                            <h3
+                                class="font-display text-2xl font-bold sm:text-3xl"
+                            >
+                                Prices that don't move with delivery apps
+                            </h3>
+
+                            <p
+                                class="mt-3 max-w-2xl leading-7 text-stone-500 dark:text-stone-400"
+                            >
+                                What you see on our menu is what you pay. We keep
+                                pricing steady instead of surging it around
+                                mealtimes or weather.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="promise-row reveal"
+                        style="transition-delay:0.2s"
+                    >
+
+                        <span class="promise-number">
+                            04
+                        </span>
+
+
+                        <div>
+
+                            <h3
+                                class="font-display text-2xl font-bold sm:text-3xl"
+                            >
+                                A real person if something's wrong
+                            </h3>
+
+                            <p
+                                class="mt-3 max-w-2xl leading-7 text-stone-500 dark:text-stone-400"
+                            >
+                                No chatbot loops. If an order arrives late, cold,
+                                or wrong, you'll reach someone from our kitchen
+                                directly.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
 
             </div>
 
-          </div>
+        </section>
 
 
-          <!-- CONTENT -->
+    </main>
 
-          <div
-            class="reveal order-1 lg:order-2"
-            style="transition-delay:0.12s">
 
-            <p class="eyebrow">
-              Why Bowl &amp; Hearth
-            </p>
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
 
+    <div id="site-footer"></div>
 
-            <h2
-              class="font-display section-title mt-6">
 
-              The comfort of home,
+    <!-- =====================================================
+         SHARED COMPONENTS
+    ====================================================== -->
 
-              <span class="text-amber-600 dark:text-amber-400">
-                without the work.
-              </span>
+    <script src="../js/components.js"></script>
 
-            </h2>
+    <script src="../js/main.js"></script>
 
 
-            <p
-              class="section-copy mt-7 text-stone-600 dark:text-stone-300">
+    <!-- =====================================================
+         MENU LINK FIX
+    ====================================================== -->
 
-              From the first ingredient to the final doorstep,
-              every part of our kitchen is designed to make
-              everyday meals easier, warmer and more dependable.
+    <script>
 
-            </p>
+        function getMenuPageUrl() {
 
+            const currentPath =
+                window.location.pathname.replace(/\\/g, "/");
 
-            <!-- HIGHLIGHTS -->
+            const normalizedPath =
+                currentPath.replace(/\/+$/, "");
 
-            <div class="mt-9 space-y-4">
+            const insidePagesFolder =
+                normalizedPath.includes("/assets/pages/");
 
+            if (insidePagesFolder) {
+                return "menu.html";
+            }
 
-              <div class="highlight-card">
+            return "assets/pages/menu.html";
+        }
 
-                <div
-                  class="premium-icon flex-shrink-0">
-                  🥕
-                </div>
 
-                <div>
+        const menuPageUrl =
+            getMenuPageUrl();
 
-                  <h3
-                    class="font-bold text-stone-900 dark:text-white">
-                    Fresh ingredients
-                  </h3>
 
-                  <p
-                    class="mt-1 text-sm leading-6 text-stone-500 dark:text-stone-400">
+        const menuButtons = [
 
-                    Seasonal produce and carefully selected
-                    ingredients go into every small batch.
+            document.getElementById(
+                "about-menu-link-1"
+            ),
 
-                  </p>
+            document.getElementById(
+                "about-menu-link-2"
+            ),
 
-                </div>
+            document.getElementById(
+                "about-menu-link-3"
+            ),
 
-              </div>
+            document.getElementById(
+                "about-menu-link-kitchen"
+            ),
 
+            document.getElementById(
+                "about-menu-link-table"
+            )
 
-              <div class="highlight-card">
+        ];
 
-                <div
-                  class="premium-icon flex-shrink-0">
-                  🚚
-                </div>
 
-                <div>
+        menuButtons.forEach(function (button) {
 
-                  <h3
-                    class="font-bold text-stone-900 dark:text-white">
-                    Reliable delivery
-                  </h3>
+            if (button) {
+                button.href = menuPageUrl;
+            }
 
-                  <p
-                    class="mt-1 text-sm leading-6 text-stone-500 dark:text-stone-400">
+        });
 
-                    Thoughtfully packed meals delivered across
-                    our local zones while they're at their best.
+    </script>
 
-                  </p>
 
-                </div>
+    <!-- =====================================================
+         SCROLL REVEAL
+    ====================================================== -->
 
-              </div>
+    <script>
 
+        const revealEls =
+            document.querySelectorAll(".reveal");
 
-              <div class="highlight-card">
 
-                <div
-                  class="premium-icon flex-shrink-0">
-                  ❤️
-                </div>
+        if ("IntersectionObserver" in window) {
 
-                <div>
+            const observer =
+                new IntersectionObserver(
 
-                  <h3
-                    class="font-bold text-stone-900 dark:text-white">
-                    Made for real life
-                  </h3>
+                    (entries) => {
 
-                  <p
-                    class="mt-1 text-sm leading-6 text-stone-500 dark:text-stone-400">
+                        entries.forEach(entry => {
 
-                    Easy meals for busy families, office teams,
-                    gatherings and quiet nights at home.
+                            if (entry.isIntersecting) {
 
-                  </p>
+                                entry.target.classList.add(
+                                    "visible"
+                                );
 
-                </div>
+                                observer.unobserve(
+                                    entry.target
+                                );
 
-              </div>
+                            }
 
-            </div>
+                        });
 
+                    },
 
-            <a
-              id="about-menu-link-3"
-              href="#"
-              class="premium-button mt-8">
+                    {
+                        threshold: 0.10,
+                        rootMargin:
+                            "0px 0px -40px 0px"
+                    }
 
-              Order something good
+                );
 
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-4 w-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2.5">
 
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M9 5l7 7-7 7" />
+            revealEls.forEach(el => {
 
-              </svg>
-
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ===================================================
-         SECTION 6 — OUR PROMISE
-    ==================================================== -->
-
-    <section
-      class="premium-section bg-stone-50 dark:bg-stone-950">
-
-      <div
-        class="mx-auto max-w-5xl px-5 py-20 sm:px-8 lg:py-32">
-
-
-        <div class="reveal">
-
-          <p class="eyebrow">
-            Our promise
-          </p>
-
-          <h2
-            class="font-display section-title mt-6 max-w-3xl">
-
-            Four things you can count on,
-            every single order.
-
-          </h2>
-
-        </div>
-
-
-        <div class="mt-12">
-
-
-          <!-- 01 -->
-
-          <div
-            class="promise-row reveal"
-            style="transition-delay:0.05s">
-
-            <span class="promise-number">
-              01
-            </span>
-
-            <div>
-
-              <h3
-                class="font-display text-2xl font-bold sm:text-3xl">
-                Nothing pre-cooked, nothing frozen
-              </h3>
-
-              <p
-                class="mt-3 max-w-2xl leading-7 text-stone-500 dark:text-stone-400">
-
-                Every dish starts from raw ingredients on the day
-                it's ordered. We don't batch-cook a week ahead
-                and reheat — that's not what "fresh" means to us.
-
-              </p>
-
-            </div>
-
-          </div>
-
-
-          <!-- 02 -->
-
-          <div
-            class="promise-row reveal"
-            style="transition-delay:0.1s">
-
-            <span class="promise-number">
-              02
-            </span>
-
-            <div>
-
-              <h3
-                class="font-display text-2xl font-bold sm:text-3xl">
-                A menu that follows the season
-              </h3>
-
-              <p
-                class="mt-3 max-w-2xl leading-7 text-stone-500 dark:text-stone-400">
-
-                What's on offer shifts as local produce shifts.
-                If it isn't in season nearby, it isn't on the menu
-                — no exceptions for convenience.
-
-              </p>
-
-            </div>
-
-          </div>
-
-
-          <!-- 03 -->
-
-          <div
-            class="promise-row reveal"
-            style="transition-delay:0.15s">
-
-            <span class="promise-number">
-              03
-            </span>
-
-            <div>
-
-              <h3
-                class="font-display text-2xl font-bold sm:text-3xl">
-                Prices that don't move with delivery apps
-              </h3>
-
-              <p
-                class="mt-3 max-w-2xl leading-7 text-stone-500 dark:text-stone-400">
-
-                What you see on our menu is what you pay. We keep
-                pricing steady instead of surging it around
-                mealtimes or weather.
-
-              </p>
-
-            </div>
-
-          </div>
-
-
-          <!-- 04 -->
-
-          <div
-            class="promise-row reveal"
-            style="transition-delay:0.2s">
-
-            <span class="promise-number">
-              04
-            </span>
-
-            <div>
-
-              <h3
-                class="font-display text-2xl font-bold sm:text-3xl">
-                A real person if something's wrong
-              </h3>
-
-              <p
-                class="mt-3 max-w-2xl leading-7 text-stone-500 dark:text-stone-400">
-
-                No chatbot loops. If an order arrives late, cold,
-                or wrong, you'll reach someone from our kitchen
-                directly.
-
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-  </main>
-
-
-  <!-- =====================================================
-       FOOTER
-  ====================================================== -->
-
-  <div id="site-footer"></div>
-
-
-  <!-- =====================================================
-       SHARED COMPONENTS
-  ====================================================== -->
-
-  <script src="../js/components.js"></script>
-
-  <script src="../js/main.js"></script>
-
-
-  <!-- =====================================================
-       MENU LINK FIX
-  ====================================================== -->
-
-  <script>
-
-    function getMenuPageUrl() {
-
-      const currentPath =
-        window.location.pathname.replace(/\\/g, "/");
-
-      const normalizedPath =
-        currentPath.replace(/\/+$/, "");
-
-      const insidePagesFolder =
-        normalizedPath.includes("/assets/pages/");
-
-      if (insidePagesFolder) {
-        return "menu.html";
-      }
-
-      return "assets/pages/menu.html";
-
-    }
-
-
-    const menuPageUrl =
-      getMenuPageUrl();
-
-
-    const menuButtons = [
-
-      document.getElementById("about-menu-link-1"),
-
-      document.getElementById("about-menu-link-2"),
-
-      document.getElementById("about-menu-link-3"),
-
-      document.getElementById("about-menu-link-kitchen")
-
-    ];
-
-
-    menuButtons.forEach(function (button) {
-
-      if (button) {
-        button.href = menuPageUrl;
-      }
-
-    });
-
-  </script>
-
-
-  <!-- =====================================================
-       SCROLL REVEAL
-  ====================================================== -->
-
-  <script>
-
-    const revealEls =
-      document.querySelectorAll(".reveal");
-
-
-    if ("IntersectionObserver" in window) {
-
-      const observer =
-        new IntersectionObserver(
-
-          (entries) => {
-
-            entries.forEach(entry => {
-
-              if (entry.isIntersecting) {
-
-                entry.target.classList.add("visible");
-
-                observer.unobserve(entry.target);
-
-              }
+                observer.observe(el);
 
             });
 
-          },
+        } else {
 
-          {
-            threshold: 0.10,
-            rootMargin: "0px 0px -40px 0px"
-          }
+            revealEls.forEach(el => {
 
-        );
+                el.classList.add("visible");
 
+            });
 
-      revealEls.forEach(el => {
-        observer.observe(el);
-      });
+        }
 
-    } else {
-
-      revealEls.forEach(el => {
-        el.classList.add("visible");
-      });
-
-    }
-
-  </script>
+    </script>
 
 
 </body>

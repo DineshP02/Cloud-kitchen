@@ -14,6 +14,7 @@
 
     <link rel="icon" type="image/png" href="../images/favicon.png">
 
+
     <!-- =========================================================
          TAILWIND
     ========================================================== -->
@@ -21,16 +22,16 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
-      tailwind.config = {
-    darkMode: 'class',
-    theme: {
-        extend: {
-            fontFamily: {
-                display: ['Cormorant Garamond', 'serif']
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['Cormorant Garamond', 'serif']
+                    }
+                }
             }
         }
-    }
-}
     </script>
 
 
@@ -56,7 +57,7 @@
 
         /* =========================================================
            TYPOGRAPHY
-        ========================================================= */
+        ========================================================== */
 
         .h2-serif {
             font-family: 'Cormorant Garamond', serif;
@@ -84,64 +85,31 @@
            NAVIGATION / HERO OVERLAP FIX
         ========================================================== */
 
-        /*
-         * IMPORTANT:
-         *
-         * The shared navbar is loaded dynamically into
-         * #site-header.
-         *
-         * The JavaScript at the bottom of this file measures
-         * the real navbar height and automatically adds space
-         * before #home2-main.
-         */
-
         html {
             scroll-padding-top: 100px;
         }
 
-
         .home-2-page {
             overflow-x: hidden;
         }
-
 
         .home-2-page #site-header {
             position: relative;
             z-index: 9999;
         }
 
-
         .home-2-page #home2-main {
             position: relative;
             z-index: 1;
-
-            /*
-             * Fallback spacing.
-             *
-             * JavaScript will replace this with the actual
-             * navbar height after the header is loaded.
-             */
             padding-top: 100px;
         }
-
 
         .home-2-page #home2-hero {
             position: relative;
             z-index: 1;
-
             margin-top: 0 !important;
-
-            /*
-             * Never allow the hero to pull underneath
-             * the navigation.
-             */
-            transform: none;
+            transform: none !important;
         }
-
-
-        /*
-         * Desktop fallback
-         */
 
         @media (min-width: 1025px) {
 
@@ -151,11 +119,6 @@
 
         }
 
-
-        /*
-         * Tablet fallback
-         */
-
         @media (min-width: 769px) and (max-width: 1024px) {
 
             .home-2-page #home2-main {
@@ -163,11 +126,6 @@
             }
 
         }
-
-
-        /*
-         * Mobile fallback
-         */
 
         @media (max-width: 768px) {
 
@@ -177,17 +135,28 @@
 
         }
 
-
-        /*
-         * Small mobile fallback
-         */
-
         @media (max-width: 480px) {
 
             .home-2-page #home2-main {
                 padding-top: 80px;
             }
 
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================== */
+
+        .h2-hero-content {
+            min-width: 0;
+        }
+
+        .h2-hero-image {
+            position: relative;
+            width: 100%;
+            min-width: 0;
+            overflow: hidden;
         }
 
 
@@ -223,7 +192,6 @@
             border-bottom: 1px solid rgba(87, 63, 42, .12);
         }
 
-
         .h2-process-section::before {
             content: "CARE";
 
@@ -245,7 +213,6 @@
             pointer-events: none;
             user-select: none;
         }
-
 
         .h2-process-section::after {
             content: "";
@@ -270,7 +237,6 @@
             pointer-events: none;
         }
 
-
         .h2-process-inner {
             position: relative;
             z-index: 2;
@@ -285,7 +251,6 @@
             color: #a8341f;
         }
 
-
         .h2-process-heading {
             color: #2b211b;
 
@@ -293,11 +258,9 @@
                 0 2px 0 rgba(255,255,255,.4);
         }
 
-
         .h2-process-description {
             color: #65584d;
         }
-
 
         .h2-process-gold-line {
             width: 86px;
@@ -347,7 +310,6 @@
 
             -webkit-backdrop-filter: blur(8px);
         }
-
 
         .h2-process-promise-icon {
             width: 46px;
@@ -408,7 +370,6 @@
                 border-color .35s ease;
         }
 
-
         .h2-process-item::after {
             content: "";
 
@@ -430,26 +391,21 @@
             pointer-events: none;
         }
 
-
         .h2-process-item:nth-child(1)::after {
             content: "01";
         }
-
 
         .h2-process-item:nth-child(2)::after {
             content: "02";
         }
 
-
         .h2-process-item:nth-child(3)::after {
             content: "03";
         }
 
-
         .h2-process-item:nth-child(4)::after {
             content: "04";
         }
-
 
         .h2-process-item:hover {
             transform: translateY(-8px);
@@ -459,7 +415,6 @@
             box-shadow:
                 0 22px 50px rgba(63, 43, 27, .12);
         }
-
 
         .h2-process-number {
             position: relative;
@@ -499,7 +454,6 @@
                 background .35s ease;
         }
 
-
         .h2-process-item:hover .h2-process-number {
             transform: rotate(8deg) scale(1.08);
 
@@ -513,7 +467,6 @@
             color: white;
         }
 
-
         .h2-process-title {
             position: relative;
             z-index: 2;
@@ -521,14 +474,12 @@
             color: #2d2119;
         }
 
-
         .h2-process-text {
             position: relative;
             z-index: 2;
 
             color: #75685c;
         }
-
 
         .h2-process-label {
             position: relative;
@@ -551,7 +502,6 @@
 
             text-transform: uppercase;
         }
-
 
         .h2-process-label::before {
             content: "";
@@ -593,16 +543,13 @@
             border-color: rgba(255,255,255,.08);
         }
 
-
         .dark .h2-process-heading {
             color: #fff8ef;
         }
 
-
         .dark .h2-process-description {
             color: rgba(255,255,255,.62);
         }
-
 
         .dark .h2-process-promise {
             background: rgba(255,255,255,.055);
@@ -612,7 +559,6 @@
             box-shadow:
                 0 15px 35px rgba(0,0,0,.20);
         }
-
 
         .dark .h2-process-item {
             background:
@@ -628,14 +574,12 @@
                 0 15px 40px rgba(0,0,0,.20);
         }
 
-
         .dark .h2-process-item:hover {
             border-color: rgba(249,215,158,.32);
 
             box-shadow:
                 0 25px 55px rgba(0,0,0,.30);
         }
-
 
         .dark .h2-process-number {
             color: #f9d79e;
@@ -650,16 +594,13 @@
             border-color: rgba(249,215,158,.32);
         }
 
-
         .dark .h2-process-item:hover .h2-process-number {
             color: white;
         }
 
-
         .dark .h2-process-title {
             color: #fff8ef;
         }
-
 
         .dark .h2-process-text {
             color: rgba(255,255,255,.58);
@@ -691,7 +632,6 @@
                 background-position .7s ease;
         }
 
-
         .h2-meal-link::before {
             content: "";
 
@@ -708,7 +648,6 @@
 
             transition: transform .7s ease;
         }
-
 
         .h2-meal-link::after {
             content: "";
@@ -728,16 +667,13 @@
                 );
         }
 
-
         .h2-meal-link:hover::before {
             transform: scale(1.08);
         }
 
-
         .h2-meal-link:hover {
             transform: translateY(-4px);
         }
-
 
         .h2-meal-content {
             position: relative;
@@ -746,16 +682,13 @@
             padding: 38px;
         }
 
-
         .h2-meal-time {
             color: #f9d79e;
         }
 
-
         .h2-meal-description {
             color: rgba(255, 255, 255, .76);
         }
-
 
         .h2-meal-line {
             width: 42px;
@@ -763,7 +696,6 @@
 
             background: rgba(255, 255, 255, .55);
         }
-
 
         .h2-meal-explore {
             color: #f9d79e;
@@ -788,7 +720,6 @@
             transition: transform .7s ease;
         }
 
-
         .h2-philosophy-wrap:hover .h2-philosophy-image {
             transform: scale(1.04);
         }
@@ -811,7 +742,6 @@
                 );
         }
 
-
         .dark .h2-kitchen-notes {
             background:
                 linear-gradient(
@@ -821,7 +751,6 @@
                     #151210 100%
                 );
         }
-
 
         .h2-kitchen-notes::before {
             content: "TN";
@@ -844,7 +773,6 @@
             pointer-events: none;
         }
 
-
         .h2-kitchen-item {
             position: relative;
 
@@ -855,21 +783,17 @@
                 background .35s ease;
         }
 
-
         .dark .h2-kitchen-item {
             border-color: rgba(255, 255, 255, .12);
         }
-
 
         .h2-kitchen-item:last-child {
             border-bottom: 1px solid rgba(60, 48, 38, .18);
         }
 
-
         .dark .h2-kitchen-item:last-child {
             border-color: rgba(255, 255, 255, .12);
         }
-
 
         .h2-kitchen-item:hover {
             padding-left: 18px;
@@ -877,11 +801,9 @@
             background: rgba(168, 52, 31, .045);
         }
 
-
         .dark .h2-kitchen-item:hover {
             background: rgba(255, 255, 255, .035);
         }
-
 
         .h2-kitchen-number {
             font-family: 'Cormorant Garamond', serif;
@@ -891,13 +813,11 @@
             color: #a8341f;
         }
 
-
         .h2-kitchen-title {
             font-family: 'Cormorant Garamond', serif;
 
             font-weight: 600;
         }
-
 
         .h2-kitchen-dot {
             width: 8px;
@@ -909,7 +829,6 @@
 
             flex-shrink: 0;
         }
-
 
         .h2-kitchen-side {
             writing-mode: vertical-rl;
@@ -953,7 +872,6 @@
             color: white;
         }
 
-
         .h2-numbers-section::before {
             content: "";
 
@@ -976,14 +894,14 @@
             pointer-events: none;
         }
 
-
         .h2-numbers-inner {
             position: relative;
             z-index: 2;
         }
 
-
         .h2-number-card {
+            min-width: 0;
+
             padding: 34px 24px;
 
             border: 1px solid rgba(255,255,255,.14);
@@ -1005,7 +923,6 @@
                 box-shadow .35s ease;
         }
 
-
         .h2-number-card:hover {
             transform: translateY(-8px);
 
@@ -1015,11 +932,24 @@
                 0 20px 45px rgba(0,0,0,.28);
         }
 
-
         .h2-stat {
             position: relative;
+            min-width: 0;
         }
 
+        .h2-stat strong {
+            display: block;
+            max-width: 100%;
+            overflow-wrap: anywhere;
+            word-break: normal;
+        }
+
+        .h2-stat span {
+            display: block;
+            max-width: 100%;
+            line-height: 1.45;
+            overflow-wrap: break-word;
+        }
 
         .h2-stat::before {
             content: "";
@@ -1043,6 +973,323 @@
 
 
         /* =========================================================
+           PREMIUM CHEF'S TABLE SECTION
+           LIGHT BACKGROUND — #f7f5ed
+        ========================================================== */
+
+        .h2-premium-section {
+            position: relative;
+            overflow: hidden;
+
+            color: #2b211b;
+
+            background:
+                radial-gradient(
+                    circle at 12% 20%,
+                    rgba(201,134,47,.10),
+                    transparent 26%
+                ),
+                radial-gradient(
+                    circle at 88% 80%,
+                    rgba(168,52,31,.08),
+                    transparent 30%
+                ),
+                #f7f5ed;
+        }
+
+        .h2-premium-section::before {
+            content: "TABLE";
+
+            position: absolute;
+
+            top: -50px;
+            left: -20px;
+
+            font-family: 'Cormorant Garamond', serif;
+
+            font-size: clamp(130px, 18vw, 290px);
+
+            font-weight: 700;
+
+            line-height: .8;
+
+            color: rgba(168,52,31,.035);
+
+            pointer-events: none;
+
+            user-select: none;
+        }
+
+        .h2-premium-section::after {
+            content: "";
+
+            position: absolute;
+
+            width: 500px;
+            height: 500px;
+
+            right: -240px;
+            bottom: -260px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(201,134,47,.10),
+                    transparent 68%
+                );
+
+            pointer-events: none;
+        }
+
+        .h2-premium-inner {
+            position: relative;
+            z-index: 2;
+        }
+
+        .h2-premium-kicker {
+            color: #a8341f;
+        }
+
+        .h2-premium-heading {
+            color: #2b211b;
+        }
+
+        .h2-premium-intro {
+            color: #65584d;
+        }
+
+        .h2-premium-line {
+            width: 90px;
+            height: 3px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #a8341f,
+                    #c9862f,
+                    #f0d18b
+                );
+
+            border-radius: 999px;
+        }
+
+        .h2-premium-card {
+            position: relative;
+
+            min-height: 470px;
+
+            overflow: hidden;
+
+            border-radius: 28px;
+
+            border: 1px solid rgba(78,58,43,.16);
+
+            background: #211914;
+
+            box-shadow:
+                0 25px 70px rgba(63,43,27,.16);
+
+            isolation: isolate;
+        }
+
+        .h2-premium-card-image {
+            position: absolute;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition:
+                transform .8s cubic-bezier(.2,.7,.2,1);
+        }
+
+        .h2-premium-card::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            z-index: 1;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(10,7,5,.96) 0%,
+                    rgba(10,7,5,.70) 35%,
+                    rgba(10,7,5,.15) 72%,
+                    rgba(10,7,5,.02) 100%
+                );
+        }
+
+        .h2-premium-card:hover .h2-premium-card-image {
+            transform: scale(1.08);
+        }
+
+        .h2-premium-card-content {
+            position: absolute;
+
+            z-index: 3;
+
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            padding: 32px;
+        }
+
+        .h2-premium-card-number {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            width: 42px;
+            height: 42px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(249,215,158,.40);
+
+            background: rgba(0,0,0,.20);
+
+            backdrop-filter: blur(8px);
+
+            color: #f9d79e;
+
+            font-family: 'Cormorant Garamond', serif;
+
+            font-size: 18px;
+        }
+
+        .h2-premium-card-title {
+            color: #fff8ef;
+        }
+
+        .h2-premium-card-text {
+            color: rgba(255,255,255,.68);
+        }
+
+        .h2-premium-card-link {
+            color: #f9d79e;
+
+            transition:
+                gap .3s ease,
+                color .3s ease;
+        }
+
+        .h2-premium-card:hover .h2-premium-card-link {
+            color: #fff;
+        }
+
+        .h2-premium-feature {
+            border-top: 1px solid rgba(78,58,43,.18);
+        }
+
+        .h2-premium-feature:last-child {
+            border-bottom: 1px solid rgba(78,58,43,.18);
+        }
+
+        .h2-premium-feature-icon {
+            color: #a8341f;
+        }
+
+        .h2-premium-feature h3 {
+            color: #2b211b;
+        }
+
+        .h2-premium-feature p {
+            color: #75685c;
+        }
+
+        .h2-premium-badge {
+            border: 1px solid rgba(168,52,31,.25);
+
+            background: rgba(168,52,31,.05);
+
+            color: #a8341f;
+
+            backdrop-filter: blur(8px);
+        }
+
+
+        /* =========================================================
+           PREMIUM DARK MODE
+        ========================================================== */
+
+        .dark .h2-premium-section {
+            color: #fff8ef;
+
+            background:
+                radial-gradient(
+                    circle at 12% 20%,
+                    rgba(201,134,47,.14),
+                    transparent 26%
+                ),
+                radial-gradient(
+                    circle at 88% 80%,
+                    rgba(168,52,31,.16),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #17120f 0%,
+                    #241812 48%,
+                    #120e0c 100%
+                );
+        }
+
+        .dark .h2-premium-section::before {
+            color: rgba(255,255,255,.025);
+        }
+
+        .dark .h2-premium-kicker {
+            color: #e2b45d;
+        }
+
+        .dark .h2-premium-heading {
+            color: #fff8ef;
+        }
+
+        .dark .h2-premium-intro {
+            color: rgba(255,255,255,.62);
+        }
+
+        .dark .h2-premium-feature {
+            border-color: rgba(255,255,255,.12);
+        }
+
+        .dark .h2-premium-feature:last-child {
+            border-color: rgba(255,255,255,.12);
+        }
+
+        .dark .h2-premium-feature-icon {
+            color: #e2b45d;
+        }
+
+        .dark .h2-premium-feature h3 {
+            color: #fff;
+        }
+
+        .dark .h2-premium-feature p {
+            color: rgba(255,255,255,.50);
+        }
+
+        .dark .h2-premium-badge {
+            border-color: rgba(249,215,158,.28);
+
+            background: rgba(249,215,158,.06);
+
+            color: #f9d79e;
+        }
+
+
+        /* =========================================================
            CTA
         ========================================================== */
 
@@ -1050,9 +1297,37 @@
             transition: transform .3s ease;
         }
 
-
         .h2-cta-link:hover .h2-cta-arrow {
             transform: translateX(8px);
+        }
+
+
+        /* =========================================================
+           TABLET FIX — NUMBER SECTION
+        ========================================================== */
+
+        @media (min-width: 769px) and (max-width: 1100px) {
+
+            .h2-number-card {
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+
+            .h2-number-card strong {
+                font-size: 4rem !important;
+                line-height: .95;
+            }
+
+            .h2-number-card span {
+                font-size: 10px;
+                letter-spacing: .12em;
+            }
+
+            .h2-number-card p {
+                font-size: 13px;
+                line-height: 1.5;
+            }
+
         }
 
 
@@ -1067,41 +1342,39 @@
                 min-height: 250px;
             }
 
-
             .h2-meal-link {
                 min-height: 390px;
             }
-
 
             .h2-meal-content {
                 padding: 28px;
             }
 
-
             .h2-process-item:hover {
                 transform: none;
             }
 
-
             .h2-process-section::before {
                 font-size: 160px;
-
                 right: -20px;
-
                 top: -25px;
             }
 
-
             .h2-kitchen-notes::before {
                 font-size: 180px;
-
                 right: -20px;
-
                 top: -20px;
             }
 
-
             .h2-number-card:hover {
+                transform: none;
+            }
+
+            .h2-premium-card {
+                min-height: 430px;
+            }
+
+            .h2-premium-card:hover .h2-premium-card-image {
                 transform: none;
             }
 
@@ -1114,38 +1387,42 @@
                 transform: none;
             }
 
-
             .h2-meal-link:hover::before {
                 transform: none;
             }
-
 
             .h2-kitchen-item:hover {
                 padding-left: 0;
             }
 
-
             .h2-kitchen-side {
                 display: none;
             }
-
 
             .h2-process-item {
                 border-radius: 20px;
             }
 
-
             .h2-process-promise {
                 padding: 15px;
             }
 
-
-            /*
-             * Mobile hero safety.
-             */
-
             .home-2-page #home2-hero {
                 padding-top: 18px;
+            }
+
+            .h2-hero-image {
+                min-height: 360px !important;
+                border-radius: 1.75rem !important;
+            }
+
+            .h2-premium-card {
+                min-height: 400px;
+                border-radius: 22px;
+            }
+
+            .h2-premium-card-content {
+                padding: 25px;
             }
 
         }
@@ -1161,15 +1438,21 @@
                 padding-top: 76px;
             }
 
-
             .home-2-page #home2-hero {
                 padding-left: 16px;
                 padding-right: 16px;
             }
 
-
             .home-2-page #home2-hero h1 {
                 font-size: 2.1rem;
+            }
+
+            .h2-hero-image {
+                min-height: 320px !important;
+            }
+
+            .h2-premium-card {
+                min-height: 370px;
             }
 
         }
@@ -1179,7 +1462,8 @@
 </head>
 
 
-<body class="home-2-page bg-[#f4f0e8] text-stone-900 dark:bg-stone-950 dark:text-stone-100">
+<body
+    class="home-2-page bg-[#f4f0e8] text-stone-900 dark:bg-stone-950 dark:text-stone-100">
 
 
     <!-- =========================================================
@@ -1204,102 +1488,129 @@
             id="home2-hero"
             class="mx-auto max-w-7xl px-5 pt-8 pb-10 sm:px-8 sm:pt-10 sm:pb-12 lg:px-12 lg:pt-12 lg:pb-16">
 
-            <div class="grid gap-5 lg:grid-cols-[1.4fr_.6fr]">
+            <div
+                class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
 
 
-                <!-- HERO IMAGE -->
+                <div class="h2-hero-content">
 
-                <div
-                    class="min-h-[420px] overflow-hidden rounded-[2rem] bg-[url('https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1600&q=85')] bg-cover bg-center p-5 text-white sm:min-h-[520px] sm:rounded-[2.5rem] sm:p-9 lg:p-12">
+                    <p
+                        class="text-xs font-bold uppercase tracking-[.2em] text-[#a8341f] sm:text-sm sm:tracking-[.25em]">
 
-                    <div class="flex h-full flex-col justify-end">
+                        Straight from Tamil Nadu
 
-                        <p
-                            class="text-xs font-bold uppercase tracking-[.2em] text-amber-300 sm:text-sm sm:tracking-[.25em]">
-                            Kitchen stories
-                        </p>
+                    </p>
 
 
-                        <h1
-                            class="mt-4 max-w-2xl break-words font-display text-3xl font-black leading-tight sm:text-5xl lg:text-7xl">
+                    <h1
+                        class="h2-serif mt-5 max-w-xl break-words text-4xl font-semibold leading-[1.02] text-stone-900 sm:text-6xl lg:text-7xl dark:text-white">
 
-                            A neighbourhood kitchen
-                            without four walls.
+                        Home food,
 
-                        </h1>
+                        <br>
+
+                        made for the
+
+                        <br>
+
+                        <span class="italic text-[#a8341f]">
+                            whole city.
+                        </span>
+
+                    </h1>
 
 
-                        <p
-                            class="mt-4 max-w-xl text-sm text-white/85 sm:mt-5 sm:text-base">
+                    <p
+                        class="mt-6 max-w-md text-sm leading-7 text-stone-600 sm:text-base dark:text-stone-300">
 
-                            One menu, multiple moods:
-                            breakfast meetings,
-                            weekday lunches,
-                            family dinners and event trays.
+                        Slow-cooked recipes, hand-ground spices and a kitchen
+                        that never stopped feeling like someone's home —
+                        now delivered close to you.
 
-                        </p>
+                    </p>
+
+
+                    <div
+                        class="mt-9 flex flex-wrap items-center gap-6">
+
+                        <a
+                            href="menu.html"
+                            class="inline-flex items-center justify-center rounded-full bg-[#a8341f] px-7 py-4 text-sm font-bold text-white transition duration-300 hover:-translate-y-1 hover:bg-[#8d2b1b]">
+
+                            Explore today's menu
+
+                        </a>
+
+
+                        <a
+                            href="about.html"
+                            class="h2-cta-link inline-flex items-center gap-3 border-b border-stone-900 pb-1 text-sm font-bold text-stone-900 dark:border-white dark:text-white">
+
+                            Our story
+
+                            <span class="h2-cta-arrow">
+                                →
+                            </span>
+
+                        </a>
+
+                    </div>
+
+
+                    <div
+                        class="mt-12 flex items-center gap-7 sm:gap-10">
+
+                        <div>
+
+                            <span
+                                class="h2-serif block text-4xl font-semibold text-[#a8341f] sm:text-5xl">
+
+                                9
+
+                            </span>
+
+                            <span
+                                class="mt-1 block text-xs font-bold uppercase tracking-[.15em] text-stone-500">
+
+                                Years cooking
+
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="h-10 w-px bg-stone-300 dark:bg-stone-700">
+                        </div>
+
+
+                        <div>
+
+                            <span
+                                class="h2-serif block text-4xl font-semibold text-[#a8341f] sm:text-5xl">
+
+                                1,200+
+
+                            </span>
+
+                            <span
+                                class="mt-1 block text-xs font-bold uppercase tracking-[.15em] text-stone-500">
+
+                                Meals monthly
+
+                            </span>
+
+                        </div>
 
                     </div>
 
                 </div>
 
 
-                <!-- HERO SIDE -->
+                <div
+                    class="h2-hero-image min-h-[380px] rounded-[2rem] bg-[url('https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=1400&q=85')] bg-cover bg-center sm:min-h-[480px] sm:rounded-[2.5rem] lg:min-h-[600px]">
 
-                <div class="grid gap-5">
-
-
-                    <div
-                        class="rounded-[2rem] bg-amber-500 p-6 sm:rounded-[2.5rem] sm:p-9">
-
-                        <span class="text-3xl font-black sm:text-5xl">
-                            07:00
-                        </span>
-
-
-                        <h2
-                            class="mt-8 text-xl font-black sm:mt-12 sm:text-2xl">
-
-                            First batch out
-
-                        </h2>
-
-
-                        <p
-                            class="mt-2 text-sm text-stone-900/70 sm:text-base">
-
-                            Breakfast begins before the morning rush.
-
-                        </p>
-
-                    </div>
-
-
-                    <div
-                        class="rounded-[2rem] bg-stone-900 p-6 text-white sm:rounded-[2.5rem] sm:p-9">
-
-                        <span class="text-3xl font-black sm:text-5xl">
-                            4 ways
-                        </span>
-
-
-                        <h2
-                            class="mt-8 text-xl font-black sm:mt-12 sm:text-2xl">
-
-                            To order
-
-                        </h2>
-
-
-                        <p
-                            class="mt-2 text-sm text-white/60 sm:text-base">
-
-                            Individual meals, subscriptions,
-                            office trays and event catering.
-
-                        </p>
-
-                    </div>
+                    <div class="absolute inset-0 bg-black/5"></div>
 
                 </div>
 
@@ -1317,10 +1628,12 @@
             <div
                 class="h2-process-inner mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-28">
 
-                <div class="grid gap-14 lg:grid-cols-[.7fr_1.3fr]">
+                <div
+                    class="grid gap-14 lg:grid-cols-[.7fr_1.3fr]">
 
 
-                    <div class="flex flex-col justify-center">
+                    <div
+                        class="flex flex-col justify-center">
 
                         <p
                             class="h2-process-eyebrow text-xs font-bold uppercase tracking-[.3em]">
@@ -1358,7 +1671,8 @@
                         </p>
 
 
-                        <div class="h2-process-promise mt-10">
+                        <div
+                            class="h2-process-promise mt-10">
 
                             <div class="h2-process-promise-icon">
 
@@ -1426,7 +1740,8 @@
                         </div>
 
 
-                        <div class="grid gap-5 sm:grid-cols-2">
+                        <div
+                            class="grid gap-5 sm:grid-cols-2">
 
 
                             <div class="h2-process-item">
@@ -1435,14 +1750,12 @@
                                     01
                                 </div>
 
-
                                 <h3
                                     class="h2-process-title mt-7 font-display text-3xl">
 
                                     Cook small
 
                                 </h3>
-
 
                                 <p
                                     class="h2-process-text mt-3 max-w-xs text-sm leading-6">
@@ -1451,7 +1764,6 @@
                                     aroma and flavour at their best.
 
                                 </p>
-
 
                                 <span class="h2-process-label">
                                     Freshness first
@@ -1466,14 +1778,12 @@
                                     02
                                 </div>
 
-
                                 <h3
                                     class="h2-process-title mt-7 font-display text-3xl">
 
                                     Pack smart
 
                                 </h3>
-
 
                                 <p
                                     class="h2-process-text mt-3 max-w-xs text-sm leading-6">
@@ -1482,7 +1792,6 @@
                                     are packed to travel beautifully.
 
                                 </p>
-
 
                                 <span class="h2-process-label">
                                     Thoughtful packing
@@ -1497,14 +1806,12 @@
                                     03
                                 </div>
 
-
                                 <h3
                                     class="h2-process-title mt-7 font-display text-3xl">
 
                                     Move fast
 
                                 </h3>
-
 
                                 <p
                                     class="h2-process-text mt-3 max-w-xs text-sm leading-6">
@@ -1513,7 +1820,6 @@
                                     and the food closer to the kitchen.
 
                                 </p>
-
 
                                 <span class="h2-process-label">
                                     Close to home
@@ -1528,14 +1834,12 @@
                                     04
                                 </div>
 
-
                                 <h3
                                     class="h2-process-title mt-7 font-display text-3xl">
 
                                     Serve warm
 
                                 </h3>
-
 
                                 <p
                                     class="h2-process-text mt-3 max-w-xs text-sm leading-6">
@@ -1545,13 +1849,11 @@
 
                                 </p>
 
-
                                 <span class="h2-process-label">
                                     Made to share
                                 </span>
 
                             </div>
-
 
                         </div>
 
@@ -1575,7 +1877,6 @@
 
                 <div
                     class="flex flex-col gap-7 md:flex-row md:items-end md:justify-between">
-
 
                     <div>
 
@@ -1617,10 +1918,9 @@
 
             <div class="mt-14">
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-4">
+                <div
+                    class="grid md:grid-cols-2 lg:grid-cols-4">
 
-
-                    <!-- BREAKFAST -->
 
                     <a
                         href="menu.html"
@@ -1635,7 +1935,6 @@
 
                             </span>
 
-
                             <h3
                                 class="mt-5 font-display text-4xl text-white">
 
@@ -1643,9 +1942,7 @@
 
                             </h3>
 
-
                             <div class="h2-meal-line mt-6"></div>
-
 
                             <p
                                 class="h2-meal-description mt-5 text-sm leading-6">
@@ -1653,7 +1950,6 @@
                                 Idli, dosa, bowls & coffee.
 
                             </p>
-
 
                             <span
                                 class="h2-meal-explore mt-8 block text-sm font-bold">
@@ -1666,8 +1962,6 @@
 
                     </a>
 
-
-                    <!-- LUNCH -->
 
                     <a
                         href="menu.html"
@@ -1682,7 +1976,6 @@
 
                             </span>
 
-
                             <h3
                                 class="mt-5 font-display text-4xl text-white">
 
@@ -1690,9 +1983,7 @@
 
                             </h3>
 
-
                             <div class="h2-meal-line mt-6"></div>
-
 
                             <p
                                 class="h2-meal-description mt-5 text-sm leading-6">
@@ -1700,7 +1991,6 @@
                                 Balanced plates for busy days.
 
                             </p>
-
 
                             <span
                                 class="h2-meal-explore mt-8 block text-sm font-bold">
@@ -1713,8 +2003,6 @@
 
                     </a>
 
-
-                    <!-- SNACKS -->
 
                     <a
                         href="menu.html"
@@ -1729,7 +2017,6 @@
 
                             </span>
 
-
                             <h3
                                 class="mt-5 font-display text-4xl text-white">
 
@@ -1737,9 +2024,7 @@
 
                             </h3>
 
-
                             <div class="h2-meal-line mt-6"></div>
-
 
                             <p
                                 class="h2-meal-description mt-5 text-sm leading-6">
@@ -1747,7 +2032,6 @@
                                 Small bites for the in-between.
 
                             </p>
-
 
                             <span
                                 class="h2-meal-explore mt-8 block text-sm font-bold">
@@ -1760,8 +2044,6 @@
 
                     </a>
 
-
-                    <!-- DINNER -->
 
                     <a
                         href="menu.html"
@@ -1776,7 +2058,6 @@
 
                             </span>
 
-
                             <h3
                                 class="mt-5 font-display text-4xl text-white">
 
@@ -1784,9 +2065,7 @@
 
                             </h3>
 
-
                             <div class="h2-meal-line mt-6"></div>
-
 
                             <p
                                 class="h2-meal-description mt-5 text-sm leading-6">
@@ -1794,7 +2073,6 @@
                                 Comfort food to finish the day.
 
                             </p>
-
 
                             <span
                                 class="h2-meal-explore mt-8 block text-sm font-bold">
@@ -1806,7 +2084,6 @@
                         </div>
 
                     </a>
-
 
                 </div>
 
@@ -1825,8 +2102,8 @@
             <div
                 class="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
 
-                <div class="grid gap-8 lg:grid-cols-[.25fr_1fr]">
-
+                <div
+                    class="grid gap-8 lg:grid-cols-[.25fr_1fr]">
 
                     <div
                         class="h2-serif text-[130px] leading-[.5] text-amber-500 sm:text-[180px]">
@@ -1878,9 +2155,11 @@
              SECTION 5 — PHILOSOPHY
         ========================================================== -->
 
-        <section class="h2-philosophy-wrap overflow-hidden">
+        <section
+            class="h2-philosophy-wrap overflow-hidden">
 
-            <div class="grid lg:grid-cols-2">
+            <div
+                class="grid lg:grid-cols-2">
 
 
                 <div
@@ -1916,7 +2195,6 @@
                 <div
                     class="flex flex-col justify-center bg-stone-900 px-7 py-20 text-white sm:px-12 sm:py-24 lg:px-20">
 
-
                     <p
                         class="text-xs font-bold uppercase tracking-[.3em] text-amber-400">
 
@@ -1925,7 +2203,8 @@
                     </p>
 
 
-                    <div class="mt-6 flex items-end gap-5">
+                    <div
+                        class="mt-6 flex items-end gap-5">
 
                         <span
                             class="h2-serif text-[120px] font-semibold leading-[.7] text-amber-400 sm:text-[170px]">
@@ -2076,8 +2355,6 @@
                     <div class="relative z-10">
 
 
-                        <!-- ITEM 01 -->
-
                         <div
                             class="h2-kitchen-item py-7 sm:py-8">
 
@@ -2143,8 +2420,6 @@
 
                         </div>
 
-
-                        <!-- ITEM 02 -->
 
                         <div
                             class="h2-kitchen-item py-7 sm:py-8">
@@ -2212,8 +2487,6 @@
                         </div>
 
 
-                        <!-- ITEM 03 -->
-
                         <div
                             class="h2-kitchen-item py-7 sm:py-8">
 
@@ -2280,8 +2553,6 @@
                         </div>
 
 
-                        <!-- ITEM 04 -->
-
                         <div
                             class="h2-kitchen-item py-7 sm:py-8">
 
@@ -2347,8 +2618,6 @@
 
                         </div>
 
-
-                        <!-- ITEM 05 -->
 
                         <div
                             class="h2-kitchen-item py-7 sm:py-8">
@@ -2423,7 +2692,6 @@
 
                 <div
                     class="relative z-10 mt-14 flex flex-col gap-5 border-t border-stone-400/30 pt-8 sm:flex-row sm:items-center sm:justify-between dark:border-white/10">
-
 
                     <p
                         class="max-w-lg text-sm leading-6 text-stone-500 dark:text-stone-400">
@@ -2508,7 +2776,8 @@
                 </div>
 
 
-                <div class="grid gap-5 md:grid-cols-3">
+                <div
+                    class="grid gap-5 md:grid-cols-3">
 
 
                     <div
@@ -2517,7 +2786,7 @@
                         <strong
                             class="h2-serif block text-6xl font-semibold text-amber-100 sm:text-8xl">
 
-                            1,200+
+                            1k+
 
                         </strong>
 
@@ -2606,7 +2875,6 @@
                 <div
                     class="mt-12 flex flex-col gap-4 border-t border-white/15 pt-7 sm:flex-row sm:items-center sm:justify-between">
 
-
                     <p class="text-sm text-white/50">
 
                         Cooked with patience.
@@ -2630,7 +2898,363 @@
 
 
         <!-- =========================================================
-             SECTION 8 — FINAL CTA
+             SECTION 8 — PREMIUM CHEF'S TABLE
+             ONLY 2 IMAGE CARDS
+        ========================================================== -->
+
+        <section class="h2-premium-section">
+
+            <div
+                class="h2-premium-inner mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-28 lg:px-12 lg:py-32">
+
+
+                <!-- HEADER -->
+
+                <div
+                    class="grid gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-end">
+
+
+                    <div>
+
+                        <div
+                            class="flex flex-wrap items-center gap-4">
+
+                            <span
+                                class="h2-premium-kicker text-xs font-bold uppercase tracking-[.3em]">
+
+                                The chef's table
+
+                            </span>
+
+
+                            <span
+                                class="h2-premium-badge rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-[.2em]">
+
+                                Limited selection
+
+                            </span>
+
+                        </div>
+
+
+                        <h2
+                            class="h2-serif h2-premium-heading mt-5 text-5xl font-semibold leading-[.9] sm:text-6xl lg:text-8xl">
+
+                            Made slowly.
+
+                            <br>
+
+                            Served beautifully.
+
+                        </h2>
+
+                    </div>
+
+
+                    <div class="lg:pb-2">
+
+                        <div class="h2-premium-line"></div>
+
+
+                        <p
+                            class="h2-premium-intro mt-7 max-w-xl text-sm leading-7 sm:text-base">
+
+                            For the days when a regular meal deserves
+                            something more. Our chef's table collection
+                            brings together a few signature dishes,
+                            seasonal ingredients and the flavours we are
+                            proudest to put on the table.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =====================================================
+                     FEATURED DISHES — ONLY 2 IMAGES
+                ====================================================== -->
+
+                <div
+                    class="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-2">
+
+
+                    <!-- CARD 01 -->
+
+                    <article class="h2-premium-card group">
+
+                        <img
+                            class="h2-premium-card-image"
+                            src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1200&q=90"
+                            alt="Signature handcrafted meal"
+                            loading="lazy">
+
+
+                        <div class="h2-premium-card-content">
+
+                            <span
+                                class="h2-premium-card-number">
+
+                                01
+
+                            </span>
+
+
+                            <h3
+                                class="h2-serif h2-premium-card-title mt-6 text-4xl font-semibold">
+
+                                The Signature Bowl
+
+                            </h3>
+
+
+                            <p
+                                class="h2-premium-card-text mt-3 max-w-sm text-sm leading-6">
+
+                                A composed bowl built around slow-cooked
+                                flavours, seasonal vegetables and our
+                                house spice blend.
+
+                            </p>
+
+
+                            <a
+                                href="menu.html"
+                                class="h2-premium-card-link mt-6 inline-flex items-center gap-3 text-sm font-bold">
+
+                                Discover the dish
+
+                                <span class="transition-transform duration-300 group-hover:translate-x-2">
+                                    →
+                                </span>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- CARD 02 -->
+
+                    <article class="h2-premium-card group">
+
+                        <img
+                            class="h2-premium-card-image"
+                            src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=90"
+                            alt="Fresh artisanal food served at a table"
+                            loading="lazy">
+
+
+                        <div class="h2-premium-card-content">
+
+                            <span
+                                class="h2-premium-card-number">
+
+                                02
+
+                            </span>
+
+
+                            <h3
+                                class="h2-serif h2-premium-card-title mt-6 text-4xl font-semibold">
+
+                                Hearth Specials
+
+                            </h3>
+
+
+                            <p
+                                class="h2-premium-card-text mt-3 max-w-sm text-sm leading-6">
+
+                                Rich, comforting favourites prepared in
+                                small batches and finished with the warmth
+                                of the kitchen.
+
+                            </p>
+
+
+                            <a
+                                href="menu.html"
+                                class="h2-premium-card-link mt-6 inline-flex items-center gap-3 text-sm font-bold">
+
+                                Explore specials
+
+                                <span class="transition-transform duration-300 group-hover:translate-x-2">
+                                    →
+                                </span>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+
+                <!-- PREMIUM FEATURES -->
+
+                <div
+                    class="mt-20 grid gap-0 md:grid-cols-3">
+
+
+                    <div
+                        class="h2-premium-feature px-0 py-7 md:px-7 md:py-8 md:first:pl-0">
+
+                        <div
+                            class="flex items-start gap-4">
+
+                            <span
+                                class="h2-premium-feature-icon text-2xl">
+
+                                ✦
+
+                            </span>
+
+
+                            <div>
+
+                                <h3
+                                    class="h2-serif text-2xl font-semibold">
+
+                                    Seasonal ingredients
+
+                                </h3>
+
+
+                                <p
+                                    class="mt-2 text-sm leading-6">
+
+                                    We let the market influence what
+                                    deserves a place on the menu.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="h2-premium-feature px-0 py-7 md:px-7 md:py-8">
+
+                        <div
+                            class="flex items-start gap-4">
+
+                            <span
+                                class="h2-premium-feature-icon text-2xl">
+
+                                ◇
+
+                            </span>
+
+
+                            <div>
+
+                                <h3
+                                    class="h2-serif text-2xl font-semibold">
+
+                                    Small-batch cooking
+
+                                </h3>
+
+
+                                <p
+                                    class="mt-2 text-sm leading-6">
+
+                                    Less waiting, less waste and more
+                                    attention in every batch.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="h2-premium-feature px-0 py-7 md:px-7 md:py-8 md:last:pr-0">
+
+                        <div
+                            class="flex items-start gap-4">
+
+                            <span
+                                class="h2-premium-feature-icon text-2xl">
+
+                                ♢
+
+                            </span>
+
+
+                            <div>
+
+                                <h3
+                                    class="h2-serif text-2xl font-semibold">
+
+                                    Made for sharing
+
+                                </h3>
+
+
+                                <p
+                                    class="mt-2 text-sm leading-6">
+
+                                    Food designed to leave the kitchen
+                                    and become part of the table.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PREMIUM CTA -->
+
+                <div
+                    class="mt-16 flex flex-col gap-6 border-t border-stone-400/30 pt-8 sm:flex-row sm:items-center sm:justify-between">
+
+                    <p
+                        class="max-w-xl text-sm leading-6 text-stone-500">
+
+                        Our premium collection changes with the kitchen.
+                        If you see something you love, order while it is here.
+
+                    </p>
+
+
+                    <a
+                        href="menu.html"
+                        class="inline-flex w-fit items-center gap-4 rounded-full border border-[#a8341f]/50 px-7 py-4 text-sm font-bold text-[#a8341f] transition duration-300 hover:border-[#a8341f] hover:bg-[#a8341f] hover:text-white">
+
+                        Enter the chef's table
+
+                        <span>
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================================
+             SECTION 9 — FINAL CTA
         ========================================================== -->
 
         <section
@@ -2775,11 +3399,6 @@
 
         (function () {
 
-            /*
-             * Get the real height of the dynamically generated
-             * navigation.
-             */
-
             function fixHome2NavbarOverlap() {
 
                 const header =
@@ -2797,10 +3416,6 @@
                 }
 
 
-                /*
-                 * Measure actual visible navbar height.
-                 */
-
                 const headerRect =
                     header.getBoundingClientRect();
 
@@ -2808,11 +3423,6 @@
                 const headerHeight =
                     Math.ceil(headerRect.height);
 
-
-                /*
-                 * If the header has no height yet,
-                 * try again later.
-                 */
 
                 if (headerHeight <= 0) {
 
@@ -2826,27 +3436,14 @@
                 }
 
 
-                /*
-                 * Small breathing space below navbar.
-                 */
-
                 let extraSpace = 20;
 
-
-                /*
-                 * Mobile.
-                 */
 
                 if (window.innerWidth <= 640) {
 
                     extraSpace = 14;
 
                 }
-
-
-                /*
-                 * Tablet.
-                 */
 
                 else if (window.innerWidth <= 1024) {
 
@@ -2855,26 +3452,13 @@
                 }
 
 
-                /*
-                 * Calculate final spacing.
-                 */
-
                 const finalTopSpace =
                     headerHeight + extraSpace;
 
 
-                /*
-                 * Apply exact spacing.
-                 */
-
                 main.style.paddingTop =
                     finalTopSpace + "px";
 
-
-                /*
-                 * Ensure hero doesn't have a negative
-                 * offset caused by another stylesheet.
-                 */
 
                 hero.style.marginTop = "0px";
 
@@ -2882,10 +3466,6 @@
 
             }
 
-
-            /*
-             * Run after page loads.
-             */
 
             window.addEventListener(
                 "load",
@@ -2910,10 +3490,6 @@
             );
 
 
-            /*
-             * Recalculate when window size changes.
-             */
-
             window.addEventListener(
                 "resize",
                 function () {
@@ -2923,10 +3499,6 @@
                 }
             );
 
-
-            /*
-             * Recalculate after device orientation changes.
-             */
 
             window.addEventListener(
                 "orientationchange",
@@ -2940,10 +3512,6 @@
                 }
             );
 
-
-            /*
-             * Watch the dynamically loaded navbar.
-             */
 
             const header =
                 document.getElementById("site-header");
@@ -2973,15 +3541,6 @@
 
             }
 
-
-            /*
-             * ResizeObserver handles changes such as:
-             *
-             * - mobile menu opening
-             * - dropdown expansion
-             * - navbar wrapping
-             * - tablet layout changes
-             */
 
             if (
                 typeof ResizeObserver !== "undefined"

@@ -294,12 +294,15 @@
                      fill="none"
                      stroke="currentColor"
                      stroke-width="1.8"
+                     stroke-linecap="round"
+                     stroke-linejoin="round"
                      aria-hidden="true">
 
-                    <circle cx="12" cy="12" r="9"/>
-                    <path d="M3 12h18"/>
-                    <path d="M12 3c2.5 2.5 3.5 5.5 3.5 9S14.5 18.5 12 21"/>
-                    <path d="M12 3c-2.5 2.5-3.5 5.5-3.5 9S9.5 18.5 12 21"/>
+                    <path d="M3 7h13"/>
+                    <path d="M12 3.5 16.5 7 12 10.5"/>
+
+                    <path d="M21 17H8"/>
+                    <path d="M12 20.5 7.5 17 12 13.5"/>
 
                 </svg>
             `,
@@ -1379,85 +1382,9 @@
 
 
             .bh-mobile-lang-trigger {
-                min-width:38px;
-                width:auto;
-                padding:0 9px;
-            }
-
-
-            .bh-mobile-lang-current {
-                font-size:10px;
-                font-weight:900;
-            }
-
-
-            .bh-mobile-lang-chevron {
-                font-size:10px;
-            }
-
-
-            .bh-mobile-lang-menu {
-                display:none;
-
-                position:absolute;
-
-                top:calc(100% + 8px);
-                right:0;
-
-                min-width:108px;
-                max-width:calc(100vw - 20px);
-
-                padding:5px;
-
-                border:1px solid #e7e5e4;
-                border-radius:12px;
-
-                background:#fff;
-
-                box-shadow:
-                    0 14px 30px rgba(36,26,20,.15);
-
-                z-index:100001;
-            }
-
-
-            .bh-mobile-lang-dropdown.bh-lang-open
-            .bh-mobile-lang-menu {
-                display:block;
-            }
-
-
-            .bh-mobile-lang-option {
-                width:100%;
-                min-height:36px;
-
-                padding:7px 10px;
-
-                display:flex;
-                align-items:center;
-                justify-content:space-between;
-
-                gap:10px;
-
-                border:0;
-                border-radius:8px;
-
-                background:transparent;
-
-                color:#57534e;
-
-                font-family:inherit;
-                font-size:12px;
-                font-weight:700;
-
-                cursor:pointer;
-            }
-
-
-            .bh-mobile-lang-option:hover,
-            .bh-mobile-lang-option.bh-selected {
-                background:#fbe9e4;
-                color:#a8341f;
+                width:40px;
+                min-width:40px;
+                padding:0;
             }
 
 
@@ -2132,10 +2059,6 @@
                     display:block;
                 }
 
-                .bh-mobile-lang-menu {
-                    max-width:calc(100vw - 20px);
-                }
-
                 #bh-mobile-menu {
                     max-height:
                         calc(100dvh - 70px);
@@ -2660,13 +2583,6 @@
                     padding:0;
                 }
 
-                .bh-mobile-lang-trigger
-                .bh-mobile-lang-current,
-                .bh-mobile-lang-trigger
-                .bh-mobile-lang-chevron {
-                    display:none;
-                }
-
                 #bh-mobile-menu {
                     max-height:
                         calc(100dvh - 64px);
@@ -2810,13 +2726,6 @@
                 .bh-lang-icon {
                     width:16px;
                     height:16px;
-                }
-
-                .bh-mobile-lang-trigger
-                .bh-mobile-lang-current,
-                .bh-mobile-lang-trigger
-                .bh-mobile-lang-chevron {
-                    display:none;
                 }
 
                 #bh-mobile-menu {
@@ -3208,26 +3117,6 @@
             }
 
 
-            .dark .bh-mobile-lang-menu {
-                background:#1c1917;
-
-                border-color:#44403c;
-            }
-
-
-            .dark .bh-mobile-lang-option {
-                color:#d6d3d1;
-            }
-
-
-            .dark .bh-mobile-lang-option:hover,
-            .dark .bh-mobile-lang-option.bh-selected {
-                background:#451a03;
-
-                color:#f59e0b;
-            }
-
-
             .dark .bh-footer {
                 background:
                     linear-gradient(
@@ -3311,12 +3200,6 @@
 
             [dir="rtl"] .bh-mobile-arrow {
                 transform:rotate(180deg);
-            }
-
-
-            [dir="rtl"] .bh-mobile-lang-menu {
-                right:auto;
-                left:0;
             }
 
 
@@ -3507,56 +3390,14 @@
                                     type="button"
                                     class="bh-mobile-lang-trigger"
                                     id="bh-mobile-lang-trigger"
-                                    aria-expanded="false"
-                                    aria-haspopup="true"
-                                    aria-controls="bh-mobile-lang-menu"
+                                    aria-label="${getDirTitle(currentDirection)}"
                                 >
 
                                     <span class="bh-lang-icon">
                                         ${ICONS.globe}
                                     </span>
 
-                                    <span
-                                        id="bh-mobile-lang-current"
-                                        class="bh-mobile-lang-current"
-                                    >
-                                        ${currentDirection === "rtl"
-                                            ? "RTL"
-                                            : "LTR"}
-                                    </span>
-
-                                    <span class="bh-mobile-lang-chevron">
-                                        ↓
-                                    </span>
-
                                 </button>
-
-
-                                <div
-                                    class="bh-mobile-lang-menu"
-                                    id="bh-mobile-lang-menu"
-                                >
-
-                                    <button
-                                        type="button"
-                                        class="bh-mobile-lang-option"
-                                        data-direction="ltr"
-                                    >
-                                        <span>LTR</span>
-                                        <span>English</span>
-                                    </button>
-
-
-                                    <button
-                                        type="button"
-                                        class="bh-mobile-lang-option"
-                                        data-direction="rtl"
-                                    >
-                                        <span>RTL</span>
-                                        <span>العربية</span>
-                                    </button>
-
-                                </div>
 
                             </div>
 
@@ -4236,21 +4077,9 @@
             );
 
 
-        const mobileLangDropdown =
-            document.getElementById(
-                "bh-mobile-lang-dropdown"
-            );
-
-
         const mobileLangTrigger =
             document.getElementById(
                 "bh-mobile-lang-trigger"
-            );
-
-
-        const mobileLangOptions =
-            document.querySelectorAll(
-                ".bh-mobile-lang-option"
             );
 
 
@@ -4266,12 +4095,6 @@
                 );
 
 
-            const mobileCurrent =
-                document.getElementById(
-                    "bh-mobile-lang-current"
-                );
-
-
             if (langLabel) {
 
                 langLabel.textContent =
@@ -4280,28 +4103,28 @@
             }
 
 
-            if (mobileCurrent) {
+            const title =
+                getDirTitle(dir);
 
-                mobileCurrent.textContent =
-                    dir === "rtl"
-                        ? "RTL"
-                        : "LTR";
+
+            if (langButton) {
+
+                langButton.setAttribute(
+                    "aria-label",
+                    title
+                );
 
             }
 
 
-            mobileLangOptions.forEach(
-                function (option) {
+            if (mobileLangTrigger) {
 
-                    option.classList.toggle(
-                        "bh-selected",
-                        option.getAttribute(
-                            "data-direction"
-                        ) === dir
-                    );
+                mobileLangTrigger.setAttribute(
+                    "aria-label",
+                    title
+                );
 
-                }
-            );
+            }
 
         }
 
@@ -4321,28 +4144,33 @@
         }
 
 
+        function toggleDirection(event) {
+
+            if (event) {
+                event.stopPropagation();
+            }
+
+            const current =
+                document.documentElement
+                    .getAttribute("dir") === "rtl"
+                    ? "rtl"
+                    : "ltr";
+
+
+            changeDirection(
+                current === "rtl"
+                    ? "ltr"
+                    : "rtl"
+            );
+
+        }
+
+
         if (langButton) {
 
             langButton.addEventListener(
                 "click",
-                function (event) {
-
-                    event.stopPropagation();
-
-                    const current =
-                        document.documentElement
-                            .getAttribute("dir") === "rtl"
-                            ? "rtl"
-                            : "ltr";
-
-
-                    changeDirection(
-                        current === "rtl"
-                            ? "ltr"
-                            : "rtl"
-                    );
-
-                }
+                toggleDirection
             );
 
         }
@@ -4352,84 +4180,10 @@
 
             mobileLangTrigger.addEventListener(
                 "click",
-                function (event) {
-
-                    event.stopPropagation();
-
-
-                    if (!mobileLangDropdown) return;
-
-
-                    mobileLangDropdown.classList.toggle(
-                        "bh-lang-open"
-                    );
-
-
-                    mobileLangTrigger.setAttribute(
-                        "aria-expanded",
-                        String(
-                            mobileLangDropdown.classList.contains(
-                                "bh-lang-open"
-                            )
-                        )
-                    );
-
-                }
+                toggleDirection
             );
 
         }
-
-
-        mobileLangOptions.forEach(
-            function (option) {
-
-                option.addEventListener(
-                    "click",
-                    function (event) {
-
-                        event.stopPropagation();
-
-                        const direction =
-                            option.getAttribute(
-                                "data-direction"
-                            );
-
-
-                        if (
-                            direction === "ltr" ||
-                            direction === "rtl"
-                        ) {
-
-                            changeDirection(
-                                direction
-                            );
-
-                        }
-
-
-                        if (mobileLangDropdown) {
-
-                            mobileLangDropdown.classList.remove(
-                                "bh-lang-open"
-                            );
-
-                        }
-
-
-                        if (mobileLangTrigger) {
-
-                            mobileLangTrigger.setAttribute(
-                                "aria-expanded",
-                                "false"
-                            );
-
-                        }
-
-                    }
-                );
-
-            }
-        );
 
 
         /* =====================================================
@@ -4547,25 +4301,6 @@
 
                 closeDesktopDropdowns();
 
-
-                if (mobileLangDropdown) {
-
-                    mobileLangDropdown.classList.remove(
-                        "bh-lang-open"
-                    );
-
-                }
-
-
-                if (mobileLangTrigger) {
-
-                    mobileLangTrigger.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-                }
-
             }
         );
 
@@ -4585,25 +4320,6 @@
 
 
                 closeMobileMenu();
-
-
-                if (mobileLangDropdown) {
-
-                    mobileLangDropdown.classList.remove(
-                        "bh-lang-open"
-                    );
-
-                }
-
-
-                if (mobileLangTrigger) {
-
-                    mobileLangTrigger.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-                }
 
             }
         );

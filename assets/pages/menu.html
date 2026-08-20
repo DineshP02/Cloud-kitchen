@@ -71,6 +71,13 @@
         body {
             font-family: "DM Sans", sans-serif;
             overflow-x: hidden;
+            background: #f7f5ed;
+            color: var(--bh-ink);
+        }
+
+        .dark body {
+            background: #17140f;
+            color: #efe7d8;
         }
 
         h1,
@@ -82,69 +89,74 @@
 
 
         /* =====================================================
-           PREMIUM VARIABLES
+           PREMIUM VARIABLES — BROWN / BLACK ONLY
         ====================================================== */
 
         :root {
-            --bh-amber: #c88719;
-            --bh-amber-light: #e7b45a;
-            --bh-cream: #f8f4ec;
+            --bh-page: #f7f5ed;
+            --bh-brown: #8a5a24;
+            --bh-brown-light: #a9764a;
+            --bh-brown-dark: #5c3a17;
+            --bh-cream: #f7f5ed;
             --bh-ink: #211d18;
-            --bh-muted: #706b63;
-            --bh-border: #e8e2d8;
+            --bh-muted: #211d18;
+            --bh-border: #e6ddcd;
+            --bh-black: #17140f;
+        }
+
+        .dark {
+            --bh-ink: #f4efe3;
+            --bh-muted: #cfc2a8;
+            --bh-border: #3a3227;
+            --bh-brown-light: #d9b77c;
         }
 
 
         /* =====================================================
-           HERO
+           SECTION BACKGROUND (uniform, per request)
+        ====================================================== */
+
+        .page-surface {
+            background: var(--bh-page);
+        }
+
+        .dark .page-surface {
+            background: #17140f;
+        }
+
+
+        /* =====================================================
+           HERO — redesigned, side-by-side style
         ====================================================== */
 
         .menu-hero {
-            position: relative;
-            min-height: auto;
-            background: #171411;
-            overflow: hidden;
+            background: var(--bh-page);
+        }
+
+        .dark .menu-hero {
+            background: #17140f;
         }
 
         .menu-hero-image {
             transition: transform 1.4s cubic-bezier(.2,.7,.2,1);
         }
 
-        .menu-hero:hover .menu-hero-image {
-            transform: scale(1.025);
-        }
-
-        .menu-hero-overlay {
-            background:
-                linear-gradient(
-                    180deg,
-                    rgba(0,0,0,.30) 0%,
-                    rgba(0,0,0,.42) 42%,
-                    rgba(0,0,0,.88) 100%
-                );
-        }
-
-        /*
-         * FIX:
-         * The hero content is no longer forced into a fixed
-         * 680px / 720px height.
-         *
-         * This allows the hero to grow naturally according
-         * to the heading, description, buttons and stats.
-         */
-
-        .hero-content {
-            min-height: auto;
-            padding-top: 7rem;
-            padding-bottom: 4.5rem;
+        .feature-image-wrap:hover .menu-hero-image {
+            transform: scale(1.03);
         }
 
         .hero-label {
             letter-spacing: .28em;
         }
 
-        .hero-title {
-            text-shadow: 0 8px 35px rgba(0,0,0,.25);
+        .hero-title em,
+        .hero-title .accent {
+            font-style: italic;
+            color: var(--bh-brown-dark);
+        }
+
+        .dark .hero-title .accent {
+            color: var(--bh-brown-light);
         }
 
 
@@ -158,6 +170,11 @@
             font-weight: 700;
             letter-spacing: .22em;
             text-transform: uppercase;
+            color: var(--bh-brown-dark);
+        }
+
+        .dark .eyebrow {
+            color: var(--bh-brown-light);
         }
 
 
@@ -167,6 +184,15 @@
 
         .section-title {
             letter-spacing: -.025em;
+            color: var(--bh-ink);
+        }
+
+        .dark .section-title {
+            color: #f4efe3;
+        }
+
+        .muted-text {
+            color: var(--bh-muted);
         }
 
 
@@ -180,71 +206,77 @@
                 linear-gradient(
                     to right,
                     transparent,
-                    rgba(200,135,25,.45),
+                    rgba(92,58,23,.4),
                     transparent
                 );
         }
 
 
-       /* =====================================================
-   FILTERS
-===================================================== */
+        /* =====================================================
+           FILTERS — pill button style
+        ====================================================== */
 
-.filter-wrap {
-    
-    background: rgba(255,255,255,.78);
-    backdrop-filter: blur(10px);
-    padding: 5px;
-    border-radius: 999px;
-    box-shadow: 0 8px 30px rgba(55,45,30,.06);
-}
+        .filter-wrap {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            background: rgba(255,255,255,.6);
+            padding: 6px;
+            border-radius: 999px;
+            box-shadow: 0 8px 30px rgba(33,29,24,.06);
+            overflow-x: auto;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
 
-.filter-btn {
-    border: 0;
-    background: #f3c45b;
-    color: #211d18;
-    padding: .72rem 1.25rem;
-    border-radius: 999px;
-    font-size: .84rem;
-    font-weight: 700;
-    transition:
-        background .25s ease,
-        color .25s ease,
-        transform .25s ease;
-}
+        .dark .filter-wrap {
+            background: rgba(32,28,22,.9);
+        }
 
-.filter-btn:hover {
-    background: #eab94b;
-    color: #211d18;
-}
+        .filter-wrap::-webkit-scrollbar {
+            display: none;
+        }
 
-.filter-btn.active {
-    background: #e11d48;
-    color: white;
-    box-shadow: 0 5px 16px rgba(225,29,72,.22);
-}
+        .filter-btn {
+            border: 0;
+            background: #f3c45b;
+            color: #211d18;
+            padding: .72rem 1.25rem;
+            border-radius: 999px;
+            font-size: .84rem;
+            font-weight: 700;
+            letter-spacing: .02em;
+            white-space: nowrap;
+            transition:
+                background .2s ease,
+                color .2s ease;
+        }
 
-/* DARK MODE */
+        .filter-btn:hover {
+            background: #eab94b;
+            color: #211d18;
+        }
 
-.dark .filter-wrap {
-    background: rgba(28,25,23,.9);
-    border-color: #3c3731;
-}
+        .filter-btn.active {
+            background: var(--bh-brown-dark);
+            color: #fff;
+        }
 
-.dark .filter-btn {
-    background: #f3c45b;
-    color: #211d18;
-}
+        .dark .filter-btn {
+            background: #f3c45b;
+            color: #211d18;
+        }
 
-.dark .filter-btn:hover {
-    background: #eab94b;
-    color: #211d18;
-}
+        .dark .filter-btn:hover {
+            background: #eab94b;
+            color: #211d18;
+        }
 
-.dark .filter-btn.active {
-    background: #e11d48;
-    color: white;
-}
+        .dark .filter-btn.active {
+            background: var(--bh-brown-light);
+            color: #17140f;
+        }
+
 
         /* =====================================================
            FOOD CARDS
@@ -252,10 +284,10 @@
 
         .food-card {
             overflow: hidden;
-            background: white;
-            border: 1px solid #ece6dc;
+            background: #fff;
+            border: 1px solid var(--bh-border);
             border-radius: 1.25rem;
-            box-shadow: 0 8px 28px rgba(50,40,25,.055);
+            box-shadow: 0 8px 28px rgba(33,29,24,.05);
             transition:
                 transform .35s ease,
                 box-shadow .35s ease,
@@ -264,24 +296,24 @@
 
         .food-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 20px 45px rgba(50,40,25,.12);
-            border-color: #dfd5c6;
+            box-shadow: 0 20px 45px rgba(33,29,24,.12);
+            border-color: var(--bh-brown-light);
         }
 
         .dark .food-card {
-            background: #211f1c;
-            border-color: #36312c;
+            background: #201c16;
+            border-color: #3a3227;
             box-shadow: none;
         }
 
         .dark .food-card:hover {
-            border-color: #51493f;
-            box-shadow: 0 20px 45px rgba(0,0,0,.25);
+            border-color: var(--bh-brown-light);
+            box-shadow: 0 20px 45px rgba(0,0,0,.3);
         }
 
         .food-image-wrap {
             overflow: hidden;
-            background: #e8e2d8;
+            background: var(--bh-border);
         }
 
         .food-image {
@@ -311,17 +343,36 @@
         .food-price {
             font-size: .95rem;
             font-weight: 800;
-            color: #9a6611;
+            color: var(--bh-brown-dark);
         }
 
         .dark .food-price {
-            color: #e7b45a;
+            color: var(--bh-brown-light);
         }
 
         .food-name {
             font-family: "Playfair Display", Georgia, serif;
             font-size: 1.25rem;
             line-height: 1.3;
+            color: var(--bh-ink);
+        }
+
+        .dark .food-name {
+            color: #f4efe3;
+        }
+
+        /* Veg / Non-veg tags kept to brown & black only */
+
+        .food-tag--veg,
+        .food-tag--nonveg {
+            background: #efe6d5;
+            color: var(--bh-brown-dark);
+        }
+
+        .dark .food-tag--veg,
+        .dark .food-tag--nonveg {
+            background: #332b1e;
+            color: var(--bh-brown-light);
         }
 
 
@@ -347,24 +398,12 @@
            KITCHEN FEATURE
         ====================================================== */
 
-        .kitchen-section {
-            background: #fff;
-        }
-
-        .dark .kitchen-section {
-            background: #1c1917;
-        }
-
         .kitchen-point {
-            border-top: 1px solid #e9e2d7;
+            border-top: 1px solid var(--bh-border);
             padding-top: 1rem;
         }
 
-        .dark .kitchen-point {
-            border-color: #3a3530;
-        }
-
-        .kitchen-icon {
+        .icon-circle {
             width: 44px;
             height: 44px;
             flex-shrink: 0;
@@ -372,29 +411,18 @@
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            background: #f6ead4;
+            background: #efe6d5;
+            color: var(--bh-brown-dark);
         }
 
-        .dark .kitchen-icon {
-            background: #3b2d18;
+        .icon-circle svg {
+            width: 20px;
+            height: 20px;
         }
 
-
-        /* =====================================================
-           PREMIUM FEATURE SECTIONS
-        ====================================================== */
-
-        .warm-section {
-            background:
-                linear-gradient(
-                    180deg,
-                    #f8f4ec 0%,
-                    #f5efe4 100%
-                );
-        }
-
-        .dark .warm-section {
-            background: #151310;
+        .dark .icon-circle {
+            background: #332b1e;
+            color: var(--bh-brown-light);
         }
 
 
@@ -407,8 +435,8 @@
                 linear-gradient(
                     to right,
                     transparent,
-                    #d9b77c 15%,
-                    #d9b77c 85%,
+                    var(--bh-brown-light) 15%,
+                    var(--bh-brown-light) 85%,
                     transparent
                 );
         }
@@ -420,20 +448,20 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #211d18;
+            background: var(--bh-ink);
             color: #fff;
             font-size: .9rem;
             font-weight: 800;
-            border: 5px solid #fff;
-            box-shadow: 0 10px 25px rgba(30,25,20,.15);
+            border: 5px solid var(--bh-page);
+            box-shadow: 0 10px 25px rgba(23,20,15,.15);
             position: relative;
             z-index: 2;
         }
 
         .dark .step-number {
-            background: #d59a32;
-            color: #211d18;
-            border-color: #171513;
+            background: var(--bh-brown-light);
+            color: #17140f;
+            border-color: #17140f;
         }
 
 
@@ -442,14 +470,14 @@
         ====================================================== */
 
         .why-panel {
-            border: 1px solid #e5ddcf;
-            background: rgba(255,255,255,.72);
-            box-shadow: 0 18px 55px rgba(50,40,25,.07);
+            border: 1px solid var(--bh-border);
+            background: rgba(255,255,255,.7);
+            box-shadow: 0 18px 55px rgba(33,29,24,.06);
         }
 
         .dark .why-panel {
-            border-color: #39342e;
-            background: #211f1c;
+            border-color: #3a3227;
+            background: #201c16;
             box-shadow: none;
         }
 
@@ -458,11 +486,11 @@
         }
 
         .why-item:hover {
-            background: rgba(200,135,25,.055);
+            background: rgba(92,58,23,.05);
         }
 
         .dark .why-item:hover {
-            background: rgba(255,255,255,.025);
+            background: rgba(255,255,255,.03);
         }
 
         .why-number {
@@ -470,7 +498,29 @@
             font-size: 3rem;
             line-height: 1;
             font-weight: 800;
-            color: rgba(200,135,25,.28);
+            background: linear-gradient(135deg, var(--bh-brown-light), var(--bh-brown-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: rgba(92,58,23,.25);
+            transition: transform .35s ease, filter .35s ease;
+        }
+
+        .why-item:hover .why-number {
+            transform: scale(1.12);
+            filter: drop-shadow(0 4px 10px rgba(92,58,23,.35));
+        }
+
+        .dark .why-number {
+            background: linear-gradient(135deg, #e8c48c, var(--bh-brown-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: rgba(201,160,107,.3);
+        }
+
+        .dark .why-item:hover .why-number {
+            filter: drop-shadow(0 4px 12px rgba(201,160,107,.4));
         }
 
 
@@ -482,10 +532,43 @@
             background:
                 radial-gradient(
                     circle at 50% 0%,
-                    rgba(200,135,25,.18),
+                    rgba(138,90,36,.12),
                     transparent 42%
                 ),
-                #171411;
+                var(--bh-page);
+        }
+
+        .dark .final-cta {
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(201,160,107,.18),
+                    transparent 42%
+                ),
+                #17140f;
+        }
+
+
+        /* =====================================================
+           BUTTONS
+        ====================================================== */
+
+        .btn-solid {
+            background: var(--bh-ink);
+            color: #fff;
+        }
+
+        .btn-solid:hover {
+            background: var(--bh-brown-dark);
+        }
+
+        .dark .btn-solid {
+            background: var(--bh-brown-light);
+            color: #17140f;
+        }
+
+        .dark .btn-solid:hover {
+            background: #d9b77c;
         }
 
 
@@ -495,47 +578,42 @@
 
         @media (max-width: 639px) {
 
-            /*
-             * HERO FIX:
-             * Remove the fixed 680px height.
-             * The hero now grows according to its content.
-             */
-
-            .menu-hero {
-                min-height: auto;
-            }
-
-            .hero-content {
-                min-height: auto;
-                padding-top: 4.5rem;
-                padding-bottom: 3.5rem;
-            }
-
             .hero-title {
-                font-size: 2.65rem;
-                line-height: 1.08;
+                font-size: 2.25rem;
+                line-height: 1.12;
             }
 
             .hero-description {
-                font-size: 1rem;
-                line-height: 1.7;
+                font-size: .9rem;
+                line-height: 1.6;
             }
 
             .filter-wrap {
+                display: flex;
                 width: 100%;
-                border-radius: 1rem;
-                display: grid;
-                grid-template-columns: repeat(2, minmax(0,1fr));
-                gap: 4px;
+                gap: 0;
+                background: rgba(255,255,255,.75);
+                border: 1px solid var(--bh-border);
+                border-radius: 999px;
+                padding: 4px;
+                box-shadow: 0 10px 30px rgba(33,29,24,.08);
+                overflow-x: visible;
+            }
+
+            .dark .filter-wrap {
+                background: rgba(32,28,22,.85);
+                border-color: #3a3227;
             }
 
             .filter-btn {
-                width: 100%;
-                padding: .72rem .55rem;
-            }
-
-            .filter-btn:first-child {
-                grid-column: span 2;
+                flex: 1;
+                width: auto;
+                padding: .65rem .3rem;
+                border-radius: 999px;
+                font-size: .68rem;
+                letter-spacing: 0;
+                text-align: center;
+                white-space: nowrap;
             }
 
             .food-image {
@@ -555,40 +633,8 @@
 
         @media (min-width: 640px) and (max-width: 1023px) {
 
-            /*
-             * HERO FIX:
-             * Let the hero grow naturally on tablet.
-             */
-
-            .hero-content {
-                min-height: auto;
-                padding-top: 6.5rem;
-                padding-bottom: 4rem;
-            }
-
             .food-image {
                 height: 250px;
-            }
-
-        }
-
-
-        /* =====================================================
-           LARGE DESKTOP
-        ====================================================== */
-
-        @media (min-width: 1024px) {
-
-            /*
-             * HERO FIX:
-             * Keep desktop spacing premium without forcing
-             * the content into a fixed-height container.
-             */
-
-            .hero-content {
-                min-height: auto;
-                padding-top: 7rem;
-                padding-bottom: 4.5rem;
             }
 
         }
@@ -618,7 +664,7 @@
 </head>
 
 
-<body class="bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-100">
+<body>
 
 
     <!-- =====================================================
@@ -632,124 +678,129 @@
 
 
         <!-- =====================================================
-             HERO
+             HERO — side-by-side, premium editorial style
         ====================================================== -->
 
         <section class="menu-hero relative overflow-hidden">
 
-            <div class="absolute inset-0">
-
-                <img
-                    src="https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=1800&q=85"
-                    alt="Tamil Nadu style thali"
-                    class="menu-hero-image h-full w-full object-cover">
-
-                <div class="menu-hero-overlay absolute inset-0"></div>
-
-            </div>
-
-
             <div
-                class="hero-content relative mx-auto flex max-w-7xl flex-col items-center justify-center px-5 text-center sm:px-8 lg:px-12">
-
-
-                <div class="max-w-4xl">
-
-                    <p
-                        class="hero-label text-xs font-bold uppercase text-amber-300">
-
-                        BOWL &amp; HEARTH · CLOUD KITCHEN
-
-                    </p>
-
-
-                    <h1
-                        class="hero-title mt-6 font-display text-5xl font-semibold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-8xl">
-
-                        Authentic Tamil Nadu
-                        <span class="block text-amber-300">
-                            flavours, delivered hot.
-                        </span>
-
-                    </h1>
-
-
-                    <p
-                        class="hero-description mx-auto mt-7 max-w-2xl text-base leading-7 text-stone-200 sm:text-lg sm:leading-8">
-
-                        From village-style kuzhambu to Kongunadu chicken —
-                        every dish is cooked to order with carefully selected
-                        ingredients and familiar regional flavours.
-
-                    </p>
-
-
-                    <div
-                        class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-
-                        <a
-                            href="#menu"
-                            class="inline-flex min-w-[190px] items-center justify-center rounded-full bg-amber-500 px-7 py-3.5 text-sm font-bold text-stone-950 shadow-xl transition hover:bg-amber-400">
-
-                            Explore the Menu
-
-                        </a>
-
-
-                        <a
-                            href="#specials"
-                            class="inline-flex min-w-[190px] items-center justify-center rounded-full border border-white/30 bg-white/10 px-7 py-3.5 text-sm font-bold text-white backdrop-blur-md transition hover:bg-white/20">
-
-                            Today's Specials
-                            <span class="ml-2">→</span>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-                <!-- HERO STATS -->
+                class="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
 
                 <div
-                    class="mt-14 grid w-full max-w-2xl grid-cols-3 border-t border-white/20 pt-7 sm:mt-16 sm:max-w-3xl sm:pt-8">
+                    class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
 
-                    <div class="px-2">
 
-                        <p class="text-2xl font-bold text-white sm:text-3xl">
-                            30 min
+                    <div>
+
+                        <p class="hero-label eyebrow">
+                            Bowl &amp; Hearth · Cloud Kitchen
                         </p>
 
-                        <p class="mt-1 text-[11px] uppercase tracking-wider text-stone-300 sm:text-xs">
-                            Average delivery
+
+                        <h1
+                            class="hero-title mt-6 font-display text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
+
+                            Authentic Tamil Nadu
+                            <span class="accent block">
+                                flavours, delivered hot.
+                            </span>
+
+                        </h1>
+
+
+                        <p
+                            class="hero-description muted-text mt-6 max-w-xl text-sm leading-6 sm:text-base sm:leading-7">
+
+                            From village-style kuzhambu to Kongunadu chicken —
+                            every dish is cooked to order with carefully
+                            selected ingredients and familiar regional
+                            flavours.
+
                         </p>
+
+
+                        <div
+                            class="mt-9 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+
+                            <a
+                                href="#menu"
+                                class="btn-solid inline-flex min-w-[190px] items-center justify-center rounded-full px-7 py-3.5 text-sm font-bold shadow-xl transition">
+
+                                Explore the Menu
+
+                            </a>
+
+
+                            <a
+                                href="#specials"
+                                class="inline-flex items-center gap-2 text-sm font-bold"
+                                style="color:var(--bh-ink);">
+
+                                Today's Specials
+                                <span>→</span>
+
+                            </a>
+
+                        </div>
+
+
+                        <!-- HERO STATS -->
+
+                        <div
+                            class="mt-14 grid max-w-lg grid-cols-3 border-t pt-7"
+                            style="border-color:var(--bh-border);">
+
+                            <div class="pr-2">
+
+                                <p class="text-2xl font-bold sm:text-3xl" style="color:var(--bh-ink);">
+                                    30 min
+                                </p>
+
+                                <p class="muted-text mt-1 text-[11px] uppercase tracking-wider sm:text-xs">
+                                    Average delivery
+                                </p>
+
+                            </div>
+
+
+                            <div
+                                class="border-x px-4"
+                                style="border-color:var(--bh-border);">
+
+                                <p class="text-2xl font-bold sm:text-3xl" style="color:var(--bh-ink);">
+                                    100%
+                                </p>
+
+                                <p class="muted-text mt-1 text-[11px] uppercase tracking-wider sm:text-xs">
+                                    Fresh preparation
+                                </p>
+
+                            </div>
+
+
+                            <div class="pl-4">
+
+                                <p class="text-2xl font-bold sm:text-3xl" style="color:var(--bh-ink);">
+                                    4.8★
+                                </p>
+
+                                <p class="muted-text mt-1 text-[11px] uppercase tracking-wider sm:text-xs">
+                                    Customer rating
+                                </p>
+
+                            </div>
+
+                        </div>
 
                     </div>
 
 
-                    <div class="border-x border-white/15 px-2">
+                    <div class="feature-image-wrap">
 
-                        <p class="text-2xl font-bold text-white sm:text-3xl">
-                            100%
-                        </p>
-
-                        <p class="mt-1 text-[11px] uppercase tracking-wider text-stone-300 sm:text-xs">
-                            Fresh preparation
-                        </p>
-
-                    </div>
-
-
-                    <div class="px-2">
-
-                        <p class="text-2xl font-bold text-white sm:text-3xl">
-                            4.8★
-                        </p>
-
-                        <p class="mt-1 text-[11px] uppercase tracking-wider text-stone-300 sm:text-xs">
-                            Customer rating
-                        </p>
+                        <img
+                            src="https://images.unsplash.com/photo-1742281257687-092746ad6021?auto=format&fit=crop&w=1400&q=85"
+                            alt="South Indian vegetarian thali spread"
+                            class="menu-hero-image h-[360px] w-full object-cover sm:h-[440px] lg:h-[560px]">
 
                     </div>
 
@@ -767,12 +818,12 @@
 
         <section
             id="menu"
-            class="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-28">
+            class="page-surface mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-28">
 
 
             <div class="mx-auto max-w-3xl text-center">
 
-                <p class="eyebrow text-amber-700 dark:text-amber-400">
+                <p class="eyebrow">
                     Today's menu
                 </p>
 
@@ -781,7 +832,7 @@
                     class="section-title mt-4 text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
 
                     Choose your time.
-                    <span class="block text-stone-500 dark:text-stone-400">
+                    <span class="muted-text block">
                         Then choose your flavour.
                     </span>
 
@@ -789,7 +840,7 @@
 
 
                 <p
-                    class="mx-auto mt-6 max-w-2xl text-base leading-8 text-stone-600 dark:text-stone-400 sm:text-lg">
+                    class="muted-text mx-auto mt-6 max-w-2xl text-base leading-8 sm:text-lg">
 
                     Explore breakfast, lunch, dinner and snacks made
                     with familiar ingredients and regional inspiration.
@@ -799,23 +850,17 @@
             </div>
 
 
-            <!-- FILTERS -->
+            <!-- FILTERS — navigation-tab style -->
 
             <div class="mt-10 flex justify-center">
 
-                <div
+                <nav
                     class="filter-wrap"
                     id="filters">
 
                     <button
-                        data-filter="all"
-                        class="filter-btn active">
-                        All
-                    </button>
-
-                    <button
                         data-filter="breakfast"
-                        class="filter-btn">
+                        class="filter-btn active">
                         Breakfast
                     </button>
 
@@ -837,7 +882,7 @@
                         Snacks
                     </button>
 
-                </div>
+                </nav>
 
             </div>
 
@@ -856,7 +901,8 @@
         ====================================================== -->
 
         <section
-            class="kitchen-section border-y border-stone-200 dark:border-stone-800">
+            class="page-surface border-y"
+            style="border-color:var(--bh-border);">
 
             <div
                 class="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-28">
@@ -877,16 +923,16 @@
 
                     <div>
 
-                        <p class="eyebrow text-amber-700 dark:text-amber-400">
+                        <p class="eyebrow">
                             From our kitchen
                         </p>
 
 
                         <h2
-                            class="mt-4 text-4xl font-semibold leading-tight sm:text-5xl">
+                            class="section-title mt-4 text-4xl font-semibold leading-tight sm:text-5xl">
 
                             Simple ingredients.
-                            <span class="block text-amber-700 dark:text-amber-400">
+                            <span class="accent block" style="font-style:normal;">
                                 Serious flavour.
                             </span>
 
@@ -894,7 +940,7 @@
 
 
                         <p
-                            class="mt-6 max-w-xl text-base leading-8 text-stone-600 dark:text-stone-300 sm:text-lg">
+                            class="muted-text mt-6 max-w-xl text-base leading-8 sm:text-lg">
 
                             Our menu is built around food that feels
                             familiar. We focus on fresh preparation,
@@ -909,17 +955,17 @@
 
                             <div class="kitchen-point flex gap-4">
 
-                                <span class="kitchen-icon text-lg">
-                                    🌾
+                                <span class="icon-circle">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c8 0 14-6 14-14 0 0-10-2-14 6-2 4-1 6 0 8Z"/><path d="M6 18c2-4 4-7 8-10"/></svg>
                                 </span>
 
                                 <div>
 
-                                    <h3 class="font-bold">
+                                    <h3 class="font-bold" style="color:var(--bh-ink);">
                                         Carefully selected ingredients
                                     </h3>
 
-                                    <p class="mt-1 text-sm leading-6 text-stone-500 dark:text-stone-400">
+                                    <p class="muted-text mt-1 text-sm leading-6">
                                         Fresh produce and trusted ingredients
                                         form the base of every dish.
                                     </p>
@@ -931,17 +977,17 @@
 
                             <div class="kitchen-point flex gap-4">
 
-                                <span class="kitchen-icon text-lg">
-                                    🔥
+                                <span class="icon-circle">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c1 3-2 4-2 7a3 3 0 1 0 6 0c0-1-1-2-1-2 2 1 3 4 3 6a6 6 0 1 1-12 0c0-4 3-6 4-9 0 0 1-1 2-2Z"/></svg>
                                 </span>
 
                                 <div>
 
-                                    <h3 class="font-bold">
+                                    <h3 class="font-bold" style="color:var(--bh-ink);">
                                         Cooked around your order
                                     </h3>
 
-                                    <p class="mt-1 text-sm leading-6 text-stone-500 dark:text-stone-400">
+                                    <p class="muted-text mt-1 text-sm leading-6">
                                         We keep the process focused so food
                                         reaches you at its best.
                                     </p>
@@ -953,17 +999,17 @@
 
                             <div class="kitchen-point flex gap-4">
 
-                                <span class="kitchen-icon text-lg">
-                                    ❤️
+                                <span class="icon-circle">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.35-9.5-8.5C.7 8 2 4.5 5.5 4c2-.3 3.7.9 4.5 2.3C10.8 4.9 12.5 3.7 14.5 4 18 4.5 19.3 8 17.5 11.5 15 15.65 12 20 12 20Z"/></svg>
                                 </span>
 
                                 <div>
 
-                                    <h3 class="font-bold">
+                                    <h3 class="font-bold" style="color:var(--bh-ink);">
                                         Food made for real life
                                     </h3>
 
-                                    <p class="mt-1 text-sm leading-6 text-stone-500 dark:text-stone-400">
+                                    <p class="muted-text mt-1 text-sm leading-6">
                                         Easy enough for busy evenings and
                                         special enough for sharing.
                                     </p>
@@ -991,26 +1037,26 @@
 
         <section
             id="specials"
-            class="warm-section py-20 sm:py-24 lg:py-28">
+            class="page-surface py-20 sm:py-24 lg:py-28">
 
             <div
                 class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
 
-                <div class="max-w-3xl">
+                <div class="mx-auto max-w-3xl text-center">
 
-                    <p class="eyebrow text-amber-700 dark:text-amber-400">
+                    <p class="eyebrow">
                         Hand-picked
                     </p>
 
                     <h2
-                        class="mt-4 text-4xl font-semibold sm:text-5xl lg:text-6xl">
+                        class="section-title mt-4 text-4xl font-semibold sm:text-5xl lg:text-6xl">
 
                         Chef's Specials
 
                     </h2>
 
                     <p
-                        class="mt-5 max-w-2xl text-base leading-8 text-stone-600 dark:text-stone-400 sm:text-lg">
+                        class="muted-text mx-auto mt-5 max-w-2xl text-base leading-8 sm:text-lg">
 
                         A few dishes we think deserve an extra look.
 
@@ -1035,20 +1081,20 @@
         ====================================================== -->
 
         <section
-            class="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-28">
+            class="page-surface mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-28">
 
             <div class="text-center">
 
-                <p class="eyebrow text-amber-700 dark:text-amber-400">
+                <p class="eyebrow">
                     Better together
                 </p>
 
-                <h2 class="mt-4 text-4xl font-semibold sm:text-5xl">
+                <h2 class="section-title mt-4 text-4xl font-semibold sm:text-5xl">
                     Combo Meals
                 </h2>
 
                 <p
-                    class="mx-auto mt-5 max-w-2xl text-base leading-8 text-stone-600 dark:text-stone-400 sm:text-lg">
+                    class="muted-text mx-auto mt-5 max-w-2xl text-base leading-8 sm:text-lg">
 
                     Complete meals when one dish simply isn't enough.
 
@@ -1071,21 +1117,22 @@
         ====================================================== -->
 
         <section
-            class="kitchen-section border-y border-stone-200 dark:border-stone-800">
+            class="page-surface border-y"
+            style="border-color:var(--bh-border);">
 
             <div
                 class="mx-auto max-w-7xl px-5 py-20 text-center sm:px-8 sm:py-24 lg:px-12 lg:py-28">
 
-                <p class="eyebrow text-amber-700 dark:text-amber-400">
+                <p class="eyebrow">
                     Sip something
                 </p>
 
-                <h2 class="mt-4 text-4xl font-semibold sm:text-5xl">
+                <h2 class="section-title mt-4 text-4xl font-semibold sm:text-5xl">
                     Beverages
                 </h2>
 
                 <p
-                    class="mx-auto mt-5 max-w-2xl text-base leading-8 text-stone-600 dark:text-stone-400 sm:text-lg">
+                    class="muted-text mx-auto mt-5 max-w-2xl text-base leading-8 sm:text-lg">
 
                     Familiar South Indian drinks to pair with your meal.
 
@@ -1108,18 +1155,18 @@
         ====================================================== -->
 
         <section
-            class="mx-auto max-w-7xl px-5 py-20 text-center sm:px-8 sm:py-24 lg:px-12 lg:py-28">
+            class="page-surface mx-auto max-w-7xl px-5 py-20 text-center sm:px-8 sm:py-24 lg:px-12 lg:py-28">
 
-            <p class="eyebrow text-amber-700 dark:text-amber-400">
+            <p class="eyebrow">
                 A sweet finish
             </p>
 
-            <h2 class="mt-4 text-4xl font-semibold sm:text-5xl">
+            <h2 class="section-title mt-4 text-4xl font-semibold sm:text-5xl">
                 Sweet Endings
             </h2>
 
             <p
-                class="mx-auto mt-5 max-w-2xl text-base leading-8 text-stone-600 dark:text-stone-400 sm:text-lg">
+                class="muted-text mx-auto mt-5 max-w-2xl text-base leading-8 sm:text-lg">
 
                 Traditional sweets to finish your meal on a happy note.
 
@@ -1140,7 +1187,8 @@
         ====================================================== -->
 
         <section
-            class="border-y border-stone-200 bg-white py-20 dark:border-stone-800 dark:bg-stone-950 sm:py-24 lg:py-28">
+            class="page-surface border-y py-20 sm:py-24 lg:py-28"
+            style="border-color:var(--bh-border);">
 
             <div
                 class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
@@ -1148,22 +1196,22 @@
 
                 <div class="mx-auto max-w-3xl text-center">
 
-                    <p class="eyebrow text-amber-700 dark:text-amber-400">
+                    <p class="eyebrow">
                         Easy ordering
                     </p>
 
                     <h2
-                        class="mt-4 text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
+                        class="section-title mt-4 text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
 
                         From our kitchen
-                        <span class="block text-amber-600 dark:text-amber-400">
+                        <span class="accent block" style="font-style:normal;">
                             to your table.
                         </span>
 
                     </h2>
 
                     <p
-                        class="mx-auto mt-6 max-w-2xl text-base leading-8 text-stone-600 dark:text-stone-400 sm:text-lg">
+                        class="muted-text mx-auto mt-6 max-w-2xl text-base leading-8 sm:text-lg">
 
                         A simple four-step journey from choosing your favourite
                         dish to enjoying it fresh at home.
@@ -1190,15 +1238,15 @@
                                 01
                             </div>
 
-                            <p class="mt-6 text-xs font-bold uppercase tracking-[.2em] text-amber-600">
+                            <p class="eyebrow mt-6">
                                 Choose
                             </p>
 
-                            <h3 class="mt-2 text-xl font-semibold">
+                            <h3 class="mt-2 text-xl font-semibold" style="color:var(--bh-ink);">
                                 Pick your favourites
                             </h3>
 
-                            <p class="mx-auto mt-3 max-w-xs text-sm leading-7 text-stone-600 dark:text-stone-400">
+                            <p class="muted-text mx-auto mt-3 max-w-xs text-sm leading-7">
                                 Browse our menu and select the dishes
                                 you're craving.
                             </p>
@@ -1212,15 +1260,15 @@
                                 02
                             </div>
 
-                            <p class="mt-6 text-xs font-bold uppercase tracking-[.2em] text-amber-600">
+                            <p class="eyebrow mt-6">
                                 Order
                             </p>
 
-                            <h3 class="mt-2 text-xl font-semibold">
+                            <h3 class="mt-2 text-xl font-semibold" style="color:var(--bh-ink);">
                                 Place your order
                             </h3>
 
-                            <p class="mx-auto mt-3 max-w-xs text-sm leading-7 text-stone-600 dark:text-stone-400">
+                            <p class="muted-text mx-auto mt-3 max-w-xs text-sm leading-7">
                                 Choose your meal, confirm your details
                                 and let us handle the rest.
                             </p>
@@ -1234,15 +1282,15 @@
                                 03
                             </div>
 
-                            <p class="mt-6 text-xs font-bold uppercase tracking-[.2em] text-amber-600">
+                            <p class="eyebrow mt-6">
                                 Prepare
                             </p>
 
-                            <h3 class="mt-2 text-xl font-semibold">
+                            <h3 class="mt-2 text-xl font-semibold" style="color:var(--bh-ink);">
                                 We cook it fresh
                             </h3>
 
-                            <p class="mx-auto mt-3 max-w-xs text-sm leading-7 text-stone-600 dark:text-stone-400">
+                            <p class="muted-text mx-auto mt-3 max-w-xs text-sm leading-7">
                                 Your food is freshly prepared with care
                                 in our kitchen.
                             </p>
@@ -1256,15 +1304,15 @@
                                 04
                             </div>
 
-                            <p class="mt-6 text-xs font-bold uppercase tracking-[.2em] text-amber-600">
+                            <p class="eyebrow mt-6">
                                 Enjoy
                             </p>
 
-                            <h3 class="mt-2 text-xl font-semibold">
+                            <h3 class="mt-2 text-xl font-semibold" style="color:var(--bh-ink);">
                                 Delivered to you
                             </h3>
 
-                            <p class="mx-auto mt-3 max-w-xs text-sm leading-7 text-stone-600 dark:text-stone-400">
+                            <p class="muted-text mx-auto mt-3 max-w-xs text-sm leading-7">
                                 Your meal arrives warm, packed carefully
                                 and ready to enjoy.
                             </p>
@@ -1277,15 +1325,16 @@
 
 
                 <div
-                    class="mx-auto mt-16 flex max-w-3xl flex-col items-center justify-between gap-5 border border-amber-200 bg-amber-50 px-6 py-6 text-center sm:flex-row sm:rounded-2xl sm:px-8 sm:text-left dark:border-stone-700 dark:bg-stone-900">
+                    class="mx-auto mt-16 flex max-w-3xl flex-col items-center justify-between gap-5 border px-6 py-6 text-center sm:flex-row sm:rounded-2xl sm:px-8 sm:text-left"
+                    style="border-color:var(--bh-border);background:#efe6d5;">
 
                     <div>
 
-                        <p class="text-xs font-bold uppercase tracking-[.18em] text-amber-700 dark:text-amber-400">
+                        <p class="eyebrow">
                             Freshness first
                         </p>
 
-                        <p class="mt-2 font-semibold text-stone-800 dark:text-stone-200">
+                        <p class="mt-2 font-semibold" style="color:var(--bh-ink);">
                             Made fresh. Packed with care. Delivered hot.
                         </p>
 
@@ -1293,7 +1342,7 @@
 
                     <a
                         href="#menu"
-                        class="inline-flex rounded-full bg-stone-900 px-6 py-3 text-sm font-bold text-white transition hover:bg-stone-700 dark:bg-amber-500 dark:text-stone-950 dark:hover:bg-amber-400">
+                        class="btn-solid inline-flex rounded-full px-6 py-3 text-sm font-bold transition">
 
                         Explore Menu →
 
@@ -1312,7 +1361,8 @@
         ====================================================== -->
 
         <section
-            class="warm-section border-b border-amber-100 py-20 sm:py-24 lg:py-28 dark:border-stone-800">
+            class="page-surface border-b py-20 sm:py-24 lg:py-28"
+            style="border-color:var(--bh-border);">
 
             <div
                 class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
@@ -1320,22 +1370,22 @@
 
                 <div class="mx-auto max-w-4xl text-center">
 
-                    <p class="eyebrow text-amber-700 dark:text-amber-400">
+                    <p class="eyebrow">
                         Why Bowl &amp; Hearth
                     </p>
 
                     <h2
-                        class="mt-5 text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
+                        class="section-title mt-5 text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
 
                         Good food doesn't need
-                        <span class="block text-amber-600 dark:text-amber-400">
+                        <span class="accent block" style="font-style:normal;">
                             to be complicated.
                         </span>
 
                     </h2>
 
                     <p
-                        class="mx-auto mt-6 max-w-2xl text-base leading-8 text-stone-600 dark:text-stone-400 sm:text-lg">
+                        class="muted-text mx-auto mt-6 max-w-2xl text-base leading-8 sm:text-lg">
 
                         We keep things simple — familiar recipes, quality ingredients,
                         careful cooking and food that arrives ready to enjoy.
@@ -1352,7 +1402,8 @@
                     <!-- 01 -->
 
                     <div
-                        class="why-item grid gap-5 border-b border-stone-200 px-6 py-8 sm:grid-cols-[100px_1fr_auto] sm:items-center sm:px-10 sm:py-9 dark:border-stone-800">
+                        class="why-item grid gap-5 border-b px-6 py-8 sm:grid-cols-[100px_1fr_auto] sm:items-center sm:px-10 sm:py-9"
+                        style="border-color:var(--bh-border);">
 
                         <div class="why-number">
                             01
@@ -1360,20 +1411,19 @@
 
                         <div>
 
-                            <h3 class="text-xl font-semibold sm:text-2xl">
+                            <h3 class="text-xl font-semibold sm:text-2xl" style="color:var(--bh-ink);">
                                 Freshly Cooked
                             </h3>
 
-                            <p class="mt-2 max-w-2xl text-sm leading-7 text-stone-600 dark:text-stone-400">
+                            <p class="muted-text mt-2 max-w-2xl text-sm leading-7">
                                 Every order is cooked fresh so your meal arrives
                                 hot, aromatic and full of flavour.
                             </p>
 
                         </div>
 
-                        <div
-                            class="hidden h-12 w-12 items-center justify-center rounded-full bg-amber-100 text-xl sm:flex dark:bg-amber-900/40">
-                            🍲
+                        <div class="icon-circle hidden sm:flex">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18a9 8 0 0 1-18 0Z"/><path d="M8 11c0-3 1-5 4-5s4 2 4 5"/></svg>
                         </div>
 
                     </div>
@@ -1382,7 +1432,8 @@
                     <!-- 02 -->
 
                     <div
-                        class="why-item grid gap-5 border-b border-stone-200 px-6 py-8 sm:grid-cols-[100px_1fr_auto] sm:items-center sm:px-10 sm:py-9 dark:border-stone-800">
+                        class="why-item grid gap-5 border-b px-6 py-8 sm:grid-cols-[100px_1fr_auto] sm:items-center sm:px-10 sm:py-9"
+                        style="border-color:var(--bh-border);">
 
                         <div class="why-number">
                             02
@@ -1390,20 +1441,19 @@
 
                         <div>
 
-                            <h3 class="text-xl font-semibold sm:text-2xl">
+                            <h3 class="text-xl font-semibold sm:text-2xl" style="color:var(--bh-ink);">
                                 Local Ingredients
                             </h3>
 
-                            <p class="mt-2 max-w-2xl text-sm leading-7 text-stone-600 dark:text-stone-400">
+                            <p class="muted-text mt-2 max-w-2xl text-sm leading-7">
                                 Carefully selected ingredients from trusted local
                                 sources keep our food fresh and authentic.
                             </p>
 
                         </div>
 
-                        <div
-                            class="hidden h-12 w-12 items-center justify-center rounded-full bg-amber-100 text-xl sm:flex dark:bg-amber-900/40">
-                            🌾
+                        <div class="icon-circle hidden sm:flex">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c8 0 14-6 14-14 0 0-10-2-14 6-2 4-1 6 0 8Z"/><path d="M6 18c2-4 4-7 8-10"/></svg>
                         </div>
 
                     </div>
@@ -1412,7 +1462,8 @@
                     <!-- 03 -->
 
                     <div
-                        class="why-item grid gap-5 border-b border-stone-200 px-6 py-8 sm:grid-cols-[100px_1fr_auto] sm:items-center sm:px-10 sm:py-9 dark:border-stone-800">
+                        class="why-item grid gap-5 border-b px-6 py-8 sm:grid-cols-[100px_1fr_auto] sm:items-center sm:px-10 sm:py-9"
+                        style="border-color:var(--bh-border);">
 
                         <div class="why-number">
                             03
@@ -1420,20 +1471,19 @@
 
                         <div>
 
-                            <h3 class="text-xl font-semibold sm:text-2xl">
+                            <h3 class="text-xl font-semibold sm:text-2xl" style="color:var(--bh-ink);">
                                 Authentic Recipes
                             </h3>
 
-                            <p class="mt-2 max-w-2xl text-sm leading-7 text-stone-600 dark:text-stone-400">
+                            <p class="muted-text mt-2 max-w-2xl text-sm leading-7">
                                 Regional Tamil recipes prepared with traditional
                                 methods and familiar flavours.
                             </p>
 
                         </div>
 
-                        <div
-                            class="hidden h-12 w-12 items-center justify-center rounded-full bg-amber-100 text-xl sm:flex dark:bg-amber-900/40">
-                            👨‍🍳
+                        <div class="icon-circle hidden sm:flex">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10a4 4 0 0 1 1-7.6A4 4 0 0 1 12 2a4 4 0 0 1 4 .4A4 4 0 0 1 17 10"/><path d="M7 10h10v4H7z"/><path d="M7 18h10v3H7z"/></svg>
                         </div>
 
                     </div>
@@ -1450,20 +1500,19 @@
 
                         <div>
 
-                            <h3 class="text-xl font-semibold sm:text-2xl">
+                            <h3 class="text-xl font-semibold sm:text-2xl" style="color:var(--bh-ink);">
                                 Fast Delivery
                             </h3>
 
-                            <p class="mt-2 max-w-2xl text-sm leading-7 text-stone-600 dark:text-stone-400">
+                            <p class="muted-text mt-2 max-w-2xl text-sm leading-7">
                                 Carefully packed and delivered hot so your meal
                                 reaches you ready to enjoy.
                             </p>
 
                         </div>
 
-                        <div
-                            class="hidden h-12 w-12 items-center justify-center rounded-full bg-amber-100 text-xl sm:flex dark:bg-amber-900/40">
-                            🚴
+                        <div class="icon-circle hidden sm:flex">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M6 17 10 8h4l3 5"/><path d="M10 8 8 5h-2"/></svg>
                         </div>
 
                     </div>
@@ -1474,10 +1523,11 @@
                 <div class="mx-auto mt-14 max-w-3xl text-center">
 
                     <p
-                        class="font-display text-2xl font-semibold leading-relaxed text-stone-900 sm:text-3xl dark:text-white">
+                        class="font-display text-2xl font-semibold leading-relaxed sm:text-3xl"
+                        style="color:var(--bh-ink);">
 
                         “Simple food.
-                        <span class="text-amber-600 dark:text-amber-400">
+                        <span class="accent" style="font-style:normal;">
                             Honest flavours.
                         </span>
                         Made with care.”
@@ -1487,7 +1537,7 @@
 
                     <a
                         href="#menu"
-                        class="mt-7 inline-flex rounded-full bg-stone-900 px-7 py-3.5 text-sm font-bold text-white shadow-lg transition hover:bg-stone-700 dark:bg-amber-500 dark:text-stone-950 dark:hover:bg-amber-400">
+                        class="btn-solid mt-7 inline-flex rounded-full px-7 py-3.5 text-sm font-bold shadow-lg transition">
 
                         Explore Today's Menu →
 
@@ -1505,26 +1555,26 @@
              FINAL CTA
         ====================================================== -->
 
-        <section class="final-cta py-20 text-center text-white sm:py-28">
+        <section class="final-cta py-20 text-center sm:py-28">
 
             <div class="mx-auto max-w-4xl px-5 sm:px-8">
 
-                <p class="eyebrow text-amber-400">
+                <p class="eyebrow">
                     Bowl &amp; Hearth
                 </p>
 
                 <h2
-                    class="mt-5 text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
+                    class="section-title mt-5 text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
 
                     Your next comfort meal
-                    <span class="block text-amber-400">
+                    <span class="accent block" style="font-style:normal;">
                         is waiting.
                     </span>
 
                 </h2>
 
                 <p
-                    class="mx-auto mt-6 max-w-2xl text-base leading-8 text-stone-300 sm:text-lg">
+                    class="muted-text mx-auto mt-6 max-w-2xl text-base leading-8 sm:text-lg">
 
                     Freshly prepared, thoughtfully packed and made
                     for the way you actually live.
@@ -1533,7 +1583,7 @@
 
                 <a
                     href="#menu"
-                    class="mt-9 inline-flex rounded-full bg-amber-500 px-8 py-4 text-sm font-bold text-stone-950 shadow-xl transition hover:bg-amber-400">
+                    class="btn-solid mt-9 inline-flex rounded-full px-8 py-4 text-sm font-bold shadow-xl transition">
 
                     Browse the full menu →
 
@@ -1601,7 +1651,7 @@
                     );
 
                     img.style.background =
-                        "linear-gradient(135deg,#e7e5e4,#d6d3d1)";
+                        "linear-gradient(135deg,#e7e2d3,#d9cdb4)";
 
                     return;
 
@@ -1838,7 +1888,7 @@
            RENDER MAIN MENU
         ====================================================== */
 
-        function renderMenu(filter = "all") {
+        function renderMenu(filter = "breakfast") {
 
             const grid =
                 document.querySelector("#menu-grid");
@@ -1847,8 +1897,7 @@
             const filtered =
                 dishes.filter(function (d) {
 
-                    return filter === "all" ||
-                        d.category === filter;
+                    return d.category === filter;
 
                 });
 
@@ -1874,12 +1923,7 @@
 
                             <div class="flex items-center justify-between gap-3">
 
-                                <span
-                                    class="food-category ${
-                                        d.tag === "Veg"
-                                            ? "text-green-600"
-                                            : "text-red-600"
-                                    }">
+                                <span class="food-category food-tag food-tag--${d.tag === "Veg" ? "veg" : "nonveg"}">
 
                                     ${d.tag}
 
@@ -1923,7 +1967,7 @@
         }
 
 
-        renderMenu();
+        renderMenu("breakfast");
 
 
         /* =====================================================
@@ -1996,12 +2040,7 @@
 
                             <div class="flex items-center justify-between gap-3">
 
-                                <span
-                                    class="food-category ${
-                                        d.tag === "Veg"
-                                            ? "text-green-600"
-                                            : "text-red-600"
-                                    }">
+                                <span class="food-category food-tag food-tag--${d.tag === "Veg" ? "veg" : "nonveg"}">
 
                                     ${d.tag}
 
@@ -2167,9 +2206,7 @@
                 name: "Sukku Malli Coffee",
                 price: "₹59",
                 images: [
-                    "sukku malli coffee.jpeg",
-                    "Sukku malli coffee.jpeg",
-                    "sukku malli coffee.jpg"
+                    "https://m.media-amazon.com/images/I/81wRDw6f9SL.jpg"
                 ]
             },
 

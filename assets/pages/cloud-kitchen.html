@@ -5,12 +5,18 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1"
+    >
 
     <title>Cloud Kitchen Model | Bowl & Hearth</title>
 
-    <link rel="icon" type="image/png" href="../images/favicon.png">
-
+    <link
+        rel="icon"
+        type="image/png"
+        href="../images/favicon.png"
+    >
 
     <!-- =========================================================
          TAILWIND
@@ -26,7 +32,6 @@
 
     </script>
 
-
     <!-- =========================================================
          SHARED CSS
     ========================================================== -->
@@ -37,7 +42,7 @@
     <style>
 
         /* =========================================================
-           GLOBAL LIGHT PAGE
+           GLOBAL
         ========================================================== */
 
         html,
@@ -51,19 +56,23 @@
 
         }
 
-
         body {
 
             min-height: 100vh;
 
         }
 
-
         *,
         *::before,
         *::after {
 
             box-sizing: border-box;
+
+        }
+
+        img {
+
+            max-width: 100%;
 
         }
 
@@ -82,7 +91,6 @@
 
         }
 
-
         .bulk-order-btn:hover {
 
             background-color: #9a3412 !important;
@@ -92,7 +100,6 @@
             transform: translateY(-1px);
 
         }
-
 
         .bulk-order-btn:focus {
 
@@ -111,7 +118,6 @@
         .bh-cloud-hero {
 
             position: relative;
-
             overflow: hidden;
 
             background:
@@ -125,7 +131,6 @@
             color: #292524;
 
         }
-
 
         .bh-cloud-hero::before {
 
@@ -149,7 +154,6 @@
 
         }
 
-
         .bh-cloud-hero::after {
 
             content: "";
@@ -172,7 +176,6 @@
 
         }
 
-
         .bh-cloud-hero-image {
 
             position: absolute;
@@ -183,7 +186,6 @@
             height: 100%;
 
             object-fit: cover;
-
             object-position: center;
 
             filter:
@@ -193,11 +195,9 @@
 
         }
 
-
         .bh-cloud-hero-overlay {
 
             position: absolute;
-
             inset: 0;
 
             background:
@@ -212,11 +212,9 @@
 
         }
 
-
         .bh-cloud-hero-bottom {
 
             position: absolute;
-
             inset: 0;
 
             background:
@@ -230,17 +228,14 @@
 
         }
 
-
         .bh-cloud-hero-content {
 
             position: relative;
-
             z-index: 5;
 
             min-width: 0;
 
         }
-
 
         .bh-cloud-eyebrow {
 
@@ -262,17 +257,14 @@
 
         }
 
-
         .bh-cloud-eyebrow-line {
 
             width: 34px;
-
             height: 1px;
 
             background: #c2410c;
 
         }
-
 
         .bh-cloud-heading {
 
@@ -298,10 +290,7 @@
 
             color: #292524;
 
-            overflow-wrap: normal;
-
         }
-
 
         .bh-cloud-heading-highlight {
 
@@ -316,13 +305,11 @@
                 );
 
             background-clip: text;
-
             -webkit-background-clip: text;
 
             color: transparent;
 
         }
-
 
         .bh-cloud-description {
 
@@ -338,7 +325,6 @@
 
         }
 
-
         .bh-cloud-primary {
 
             display: inline-flex;
@@ -352,8 +338,7 @@
 
             color: #ffffff;
 
-            padding:
-                13px 24px;
+            padding: 13px 24px;
 
             font-size: .9rem;
 
@@ -369,7 +354,6 @@
 
         }
 
-
         .bh-cloud-primary:hover {
 
             background: #1c1917;
@@ -380,7 +364,6 @@
                 0 15px 30px rgba(41, 37, 36, .22);
 
         }
-
 
         .bh-cloud-secondary {
 
@@ -398,8 +381,7 @@
             border:
                 1px solid rgba(154, 52, 18, .25);
 
-            padding:
-                12px 23px;
+            padding: 12px 23px;
 
             font-size: .9rem;
 
@@ -414,7 +396,6 @@
                 border-color .3s ease;
 
         }
-
 
         .bh-cloud-secondary:hover {
 
@@ -436,7 +417,6 @@
         .bh-cloud-process {
 
             position: relative;
-
             z-index: 5;
 
             width: 100%;
@@ -459,7 +439,6 @@
 
         }
 
-
         .bh-cloud-process-top {
 
             display: flex;
@@ -477,7 +456,6 @@
 
         }
 
-
         .bh-cloud-process-label {
 
             color: #78716c;
@@ -491,7 +469,6 @@
             letter-spacing: .2em;
 
         }
-
 
         .bh-cloud-process-status {
 
@@ -515,7 +492,6 @@
 
         }
 
-
         .bh-cloud-process-status-dot {
 
             flex-shrink: 0;
@@ -532,7 +508,6 @@
 
         }
 
-
         .bh-cloud-process-item {
 
             display: flex;
@@ -548,15 +523,12 @@
 
         }
 
-
         .bh-cloud-process-item:last-child {
 
             border-bottom: 0;
-
             padding-bottom: 0;
 
         }
-
 
         .bh-cloud-process-number {
 
@@ -572,8 +544,7 @@
 
             border-radius: 50%;
 
-            background:
-                #f4dfce;
+            background: #f4dfce;
 
             border:
                 1px solid rgba(194, 65, 12, .20);
@@ -596,13 +567,11 @@
 
         }
 
-
         .bh-cloud-process-item > div:last-child {
 
             min-width: 0;
 
         }
-
 
         .bh-cloud-process-item:hover
         .bh-cloud-process-number {
@@ -614,7 +583,6 @@
             color: #ffffff;
 
         }
-
 
         .bh-cloud-process-title {
 
@@ -631,7 +599,6 @@
 
         }
 
-
         .bh-cloud-process-description {
 
             margin-top: 6px;
@@ -646,15 +613,9 @@
 
         }
 
-
-        /* =========================================================
-           HERO BRAND STRIP
-        ========================================================== */
-
         .bh-cloud-brand-strip {
 
             position: relative;
-
             z-index: 5;
 
             display: flex;
@@ -677,11 +638,9 @@
 
         }
 
-
         .bh-cloud-brand-line {
 
             width: 45px;
-
             height: 1px;
 
             background: #d6a47c;
@@ -692,7 +651,932 @@
 
 
         /* =========================================================
-           HERO TABLET
+           WHY THE MODEL
+        ========================================================== */
+
+        .bh-model-section {
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fffaf7 0%,
+                    #ffffff 45%,
+                    #fff1e8 100%
+                );
+
+            color: #292524;
+
+        }
+
+        .bh-model-glow {
+
+            position: absolute;
+
+            width: 360px;
+            height: 360px;
+
+            border-radius: 9999px;
+
+            background: rgba(194, 65, 12, .08);
+
+            filter: blur(80px);
+
+            pointer-events: none;
+
+        }
+
+        .bh-model-glow-one {
+
+            top: -180px;
+            right: -100px;
+
+        }
+
+        .bh-model-glow-two {
+
+            bottom: -200px;
+            left: -120px;
+
+            background: rgba(251, 191, 36, .10);
+
+        }
+
+        .bh-model-header {
+
+            position: relative;
+
+            max-width: 760px;
+
+            margin: 0 auto;
+
+            text-align: center;
+
+        }
+
+        .bh-model-kicker {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: #c2410c;
+
+            font-size: .72rem;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: .25em;
+
+        }
+
+        .bh-model-kicker::before,
+        .bh-model-kicker::after {
+
+            content: "";
+
+            width: 28px;
+            height: 1px;
+
+            background: #c2410c;
+
+            opacity: .6;
+
+        }
+
+        .bh-model-heading {
+
+            margin-top: 16px;
+
+            font-family:
+                Georgia,
+                'Times New Roman',
+                serif;
+
+            font-size: clamp(2.3rem, 5vw, 4rem);
+
+            font-weight: 700;
+
+            line-height: 1;
+
+            letter-spacing: -.03em;
+
+            color: #1c1917;
+
+        }
+
+        .bh-model-intro {
+
+            max-width: 650px;
+
+            margin: 20px auto 0;
+
+            color: #78716c;
+
+            font-size: 1rem;
+
+            line-height: 1.8;
+
+        }
+
+        .bh-model-list {
+
+            position: relative;
+
+            margin-top: 64px;
+
+            border-top:
+                1px solid rgba(120, 113, 108, .22);
+
+        }
+
+        .bh-model-item {
+
+            position: relative;
+
+            display: grid;
+
+            grid-template-columns:
+                110px
+                90px
+                minmax(0, 1fr)
+                40px;
+
+            align-items: center;
+
+            gap: 25px;
+
+            min-height: 170px;
+
+            padding: 28px 0;
+
+            border-bottom:
+                1px solid rgba(120, 113, 108, .22);
+
+            transition:
+                padding .35s ease,
+                background .35s ease;
+
+            min-width: 0;
+
+        }
+
+        .bh-model-item:hover {
+
+            padding-left: 18px;
+            padding-right: 18px;
+
+            background: rgba(255, 255, 255, .70);
+
+        }
+
+        .bh-model-number {
+
+            font-family:
+                Georgia,
+                'Times New Roman',
+                serif;
+
+            font-size: 3.4rem;
+
+            line-height: 1;
+
+            font-weight: 700;
+
+            color: #e7e5e4;
+
+            transition:
+                color .3s ease,
+                transform .3s ease;
+
+        }
+
+        .bh-model-item:hover .bh-model-number {
+
+            color: #d6a47c;
+
+            transform: translateX(4px);
+
+        }
+
+        .bh-model-icon {
+
+            width: 62px;
+            height: 62px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            border:
+                1px solid rgba(194, 65, 12, .22);
+
+            background: #ffffff;
+
+            color: #c2410c;
+
+            font-size: 22px;
+
+            box-shadow:
+                0 8px 25px rgba(120, 53, 48, .08);
+
+            transition:
+                transform .3s ease,
+                background .3s ease,
+                color .3s ease;
+
+        }
+
+        .bh-model-item:hover .bh-model-icon {
+
+            transform: rotate(-5deg) scale(1.08);
+
+            background: #c2410c;
+
+            color: #fff;
+
+        }
+
+        .bh-model-content {
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(180px, .55fr)
+                minmax(0, 1fr);
+
+            align-items: center;
+
+            gap: 40px;
+
+            min-width: 0;
+
+        }
+
+        .bh-model-title {
+
+            font-family:
+                Georgia,
+                'Times New Roman',
+                serif;
+
+            font-size: 1.6rem;
+
+            font-weight: 700;
+
+            color: #292524;
+
+        }
+
+        .bh-model-description {
+
+            max-width: 560px;
+
+            color: #78716c;
+
+            font-size: .95rem;
+
+            line-height: 1.75;
+
+            overflow-wrap: anywhere;
+
+        }
+
+        .bh-model-arrow {
+
+            justify-self: end;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            width: 40px;
+            height: 40px;
+
+            border-radius: 50%;
+
+            color: #c2410c;
+
+            border:
+                1px solid rgba(194, 65, 12, .18);
+
+            transition:
+                transform .3s ease,
+                background .3s ease,
+                color .3s ease;
+
+        }
+
+        .bh-model-item:hover .bh-model-arrow {
+
+            transform: translateX(5px);
+
+            background: #c2410c;
+
+            color: #fff;
+
+        }
+
+        .bh-model-note {
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 15px;
+
+            margin-top: 45px;
+
+            text-align: center;
+
+            color: #78716c;
+
+            font-size: .8rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: .15em;
+
+            font-weight: 700;
+
+        }
+
+        .bh-model-note-line {
+
+            width: 45px;
+            height: 1px;
+
+            background: #d6d3d1;
+
+        }
+
+
+        /* =========================================================
+           TRADITIONAL VS CLOUD KITCHEN
+        ========================================================== */
+
+        .bh-traditional-section {
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff7ed 0%,
+                    #ffffff 50%,
+                    #fffbeb 100%
+                );
+
+            color: #292524;
+
+        }
+
+
+        /* =========================================================
+           INSIDE THE KITCHEN
+        ========================================================== */
+
+        .bh-inside-section {
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffffff 0%,
+                    #fff7ed 50%,
+                    #fef3c7 100%
+                );
+
+            color: #292524;
+
+        }
+
+
+        /* =========================================================
+           WHAT MAKES OUR KITCHEN DIFFERENT
+        ========================================================== */
+
+        .bh-difference-section {
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #29211d 0%,
+                    #33251f 48%,
+                    #241e1a 100%
+                );
+
+            color: #ffffff;
+
+        }
+
+        .bh-difference-glow {
+
+            position: absolute;
+
+            width: 420px;
+            height: 420px;
+
+            border-radius: 9999px;
+
+            filter: blur(90px);
+
+            pointer-events: none;
+
+        }
+
+        .bh-difference-glow-one {
+
+            top: -220px;
+            right: -120px;
+
+            background: rgba(217, 119, 6, .18);
+
+        }
+
+        .bh-difference-glow-two {
+
+            bottom: -250px;
+            left: -150px;
+
+            background: rgba(194, 65, 12, .15);
+
+        }
+
+        .bh-difference-header {
+
+            position: relative;
+
+            max-width: 760px;
+
+            margin: 0 auto;
+
+            text-align: center;
+
+        }
+
+        .bh-difference-kicker {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: #fbbf24;
+
+            font-size: .7rem;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: .25em;
+
+        }
+
+        .bh-difference-kicker::before,
+        .bh-difference-kicker::after {
+
+            content: "";
+
+            width: 30px;
+            height: 1px;
+
+            background: #f59e0b;
+
+            opacity: .7;
+
+        }
+
+        .bh-difference-heading {
+
+            margin-top: 18px;
+
+            font-family:
+                Georgia,
+                'Times New Roman',
+                serif;
+
+            font-size:
+                clamp(
+                    2.4rem,
+                    5vw,
+                    4.2rem
+                );
+
+            line-height: 1;
+
+            letter-spacing: -.035em;
+
+            font-weight: 700;
+
+            color: #fafaf9;
+
+        }
+
+        .bh-difference-heading span {
+
+            color: #fbbf24;
+
+        }
+
+        .bh-difference-intro {
+
+            max-width: 650px;
+
+            margin: 22px auto 0;
+
+            color: #d6d3d1;
+
+            font-size: .98rem;
+
+            line-height: 1.8;
+
+        }
+
+        .bh-difference-grid {
+
+            position: relative;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 22px;
+
+            margin-top: 58px;
+
+        }
+
+        .bh-difference-card {
+
+            position: relative;
+
+            min-height: 300px;
+
+            padding: 32px;
+
+            overflow: hidden;
+
+            border:
+                1px solid rgba(255, 255, 255, .12);
+
+            border-radius: 28px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, .10),
+                    rgba(255, 255, 255, .045)
+                );
+
+            backdrop-filter: blur(14px);
+
+            -webkit-backdrop-filter: blur(14px);
+
+            transition:
+                transform .35s ease,
+                border-color .35s ease,
+                background .35s ease,
+                box-shadow .35s ease;
+
+        }
+
+        .bh-difference-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 150px;
+            height: 150px;
+
+            top: -80px;
+            right: -60px;
+
+            border-radius: 50%;
+
+            background: rgba(251, 191, 36, .12);
+
+            filter: blur(25px);
+
+            transition:
+                transform .4s ease;
+
+        }
+
+        .bh-difference-card:hover {
+
+            transform: translateY(-8px);
+
+            border-color:
+                rgba(251, 191, 36, .35);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, .14),
+                    rgba(255, 255, 255, .06)
+                );
+
+            box-shadow:
+                0 25px 60px rgba(0, 0, 0, .20);
+
+        }
+
+        .bh-difference-card:hover::before {
+
+            transform: scale(1.4);
+
+        }
+
+        .bh-difference-icon {
+
+            width: 62px;
+            height: 62px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 18px;
+
+            background:
+                rgba(251, 191, 36, .12);
+
+            border:
+                1px solid rgba(251, 191, 36, .25);
+
+            color: #fbbf24;
+
+            transition:
+                transform .35s ease,
+                background .35s ease;
+
+        }
+
+        .bh-difference-card:hover
+        .bh-difference-icon {
+
+            transform:
+                rotate(-5deg)
+                scale(1.06);
+
+            background:
+                rgba(251, 191, 36, .20);
+
+        }
+
+        .bh-difference-number {
+
+            position: absolute;
+
+            top: 25px;
+            right: 28px;
+
+            font-family:
+                Georgia,
+                'Times New Roman',
+                serif;
+
+            font-size: 3rem;
+
+            line-height: 1;
+
+            font-weight: 700;
+
+            color:
+                rgba(255, 255, 255, .06);
+
+        }
+
+        .bh-difference-title {
+
+            position: relative;
+
+            margin-top: 28px;
+
+            font-family:
+                Georgia,
+                'Times New Roman',
+                serif;
+
+            font-size: 1.45rem;
+
+            font-weight: 700;
+
+            color: #fafaf9;
+
+        }
+
+        .bh-difference-text {
+
+            position: relative;
+
+            margin-top: 12px;
+
+            color: #cfcac6;
+
+            font-size: .88rem;
+
+            line-height: 1.75;
+
+        }
+
+        .bh-difference-bottom {
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 14px;
+
+            margin-top: 45px;
+
+            color: #a8a29e;
+
+            font-size: .68rem;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: .18em;
+
+        }
+
+        .bh-difference-bottom-line {
+
+            width: 42px;
+            height: 1px;
+
+            background: rgba(251, 191, 36, .45);
+
+        }
+
+
+        /* =========================================================
+           ORDER JOURNEY
+        ========================================================== */
+
+        .bh-journey-section {
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff7f3 0%,
+                    #ffffff 50%,
+                    #fff1e8 100%
+                );
+
+            color: #292524;
+
+        }
+
+        .bh-journey-line {
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    #c2410c,
+                    #d97706,
+                    #d6d3d1
+                );
+
+        }
+
+        .bh-journey-step {
+
+            transition:
+                transform .35s ease,
+                border-color .35s ease;
+
+            min-width: 0;
+
+        }
+
+        .bh-journey-step:hover {
+
+            transform: translateX(8px);
+
+        }
+
+        .bh-journey-number {
+
+            background: #ffffff !important;
+
+            box-shadow:
+                0 0 0 8px #fff7f3;
+
+            transition:
+                background .3s ease,
+                color .3s ease,
+                border-color .3s ease,
+                transform .3s ease;
+
+        }
+
+        .bh-journey-step:hover .bh-journey-number {
+
+            transform: scale(1.08);
+
+            background: #d97706 !important;
+
+            color: #1c1917 !important;
+
+            border-color: #d97706;
+
+        }
+
+        .bh-journey-link {
+
+            transition:
+                background .3s ease,
+                color .3s ease,
+                border-color .3s ease,
+                transform .3s ease;
+
+            max-width: 100%;
+
+        }
+
+        .bh-journey-link:hover {
+
+            transform: translateY(-2px);
+
+        }
+
+        .bh-journey-step > div,
+        .bh-journey-step > p {
+
+            min-width: 0;
+            max-width: 100%;
+
+        }
+
+
+        /* =========================================================
+           CTA
+        ========================================================== */
+
+        .bh-cta-section {
+
+            background: #f7f5ed !important;
+
+        }
+
+        .bh-cta-card {
+
+            background: #f7f5ed !important;
+
+            color: #292524;
+
+            box-shadow: none !important;
+
+        }
+
+        .bh-cta-card .bh-cta-glow-one,
+        .bh-cta-card .bh-cta-glow-two {
+
+            display: none;
+
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
         ========================================================== */
 
         @media(max-width: 1023px) {
@@ -720,12 +1604,42 @@
 
             }
 
+            .bh-model-item {
+
+                grid-template-columns:
+                    75px
+                    65px
+                    minmax(0, 1fr)
+                    40px;
+
+                gap: 18px;
+
+            }
+
+            .bh-model-content {
+
+                grid-template-columns:
+                    minmax(140px, .5fr)
+                    minmax(0, 1fr);
+
+                gap: 22px;
+
+            }
+
+            .bh-model-title {
+
+                font-size: 1.35rem;
+
+            }
+
+            .bh-model-description {
+
+                font-size: .86rem;
+
+            }
+
         }
 
-
-        /* =========================================================
-           HERO MOBILE
-        ========================================================== */
 
         @media(max-width: 767px) {
 
@@ -735,14 +1649,11 @@
 
             }
 
-
             .bh-cloud-hero-image {
 
-                object-position:
-                    62% center;
+                object-position: 62% center;
 
             }
-
 
             .bh-cloud-hero-overlay {
 
@@ -757,7 +1668,6 @@
 
             }
 
-
             .bh-cloud-hero-bottom {
 
                 background:
@@ -768,7 +1678,6 @@
                     );
 
             }
-
 
             .bh-cloud-heading {
 
@@ -781,17 +1690,13 @@
 
             }
 
-
             .bh-cloud-description {
 
                 font-size: .92rem;
-
                 line-height: 1.7;
-
                 max-width: 100%;
 
             }
-
 
             .bh-cloud-process {
 
@@ -803,20 +1708,17 @@
 
             }
 
-
             .bh-cloud-process-item {
 
                 padding: 16px 0;
 
             }
 
-
             .bh-cloud-process-description {
 
                 font-size: .76rem;
 
             }
-
 
             .bh-cloud-brand-strip {
 
@@ -826,7 +1728,6 @@
 
             }
 
-
             .bh-cloud-primary,
             .bh-cloud-secondary {
 
@@ -834,550 +1735,8 @@
 
             }
 
-        }
 
-
-        /* =========================================================
-           VERY SMALL MOBILE
-        ========================================================== */
-
-        @media(max-width: 420px) {
-
-            .bh-cloud-hero-content {
-
-                padding-left: 16px !important;
-                padding-right: 16px !important;
-
-            }
-
-
-            .bh-cloud-heading {
-
-                font-size: 2.3rem;
-
-                letter-spacing: -.035em;
-
-            }
-
-
-            .bh-cloud-description {
-
-                font-size: .86rem;
-
-            }
-
-
-            .bh-cloud-primary,
-            .bh-cloud-secondary {
-
-                width: 100%;
-
-            }
-
-
-            .bh-cloud-process {
-
-                width: 100%;
-
-                padding: 18px;
-
-            }
-
-
-            .bh-cloud-process-top {
-
-                gap: 12px;
-
-            }
-
-
-            .bh-cloud-process-status {
-
-                font-size: .58rem;
-
-                letter-spacing: .08em;
-
-            }
-
-
-            .bh-cloud-process-item {
-
-                gap: 12px;
-
-            }
-
-
-            .bh-cloud-process-number {
-
-                width: 36px;
-                height: 36px;
-
-                font-size: .82rem;
-
-            }
-
-
-            .bh-cloud-process-title {
-
-                font-size: .95rem;
-
-            }
-
-
-            .bh-cloud-process-description {
-
-                font-size: .7rem;
-
-            }
-
-        }
-
-
-        /* =========================================================
-           WHY THE MODEL
-        ========================================================== */
-
-        .bh-model-section {
-
-            position: relative;
-
-            overflow: hidden;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #fffaf7 0%,
-                    #ffffff 45%,
-                    #fff1e8 100%
-                );
-
-            color: #292524;
-
-        }
-
-
-        .bh-model-glow {
-
-            position: absolute;
-
-            width: 360px;
-            height: 360px;
-
-            border-radius: 9999px;
-
-            background: rgba(194, 65, 12, .08);
-
-            filter: blur(80px);
-
-            pointer-events: none;
-
-        }
-
-
-        .bh-model-glow-one {
-
-            top: -180px;
-            right: -100px;
-
-        }
-
-
-        .bh-model-glow-two {
-
-            bottom: -200px;
-            left: -120px;
-
-            background: rgba(251, 191, 36, .10);
-
-        }
-
-
-        .bh-model-header {
-
-            position: relative;
-
-            max-width: 760px;
-
-            margin: 0 auto;
-
-            text-align: center;
-
-        }
-
-
-        .bh-model-kicker {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 10px;
-
-            color: #c2410c;
-
-            font-size: .72rem;
-
-            font-weight: 800;
-
-            text-transform: uppercase;
-
-            letter-spacing: .25em;
-
-        }
-
-
-        .bh-model-kicker::before,
-        .bh-model-kicker::after {
-
-            content: "";
-
-            width: 28px;
-
-            height: 1px;
-
-            background: #c2410c;
-
-            opacity: .6;
-
-        }
-
-
-        .bh-model-heading {
-
-            margin-top: 16px;
-
-            font-family: Georgia, 'Times New Roman', serif;
-
-            font-size: clamp(2.3rem, 5vw, 4rem);
-
-            font-weight: 700;
-
-            line-height: 1;
-
-            letter-spacing: -.03em;
-
-            color: #1c1917;
-
-        }
-
-
-        .bh-model-intro {
-
-            max-width: 650px;
-
-            margin: 20px auto 0;
-
-            color: #78716c;
-
-            font-size: 1rem;
-
-            line-height: 1.8;
-
-        }
-
-
-        /* =========================================================
-           PROCESS LIST
-        ========================================================== */
-
-        .bh-model-list {
-
-            position: relative;
-
-            margin-top: 64px;
-
-            border-top: 1px solid rgba(120, 113, 108, .22);
-
-        }
-
-
-        .bh-model-item {
-
-            position: relative;
-
-            display: grid;
-
-            grid-template-columns:
-                110px
-                90px
-                minmax(0, 1fr)
-                40px;
-
-            align-items: center;
-
-            gap: 25px;
-
-            min-height: 170px;
-
-            padding: 28px 0;
-
-            border-bottom: 1px solid rgba(120, 113, 108, .22);
-
-            transition:
-                padding .35s ease,
-                background .35s ease;
-
-            min-width: 0;
-
-        }
-
-
-        .bh-model-item:hover {
-
-            padding-left: 18px;
-            padding-right: 18px;
-
-            background: rgba(255, 255, 255, .70);
-
-        }
-
-
-        .bh-model-number {
-
-            font-family: Georgia, 'Times New Roman', serif;
-
-            font-size: 3.4rem;
-
-            line-height: 1;
-
-            font-weight: 700;
-
-            color: #e7e5e4;
-
-            transition:
-                color .3s ease,
-                transform .3s ease;
-
-        }
-
-
-        .bh-model-item:hover .bh-model-number {
-
-            color: #d6a47c;
-
-            transform: translateX(4px);
-
-        }
-
-
-        .bh-model-icon {
-
-            width: 62px;
-            height: 62px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 50%;
-
-            border: 1px solid rgba(194, 65, 12, .22);
-
-            background: #ffffff;
-
-            color: #c2410c;
-
-            font-size: 22px;
-
-            box-shadow:
-                0 8px 25px rgba(120, 53, 48, .08);
-
-            transition:
-                transform .3s ease,
-                background .3s ease,
-                color .3s ease;
-
-        }
-
-
-        .bh-model-item:hover .bh-model-icon {
-
-            transform: rotate(-5deg) scale(1.08);
-
-            background: #c2410c;
-
-            color: #fff;
-
-        }
-
-
-        .bh-model-content {
-
-            display: grid;
-
-            grid-template-columns:
-                minmax(180px, .55fr)
-                minmax(0, 1fr);
-
-            align-items: center;
-
-            gap: 40px;
-
-            min-width: 0;
-
-        }
-
-
-        .bh-model-title {
-
-            font-family: Georgia, 'Times New Roman', serif;
-
-            font-size: 1.6rem;
-
-            font-weight: 700;
-
-            color: #292524;
-
-        }
-
-
-        .bh-model-description {
-
-            max-width: 560px;
-
-            color: #78716c;
-
-            font-size: .95rem;
-
-            line-height: 1.75;
-
-            overflow-wrap: anywhere;
-
-        }
-
-
-        .bh-model-arrow {
-
-            justify-self: end;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            width: 40px;
-            height: 40px;
-
-            border-radius: 50%;
-
-            color: #c2410c;
-
-            border: 1px solid rgba(194, 65, 12, .18);
-
-            transition:
-                transform .3s ease,
-                background .3s ease,
-                color .3s ease;
-
-        }
-
-
-        .bh-model-item:hover .bh-model-arrow {
-
-            transform: translateX(5px);
-
-            background: #c2410c;
-
-            color: #fff;
-
-        }
-
-
-        /* =========================================================
-           MODEL FOOT NOTE
-        ========================================================== */
-
-        .bh-model-note {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            gap: 15px;
-
-            margin-top: 45px;
-
-            text-align: center;
-
-            color: #78716c;
-
-            font-size: .8rem;
-
-            text-transform: uppercase;
-
-            letter-spacing: .15em;
-
-            font-weight: 700;
-
-        }
-
-
-        .bh-model-note-line {
-
-            width: 45px;
-
-            height: 1px;
-
-            background: #d6d3d1;
-
-        }
-
-
-        /* =========================================================
-           TABLET - WHY MODEL
-        ========================================================== */
-
-        @media (min-width: 768px) and (max-width: 1100px) {
-
-            .bh-model-item {
-
-                grid-template-columns:
-                    75px
-                    65px
-                    minmax(0, 1fr)
-                    40px;
-
-                gap: 18px;
-
-            }
-
-
-            .bh-model-content {
-
-                grid-template-columns:
-                    minmax(140px, .5fr)
-                    minmax(0, 1fr);
-
-                gap: 22px;
-
-            }
-
-
-            .bh-model-title {
-
-                font-size: 1.35rem;
-
-            }
-
-
-            .bh-model-description {
-
-                font-size: .86rem;
-
-            }
-
-        }
-
-
-        /* =========================================================
-           MOBILE - WHY MODEL
-        ========================================================== */
-
-        @media(max-width: 767px) {
+            /* MODEL MOBILE */
 
             .bh-model-heading {
 
@@ -1385,22 +1744,18 @@
 
             }
 
-
             .bh-model-intro {
 
                 font-size: .9rem;
-
                 line-height: 1.7;
 
             }
-
 
             .bh-model-list {
 
                 margin-top: 45px;
 
             }
-
 
             .bh-model-item {
 
@@ -1417,7 +1772,6 @@
 
             }
 
-
             .bh-model-item:hover {
 
                 padding-left: 4px;
@@ -1425,13 +1779,11 @@
 
             }
 
-
             .bh-model-number {
 
                 font-size: 2.2rem;
 
             }
-
 
             .bh-model-icon {
 
@@ -1442,7 +1794,6 @@
 
             }
 
-
             .bh-model-content {
 
                 display: block;
@@ -1451,13 +1802,11 @@
 
             }
 
-
             .bh-model-title {
 
                 font-size: 1.25rem;
 
             }
-
 
             .bh-model-description {
 
@@ -1471,13 +1820,11 @@
 
             }
 
-
             .bh-model-arrow {
 
                 display: none;
 
             }
-
 
             .bh-model-note {
 
@@ -1487,21 +1834,151 @@
 
             }
 
-
             .bh-model-note-line {
 
                 width: 25px;
 
             }
 
+
+            /* DIFFERENCE MOBILE */
+
+            .bh-difference-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 16px;
+
+                margin-top: 40px;
+
+            }
+
+            .bh-difference-card {
+
+                min-height: auto;
+
+                padding: 26px;
+
+            }
+
+            .bh-difference-heading {
+
+                font-size: 2.5rem;
+
+            }
+
+            .bh-difference-intro {
+
+                font-size: .88rem;
+
+                line-height: 1.7;
+
+            }
+
+            .bh-difference-title {
+
+                font-size: 1.3rem;
+
+            }
+
+            .bh-difference-text {
+
+                font-size: .8rem;
+
+            }
+
+            .bh-difference-bottom {
+
+                font-size: .58rem;
+
+                letter-spacing: .12em;
+
+            }
+
+
+            /* JOURNEY MOBILE */
+
+            .bh-journey-step:hover {
+
+                transform: none;
+
+            }
+
         }
 
 
-        /* =========================================================
-           VERY SMALL MOBILE - WHY MODEL
-        ========================================================== */
-
         @media(max-width: 420px) {
+
+            .bh-cloud-hero-content {
+
+                padding-left: 16px !important;
+                padding-right: 16px !important;
+
+            }
+
+            .bh-cloud-heading {
+
+                font-size: 2.3rem;
+
+                letter-spacing: -.035em;
+
+            }
+
+            .bh-cloud-description {
+
+                font-size: .86rem;
+
+            }
+
+            .bh-cloud-primary,
+            .bh-cloud-secondary {
+
+                width: 100%;
+
+            }
+
+            .bh-cloud-process {
+
+                width: 100%;
+
+                padding: 18px;
+
+            }
+
+            .bh-cloud-process-status {
+
+                font-size: .58rem;
+
+                letter-spacing: .08em;
+
+            }
+
+            .bh-cloud-process-item {
+
+                gap: 12px;
+
+            }
+
+            .bh-cloud-process-number {
+
+                width: 36px;
+                height: 36px;
+
+                font-size: .82rem;
+
+            }
+
+            .bh-cloud-process-title {
+
+                font-size: .95rem;
+
+            }
+
+            .bh-cloud-process-description {
+
+                font-size: .7rem;
+
+            }
 
             .bh-model-item {
 
@@ -1514,13 +1991,11 @@
 
             }
 
-
             .bh-model-number {
 
                 font-size: 1.8rem;
 
             }
-
 
             .bh-model-icon {
 
@@ -1531,7 +2006,6 @@
 
             }
 
-
             .bh-model-title {
 
                 font-size: 1.05rem;
@@ -1540,151 +2014,32 @@
 
             }
 
-
             .bh-model-description {
 
                 font-size: .7rem;
 
             }
 
-        }
+            .bh-difference-heading {
 
-
-        /* =========================================================
-           ORDER JOURNEY
-        ========================================================== */
-
-        .bh-journey-section {
-
-            position: relative;
-
-            overflow: hidden;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #fff7f3 0%,
-                    #ffffff 50%,
-                    #fff1e8 100%
-                );
-
-            color: #292524;
-
-        }
-
-
-        .bh-journey-line {
-
-            background:
-                linear-gradient(
-                    to bottom,
-                    #c2410c,
-                    #d97706,
-                    #d6d3d1
-                );
-
-        }
-
-
-        .bh-journey-step {
-
-            transition:
-                transform .35s ease,
-                border-color .35s ease;
-
-            min-width: 0;
-
-        }
-
-
-        .bh-journey-step:hover {
-
-            transform: translateX(8px);
-
-        }
-
-
-        .bh-journey-number {
-
-            background: #ffffff !important;
-
-            box-shadow:
-                0 0 0 8px #fff7f3;
-
-            transition:
-                background .3s ease,
-                color .3s ease,
-                border-color .3s ease,
-                transform .3s ease;
-
-        }
-
-
-        .bh-journey-step:hover .bh-journey-number {
-
-            transform: scale(1.08);
-
-            background: #d97706 !important;
-
-            color: #1c1917 !important;
-
-            border-color: #d97706;
-
-        }
-
-
-        .bh-journey-link {
-
-            transition:
-                background .3s ease,
-                color .3s ease,
-                border-color .3s ease,
-                transform .3s ease;
-
-            max-width: 100%;
-
-        }
-
-
-        .bh-journey-link:hover {
-
-            transform: translateY(-2px);
-
-        }
-
-
-        .bh-journey-step > div,
-        .bh-journey-step > p {
-
-            min-width: 0;
-
-            max-width: 100%;
-
-        }
-
-
-        /* =========================================================
-           JOURNEY MOBILE
-        ========================================================== */
-
-        @media(max-width: 767px) {
-
-            .bh-journey-step:hover {
-
-                transform: none;
+                font-size: 2.2rem;
 
             }
 
-        }
+            .bh-difference-card {
 
+                padding: 22px;
 
-        /* =========================================================
-           SMOOTH IMAGE EFFECT
-        ========================================================== */
+                border-radius: 22px;
 
-        img {
+            }
 
-            max-width: 100%;
+            .bh-difference-icon {
+
+                width: 54px;
+                height: 54px;
+
+            }
 
         }
 
@@ -1702,7 +2057,6 @@
             }
 
         }
-
 
         @media(min-width: 768px) and (max-width: 1023px) {
 
@@ -1722,7 +2076,8 @@
         a:focus-visible,
         button:focus-visible {
 
-            outline: 3px solid rgba(194, 65, 12, .35);
+            outline:
+                3px solid rgba(194, 65, 12, .35);
 
             outline-offset: 3px;
 
@@ -1730,15 +2085,17 @@
 
 
         /* =========================================================
-           DARK MODE
+           =========================================================
+           COMPLETE DARK MODE
+           =========================================================
         ========================================================== */
 
         html.dark,
         html.dark body {
 
-            background: #1c1917 !important;
+            background: #171311 !important;
 
-            color: #f5f5f4;
+            color: #f5f5f4 !important;
 
         }
 
@@ -1752,88 +2109,236 @@
             background:
                 linear-gradient(
                     135deg,
-                    #1c1917 0%,
-                    #29211d 48%,
-                    #33251f 100%
-                );
+                    #171311 0%,
+                    #211915 48%,
+                    #2b1d17 100%
+                ) !important;
 
-            color: #f5f5f4;
+            color: #f5f5f4 !important;
 
         }
 
+        html.dark .bh-cloud-hero::before {
+
+            background: rgba(194, 65, 12, .16);
+
+        }
+
+        html.dark .bh-cloud-hero::after {
+
+            background: rgba(217, 119, 6, .12);
+
+        }
+
+        html.dark .bh-cloud-hero-image {
+
+            filter:
+                brightness(.48)
+                saturate(.82)
+                sepia(.08)
+                contrast(.98);
+
+        }
 
         html.dark .bh-cloud-hero-overlay {
 
             background:
                 linear-gradient(
                     90deg,
-                    rgba(28, 25, 23, .98) 0%,
-                    rgba(28, 25, 23, .94) 32%,
-                    rgba(28, 25, 23, .78) 58%,
-                    rgba(28, 25, 23, .48) 82%,
-                    rgba(28, 25, 23, .30) 100%
-                );
+                    rgba(23, 19, 17, .98) 0%,
+                    rgba(23, 19, 17, .95) 32%,
+                    rgba(23, 19, 17, .84) 58%,
+                    rgba(23, 19, 17, .58) 82%,
+                    rgba(23, 19, 17, .38) 100%
+                ) !important;
 
         }
-
 
         html.dark .bh-cloud-hero-bottom {
 
             background:
                 linear-gradient(
                     to top,
-                    rgba(28, 25, 23, .90) 0%,
-                    transparent 35%
+                    rgba(23, 19, 17, .95) 0%,
+                    transparent 40%
+                ) !important;
+
+        }
+
+        html.dark .bh-cloud-eyebrow {
+
+            color: #fb923c !important;
+
+        }
+
+        html.dark .bh-cloud-eyebrow-line {
+
+            background: #ea580c !important;
+
+        }
+
+        html.dark .bh-cloud-heading {
+
+            color: #fafaf9 !important;
+
+        }
+
+        html.dark .bh-cloud-heading-highlight {
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #fb923c,
+                    #f97316,
+                    #fbbf24
                 );
 
-        }
+            background-clip: text;
+            -webkit-background-clip: text;
 
-
-        html.dark .bh-cloud-heading,
-        html.dark .bh-cloud-process-title {
-
-            color: #fafaf9;
+            color: transparent !important;
 
         }
 
+        html.dark .bh-cloud-description {
 
-        html.dark .bh-cloud-description,
-        html.dark .bh-cloud-process-description {
-
-            color: #d6d3d1;
+            color: #d6d3d1 !important;
 
         }
 
+        html.dark .bh-cloud-primary {
 
-        html.dark .bh-cloud-process {
+            background: #fafaf9 !important;
 
-            background: rgba(41, 37, 36, .88);
-
-            border-color:
-                rgba(255, 255, 255, .12);
+            color: #1c1917 !important;
 
         }
 
+        html.dark .bh-cloud-primary:hover {
 
-        html.dark .bh-cloud-process-top,
-        html.dark .bh-cloud-process-item {
+            background: #e7e5e4 !important;
 
-            border-color:
-                rgba(255, 255, 255, .12);
+            color: #171311 !important;
 
         }
 
+        html.dark .bh-cloud-secondary {
 
-        html.dark .bh-cloud-process-label,
-        html.dark .bh-cloud-brand-strip {
+            background: rgba(41, 37, 36, .82) !important;
 
-            color: #d6d3d1;
+            color: #fb923c !important;
+
+            border-color: rgba(251, 146, 60, .35) !important;
+
+        }
+
+        html.dark .bh-cloud-secondary:hover {
+
+            background: #c2410c !important;
+
+            color: #ffffff !important;
+
+            border-color: #c2410c !important;
 
         }
 
 
         /* =========================================================
-           MODEL DARK MODE
+           PROCESS PANEL DARK
+        ========================================================== */
+
+        html.dark .bh-cloud-process {
+
+            background:
+                rgba(41, 37, 36, .92) !important;
+
+            border-color:
+                rgba(255, 255, 255, .12) !important;
+
+            box-shadow:
+                0 25px 60px rgba(0, 0, 0, .35) !important;
+
+        }
+
+        html.dark .bh-cloud-process-top {
+
+            border-color:
+                rgba(255, 255, 255, .12) !important;
+
+        }
+
+        html.dark .bh-cloud-process-label {
+
+            color: #a8a29e !important;
+
+        }
+
+        html.dark .bh-cloud-process-status {
+
+            color: #fb923c !important;
+
+        }
+
+        html.dark .bh-cloud-process-status-dot {
+
+            background: #f59e0b !important;
+
+        }
+
+        html.dark .bh-cloud-process-item {
+
+            border-color:
+                rgba(255, 255, 255, .10) !important;
+
+        }
+
+        html.dark .bh-cloud-process-number {
+
+            background: #3a2820 !important;
+
+            border-color:
+                rgba(251, 146, 60, .30) !important;
+
+            color: #fb923c !important;
+
+        }
+
+        html.dark .bh-cloud-process-item:hover
+        .bh-cloud-process-number {
+
+            background: #c2410c !important;
+
+            color: #ffffff !important;
+
+        }
+
+        html.dark .bh-cloud-process-title {
+
+            color: #fafaf9 !important;
+
+        }
+
+        html.dark .bh-cloud-process-description {
+
+            color: #a8a29e !important;
+
+        }
+
+        html.dark .bh-cloud-brand-strip {
+
+            color: #a8a29e !important;
+
+        }
+
+        html.dark .bh-cloud-brand-line {
+
+            background: #9a3412 !important;
+
+        }
+
+
+        /* =========================================================
+           MODEL DARK
         ========================================================== */
 
         html.dark .bh-model-section {
@@ -1841,71 +2346,441 @@
             background:
                 linear-gradient(
                     135deg,
-                    #1c1917 0%,
-                    #292524 45%,
-                    #33251f 100%
-                );
+                    #171311 0%,
+                    #211b18 48%,
+                    #2a1e18 100%
+                ) !important;
 
-            color: #f5f5f4;
-
-        }
-
-
-        html.dark .bh-model-heading,
-        html.dark .bh-model-title {
-
-            color: #fafaf9;
+            color: #f5f5f4 !important;
 
         }
 
+        html.dark .bh-model-glow {
 
-        html.dark .bh-model-intro,
-        html.dark .bh-model-description,
-        html.dark .bh-model-note {
-
-            color: #d6d3d1;
+            opacity: .75;
 
         }
 
+        html.dark .bh-model-heading {
 
-        html.dark .bh-model-list,
+            color: #fafaf9 !important;
+
+        }
+
+        html.dark .bh-model-kicker {
+
+            color: #fb923c !important;
+
+        }
+
+        html.dark .bh-model-kicker::before,
+        html.dark .bh-model-kicker::after {
+
+            background: #ea580c !important;
+
+        }
+
+        html.dark .bh-model-intro {
+
+            color: #a8a29e !important;
+
+        }
+
+        html.dark .bh-model-list {
+
+            border-color:
+                rgba(255, 255, 255, .13) !important;
+
+        }
+
         html.dark .bh-model-item {
 
             border-color:
-                rgba(255, 255, 255, .14);
+                rgba(255, 255, 255, .13) !important;
 
         }
-
-
-        html.dark .bh-model-icon {
-
-            background: #292524;
-
-            border-color:
-                rgba(251, 146, 60, .35);
-
-            color: #fb923c;
-
-        }
-
-
-        html.dark .bh-model-number {
-
-            color: #57534e;
-
-        }
-
 
         html.dark .bh-model-item:hover {
 
             background:
-                rgba(68, 64, 60, .55);
+                rgba(68, 64, 60, .45) !important;
+
+        }
+
+        html.dark .bh-model-number {
+
+            color: #57534e !important;
+
+        }
+
+        html.dark .bh-model-item:hover .bh-model-number {
+
+            color: #a16207 !important;
+
+        }
+
+        html.dark .bh-model-icon {
+
+            background: #292524 !important;
+
+            border-color:
+                rgba(251, 146, 60, .35) !important;
+
+            color: #fb923c !important;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, .25) !important;
+
+        }
+
+        html.dark .bh-model-item:hover .bh-model-icon {
+
+            background: #c2410c !important;
+
+            color: #ffffff !important;
+
+        }
+
+        html.dark .bh-model-title {
+
+            color: #fafaf9 !important;
+
+        }
+
+        html.dark .bh-model-description {
+
+            color: #a8a29e !important;
+
+        }
+
+        html.dark .bh-model-arrow {
+
+            color: #fb923c !important;
+
+            border-color:
+                rgba(251, 146, 60, .30) !important;
+
+        }
+
+        html.dark .bh-model-item:hover .bh-model-arrow {
+
+            background: #c2410c !important;
+
+            color: #ffffff !important;
+
+        }
+
+        html.dark .bh-model-note {
+
+            color: #a8a29e !important;
+
+        }
+
+        html.dark .bh-model-note-line {
+
+            background: #57534e !important;
 
         }
 
 
         /* =========================================================
-           JOURNEY DARK MODE
+           TRADITIONAL VS CLOUD KITCHEN DARK
+        ========================================================== */
+
+        html.dark section.bh-traditional-section,
+        html.dark section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50 {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #171311 0%,
+                    #241b17 50%,
+                    #2b1e17 100%
+                ) !important;
+
+            color: #f5f5f4 !important;
+
+        }
+
+        html.dark
+        section.bh-traditional-section
+        .pointer-events-none {
+
+            opacity: .25;
+
+        }
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
+        .pointer-events-none {
+
+            opacity: .25;
+
+        }
+
+        /* Section 3 heading */
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
+        .eyebrow {
+
+            color: #fb923c !important;
+
+        }
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
+        h2 {
+
+            color: #fafaf9 !important;
+
+        }
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
+        .mx-auto.mb-12 p:last-child {
+
+            color: #a8a29e !important;
+
+        }
+
+        /* Comparison outer card */
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
+        .grid.overflow-hidden.rounded-3xl {
+
+            background: #292524 !important;
+
+            border-color:
+                rgba(251, 146, 60, .18) !important;
+
+            box-shadow:
+                0 25px 60px rgba(0, 0, 0, .30) !important;
+
+        }
+
+        /* Traditional header */
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
+        .bg-stone-50 {
+
+            background: #292524 !important;
+
+        }
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
+        .bg-stone-50 p {
+
+            color: #a8a29e !important;
+
+        }
+
+        /* Cloud kitchen header */
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
+        .bg-gradient-to-br.from-orange-500 {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #9a3412,
+                    #c2410c,
+                    #b45309
+                ) !important;
+
+            color: #ffffff !important;
+
+        }
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
+        .bg-gradient-to-br.from-orange-500 p {
+
+            color: #fff7ed !important;
+
+        }
+
+        /* Traditional cells */
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
+        .bg-white {
+
+            background: #211d1b !important;
+
+        }
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
+        .bg-orange-50\/50 {
+
+            background: #292421 !important;
+
+        }
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
+        .text-stone-600 {
+
+            color: #b8b1ab !important;
+
+        }
+
+        /* Cloud cells */
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
+        .from-orange-100 {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #3a2820,
+                    #30251f
+                ) !important;
+
+        }
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
+        .font-medium.text-stone-800 {
+
+            color: #e7e5e4 !important;
+
+        }
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
+        .text-orange-400 {
+
+            color: #fb923c !important;
+
+        }
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
+        .text-orange-700 {
+
+            color: #fb923c !important;
+
+        }
+
+
+        /* =========================================================
+           INSIDE THE KITCHEN DARK
+        ========================================================== */
+
+        html.dark section.bh-inside-section,
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-white.via-orange-50 {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #171311 0%,
+                    #241b17 50%,
+                    #2b2018 100%
+                ) !important;
+
+            color: #f5f5f4 !important;
+
+        }
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-white.via-orange-50
+        .eyebrow {
+
+            color: #fb923c !important;
+
+        }
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-white.via-orange-50
+        h2 {
+
+            color: #fafaf9 !important;
+
+        }
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-white.via-orange-50
+        .mx-auto.mb-12 p:last-child {
+
+            color: #a8a29e !important;
+
+        }
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-white.via-orange-50
+        .border-white {
+
+            border-color:
+                #3a302b !important;
+
+        }
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-white.via-orange-50
+        .shadow-lg {
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, .38) !important;
+
+        }
+
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-white.via-orange-50
+        img {
+
+            filter:
+                brightness(.68)
+                saturate(.88)
+                contrast(.98);
+
+        }
+
+
+        /* =========================================================
+           DIFFERENCE DARK
+        ========================================================== */
+
+        html.dark .bh-difference-section {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #120f0d 0%,
+                    #1d1512 48%,
+                    #120f0d 100%
+                ) !important;
+
+        }
+
+        html.dark .bh-difference-heading {
+
+            color: #fafaf9 !important;
+
+        }
+
+        html.dark .bh-difference-heading span {
+
+            color: #fbbf24 !important;
+
+        }
+
+        html.dark .bh-difference-intro {
+
+            color: #a8a29e !important;
+
+        }
+
+
+        /* =========================================================
+           JOURNEY DARK
         ========================================================== */
 
         html.dark .bh-journey-section {
@@ -1913,23 +2788,33 @@
             background:
                 linear-gradient(
                     135deg,
-                    #1c1917 0%,
-                    #292524 50%,
-                    #33251f 100%
-                );
+                    #171311 0%,
+                    #241d19 50%,
+                    #2b2019 100%
+                ) !important;
 
-            color: #f5f5f4;
+            color: #f5f5f4 !important;
 
         }
 
+        html.dark .bh-journey-line {
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    #c2410c,
+                    #d97706,
+                    #57534e
+                ) !important;
+
+        }
 
         html.dark .bh-journey-step {
 
             border-color:
-                rgba(255, 255, 255, .14);
+                rgba(255, 255, 255, .13) !important;
 
         }
-
 
         html.dark .bh-journey-number {
 
@@ -1937,334 +2822,317 @@
 
             color: #fb923c !important;
 
+            border-color:
+                rgba(251, 146, 60, .35) !important;
+
             box-shadow:
-                0 0 0 8px #1c1917;
+                0 0 0 8px #171311 !important;
 
         }
 
+        html.dark .bh-journey-step:hover .bh-journey-number {
 
-        html.dark .bh-journey-step h3 {
+            background: #d97706 !important;
 
-            color: #fafaf9;
+            color: #1c1917 !important;
 
         }
-
 
         html.dark .bh-journey-step p {
 
-            color: #d6d3d1;
+            color: #a8a29e !important;
 
         }
 
+        html.dark .bh-journey-step h3 {
 
-        html.dark .bh-journey-link {
-
-            color: #f5f5f4;
-
-            border-color:
-                rgba(255, 255, 255, .25);
+            color: #fafaf9 !important;
 
         }
 
+        html.dark .bh-journey-step .text-orange-700,
+        html.dark .bh-journey-step .text-amber-700 {
 
-        /* =========================================================
-           IMPORTANT:
-           DO NOT USE A GLOBAL WHITE TEXT RULE FOR ALL SECTIONS
-        ========================================================== */
-
-        /*
-           The previous broad rules such as:
-
-           html.dark section {
-               color: #f5f5f4;
-           }
-
-           html.dark section .text-stone-900 {
-               color: #f5f5f4 !important;
-           }
-
-           caused light-background sections to have white text.
-
-           The following rules are targeted instead.
-        */
-
-
-        /* =========================================================
-           DARK MODE - LIGHT COMPARISON SECTION
-        ========================================================== */
-
-        html.dark
-        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50 {
-
-            color: #292524;
+            color: #fb923c !important;
 
         }
 
-
-        html.dark
-        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
-        h2 {
-
-            color: #292524 !important;
-
-        }
-
-
-        html.dark
-        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
-        p {
-
-            color: #57534e;
-
-        }
-
-
-        /* Comparison section heading description */
-        html.dark
-        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
-        .text-stone-600 {
-
-            color: #57534e !important;
-
-        }
-
-
-        /* Traditional restaurant column */
-        html.dark
-        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
-        .bg-stone-50 {
-
-            color: #57534e;
-
-        }
-
-
-        html.dark
-        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
-        .bg-stone-50 p {
-
-            color: #57534e !important;
-
-        }
-
-
-        /* Traditional restaurant rows */
-        html.dark
-        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
-        .bg-white {
-
-            color: #57534e;
-
-        }
-
-
-        html.dark
-        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
-        .bg-white span {
-
-            color: #c2410c !important;
-
-        }
-
-
-        /* Bowl & Hearth orange header */
-        html.dark
-        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
-        .from-orange-500 {
-
-            color: #292524 !important;
-
-        }
-
-
-        html.dark
-        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
-        .from-orange-500 p {
-
-            color: #292524 !important;
-
-        }
-
-
-        /* Bowl & Hearth comparison rows */
-        html.dark
-        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
-        .from-orange-100 {
-
-            color: #292524 !important;
-
-        }
-
-
-        html.dark
-        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
-        .from-orange-100 span {
-
-            color: #c2410c !important;
-
-        }
-
-
-        html.dark
-        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
-        .from-orange-100 {
-
-            border-color:
-                rgba(194, 65, 12, .15) !important;
-
-        }
-
-
-        /* Orange 50 comparison rows */
-        html.dark
-        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
-        .bg-orange-50\/50 {
-
-            color: #57534e !important;
-
-        }
-
-
-        html.dark
-        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
-        .bg-orange-50\/50 span {
-
-            color: #c2410c !important;
-
-        }
-
-
-        /* =========================================================
-           DARK MODE - INSIDE THE KITCHEN SECTION
-        ========================================================== */
-
-        html.dark
-        section.relative.overflow-hidden.bg-gradient-to-br.from-white {
-
-            color: #292524;
-
-        }
-
-
-        html.dark
-        section.relative.overflow-hidden.bg-gradient-to-br.from-white
-        h2 {
-
-            color: #292524 !important;
-
-        }
-
-
-        html.dark
-        section.relative.overflow-hidden.bg-gradient-to-br.from-white
-        p.text-stone-600 {
-
-            color: #57534e !important;
-
-        }
-
-
-        html.dark
-        section.relative.overflow-hidden.bg-gradient-to-br.from-white
-        .eyebrow {
-
-            color: #c2410c !important;
-
-        }
-
-
-        /* =========================================================
-           DARK MODE - BY THE NUMBERS
-        ========================================================== */
-
-        html.dark
-        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50.via-white {
-
-            color: #292524;
-
-        }
-
-
-        html.dark
-        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50.via-white
-        h2 {
-
-            color: #292524 !important;
-
-        }
-
-
-        html.dark
-        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50.via-white
-        .text-stone-500 {
+        html.dark .bh-journey-step .text-stone-400 {
 
             color: #78716c !important;
 
         }
 
+        html.dark .bh-journey-link {
 
-        /* =========================================================
-           DARK MODE - CTA
-        ========================================================== */
+            color: #e7e5e4 !important;
 
-        html.dark
-        section.bg-\[\#fffaf7\] {
+            border-color:
+                rgba(255, 255, 255, .22) !important;
 
-            background: #1c1917 !important;
+            background: transparent !important;
+
+        }
+
+        html.dark .bh-journey-link:hover {
+
+            background: #d97706 !important;
+
+            color: #1c1917 !important;
+
+            border-color: #d97706 !important;
+
+        }
+
+        html.dark .bh-journey-section
+        .text-stone-700 {
+
+            color: #d6d3d1 !important;
+
+        }
+
+        html.dark .bh-journey-section
+        .text-amber-600 {
+
+            color: #fbbf24 !important;
 
         }
 
 
-        html.dark
-        section.bg-\[\#fffaf7\]
-        .text-stone-900\/70 {
+        /* =========================================================
+           BY THE NUMBERS DARK
+        ========================================================== */
 
-            color: rgba(41, 37, 36, .78) !important;
+        html.dark
+        section.bg-gradient-to-br.from-orange-50 {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #171311 0%,
+                    #241b17 50%,
+                    #2b1e17 100%
+                ) !important;
+
+            color: #f5f5f4 !important;
+
+        }
+
+        html.dark
+        section.bg-gradient-to-br.from-orange-50
+        h2 {
+
+            color: #fafaf9 !important;
+
+        }
+
+        html.dark
+        section.bg-gradient-to-br.from-orange-50
+        .eyebrow {
+
+            color: #fb923c !important;
+
+        }
+
+        html.dark
+        section.bg-gradient-to-br.from-orange-50
+        .grid.gap-0 {
+
+            background: #292524 !important;
+
+            border-color:
+                rgba(251, 146, 60, .20) !important;
+
+            box-shadow:
+                0 25px 60px rgba(0, 0, 0, .30) !important;
+
+        }
+
+        html.dark
+        section.bg-gradient-to-br.from-orange-50
+        .grid.gap-0 > div {
+
+            background: #292524 !important;
+
+            border-color:
+                rgba(255, 255, 255, .10) !important;
+
+        }
+
+        html.dark
+        section.bg-gradient-to-br.from-orange-50
+        .grid.gap-0 p:first-child {
+
+            color: #fb923c !important;
+
+        }
+
+        html.dark
+        section.bg-gradient-to-br.from-orange-50
+        .grid.gap-0 p:last-child {
+
+            color: #a8a29e !important;
 
         }
 
 
         /* =========================================================
-           DARK MODE - DO NOT FORCE ALL TAILWIND TEXT TO WHITE
+           CTA DARK
         ========================================================== */
 
-        /*
-           Only genuinely dark sections need light text.
-           Light gradient sections above have their own explicit
-           dark text colors.
-        */
+        html.dark .bh-cta-section {
+
+            background: #171311 !important;
+
+            color: #f5f5f4 !important;
+
+        }
+
+        html.dark .bh-cta-card {
+
+            background: #171311 !important;
+
+            color: #f5f5f4 !important;
+
+            box-shadow: none !important;
+
+        }
+
+        html.dark .bh-cta-card h2 {
+
+            color: #fafaf9 !important;
+
+        }
+
+        html.dark .bh-cta-card p {
+
+            color: #a8a29e !important;
+
+        }
+
+        html.dark .bh-cta-card .btn-primary {
+
+            background: #fafaf9 !important;
+
+            color: #1c1917 !important;
+
+            border-color: #fafaf9 !important;
+
+        }
+
+        html.dark .bh-cta-card .btn-primary:hover {
+
+            background: #e7e5e4 !important;
+
+            color: #1c1917 !important;
+
+            border-color: #e7e5e4 !important;
+
+        }
+
+        html.dark .bh-cta-card .bulk-order-btn {
+
+            background: #c2410c !important;
+
+            color: #ffffff !important;
+
+            border-color: #c2410c !important;
+
+        }
+
+        html.dark .bh-cta-card .bulk-order-btn:hover {
+
+            background: #9a3412 !important;
+
+            color: #ffffff !important;
+
+            border-color: #9a3412 !important;
+
+        }
 
 
         /* =========================================================
-           DARK MODE MOBILE HERO
+           GENERIC TAILWIND DARK OVERRIDES
+           Protects against shared styles / Tailwind utilities
         ========================================================== */
 
-        @media(max-width: 767px) {
+        html.dark .text-stone-900 {
 
-            html.dark .bh-cloud-hero-overlay {
+            color: #fafaf9 !important;
 
-                background:
-                    linear-gradient(
-                        180deg,
-                        rgba(28, 25, 23, .98) 0%,
-                        rgba(28, 25, 23, .95) 45%,
-                        rgba(28, 25, 23, .88) 78%,
-                        rgba(28, 25, 23, .82) 100%
-                    );
+        }
 
-            }
+        html.dark .text-stone-800 {
+
+            color: #e7e5e4 !important;
+
+        }
+
+        html.dark .text-stone-700 {
+
+            color: #d6d3d1 !important;
+
+        }
+
+        html.dark .text-stone-600 {
+
+            color: #a8a29e !important;
+
+        }
+
+        html.dark .text-stone-500 {
+
+            color: #78716c !important;
+
+        }
+
+        html.dark .text-stone-400 {
+
+            color: #78716c !important;
+
+        }
+
+        html.dark .bg-white {
+
+            background-color: #292524 !important;
+
+        }
+
+        html.dark .bg-stone-50 {
+
+            background-color: #292524 !important;
+
+        }
+
+        html.dark .border-stone-200 {
+
+            border-color:
+                rgba(255, 255, 255, .13) !important;
+
+        }
+
+        html.dark .border-orange-100 {
+
+            border-color:
+                rgba(255, 255, 255, .10) !important;
+
+        }
+
+        html.dark .border-orange-200 {
+
+            border-color:
+                rgba(251, 146, 60, .20) !important;
+
+        }
 
 
-            html.dark .bh-cloud-hero-bottom {
+        /* =========================================================
+           PREVENT GLOBAL WHITE BACKGROUNDS
+        ========================================================== */
 
-                background:
-                    linear-gradient(
-                        to top,
-                        rgba(28, 25, 23, .96),
-                        transparent 45%
-                    );
+        html.dark main {
 
-            }
+            background: #171311 !important;
 
         }
 
@@ -2273,7 +3141,7 @@
            REDUCE MOTION
         ========================================================== */
 
-        @media (prefers-reduced-motion: reduce) {
+        @media(prefers-reduced-motion: reduce) {
 
             *,
             *::before,
@@ -2318,12 +3186,11 @@
 
         <section class="bh-cloud-hero">
 
-
             <img
                 src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1800&q=85"
                 alt="Cloud kitchen in operation"
-                class="bh-cloud-hero-image">
-
+                class="bh-cloud-hero-image"
+            >
 
             <div class="bh-cloud-hero-overlay"></div>
 
@@ -2331,11 +3198,10 @@
 
 
             <div
-                class="bh-cloud-hero-content mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-8 sm:py-24 lg:grid-cols-2 lg:items-center lg:px-12">
-
+                class="bh-cloud-hero-content mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-8 sm:py-24 lg:grid-cols-2 lg:items-center lg:px-12"
+            >
 
                 <div>
-
 
                     <p class="bh-cloud-eyebrow">
 
@@ -2369,36 +3235,28 @@
 
                     <div class="mt-8 flex flex-wrap gap-4">
 
-
                         <a
                             href="menu.html"
-                            class="bh-cloud-primary">
+                            class="bh-cloud-primary"
+                        >
 
                             Explore the menu
 
-                            <span class="ml-2">
-
-                                →
-
-                            </span>
+                            <span class="ml-2">→</span>
 
                         </a>
 
 
                         <a
                             href="bulk-orders.html"
-                            class="bh-cloud-secondary">
+                            class="bh-cloud-secondary"
+                        >
 
                             Bulk orders
 
-                            <span class="ml-2">
-
-                                →
-
-                            </span>
+                            <span class="ml-2">→</span>
 
                         </a>
-
 
                     </div>
 
@@ -2411,23 +3269,18 @@
 
                     </div>
 
-
                 </div>
 
 
-                <div
-                    class="bh-cloud-process rounded-[2rem] p-7 sm:p-9">
-
+                <div class="bh-cloud-process rounded-[2rem] p-7 sm:p-9">
 
                     <div class="bh-cloud-process-top">
-
 
                         <p class="bh-cloud-process-label">
 
                             Our kitchen flow
 
                         </p>
-
 
                         <p class="bh-cloud-process-status">
 
@@ -2442,22 +3295,11 @@
 
                     <div class="bh-cloud-process-item">
 
-
-                        <div class="bh-cloud-process-number">
-
-                            01
-
-                        </div>
-
+                        <div class="bh-cloud-process-number">01</div>
 
                         <div>
 
-                            <h3 class="bh-cloud-process-title">
-
-                                Prep
-
-                            </h3>
-
+                            <h3 class="bh-cloud-process-title">Prep</h3>
 
                             <p class="bh-cloud-process-description">
 
@@ -2472,22 +3314,11 @@
 
                     <div class="bh-cloud-process-item">
 
-
-                        <div class="bh-cloud-process-number">
-
-                            02
-
-                        </div>
-
+                        <div class="bh-cloud-process-number">02</div>
 
                         <div>
 
-                            <h3 class="bh-cloud-process-title">
-
-                                Cook
-
-                            </h3>
-
+                            <h3 class="bh-cloud-process-title">Cook</h3>
 
                             <p class="bh-cloud-process-description">
 
@@ -2502,22 +3333,11 @@
 
                     <div class="bh-cloud-process-item">
 
-
-                        <div class="bh-cloud-process-number">
-
-                            03
-
-                        </div>
-
+                        <div class="bh-cloud-process-number">03</div>
 
                         <div>
 
-                            <h3 class="bh-cloud-process-title">
-
-                                Pack
-
-                            </h3>
-
+                            <h3 class="bh-cloud-process-title">Pack</h3>
 
                             <p class="bh-cloud-process-description">
 
@@ -2532,22 +3352,11 @@
 
                     <div class="bh-cloud-process-item">
 
-
-                        <div class="bh-cloud-process-number">
-
-                            04
-
-                        </div>
-
+                        <div class="bh-cloud-process-number">04</div>
 
                         <div>
 
-                            <h3 class="bh-cloud-process-title">
-
-                                Deliver
-
-                            </h3>
-
+                            <h3 class="bh-cloud-process-title">Deliver</h3>
 
                             <p class="bh-cloud-process-description">
 
@@ -2558,7 +3367,6 @@
                         </div>
 
                     </div>
-
 
                 </div>
 
@@ -2573,18 +3381,16 @@
 
         <section class="bh-model-section">
 
-
             <div class="bh-model-glow bh-model-glow-one"></div>
 
             <div class="bh-model-glow bh-model-glow-two"></div>
 
 
             <div
-                class="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-12">
-
+                class="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-12"
+            >
 
                 <div class="bh-model-header">
-
 
                     <p class="bh-model-kicker">
 
@@ -2613,39 +3419,23 @@
 
                 <div class="bh-model-list">
 
-
                     <div class="bh-model-item">
 
-
-                        <div class="bh-model-number">
-
-                            01
-
-                        </div>
-
+                        <div class="bh-model-number">01</div>
 
                         <div class="bh-model-icon">
 
-                            <svg
-                                width="25"
-                                height="25"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
+                            <svg width="25" height="25" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor"
                                 stroke-width="1.6"
                                 stroke-linecap="round"
                                 stroke-linejoin="round">
 
                                 <circle cx="12" cy="12" r="8"></circle>
-
                                 <circle cx="12" cy="12" r="3"></circle>
-
                                 <path d="M12 2v3"></path>
-
                                 <path d="M12 19v3"></path>
-
                                 <path d="M2 12h3"></path>
-
                                 <path d="M19 12h3"></path>
 
                             </svg>
@@ -2676,43 +3466,25 @@
                         </div>
 
 
-                        <div class="bh-model-arrow">
-
-                            →
-
-                        </div>
+                        <div class="bh-model-arrow">→</div>
 
                     </div>
 
 
                     <div class="bh-model-item">
 
-
-                        <div class="bh-model-number">
-
-                            02
-
-                        </div>
-
+                        <div class="bh-model-number">02</div>
 
                         <div class="bh-model-icon">
 
-                            <svg
-                                width="25"
-                                height="25"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
+                            <svg width="25" height="25" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor"
                                 stroke-width="1.6"
                                 stroke-linecap="round"
                                 stroke-linejoin="round">
 
-                                <path
-                                    d="M9 18l-6 3V6l6-3 6 3 6-3v15l-6 3-6-3z">
-                                </path>
-
+                                <path d="M9 18l-6 3V6l6-3 6 3 6-3v15l-6 3-6-3z"></path>
                                 <path d="M9 3v15"></path>
-
                                 <path d="M15 6v15"></path>
 
                             </svg>
@@ -2744,41 +3516,25 @@
                         </div>
 
 
-                        <div class="bh-model-arrow">
-
-                            →
-
-                        </div>
+                        <div class="bh-model-arrow">→</div>
 
                     </div>
 
 
                     <div class="bh-model-item">
 
-
-                        <div class="bh-model-number">
-
-                            03
-
-                        </div>
-
+                        <div class="bh-model-number">03</div>
 
                         <div class="bh-model-icon">
 
-                            <svg
-                                width="25"
-                                height="25"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
+                            <svg width="25" height="25" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor"
                                 stroke-width="1.6"
                                 stroke-linecap="round"
                                 stroke-linejoin="round">
 
                                 <path d="M3 20h18"></path>
-
                                 <path d="M5 17l5-5 4 3 6-8"></path>
-
                                 <path d="M15 7h5v5"></path>
 
                             </svg>
@@ -2810,11 +3566,7 @@
                         </div>
 
 
-                        <div class="bh-model-arrow">
-
-                            →
-
-                        </div>
+                        <div class="bh-model-arrow">→</div>
 
                     </div>
 
@@ -2841,13 +3593,12 @@
         ========================================================== -->
 
         <section
-            class="relative overflow-hidden bg-gradient-to-br from-orange-50 via-white to-amber-50 text-stone-900">
-
+            class="bh-traditional-section relative overflow-hidden bg-gradient-to-br from-orange-50 via-white to-amber-50 text-stone-900"
+        >
 
             <div
                 class="pointer-events-none absolute -top-20 left-1/4 h-80 w-80 rounded-full bg-orange-200/40 blur-3xl">
             </div>
-
 
             <div
                 class="pointer-events-none absolute -bottom-20 right-10 h-72 w-72 rounded-full bg-amber-200/30 blur-3xl">
@@ -2855,11 +3606,10 @@
 
 
             <div
-                class="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12">
-
+                class="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12"
+            >
 
                 <div class="mx-auto mb-12 max-w-2xl text-center">
-
 
                     <p class="eyebrow justify-center text-orange-700">
 
@@ -2867,14 +3617,13 @@
 
                     </p>
 
-
                     <h2
-                        class="mt-4 font-display text-3xl font-black text-stone-900 sm:text-4xl">
+                        class="mt-4 font-display text-3xl font-black text-stone-900 sm:text-4xl"
+                    >
 
                         Built without the dining room.
 
                     </h2>
-
 
                     <p class="mt-5 leading-7 text-stone-600">
 
@@ -2887,14 +3636,12 @@
 
 
                 <div
-                    class="grid overflow-hidden rounded-3xl border border-orange-200 bg-white shadow-xl md:grid-cols-2 md:gap-px md:bg-orange-100">
+                    class="grid overflow-hidden rounded-3xl border border-orange-200 bg-white shadow-xl md:grid-cols-2 md:gap-px md:bg-orange-100"
+                >
 
+                    <div class="bg-stone-50 px-8 pb-5 pt-8 sm:px-10 sm:pt-10">
 
-                    <div
-                        class="bg-stone-50 px-8 pb-5 pt-8 sm:px-10 sm:pt-10">
-
-                        <p
-                            class="text-sm font-semibold uppercase tracking-wide text-stone-500">
+                        <p class="text-sm font-semibold uppercase tracking-wide text-stone-500">
 
                             Traditional restaurant
 
@@ -2904,10 +3651,10 @@
 
 
                     <div
-                        class="bg-gradient-to-br from-orange-500 via-orange-400 to-amber-400 px-8 pb-5 pt-8 text-stone-950 sm:px-10 sm:pt-10">
+                        class="bg-gradient-to-br from-orange-500 via-orange-400 to-amber-400 px-8 pb-5 pt-8 text-stone-950 sm:px-10 sm:pt-10"
+                    >
 
-                        <p
-                            class="text-sm font-semibold uppercase tracking-wide text-stone-900/70">
+                        <p class="text-sm font-semibold uppercase tracking-wide text-stone-900/70">
 
                             Bowl &amp; Hearth cloud kitchen
 
@@ -2916,8 +3663,7 @@
                     </div>
 
 
-                    <div
-                        class="flex items-center gap-3 bg-white px-8 py-5 text-stone-600 sm:px-10">
+                    <div class="flex items-center gap-3 bg-white px-8 py-5 text-stone-600 sm:px-10">
 
                         <span class="font-bold text-orange-400">✕</span>
 
@@ -2927,7 +3673,8 @@
 
 
                     <div
-                        class="flex items-center gap-3 bg-gradient-to-br from-orange-100 to-amber-50 px-8 py-5 font-medium text-stone-800 sm:px-10">
+                        class="flex items-center gap-3 bg-gradient-to-br from-orange-100 to-amber-50 px-8 py-5 font-medium text-stone-800 sm:px-10"
+                    >
 
                         <span class="font-bold text-orange-700">✓</span>
 
@@ -2937,7 +3684,8 @@
 
 
                     <div
-                        class="flex items-center gap-3 bg-orange-50/50 px-8 py-5 text-stone-600 sm:px-10">
+                        class="flex items-center gap-3 bg-orange-50/50 px-8 py-5 text-stone-600 sm:px-10"
+                    >
 
                         <span class="font-bold text-orange-400">✕</span>
 
@@ -2947,7 +3695,8 @@
 
 
                     <div
-                        class="flex items-center gap-3 bg-gradient-to-br from-orange-100 to-amber-50 px-8 py-5 font-medium text-stone-800 sm:px-10">
+                        class="flex items-center gap-3 bg-gradient-to-br from-orange-100 to-amber-50 px-8 py-5 font-medium text-stone-800 sm:px-10"
+                    >
 
                         <span class="font-bold text-orange-700">✓</span>
 
@@ -2956,8 +3705,7 @@
                     </div>
 
 
-                    <div
-                        class="flex items-center gap-3 bg-white px-8 py-5 text-stone-600 sm:px-10">
+                    <div class="flex items-center gap-3 bg-white px-8 py-5 text-stone-600 sm:px-10">
 
                         <span class="font-bold text-orange-400">✕</span>
 
@@ -2967,7 +3715,8 @@
 
 
                     <div
-                        class="flex items-center gap-3 bg-gradient-to-br from-orange-100 to-amber-50 px-8 py-5 font-medium text-stone-800 sm:px-10">
+                        class="flex items-center gap-3 bg-gradient-to-br from-orange-100 to-amber-50 px-8 py-5 font-medium text-stone-800 sm:px-10"
+                    >
 
                         <span class="font-bold text-orange-700">✓</span>
 
@@ -2977,7 +3726,8 @@
 
 
                     <div
-                        class="flex items-center gap-3 bg-orange-50/50 px-8 pb-8 pt-5 text-stone-600 sm:px-10 sm:pb-10">
+                        class="flex items-center gap-3 bg-orange-50/50 px-8 pb-8 pt-5 text-stone-600 sm:px-10 sm:pb-10"
+                    >
 
                         <span class="font-bold text-orange-400">✕</span>
 
@@ -2987,7 +3737,8 @@
 
 
                     <div
-                        class="flex items-center gap-3 bg-gradient-to-br from-orange-100 to-amber-50 px-8 pb-8 pt-5 font-medium text-stone-800 sm:px-10 sm:pb-10">
+                        class="flex items-center gap-3 bg-gradient-to-br from-orange-100 to-amber-50 px-8 pb-8 pt-5 font-medium text-stone-800 sm:px-10 sm:pb-10"
+                    >
 
                         <span class="font-bold text-orange-700">✓</span>
 
@@ -3007,13 +3758,12 @@
         ========================================================== -->
 
         <section
-            class="relative overflow-hidden bg-gradient-to-br from-white via-orange-50 to-amber-100 text-stone-900">
-
+            class="bh-inside-section relative overflow-hidden bg-gradient-to-br from-white via-orange-50 to-amber-100 text-stone-900"
+        >
 
             <div
                 class="pointer-events-none absolute -bottom-20 right-0 h-80 w-80 rounded-full bg-orange-300/25 blur-3xl">
             </div>
-
 
             <div
                 class="pointer-events-none absolute -top-20 left-0 h-72 w-72 rounded-full bg-amber-200/40 blur-3xl">
@@ -3021,11 +3771,10 @@
 
 
             <div
-                class="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12">
-
+                class="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12"
+            >
 
                 <div class="mx-auto mb-12 max-w-2xl text-center">
-
 
                     <p class="eyebrow justify-center text-orange-700">
 
@@ -3033,14 +3782,13 @@
 
                     </p>
 
-
                     <h2
-                        class="mt-4 font-display text-3xl font-black text-stone-900 sm:text-4xl">
+                        class="mt-4 font-display text-3xl font-black text-stone-900 sm:text-4xl"
+                    >
 
                         Inside the kitchen.
 
                     </h2>
-
 
                     <p class="mt-5 text-stone-600">
 
@@ -3052,27 +3800,25 @@
                 </div>
 
 
-                <div
-                    class="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-5">
-
+                <div class="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-5">
 
                     <div
-                        class="group relative col-span-2 row-span-2 overflow-hidden rounded-3xl border-4 border-white shadow-lg">
-
+                        class="group relative col-span-2 row-span-2 overflow-hidden rounded-3xl border-4 border-white shadow-lg"
+                    >
 
                         <img
                             src="https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&w=900&q=80"
                             alt="Chefs cooking in bulk"
-                            class="h-full w-full object-cover transition duration-500 group-hover:scale-110">
-
+                            class="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+                        >
 
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent">
                         </div>
 
-
                         <p
-                            class="absolute bottom-5 left-5 text-sm font-semibold text-white">
+                            class="absolute bottom-5 left-5 text-sm font-semibold text-white"
+                        >
 
                             Cooking line
 
@@ -3082,22 +3828,22 @@
 
 
                     <div
-                        class="group relative overflow-hidden rounded-3xl border-4 border-white shadow-lg">
-
+                        class="group relative overflow-hidden rounded-3xl border-4 border-white shadow-lg"
+                    >
 
                         <img
                             src="https://images.unsplash.com/photo-1591189863430-ab87e120f312?auto=format&fit=crop&w=600&q=80"
                             alt="Ingredient prep station"
-                            class="h-full w-full object-cover transition duration-500 group-hover:scale-110">
-
+                            class="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+                        >
 
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent">
                         </div>
 
-
                         <p
-                            class="absolute bottom-3 left-3 text-xs font-semibold text-white">
+                            class="absolute bottom-3 left-3 text-xs font-semibold text-white"
+                        >
 
                             Prep station
 
@@ -3107,22 +3853,22 @@
 
 
                     <div
-                        class="group relative overflow-hidden rounded-3xl border-4 border-white shadow-lg">
-
+                        class="group relative overflow-hidden rounded-3xl border-4 border-white shadow-lg"
+                    >
 
                         <img
                             src="https://images.unsplash.com/photo-1580959375944-abd7e991f971?auto=format&fit=crop&w=600&q=80"
                             alt="Packed food containers"
-                            class="h-full w-full object-cover transition duration-500 group-hover:scale-110">
-
+                            class="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+                        >
 
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent">
                         </div>
 
-
                         <p
-                            class="absolute bottom-3 left-3 text-xs font-semibold text-white">
+                            class="absolute bottom-3 left-3 text-xs font-semibold text-white"
+                        >
 
                             Packing
 
@@ -3132,22 +3878,22 @@
 
 
                     <div
-                        class="group relative col-span-2 overflow-hidden rounded-3xl border-4 border-white shadow-lg sm:col-span-2">
-
+                        class="group relative col-span-2 overflow-hidden rounded-3xl border-4 border-white shadow-lg sm:col-span-2"
+                    >
 
                         <img
                             src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=900&q=80"
                             alt="Delivery bags ready for dispatch"
-                            class="h-full w-full object-cover transition duration-500 group-hover:scale-110">
-
+                            class="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+                        >
 
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent">
                         </div>
 
-
                         <p
-                            class="absolute bottom-5 left-5 text-sm font-semibold text-white">
+                            class="absolute bottom-5 left-5 text-sm font-semibold text-white"
+                        >
 
                             Ready for dispatch
 
@@ -3163,16 +3909,227 @@
 
 
         <!-- =========================================================
-             SECTION 5: FROM ORDER TO ARRIVAL
+             SECTION 5: WHAT MAKES OUR KITCHEN DIFFERENT
+        ========================================================== -->
+
+        <section class="bh-difference-section">
+
+            <div class="bh-difference-glow bh-difference-glow-one"></div>
+
+            <div class="bh-difference-glow bh-difference-glow-two"></div>
+
+
+            <div
+                class="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-12"
+            >
+
+                <div class="bh-difference-header">
+
+                    <p class="bh-difference-kicker">
+
+                        The Bowl &amp; Hearth advantage
+
+                    </p>
+
+
+                    <h2 class="bh-difference-heading">
+
+                        More than a kitchen.
+
+                        <span>It's a better way to cook.</span>
+
+                    </h2>
+
+
+                    <p class="bh-difference-intro">
+
+                        Every part of our kitchen is designed with one purpose:
+                        make the food better, the process calmer and the experience
+                        more consistent from the first ingredient to the final bite.
+
+                    </p>
+
+                </div>
+
+
+                <div class="bh-difference-grid">
+
+
+                    <article class="bh-difference-card">
+
+                        <span class="bh-difference-number">
+                            01
+                        </span>
+
+
+                        <div class="bh-difference-icon">
+
+                            <svg
+                                width="28"
+                                height="28"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+
+                                <path d="M12 3v18"></path>
+
+                                <path d="M5 8h14"></path>
+
+                                <path d="M7 8l-3 5a3 3 0 0 0 6 0L7 8z"></path>
+
+                                <path d="M17 8l-3 5a3 3 0 0 0 6 0l-3-5z"></path>
+
+                            </svg>
+
+                        </div>
+
+
+                        <h3 class="bh-difference-title">
+
+                            Balanced by design
+
+                        </h3>
+
+
+                        <p class="bh-difference-text">
+
+                            Our kitchen layout keeps prep, cooking and packing close
+                            together, reducing unnecessary movement and helping every
+                            order move smoothly through the team.
+
+                        </p>
+
+                    </article>
+
+
+                    <article class="bh-difference-card">
+
+                        <span class="bh-difference-number">
+                            02
+                        </span>
+
+
+                        <div class="bh-difference-icon">
+
+                            <svg
+                                width="28"
+                                height="28"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+
+                                <path d="M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7l7-4z"></path>
+
+                                <path d="M9 12l2 2 4-4"></path>
+
+                            </svg>
+
+                        </div>
+
+
+                        <h3 class="bh-difference-title">
+
+                            Consistency first
+
+                        </h3>
+
+
+                        <p class="bh-difference-text">
+
+                            Clear prep stages and repeatable cooking routines help the
+                            team deliver the same care and attention whether we're
+                            preparing one meal or a large order.
+
+                        </p>
+
+                    </article>
+
+
+                    <article class="bh-difference-card">
+
+                        <span class="bh-difference-number">
+                            03
+                        </span>
+
+
+                        <div class="bh-difference-icon">
+
+                            <svg
+                                width="28"
+                                height="28"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+
+                                <path d="M3 12h18"></path>
+
+                                <path d="M12 3v18"></path>
+
+                                <circle cx="12" cy="12" r="8"></circle>
+
+                                <path d="M8 8l8 8"></path>
+
+                            </svg>
+
+                        </div>
+
+
+                        <h3 class="bh-difference-title">
+
+                            Built to adapt
+
+                        </h3>
+
+
+                        <p class="bh-difference-text">
+
+                            Demand changes. Our workflow can change with it, allowing
+                            the same kitchen to handle everyday meals, office lunches
+                            and larger events without unnecessary complexity.
+
+                        </p>
+
+                    </article>
+
+                </div>
+
+
+                <div class="bh-difference-bottom">
+
+                    <span class="bh-difference-bottom-line"></span>
+
+                    Designed around food. Built around people.
+
+                    <span class="bh-difference-bottom-line"></span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================================
+             SECTION 6: FROM ORDER TO ARRIVAL
         ========================================================== -->
 
         <section class="bh-journey-section">
 
-
             <div
                 class="pointer-events-none absolute -left-40 -top-40 h-96 w-96 rounded-full bg-orange-500/10 blur-3xl">
             </div>
-
 
             <div
                 class="pointer-events-none absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-amber-500/10 blur-3xl">
@@ -3180,14 +4137,14 @@
 
 
             <div
-                class="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-12">
-
+                class="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-12"
+            >
 
                 <div class="mx-auto max-w-3xl text-center">
 
-
                     <p
-                        class="flex items-center justify-center gap-3 text-xs font-bold uppercase tracking-[0.25em] text-orange-700">
+                        class="flex items-center justify-center gap-3 text-xs font-bold uppercase tracking-[0.25em] text-orange-700"
+                    >
 
                         <span class="h-px w-8 bg-orange-700"></span>
 
@@ -3199,7 +4156,8 @@
 
 
                     <h2
-                        class="mt-5 font-display text-4xl font-black leading-tight text-stone-900 sm:text-5xl lg:text-6xl">
+                        class="mt-5 font-display text-4xl font-black leading-tight text-stone-900 sm:text-5xl lg:text-6xl"
+                    >
 
                         Every order has
 
@@ -3216,18 +4174,18 @@
 
                 <div class="relative mt-16">
 
-
                     <div
                         class="bh-journey-line absolute left-[27px] top-8 hidden h-[calc(100%-64px)] w-px md:block">
                     </div>
 
 
                     <div
-                        class="bh-journey-step relative grid gap-7 border-t border-stone-200 py-10 md:grid-cols-[70px_180px_1fr] md:items-center md:gap-8">
-
+                        class="bh-journey-step relative grid gap-7 border-t border-stone-200 py-10 md:grid-cols-[70px_180px_1fr] md:items-center md:gap-8"
+                    >
 
                         <div
-                            class="bh-journey-number relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-orange-300 bg-white font-display text-lg font-black text-orange-700 ring-8 ring-[#fff7f3]">
+                            class="bh-journey-number relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-orange-300 bg-white font-display text-lg font-black text-orange-700 ring-8 ring-[#fff7f3]"
+                        >
 
                             01
 
@@ -3236,26 +4194,18 @@
 
                         <div>
 
-                            <p
-                                class="text-xs font-bold uppercase tracking-[0.2em] text-stone-400">
-
+                            <p class="text-xs font-bold uppercase tracking-[0.2em] text-stone-400">
                                 Order
-
                             </p>
 
-
-                            <h3
-                                class="mt-2 font-display text-2xl font-bold text-stone-900">
-
+                            <h3 class="mt-2 font-display text-2xl font-bold text-stone-900">
                                 It starts with you.
-
                             </h3>
 
                         </div>
 
 
-                        <p
-                            class="max-w-2xl text-sm leading-7 text-stone-600">
+                        <p class="max-w-2xl text-sm leading-7 text-stone-600">
 
                             Your order enters our kitchen workflow, giving the team a clear
                             picture of what needs to be prepared and when it needs to leave.
@@ -3266,11 +4216,12 @@
 
 
                     <div
-                        class="bh-journey-step relative grid gap-7 border-t border-stone-200 py-10 md:grid-cols-[70px_180px_1fr] md:items-center md:gap-8">
-
+                        class="bh-journey-step relative grid gap-7 border-t border-stone-200 py-10 md:grid-cols-[70px_180px_1fr] md:items-center md:gap-8"
+                    >
 
                         <div
-                            class="bh-journey-number relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-amber-300 bg-white font-display text-lg font-black text-amber-700 ring-8 ring-[#fff7f3]">
+                            class="bh-journey-number relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-amber-300 bg-white font-display text-lg font-black text-amber-700 ring-8 ring-[#fff7f3]"
+                        >
 
                             02
 
@@ -3279,26 +4230,18 @@
 
                         <div>
 
-                            <p
-                                class="text-xs font-bold uppercase tracking-[0.2em] text-stone-400">
-
+                            <p class="text-xs font-bold uppercase tracking-[0.2em] text-stone-400">
                                 Prepare
-
                             </p>
 
-
-                            <h3
-                                class="mt-2 font-display text-2xl font-bold text-stone-900">
-
+                            <h3 class="mt-2 font-display text-2xl font-bold text-stone-900">
                                 Ingredients come together.
-
                             </h3>
 
                         </div>
 
 
-                        <p
-                            class="max-w-2xl text-sm leading-7 text-stone-600">
+                        <p class="max-w-2xl text-sm leading-7 text-stone-600">
 
                             Portioning and preparation happen in a controlled workflow so
                             ingredients are ready for the cooking stage without unnecessary
@@ -3310,11 +4253,12 @@
 
 
                     <div
-                        class="bh-journey-step relative grid gap-7 border-t border-stone-200 py-10 md:grid-cols-[70px_180px_1fr] md:items-center md:gap-8">
-
+                        class="bh-journey-step relative grid gap-7 border-t border-stone-200 py-10 md:grid-cols-[70px_180px_1fr] md:items-center md:gap-8"
+                    >
 
                         <div
-                            class="bh-journey-number relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-orange-300 bg-white font-display text-lg font-black text-orange-700 ring-8 ring-[#fff7f3]">
+                            class="bh-journey-number relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-orange-300 bg-white font-display text-lg font-black text-orange-700 ring-8 ring-[#fff7f3]"
+                        >
 
                             03
 
@@ -3323,26 +4267,18 @@
 
                         <div>
 
-                            <p
-                                class="text-xs font-bold uppercase tracking-[0.2em] text-stone-400">
-
+                            <p class="text-xs font-bold uppercase tracking-[0.2em] text-stone-400">
                                 Cook
-
                             </p>
 
-
-                            <h3
-                                class="mt-2 font-display text-2xl font-bold text-stone-900">
-
+                            <h3 class="mt-2 font-display text-2xl font-bold text-stone-900">
                                 The kitchen gets moving.
-
                             </h3>
 
                         </div>
 
 
-                        <p
-                            class="max-w-2xl text-sm leading-7 text-stone-600">
+                        <p class="max-w-2xl text-sm leading-7 text-stone-600">
 
                             Orders move through the cooking line in short, organised batches,
                             helping the kitchen maintain consistency while responding to demand.
@@ -3353,11 +4289,12 @@
 
 
                     <div
-                        class="bh-journey-step relative grid gap-7 border-t border-stone-200 py-10 md:grid-cols-[70px_180px_1fr] md:items-center md:gap-8">
-
+                        class="bh-journey-step relative grid gap-7 border-t border-stone-200 py-10 md:grid-cols-[70px_180px_1fr] md:items-center md:gap-8"
+                    >
 
                         <div
-                            class="bh-journey-number relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-amber-300 bg-white font-display text-lg font-black text-amber-700 ring-8 ring-[#fff7f3]">
+                            class="bh-journey-number relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-amber-300 bg-white font-display text-lg font-black text-amber-700 ring-8 ring-[#fff7f3]"
+                        >
 
                             04
 
@@ -3366,26 +4303,18 @@
 
                         <div>
 
-                            <p
-                                class="text-xs font-bold uppercase tracking-[0.2em] text-stone-400">
-
+                            <p class="text-xs font-bold uppercase tracking-[0.2em] text-stone-400">
                                 Check
-
                             </p>
 
-
-                            <h3
-                                class="mt-2 font-display text-2xl font-bold text-stone-900">
-
+                            <h3 class="mt-2 font-display text-2xl font-bold text-stone-900">
                                 Packed with purpose.
-
                             </h3>
 
                         </div>
 
 
-                        <p
-                            class="max-w-2xl text-sm leading-7 text-stone-600">
+                        <p class="max-w-2xl text-sm leading-7 text-stone-600">
 
                             Containers are packed, labelled and checked before they leave the
                             kitchen, keeping the final handoff organised and clear.
@@ -3396,11 +4325,12 @@
 
 
                     <div
-                        class="bh-journey-step relative grid gap-7 border-t border-b border-stone-200 py-10 md:grid-cols-[70px_180px_1fr] md:items-center md:gap-8">
-
+                        class="bh-journey-step relative grid gap-7 border-t border-b border-stone-200 py-10 md:grid-cols-[70px_180px_1fr] md:items-center md:gap-8"
+                    >
 
                         <div
-                            class="bh-journey-number relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-orange-300 bg-white font-display text-lg font-black text-orange-700 ring-8 ring-[#fff7f3]">
+                            class="bh-journey-number relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-orange-300 bg-white font-display text-lg font-black text-orange-700 ring-8 ring-[#fff7f3]"
+                        >
 
                             05
 
@@ -3409,26 +4339,18 @@
 
                         <div>
 
-                            <p
-                                class="text-xs font-bold uppercase tracking-[0.2em] text-stone-400">
-
+                            <p class="text-xs font-bold uppercase tracking-[0.2em] text-stone-400">
                                 Arrive
-
                             </p>
 
-
-                            <h3
-                                class="mt-2 font-display text-2xl font-bold text-stone-900">
-
+                            <h3 class="mt-2 font-display text-2xl font-bold text-stone-900">
                                 Ready for your table.
-
                             </h3>
 
                         </div>
 
 
-                        <p
-                            class="max-w-2xl text-sm leading-7 text-stone-600">
+                        <p class="max-w-2xl text-sm leading-7 text-stone-600">
 
                             Once dispatched, the order begins its final journey to you —
                             completing a process designed around the food from beginning
@@ -3442,18 +4364,17 @@
 
 
                 <div
-                    class="mt-14 flex flex-col gap-5 border-l-2 border-amber-500 pl-6 sm:flex-row sm:items-center sm:justify-between">
-
+                    class="mt-14 flex flex-col gap-5 border-l-2 border-amber-500 pl-6 sm:flex-row sm:items-center sm:justify-between"
+                >
 
                     <p
-                        class="max-w-2xl font-display text-xl font-bold leading-relaxed text-stone-700">
+                        class="max-w-2xl font-display text-xl font-bold leading-relaxed text-stone-700"
+                    >
 
                         A simple process, carefully repeated,
 
                         <span class="text-amber-600">
-
                             for every order.
-
                         </span>
 
                     </p>
@@ -3461,15 +4382,12 @@
 
                     <a
                         href="menu.html"
-                        class="bh-journey-link inline-flex w-fit items-center rounded-full border border-stone-300 px-6 py-3 text-sm font-semibold text-stone-800 hover:border-amber-500 hover:bg-amber-500 hover:text-stone-950">
+                        class="bh-journey-link inline-flex w-fit items-center rounded-full border border-stone-300 px-6 py-3 text-sm font-semibold text-stone-800 hover:border-amber-500 hover:bg-amber-500 hover:text-stone-950"
+                    >
 
                         See what's cooking
 
-                        <span class="ml-2">
-
-                            →
-
-                        </span>
+                        <span class="ml-2">→</span>
 
                     </a>
 
@@ -3481,12 +4399,12 @@
 
 
         <!-- =========================================================
-             SECTION 6: BY THE NUMBERS
+             SECTION 7: BY THE NUMBERS
         ========================================================== -->
 
         <section
-            class="relative overflow-hidden bg-gradient-to-br from-orange-50 via-white to-amber-50 text-stone-900">
-
+            class="relative overflow-hidden bg-gradient-to-br from-orange-50 via-white to-amber-50 text-stone-900"
+        >
 
             <div
                 class="pointer-events-none absolute -top-20 right-1/3 h-64 w-64 rounded-full bg-orange-200/30 blur-3xl">
@@ -3494,12 +4412,10 @@
 
 
             <div
-                class="relative mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12">
+                class="relative mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12"
+            >
 
-
-                <div
-                    class="mx-auto mb-10 max-w-2xl text-center">
-
+                <div class="mx-auto mb-10 max-w-2xl text-center">
 
                     <p class="eyebrow text-orange-700">
 
@@ -3509,7 +4425,8 @@
 
 
                     <h2
-                        class="mt-3 font-display text-3xl font-black text-stone-900 sm:text-4xl">
+                        class="mt-3 font-display text-3xl font-black text-stone-900 sm:text-4xl"
+                    >
 
                         By the numbers
 
@@ -3519,23 +4436,21 @@
 
 
                 <div
-                    class="grid gap-0 overflow-hidden rounded-3xl border border-orange-200 bg-white shadow-lg sm:grid-cols-2 lg:grid-cols-4">
-
+                    class="grid gap-0 overflow-hidden rounded-3xl border border-orange-200 bg-white shadow-lg sm:grid-cols-2 lg:grid-cols-4"
+                >
 
                     <div
-                        class="border-b border-orange-100 px-6 py-10 text-center sm:border-r lg:border-b-0">
-
+                        class="border-b border-orange-100 px-6 py-10 text-center sm:border-r lg:border-b-0"
+                    >
 
                         <p
-                            class="font-display text-4xl font-black text-orange-600 sm:text-5xl">
-
+                            class="font-display text-4xl font-black text-orange-600 sm:text-5xl"
+                        >
                             1
-
                         </p>
 
 
-                        <p
-                            class="mx-auto mt-3 max-w-xs text-sm leading-6 text-stone-500">
+                        <p class="mx-auto mt-3 max-w-xs text-sm leading-6 text-stone-500">
 
                             Central kitchen, zero dine-in overhead
 
@@ -3545,19 +4460,17 @@
 
 
                     <div
-                        class="border-b border-orange-100 px-6 py-10 text-center lg:border-b-0 lg:border-r">
-
+                        class="border-b border-orange-100 px-6 py-10 text-center lg:border-b-0 lg:border-r"
+                    >
 
                         <p
-                            class="font-display text-4xl font-black text-orange-600 sm:text-5xl">
-
+                            class="font-display text-4xl font-black text-orange-600 sm:text-5xl"
+                        >
                             4
-
                         </p>
 
 
-                        <p
-                            class="mx-auto mt-3 max-w-xs text-sm leading-6 text-stone-500">
+                        <p class="mx-auto mt-3 max-w-xs text-sm leading-6 text-stone-500">
 
                             Prep, cook, pack, deliver stages tracked
 
@@ -3567,19 +4480,17 @@
 
 
                     <div
-                        class="border-b border-orange-100 px-6 py-10 text-center sm:border-r lg:border-b-0">
-
+                        class="border-b border-orange-100 px-6 py-10 text-center sm:border-r lg:border-b-0"
+                    >
 
                         <p
-                            class="font-display text-4xl font-black text-orange-600 sm:text-5xl">
-
+                            class="font-display text-4xl font-black text-orange-600 sm:text-5xl"
+                        >
                             24hr
-
                         </p>
 
 
-                        <p
-                            class="mx-auto mt-3 max-w-xs text-sm leading-6 text-stone-500">
+                        <p class="mx-auto mt-3 max-w-xs text-sm leading-6 text-stone-500">
 
                             Fastest turnaround for bulk orders
 
@@ -3590,17 +4501,14 @@
 
                     <div class="px-6 py-10 text-center">
 
-
                         <p
-                            class="font-display text-4xl font-black text-orange-600 sm:text-5xl">
-
+                            class="font-display text-4xl font-black text-orange-600 sm:text-5xl"
+                        >
                             500+
-
                         </p>
 
 
-                        <p
-                            class="mx-auto mt-3 max-w-xs text-sm leading-6 text-stone-500">
+                        <p class="mx-auto mt-3 max-w-xs text-sm leading-6 text-stone-500">
 
                             Plates the same kitchen can scale to
 
@@ -3616,29 +4524,20 @@
 
 
         <!-- =========================================================
-             SECTION 7: CTA
+             SECTION 8: CTA
         ========================================================== -->
 
         <section
-            class="bg-[#fffaf7] mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12">
-
+            class="bh-cta-section mx-auto max-w-7xl bg-[#f7f5ed] px-5 py-20 sm:px-8 lg:px-12"
+        >
 
             <div
-                class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-amber-400 via-orange-400 to-orange-600 px-8 py-16 text-center text-stone-950 shadow-xl shadow-orange-100 sm:px-16">
-
-
-                <div
-                    class="pointer-events-none absolute -bottom-16 -left-16 h-56 w-56 rounded-full bg-white/20 blur-3xl">
-                </div>
-
-
-                <div
-                    class="pointer-events-none absolute -top-16 -right-16 h-56 w-56 rounded-full bg-stone-950/10 blur-3xl">
-                </div>
-
+                class="bh-cta-card relative overflow-hidden rounded-3xl bg-[#f7f5ed] px-8 py-16 text-center sm:px-16"
+            >
 
                 <h2
-                    class="relative font-display text-3xl font-black sm:text-4xl">
+                    class="relative font-display text-3xl font-black text-stone-900 sm:text-4xl"
+                >
 
                     Curious what this looks like on your plate?
 
@@ -3646,7 +4545,8 @@
 
 
                 <p
-                    class="relative mx-auto mt-4 max-w-xl text-stone-900/70">
+                    class="relative mx-auto mt-4 max-w-xl text-stone-600"
+                >
 
                     Browse the menu built around this model, or talk to us about a bulk
                     order for your office or event.
@@ -3655,12 +4555,13 @@
 
 
                 <div
-                    class="relative mt-8 flex flex-wrap justify-center gap-4">
-
+                    class="relative mt-8 flex flex-wrap justify-center gap-4"
+                >
 
                     <a
                         href="menu.html"
-                        class="btn-primary bg-stone-950 text-white hover:bg-stone-800">
+                        class="btn-primary bg-stone-950 text-white hover:bg-stone-800"
+                    >
 
                         View the menu
 
@@ -3669,7 +4570,8 @@
 
                     <a
                         href="bulk-orders.html"
-                        class="bulk-order-btn inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-semibold">
+                        class="bulk-order-btn inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-semibold"
+                    >
 
                         Bulk orders →
 

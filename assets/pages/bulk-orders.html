@@ -4,11 +4,19 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1"
+    >
 
     <title>Bulk Orders | Bowl & Hearth</title>
 
-    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link
+        rel="icon"
+        type="image/png"
+        href="../images/favicon.png"
+    >
 
     <!-- =========================================================
          TAILWIND
@@ -26,7 +34,10 @@
          SHARED CSS
     ========================================================== -->
 
-    <link rel="stylesheet" href="../css/style.css">
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
 
     <!-- =========================================================
          PAGE CSS
@@ -35,17 +46,177 @@
     <style>
 
         /* =====================================================
-           GLOBAL RESPONSIVE SAFETY
+           COLOR SYSTEM
         ====================================================== */
 
-        html,
+        :root {
+            --bh-light-bg: #f7f5ed;
+            --bh-light-surface: #ffffff;
+            --bh-light-surface-2: #f1eee4;
+            --bh-light-text: #292524;
+            --bh-light-muted: #78716c;
+            --bh-light-border: #e7e5e4;
+
+            --bh-dark-bg: #17120f;
+            --bh-dark-surface: #211914;
+            --bh-dark-surface-2: #2a211b;
+            --bh-dark-text: #f5f1e8;
+            --bh-dark-muted: #b8afa6;
+            --bh-dark-border: #3d332b;
+
+            --bh-brown: #6B3F24;
+            --bh-brown-light: #9a6745;
+
+            --bh-yellow: #f59e0b;
+            --bh-yellow-hover: #fbbf24;
+        }
+
+
+        /* =====================================================
+           GLOBAL
+        ====================================================== */
+
+        html {
+            max-width: 100%;
+            overflow-x: hidden;
+            background: var(--bh-light-bg);
+        }
+
         body {
             max-width: 100%;
             overflow-x: hidden;
+
+            background: var(--bh-light-bg) !important;
+            color: var(--bh-light-text);
+
+            transition:
+                background-color .3s ease,
+                color .3s ease;
         }
 
         img {
             max-width: 100%;
+        }
+
+        main {
+            background: var(--bh-light-bg) !important;
+            color: var(--bh-light-text);
+
+            transition:
+                background-color .3s ease,
+                color .3s ease;
+        }
+
+
+        /* =====================================================
+           DARK MODE — GLOBAL
+        ====================================================== */
+
+        html.dark {
+            background: var(--bh-dark-bg) !important;
+        }
+
+        html.dark body {
+            background: var(--bh-dark-bg) !important;
+            color: var(--bh-dark-text) !important;
+        }
+
+        html.dark main {
+            background: var(--bh-dark-bg) !important;
+            color: var(--bh-dark-text) !important;
+        }
+
+        html.dark section {
+            background-color: var(--bh-dark-bg);
+            color: var(--bh-dark-text);
+        }
+
+
+        /* =====================================================
+           TAILWIND LIGHT/DARK OVERRIDES
+        ====================================================== */
+
+        html.dark .bg-stone-50,
+        html.dark .bg-stone-100 {
+            background-color: var(--bh-dark-bg) !important;
+        }
+
+        html.dark .dark\:bg-stone-900 {
+            background-color: var(--bh-dark-surface) !important;
+        }
+
+        html.dark .dark\:bg-stone-950 {
+            background-color: var(--bh-dark-bg) !important;
+        }
+
+        html.dark .bg-white,
+        html.dark .dark\:bg-stone-800 {
+            background-color: var(--bh-dark-surface) !important;
+        }
+
+        html.dark .text-stone-900,
+        html.dark .text-stone-800,
+        html.dark .text-stone-700 {
+            color: var(--bh-dark-text) !important;
+        }
+
+        html.dark .text-stone-600,
+        html.dark .text-stone-500,
+        html.dark .text-stone-400,
+        html.dark .dark\:text-stone-300,
+        html.dark .dark\:text-stone-400 {
+            color: var(--bh-dark-muted) !important;
+        }
+
+        html.dark .border-stone-200,
+        html.dark .border-stone-300,
+        html.dark .dark\:border-stone-800,
+        html.dark .dark\:border-stone-700 {
+            border-color: var(--bh-dark-border) !important;
+        }
+
+        html.dark .divide-stone-200 > :not([hidden]) ~ :not([hidden]),
+        html.dark .dark\:divide-stone-800 > :not([hidden]) ~ :not([hidden]) {
+            border-color: var(--bh-dark-border) !important;
+        }
+
+
+        /* =====================================================
+           HEADING FONT SYSTEM
+        ====================================================== */
+
+        .bh-section-title {
+            font-family:
+                Georgia,
+                'Times New Roman',
+                serif;
+
+            font-weight: 700;
+            letter-spacing: -.035em;
+            line-height: 1;
+        }
+
+        .bh-script {
+            font-family:
+                Georgia,
+                'Times New Roman',
+                serif;
+
+            font-style: italic;
+            font-weight: 500;
+
+            color: var(--bh-brown);
+        }
+
+        .section-title {
+            font-family:
+                Georgia,
+                'Times New Roman',
+                serif;
+
+            font-weight: 700;
+            letter-spacing: -.035em;
+            line-height: 1.05;
         }
 
 
@@ -56,16 +227,19 @@
         .bh-bulk-hero {
             position: relative;
             overflow: hidden;
-            background:
-                linear-gradient(
-                    135deg,
-                    #241209 0%,
-                    #1c120d 50%,
-                    #140b06 100%
-                );
-            color: #fff;
+
+            background: var(--bh-light-bg) !important;
+            color: var(--bh-light-text);
+
+            transition:
+                background-color .3s ease,
+                color .3s ease;
         }
 
+        html.dark .bh-bulk-hero {
+            background: var(--bh-dark-bg) !important;
+            color: var(--bh-dark-text);
+        }
 
         .bh-bulk-hero-inner {
             position: relative;
@@ -73,34 +247,37 @@
             width: 100%;
         }
 
-
         .bh-bulk-hero-image {
             position: relative;
             overflow: hidden;
+
             min-height: 420px;
+
             border-radius: 28px;
         }
-
 
         .bh-bulk-hero-image img {
             position: absolute;
             inset: 0;
+
             width: 100%;
             height: 100%;
+
             object-fit: cover;
+
             transition: transform .7s ease;
         }
-
 
         .bh-bulk-hero-image:hover img {
             transform: scale(1.04);
         }
 
-
         .bh-bulk-hero-image::after {
             content: "";
+
             position: absolute;
             inset: 0;
+
             background:
                 linear-gradient(
                     90deg,
@@ -109,44 +286,61 @@
                 );
         }
 
-
         .bh-bulk-hero-badge {
             position: absolute;
+
             left: 24px;
             bottom: 24px;
+
             z-index: 3;
 
             display: flex;
             align-items: center;
+
             gap: 12px;
 
-            max-width: calc(100% - 48px);
+            max-width:
+                calc(100% - 48px);
 
-            padding: 13px 17px;
+            padding:
+                13px 17px;
 
-            border: 1px solid rgba(255,255,255,.15);
+            border:
+                1px solid rgba(255,255,255,.15);
+
             border-radius: 999px;
 
-            background: rgba(28,18,13,.78);
-            backdrop-filter: blur(12px);
-        }
+            background:
+                rgba(28,18,13,.78);
 
+            backdrop-filter:
+                blur(12px);
+        }
 
         .bh-bulk-hero-badge-dot {
             width: 9px;
             height: 9px;
             min-width: 9px;
-            border-radius: 999px;
-            background: #f59e0b;
-            box-shadow: 0 0 0 5px rgba(245,158,11,.12);
-        }
 
+            border-radius: 999px;
+
+            background:
+                var(--bh-yellow);
+
+            box-shadow:
+                0 0 0 5px
+                rgba(245,158,11,.12);
+        }
 
         .bh-bulk-hero-content {
             max-width: 680px;
             min-width: 0;
         }
 
+
+        /* =====================================================
+           HERO TITLE
+        ====================================================== */
 
         .bh-bulk-hero-title {
             margin-top: 18px;
@@ -156,51 +350,67 @@
                 'Times New Roman',
                 serif;
 
-            font-size: clamp(
-                2.8rem,
-                5.5vw,
-                5.5rem
-            );
+            font-size:
+                clamp(
+                    2.2rem,
+                    4vw,
+                    4rem
+                );
 
             font-weight: 900;
-            line-height: .98;
-            letter-spacing: -.045em;
+
+            line-height: 1.02;
+
+            letter-spacing: -.035em;
 
             overflow-wrap: break-word;
+
+            color: var(--bh-light-text);
         }
 
+        html.dark .bh-bulk-hero-title {
+            color: var(--bh-dark-text);
+        }
 
         .bh-bulk-hero-title span {
             display: block;
 
             background:
-                linear-gradient(
-                    90deg,
-                    #fbbf24,
-                    #fb923c
-                );
+                var(--bh-brown);
+
+            background-image: none;
 
             background-clip: text;
             -webkit-background-clip: text;
 
             color: transparent;
+            -webkit-text-fill-color: transparent;
         }
-
 
         .bh-bulk-hero-description {
             max-width: 620px;
 
             margin-top: 26px;
 
-            color: #d6d3d1;
+            color: #57534e;
 
             font-size: 1.08rem;
+
             line-height: 1.8;
         }
 
+        html.dark .bh-bulk-hero-description {
+            color: var(--bh-dark-muted);
+        }
+
+
+        /* =====================================================
+           HERO STATS
+        ====================================================== */
 
         .bh-bulk-hero-stats {
             display: grid;
+
             grid-template-columns:
                 repeat(3, minmax(0, 1fr));
 
@@ -211,9 +421,13 @@
             padding-top: 28px;
 
             border-top:
-                1px solid rgba(255,255,255,.1);
+                1px solid rgba(120,113,108,.25);
         }
 
+        html.dark .bh-bulk-hero-stats {
+            border-top-color:
+                var(--bh-dark-border);
+        }
 
         .bh-bulk-hero-stat-value {
             font-family:
@@ -222,40 +436,181 @@
                 serif;
 
             font-size: 2rem;
+
             font-weight: 900;
 
-            color: #fbbf24;
+            color: var(--bh-brown);
         }
-
 
         .bh-bulk-hero-stat-label {
             margin-top: 3px;
 
             font-size: .75rem;
 
-            color: #a8a29e;
+            color: #78716c;
+        }
+
+        html.dark .bh-bulk-hero-stat-label {
+            color: var(--bh-dark-muted);
         }
 
 
         /* =====================================================
-           ONE KITCHEN — EDITORIAL SECTION
+           PACKAGE SECTION
+        ====================================================== */
+
+        #packages {
+            background:
+                var(--bh-light-bg) !important;
+        }
+
+        html.dark #packages {
+            background:
+                var(--bh-dark-bg) !important;
+        }
+
+
+        /* =====================================================
+           PACKAGE CARD
+        ====================================================== */
+
+        .bh-package-card {
+            overflow: hidden;
+
+            border:
+                1px solid var(--bh-light-border);
+
+            border-radius: 18px;
+
+            background:
+                var(--bh-light-surface);
+
+            transition:
+                transform .3s ease,
+                box-shadow .3s ease,
+                border-color .3s ease,
+                background-color .3s ease;
+        }
+
+        .bh-package-card:hover {
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 18px 35px
+                rgba(28,25,23,.10);
+
+            border-color:
+                #d6d3d1;
+        }
+
+        html.dark .bh-package-card {
+            background:
+                var(--bh-dark-surface);
+
+            border-color:
+                var(--bh-dark-border);
+
+            box-shadow:
+                0 12px 30px
+                rgba(0,0,0,.20);
+        }
+
+        html.dark .bh-package-card:hover {
+            border-color:
+                #59483b;
+
+            box-shadow:
+                0 20px 40px
+                rgba(0,0,0,.30);
+        }
+
+        .bh-package-card img {
+            display: block;
+
+            width: 100%;
+            height: 176px;
+
+            object-fit: cover;
+        }
+
+        .bh-package-card-content {
+            padding: 30px;
+
+            color:
+                var(--bh-light-text);
+        }
+
+        html.dark .bh-package-card-content {
+            color:
+                var(--bh-dark-text);
+        }
+
+        .bh-package-card h3 {
+            font-family:
+                Georgia,
+                'Times New Roman',
+                serif;
+
+            font-weight: 700;
+
+            color:
+                var(--bh-light-text);
+        }
+
+        html.dark .bh-package-card h3 {
+            color:
+                var(--bh-dark-text);
+        }
+
+        .bh-package-card p {
+            color:
+                #78716c;
+        }
+
+        html.dark .bh-package-card p {
+            color:
+                var(--bh-dark-muted);
+        }
+
+        .bh-package-card b {
+            color:
+                var(--bh-light-text);
+        }
+
+        html.dark .bh-package-card b {
+            color:
+                var(--bh-dark-text);
+        }
+
+
+        /* =====================================================
+           OCCASIONS SECTION
         ====================================================== */
 
         .bh-occasions {
             position: relative;
+
             overflow: hidden;
 
             background:
-                linear-gradient(
-                    135deg,
-                    #fffaf5 0%,
-                    #ffffff 48%,
-                    #fff1df 100%
-                );
+                var(--bh-light-bg) !important;
 
-            color: #292524;
+            color:
+                var(--bh-light-text);
+
+            transition:
+                background-color .3s ease,
+                color .3s ease;
         }
 
+        html.dark .bh-occasions {
+            background:
+                var(--bh-dark-bg) !important;
+
+            color:
+                var(--bh-dark-text);
+        }
 
         .bh-occasions-glow {
             position: absolute;
@@ -270,25 +625,25 @@
             pointer-events: none;
         }
 
-
         .bh-occasions-glow-one {
             top: -220px;
             right: -100px;
 
-            background: rgba(245, 158, 11, .12);
+            background:
+                rgba(245,158,11,.12);
         }
-
 
         .bh-occasions-glow-two {
             bottom: -220px;
             left: -120px;
 
-            background: rgba(244, 63, 94, .09);
+            background:
+                rgba(244,63,94,.09);
         }
 
 
         /* =====================================================
-           CENTERED INTRO
+           OCCASION INTRO
         ====================================================== */
 
         .bh-occasion-intro {
@@ -301,17 +656,16 @@
             text-align: center;
         }
 
-
         .bh-occasion-kicker {
             display: flex;
 
             align-items: center;
-
             justify-content: center;
 
             gap: 12px;
 
-            color: #d97706;
+            color:
+                var(--bh-brown);
 
             font-size: .72rem;
 
@@ -322,7 +676,6 @@
             text-transform: uppercase;
         }
 
-
         .bh-occasion-kicker::before {
             content: "";
 
@@ -331,16 +684,18 @@
 
             height: 1px;
 
-            background: #d97706;
+            background:
+                var(--bh-yellow);
         }
 
 
         /* =====================================================
-           HEADING
+           OCCASION HEADING
         ====================================================== */
 
         .bh-occasion-heading {
-            margin: 16px auto 0;
+            margin:
+                16px auto 0;
 
             max-width: 800px;
 
@@ -349,7 +704,12 @@
                 'Times New Roman',
                 serif;
 
-            font-size: clamp(2.3rem, 5vw, 4.5rem);
+            font-size:
+                clamp(
+                    2.3rem,
+                    5vw,
+                    4.5rem
+                );
 
             font-weight: 700;
 
@@ -357,14 +717,20 @@
 
             letter-spacing: -.035em;
 
-            color: #1c1917;
+            color:
+                #1c1917;
 
             text-align: center;
         }
 
+        html.dark .bh-occasion-heading {
+            color:
+                var(--bh-dark-text);
+        }
 
         .bh-occasion-heading span {
-            color: #d97706;
+            color:
+                var(--bh-brown);
         }
 
 
@@ -378,9 +744,14 @@
             margin-top: 60px;
 
             border-top:
-                1px solid rgba(120, 113, 108, .25);
+                1px solid
+                rgba(120,113,108,.25);
         }
 
+        html.dark .bh-occasion-list {
+            border-top-color:
+                var(--bh-dark-border);
+        }
 
         .bh-occasion-row {
             position: relative;
@@ -389,8 +760,8 @@
 
             grid-template-columns:
                 100px
-                minmax(220px, .75fr)
-                minmax(0, 1.25fr)
+                minmax(220px,.75fr)
+                minmax(0,1.25fr)
                 45px;
 
             align-items: center;
@@ -399,24 +770,35 @@
 
             min-height: 145px;
 
-            padding: 28px 0;
+            padding:
+                28px 0;
 
             border-bottom:
-                1px solid rgba(120, 113, 108, .25);
+                1px solid
+                rgba(120,113,108,.25);
 
             transition:
                 padding .35s ease,
                 background .35s ease;
         }
 
+        html.dark .bh-occasion-row {
+            border-bottom-color:
+                var(--bh-dark-border);
+        }
 
         .bh-occasion-row:hover {
             padding-left: 22px;
             padding-right: 22px;
 
-            background: rgba(255, 255, 255, .75);
+            background:
+                rgba(255,255,255,.75);
         }
 
+        html.dark .bh-occasion-row:hover {
+            background:
+                rgba(255,255,255,.045);
+        }
 
         .bh-occasion-number {
             font-family:
@@ -430,20 +812,27 @@
 
             line-height: 1;
 
-            color: #d6d3d1;
+            color:
+                #d6d3d1;
 
             transition:
                 color .3s ease,
                 transform .3s ease;
         }
 
-
-        .bh-occasion-row:hover .bh-occasion-number {
-            color: #f59e0b;
-
-            transform: translateX(5px);
+        html.dark .bh-occasion-number {
+            color:
+                #51463d;
         }
 
+        .bh-occasion-row:hover
+        .bh-occasion-number {
+            color:
+                var(--bh-brown);
+
+            transform:
+                translateX(5px);
+        }
 
         .bh-occasion-title {
             font-family:
@@ -455,9 +844,14 @@
 
             font-weight: 700;
 
-            color: #292524;
+            color:
+                var(--bh-light-text);
         }
 
+        html.dark .bh-occasion-title {
+            color:
+                var(--bh-dark-text);
+        }
 
         .bh-occasion-label {
             margin-top: 5px;
@@ -470,37 +864,43 @@
 
             letter-spacing: .18em;
 
-            color: #d97706;
+            color:
+                var(--bh-brown);
         }
-
 
         .bh-occasion-description {
             max-width: 560px;
 
-            color: #78716c;
+            color:
+                #78716c;
 
             font-size: .92rem;
 
             line-height: 1.75;
         }
 
+        html.dark .bh-occasion-description {
+            color:
+                var(--bh-dark-muted);
+        }
 
         .bh-occasion-arrow {
             display: flex;
 
             align-items: center;
-
             justify-content: center;
 
             width: 40px;
             height: 40px;
 
+            border:
+                1px solid
+                rgba(217,119,6,.25);
+
             border-radius: 50%;
 
-            border:
-                1px solid rgba(217, 119, 6, .25);
-
-            color: #d97706;
+            color:
+                var(--bh-brown);
 
             transition:
                 transform .3s ease,
@@ -508,32 +908,33 @@
                 color .3s ease;
         }
 
+        .bh-occasion-row:hover
+        .bh-occasion-arrow {
+            transform:
+                translateX(6px);
 
-        .bh-occasion-row:hover .bh-occasion-arrow {
-            transform: translateX(6px);
+            background:
+                var(--bh-yellow);
 
-            background: #d97706;
-
-            color: white;
+            color:
+                #292524;
         }
 
 
         /* =====================================================
-           BOTTOM STATEMENT
+           OCCASION BOTTOM
         ====================================================== */
 
         .bh-occasion-bottom {
             display: flex;
 
             align-items: center;
-
             justify-content: space-between;
 
             gap: 30px;
 
             margin-top: 50px;
         }
-
 
         .bh-occasion-bottom-text {
             max-width: 650px;
@@ -549,14 +950,19 @@
 
             line-height: 1.5;
 
-            color: #44403c;
+            color:
+                #44403c;
         }
 
+        html.dark .bh-occasion-bottom-text {
+            color:
+                var(--bh-dark-text);
+        }
 
         .bh-occasion-bottom-text span {
-            color: #d97706;
+            color:
+                var(--bh-brown);
         }
-
 
         .bh-occasion-button {
             display: inline-flex;
@@ -572,13 +978,15 @@
 
             border-radius: 9999px;
 
-            padding: 13px 22px;
+            padding:
+                13px 22px;
 
             font-size: .85rem;
 
             font-weight: 700;
 
-            color: #44403c;
+            color:
+                #44403c;
 
             transition:
                 background .3s ease,
@@ -587,62 +995,324 @@
                 transform .3s ease;
         }
 
+        html.dark .bh-occasion-button {
+            color:
+                var(--bh-dark-text);
+
+            border-color:
+                var(--bh-dark-border);
+        }
 
         .bh-occasion-button:hover {
-            background: #d97706;
+            background:
+                var(--bh-yellow);
 
-            border-color: #d97706;
+            border-color:
+                var(--bh-yellow);
 
-            color: white;
+            color:
+                #292524;
 
-            transform: translateY(-2px);
+            transform:
+                translateY(-2px);
         }
 
 
         /* =====================================================
-           PACKAGE CARDS
+           PROCESS SECTION
         ====================================================== */
 
-        .bh-package-card {
+        section.bg-stone-100 {
+            background:
+                var(--bh-light-bg) !important;
+
+            color:
+                var(--bh-light-text);
+        }
+
+        html.dark section.bg-stone-100 {
+            background:
+                var(--bh-dark-surface) !important;
+
+            color:
+                var(--bh-dark-text);
+        }
+
+        html.dark section.bg-stone-100
+        .text-stone-600 {
+            color:
+                var(--bh-dark-muted) !important;
+        }
+
+        html.dark section.bg-stone-100
+        .text-stone-400 {
+            color:
+                var(--bh-dark-muted) !important;
+        }
+
+        html.dark section.bg-stone-100
+        .bg-stone-300 {
+            background:
+                var(--bh-dark-border) !important;
+        }
+
+        html.dark section.bg-stone-100
+        .dark\:bg-stone-700 {
+            background:
+                var(--bh-dark-border) !important;
+        }
+
+
+        /* =====================================================
+           DELIVERY SECTION
+        ====================================================== */
+
+        html.dark .bg-stone-100 .bg-white,
+        html.dark .bg-stone-100 .dark\:bg-stone-800 {
+            background:
+                var(--bh-dark-surface-2) !important;
+        }
+
+        html.dark .bg-stone-100 .text-stone-500 {
+            color:
+                var(--bh-dark-muted) !important;
+        }
+
+        html.dark .bg-stone-100 h3 {
+            color:
+                var(--bh-dark-text);
+        }
+
+
+        /* =====================================================
+           WHY CHOOSE US
+        ====================================================== */
+
+        html.dark .bh-section-title {
+            color:
+                var(--bh-dark-text);
+        }
+
+        html.dark section h3 {
+            color:
+                var(--bh-dark-text);
+        }
+
+        html.dark section
+        .text-stone-600 {
+            color:
+                var(--bh-dark-muted);
+        }
+
+        html.dark section
+        .text-stone-500 {
+            color:
+                var(--bh-dark-muted);
+        }
+
+
+        /* =====================================================
+           EYEBROW
+        ====================================================== */
+
+        .eyebrow {
+            color:
+                var(--bh-brown) !important;
+        }
+
+
+        /* =====================================================
+           FAQ
+        ====================================================== */
+
+        #faq-accordion {
+            border-color:
+                var(--bh-light-border);
+        }
+
+        html.dark #faq-accordion {
+            border-color:
+                var(--bh-dark-border);
+        }
+
+        #faq-accordion details {
+            border-color:
+                var(--bh-light-border);
+        }
+
+        html.dark #faq-accordion details {
+            border-color:
+                var(--bh-dark-border);
+        }
+
+        #faq-accordion summary {
+            color:
+                var(--bh-light-text);
+        }
+
+        html.dark #faq-accordion summary {
+            color:
+                var(--bh-dark-text);
+        }
+
+        #faq-accordion summary span {
+            color:
+                var(--bh-brown) !important;
+        }
+
+        #faq-accordion details p {
+            color:
+                #57534e;
+        }
+
+        html.dark #faq-accordion details p {
+            color:
+                var(--bh-dark-muted);
+        }
+
+
+        /* =====================================================
+           FINAL CTA
+        ====================================================== */
+
+        .bh-final-cta {
+            position: relative;
             overflow: hidden;
+            border-radius: 24px;
+        }
 
-            border:
-                1px solid #e7e5e4;
+        .bh-final-cta .bh-final-kicker {
+            color:
+                var(--bh-yellow) !important;
+        }
 
-            border-radius: 18px;
+        .bh-final-cta h2 {
+            color:
+                #ffffff !important;
+        }
 
-            background: #ffffff;
-
-            transition:
-                transform .3s ease,
-                box-shadow .3s ease,
-                border-color .3s ease;
+        .bh-final-cta p {
+            color:
+                #d6d3d1 !important;
         }
 
 
-        .bh-package-card:hover {
-            transform: translateY(-5px);
+        /* =====================================================
+           BROWN TEXT + YELLOW BUTTONS
+        ====================================================== */
 
-            box-shadow:
-                0 18px 35px rgba(28, 25, 23, .10);
+        .bh-bulk-hero-title span,
+        .bh-bulk-hero-stat-value,
+        .bh-occasion-kicker,
+        .bh-occasion-heading span,
+        .bh-occasion-label,
+        .bh-occasion-arrow,
+        .bh-occasion-bottom-text span,
+        #faq-accordion summary span,
+        .eyebrow {
+            color:
+                var(--bh-brown) !important;
+        }
 
-            border-color: #d6d3d1;
+        .bh-bulk-hero-title span {
+            background:
+                var(--bh-brown) !important;
+
+            background-image:
+                none !important;
+
+            -webkit-background-clip:
+                text !important;
+
+            background-clip:
+                text !important;
+
+            -webkit-text-fill-color:
+                transparent !important;
         }
 
 
-        .bh-package-card img {
-            display: block;
+        /* =====================================================
+           YELLOW BUTTONS
+        ====================================================== */
 
-            width: 100%;
+        a[href="#packages"],
+        .btn-primary {
+            background:
+                var(--bh-yellow) !important;
 
-            height: 176px;
+            border-color:
+                var(--bh-yellow) !important;
 
-            object-fit: cover;
+            color:
+                #292524 !important;
+        }
+
+        a[href="#packages"]:hover,
+        .btn-primary:hover {
+            background:
+                var(--bh-yellow-hover) !important;
+
+            border-color:
+                var(--bh-yellow-hover) !important;
+
+            color:
+                #292524 !important;
+        }
+
+        .bh-occasion-button:hover {
+            background:
+                var(--bh-yellow) !important;
+
+            border-color:
+                var(--bh-yellow) !important;
+
+            color:
+                #292524 !important;
         }
 
 
-        .bh-package-card-content {
-            padding: 30px;
+        /* =====================================================
+           DARK MODE — BUTTONS MUST STAY YELLOW
+        ====================================================== */
+
+        html.dark a[href="#packages"],
+        html.dark .btn-primary {
+            background:
+                var(--bh-yellow) !important;
+
+            border-color:
+                var(--bh-yellow) !important;
+
+            color:
+                #292524 !important;
+        }
+
+        html.dark a[href="#packages"]:hover,
+        html.dark .btn-primary:hover {
+            background:
+                var(--bh-yellow-hover) !important;
+
+            border-color:
+                var(--bh-yellow-hover) !important;
+
+            color:
+                #292524 !important;
+        }
+
+
+        /* =====================================================
+           DARK MODE — CHECK ICON CIRCLES
+        ====================================================== */
+
+        html.dark .bg-amber-100 {
+            background:
+                rgba(245,158,11,.12) !important;
+        }
+
+        html.dark .dark\:bg-amber-500\/10 {
+            background:
+                rgba(245,158,11,.12) !important;
         }
 
 
@@ -652,47 +1322,43 @@
 
         @media (max-width: 767px) {
 
-            /* HERO */
-
             .bh-bulk-hero-image {
                 min-height: 300px;
                 border-radius: 20px;
             }
 
-
             .bh-bulk-hero-title {
-                font-size: 3rem;
-                line-height: 1;
+                font-size: 2.5rem;
+                line-height: 1.02;
             }
-
 
             .bh-bulk-hero-description {
                 font-size: .95rem;
                 line-height: 1.7;
             }
 
-
             .bh-bulk-hero-stats {
                 gap: 18px;
+
                 margin-top: 32px;
+
                 padding-top: 22px;
             }
-
 
             .bh-bulk-hero-stat-value {
                 font-size: 1.6rem;
             }
 
-
             .bh-bulk-hero-stat-label {
                 font-size: .7rem;
             }
 
-
             .bh-bulk-hero-badge {
                 left: 16px;
                 bottom: 16px;
-                max-width: calc(100% - 32px);
+
+                max-width:
+                    calc(100% - 32px);
             }
 
 
@@ -703,98 +1369,90 @@
                 line-height: 1.02;
             }
 
-
             .bh-occasion-kicker {
                 font-size: .62rem;
+
                 letter-spacing: .16em;
+
                 gap: 8px;
             }
-
 
             .bh-occasion-kicker::before {
                 width: 28px;
                 min-width: 28px;
             }
 
-
             .bh-occasion-list {
                 margin-top: 45px;
             }
 
 
-            /* =================================================
-               IMPORTANT MOBILE FIX
-
-               Two columns:
-               column 1 = number
-               column 2 = title
-               
-               Description spans BOTH columns.
-            ================================================== */
+            /* MOBILE OCCASION ROW */
 
             .bh-occasion-row {
                 grid-template-columns:
                     48px
-                    minmax(0, 1fr);
+                    minmax(0,1fr);
 
                 gap: 15px;
 
                 min-height: auto;
 
-                padding: 25px 0;
+                padding:
+                    25px 0;
 
                 align-items: start;
             }
-
 
             .bh-occasion-row:hover {
                 padding-left: 8px;
                 padding-right: 8px;
             }
 
-
             .bh-occasion-number {
                 font-size: 2rem;
             }
-
 
             .bh-occasion-title {
                 font-size: 1.25rem;
                 line-height: 1.25;
             }
 
-
             .bh-occasion-label {
                 font-size: .6rem;
                 line-height: 1.4;
             }
 
-
-            /* THIS FIXES THE WORD-BY-WORD MOBILE TEXT */
-
             .bh-occasion-description {
-                grid-column: 1 / -1;
+                grid-column:
+                    1 / -1;
 
                 width: 100%;
+
                 max-width: none;
 
                 margin-top: 0;
 
-                color: #57534e;
+                color:
+                    #57534e;
 
                 font-size: .85rem;
 
                 line-height: 1.7;
 
                 overflow-wrap: break-word;
+
                 word-break: normal;
             }
 
+            html.dark .bh-occasion-description {
+                color:
+                    var(--bh-dark-muted);
+            }
 
             .bh-occasion-arrow {
                 display: none;
             }
-
 
             .bh-occasion-bottom {
                 display: block;
@@ -802,12 +1460,11 @@
                 margin-top: 35px;
             }
 
-
             .bh-occasion-bottom-text {
                 font-size: 1.15rem;
+
                 line-height: 1.45;
             }
-
 
             .bh-occasion-button {
                 margin-top: 25px;
@@ -822,13 +1479,12 @@
                 height: 180px;
             }
 
-
             .bh-package-card-content {
                 padding: 24px;
             }
 
 
-            /* PROCESS */
+            /* HERO CONTENT */
 
             .bh-bulk-hero-content {
                 width: 100%;
@@ -839,9 +1495,9 @@
 
             #faq-accordion summary {
                 gap: 12px;
+
                 line-height: 1.45;
             }
-
 
             #faq-accordion summary span {
                 flex-shrink: 0;
@@ -853,7 +1509,6 @@
             section > .relative.overflow-hidden.rounded-3xl {
                 border-radius: 22px;
             }
-
         }
 
 
@@ -864,79 +1519,71 @@
         @media (max-width: 420px) {
 
             .bh-bulk-hero-title {
-                font-size: 2.5rem;
-                line-height: 1;
+                font-size: 2.2rem;
+                line-height: 1.05;
             }
-
 
             .bh-bulk-hero-description {
                 font-size: .9rem;
                 line-height: 1.7;
             }
 
-
             .bh-bulk-hero-stats {
                 grid-template-columns: 1fr;
+
                 gap: 15px;
             }
-
 
             .bh-bulk-hero-stat-value {
                 font-size: 1.55rem;
             }
 
-
             .bh-bulk-hero-stat-label {
                 font-size: .68rem;
             }
-
 
             .bh-bulk-hero-image {
                 min-height: 260px;
             }
 
-
             .bh-bulk-hero-badge {
-                padding: 10px 13px;
+                padding:
+                    10px 13px;
             }
-
 
             .bh-occasion-heading {
                 font-size: 2.35rem;
                 line-height: 1.04;
             }
 
-
             .bh-occasion-kicker {
                 font-size: .55rem;
                 letter-spacing: .12em;
             }
 
-
             .bh-occasion-row {
                 grid-template-columns:
                     40px
-                    minmax(0, 1fr);
+                    minmax(0,1fr);
 
                 gap: 12px;
 
-                padding: 22px 0;
+                padding:
+                    22px 0;
             }
-
 
             .bh-occasion-number {
                 font-size: 1.7rem;
             }
-
 
             .bh-occasion-title {
                 font-size: 1.1rem;
                 line-height: 1.25;
             }
 
-
             .bh-occasion-description {
-                grid-column: 1 / -1;
+                grid-column:
+                    1 / -1;
 
                 margin-top: 2px;
 
@@ -945,167 +1592,91 @@
                 line-height: 1.65;
             }
 
-
             .bh-occasion-bottom-text {
                 font-size: 1.05rem;
             }
 
-
             .bh-occasion-button {
                 width: 100%;
+
                 justify-content: center;
             }
-
-
-            /* SMALL SCREEN BUTTON SAFETY */
 
             .bh-bulk-hero-content .btn-primary,
             .bh-bulk-hero-content a {
                 max-width: 100%;
             }
 
-
-            /* SMALL SCREEN FAQ */
-
             #faq-accordion summary {
                 font-size: .9rem;
             }
-
         }
 
 
         /* =====================================================
-           EXTRA SMALL PHONES — 320px
+           EXTRA SMALL PHONES — 350PX
         ====================================================== */
 
         @media (max-width: 350px) {
 
             .bh-bulk-hero-title {
-                font-size: 2.25rem;
+                font-size: 2rem;
             }
-
 
             .bh-bulk-hero-inner {
                 padding-left: 16px !important;
                 padding-right: 16px !important;
             }
 
-
             .bh-bulk-hero-description {
                 font-size: .85rem;
             }
-
 
             .bh-occasion-heading {
                 font-size: 2.1rem;
             }
 
-
             .bh-occasion-row {
                 grid-template-columns:
                     34px
-                    minmax(0, 1fr);
+                    minmax(0,1fr);
 
                 gap: 10px;
             }
-
 
             .bh-occasion-number {
                 font-size: 1.5rem;
             }
 
-
             .bh-occasion-title {
                 font-size: 1rem;
             }
-
 
             .bh-occasion-description {
                 font-size: .78rem;
             }
 
-
             .bh-package-card-content {
                 padding: 20px;
             }
-
         }
 
 
         /* =====================================================
-           DARK MODE TEXT FIXES
+           SMOOTH THEME TRANSITION
         ====================================================== */
 
-        .dark .bh-occasion {
-            color: #e7e5e4;
-        }
-
-
-        .dark .bh-occasion-title {
-            color: #f5f5f4;
-        }
-
-
-        .dark .bh-occasion-description {
-            color: #a8a29e;
-        }
-
-
-        .dark .bh-occasion-bottom-text {
-            color: #d6d3d1;
-        }
-
-
-        .dark .bh-occasion-row {
-            border-color: rgba(168, 162, 158, .2);
-        }
-
-
-        .dark .bh-occasion-list {
-            border-color: rgba(168, 162, 158, .2);
-        }
-
-
-        .dark .bh-occasion-row:hover {
-            background: rgba(41, 37, 36, .55);
-        }
-
-
-        .dark .bh-occasion-button {
-            color: #d6d3d1;
-            border-color: #57534e;
-        }
-
-
-        .dark .bh-occasion-button:hover {
-            color: #ffffff;
-            border-color: #d97706;
-        }
-
-
-        .dark .bh-package-card {
-            background: #292524;
-            border-color: #44403c;
-        }
-
-
-        .dark .bh-package-card:hover {
-            border-color: #57534e;
-        }
-
-
-        .dark .bh-package-card h3 {
-            color: #f5f5f4;
-        }
-
-
-        .dark .bh-package-card p {
-            color: #a8a29e;
-        }
-
-
-        .dark .bh-package-card-content {
-            color: #f5f5f4;
+        body,
+        main,
+        section,
+        .bh-package-card,
+        .bh-occasion-row,
+        .bh-occasion-button,
+        .bh-bulk-hero {
+            transition:
+                background-color .3s ease,
+                color .3s ease,
+                border-color .3s ease;
         }
 
     </style>
@@ -1136,11 +1707,9 @@
                 class="pointer-events-none absolute -left-24 -top-32 h-96 w-96 rounded-full bg-amber-500/20 blur-3xl">
             </div>
 
-
             <div
                 class="pointer-events-none absolute -bottom-24 right-0 h-80 w-80 rounded-full bg-orange-600/20 blur-3xl">
             </div>
-
 
             <div
                 class="pointer-events-none absolute inset-0 opacity-[0.04]"
@@ -1159,21 +1728,17 @@
             <div
                 class="bh-bulk-hero-inner mx-auto max-w-7xl px-5 py-14 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
 
-
                 <div
                     class="grid items-center gap-10 lg:grid-cols-[1.02fr_.98fr] lg:gap-14">
 
 
                     <div class="bh-bulk-hero-content">
 
-
-
-
-                        <h1 class="bh-bulk-hero-title">
+                        <h1 class="bh-bulk-hero-title bh-section-title">
 
                             Feed a room
 
-                            <span>
+                            <span class="bh-script">
                                 without turning it
                             </span>
 
@@ -1196,7 +1761,7 @@
 
                             <a
                                 href="contact.html"
-                                class="btn-primary bg-amber-500 text-stone-900 shadow-lg shadow-amber-500/30 hover:bg-amber-400">
+                                class="btn-primary">
 
                                 Send an order enquiry
 
@@ -1205,7 +1770,7 @@
 
                             <a
                                 href="#packages"
-                                class="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/40 hover:bg-white/5">
+                                class="inline-flex items-center gap-2 rounded-full bg-amber-500 px-6 py-3 text-sm font-semibold text-stone-900 shadow-lg shadow-amber-500/20 transition hover:bg-amber-400">
 
                                 View packages
 
@@ -1219,7 +1784,6 @@
 
 
                         <div class="bh-bulk-hero-stats">
-
 
                             <div>
 
@@ -1259,7 +1823,6 @@
 
                             </div>
 
-
                         </div>
 
                     </div>
@@ -1270,7 +1833,8 @@
                         <img
                             src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1400&q=85"
                             alt="Buffet spread prepared for office catering"
-                            loading="eager">
+                            loading="eager"
+                        >
 
 
                         <div class="bh-bulk-hero-badge">
@@ -1279,21 +1843,16 @@
                                 class="bh-bulk-hero-badge-dot">
                             </span>
 
-
                             <div>
 
                                 <p
                                     class="text-xs font-bold text-white">
-
                                     Freshly prepared
-
                                 </p>
 
                                 <p
                                     class="text-[11px] text-stone-400">
-
                                     Planned around your schedule
-
                                 </p>
 
                             </div>
@@ -1310,13 +1869,12 @@
 
 
         <!-- =====================================================
-             SECTION 1 — PACKAGES
+             PACKAGES
         ====================================================== -->
 
         <section
             id="packages"
             class="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12">
-
 
             <div class="mx-auto mb-12 max-w-2xl text-center">
 
@@ -1324,7 +1882,7 @@
                     Simple packages
                 </p>
 
-                <h2 class="section-title">
+                <h2 class="section-title bh-section-title">
                     Built for groups.
                 </h2>
 
@@ -1342,6 +1900,8 @@
             <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
 
 
+                <!-- BREAKFAST -->
+
                 <div class="bh-package-card group">
 
                     <div class="relative overflow-hidden">
@@ -1350,7 +1910,8 @@
                             src="../images/idly poha with juice.jpg"
                             alt="Idly and poha with juice breakfast box"
                             loading="lazy"
-                            onerror="this.style.display='none';">
+                            onerror="this.style.display='none';"
+                        >
 
                     </div>
 
@@ -1361,11 +1922,9 @@
                             Breakfast Box
                         </h3>
 
-
                         <p class="mt-2 text-sm text-stone-500">
                             Idli/poha + chutney + fruit + juice
                         </p>
-
 
                         <div
                             class="mt-6 flex items-center justify-between border-t border-stone-200 pt-5 dark:border-stone-800">
@@ -1387,6 +1946,8 @@
                 </div>
 
 
+                <!-- WORKING LUNCH -->
+
                 <div class="bh-package-card group">
 
                     <div class="relative overflow-hidden">
@@ -1394,7 +1955,8 @@
                         <img
                             src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=800&q=80"
                             alt="Working lunch rice bowl"
-                            loading="lazy">
+                            loading="lazy"
+                        >
 
                     </div>
 
@@ -1405,11 +1967,9 @@
                             Working Lunch
                         </h3>
 
-
                         <p class="mt-2 text-sm text-stone-500">
                             Rice bowl + side + dessert + beverage
                         </p>
-
 
                         <div
                             class="mt-6 flex items-center justify-between border-t border-stone-200 pt-5 dark:border-stone-800">
@@ -1431,6 +1991,8 @@
                 </div>
 
 
+                <!-- SNACK TABLE -->
+
                 <div class="bh-package-card group">
 
                     <div class="relative overflow-hidden">
@@ -1438,7 +2000,8 @@
                         <img
                             src="https://images.unsplash.com/photo-1541014741259-de529411b96a?auto=format&fit=crop&w=800&q=80"
                             alt="Snack table savouries"
-                            loading="lazy">
+                            loading="lazy"
+                        >
 
                     </div>
 
@@ -1449,11 +2012,9 @@
                             Snack Table
                         </h3>
 
-
                         <p class="mt-2 text-sm text-stone-500">
                             Three savouries + dip + sweet
                         </p>
-
 
                         <div
                             class="mt-6 flex items-center justify-between border-t border-stone-200 pt-5 dark:border-stone-800">
@@ -1475,6 +2036,8 @@
                 </div>
 
 
+                <!-- DINNER FEAST -->
+
                 <div class="bh-package-card group">
 
                     <div class="relative overflow-hidden">
@@ -1483,8 +2046,8 @@
                             src="../images/two mains plus bread.webp"
                             alt="Two mains with bread dinner feast"
                             loading="lazy"
-                            onerror="this.style.display='none';">
-
+                            onerror="this.style.display='none';"
+                        >
 
                         <span
                             class="absolute left-4 top-4 z-10 rounded-full bg-amber-500 px-3 py-1 text-xs font-bold text-stone-900">
@@ -1502,11 +2065,9 @@
                             Dinner Feast
                         </h3>
 
-
                         <p class="mt-2 text-sm text-stone-500">
                             Two mains + rice + breads + sides
                         </p>
-
 
                         <div
                             class="mt-6 flex items-center justify-between border-t border-stone-200 pt-5 dark:border-stone-800">
@@ -1526,7 +2087,6 @@
                     </div>
 
                 </div>
-
 
             </div>
 
@@ -1560,19 +2120,17 @@
             <div
                 class="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-12">
 
-
                 <div class="bh-occasion-intro">
 
                     <p class="bh-occasion-kicker">
                         One kitchen · Many possibilities
                     </p>
 
-
-                    <h2 class="bh-occasion-heading">
+                    <h2 class="bh-occasion-heading bh-section-title">
 
                         One kitchen.
 
-                        <span>
+                        <span class="bh-script">
                             Many occasions.
                         </span>
 
@@ -1590,7 +2148,6 @@
                             01
                         </div>
 
-
                         <div>
 
                             <p class="bh-occasion-label">
@@ -1603,7 +2160,6 @@
 
                         </div>
 
-
                         <p class="bh-occasion-description">
 
                             Keep the team fuelled without interrupting the
@@ -1611,7 +2167,6 @@
                             and delivered around your lunch window.
 
                         </p>
-
 
                         <div class="bh-occasion-arrow">
                             →
@@ -1626,7 +2181,6 @@
                             02
                         </div>
 
-
                         <div>
 
                             <p class="bh-occasion-label">
@@ -1639,7 +2193,6 @@
 
                         </div>
 
-
                         <p class="bh-occasion-description">
 
                             Birthdays, reunions and celebrations deserve food
@@ -1647,7 +2200,6 @@
                             everyone eat together.
 
                         </p>
-
 
                         <div class="bh-occasion-arrow">
                             →
@@ -1662,7 +2214,6 @@
                             03
                         </div>
 
-
                         <div>
 
                             <p class="bh-occasion-label">
@@ -1675,7 +2226,6 @@
 
                         </div>
 
-
                         <p class="bh-occasion-description">
 
                             When the schedule matters, the food should fit
@@ -1683,7 +2233,6 @@
                             dependable quantities keep your event moving.
 
                         </p>
-
 
                         <div class="bh-occasion-arrow">
                             →
@@ -1698,7 +2247,6 @@
                             04
                         </div>
 
-
                         <div>
 
                             <p class="bh-occasion-label">
@@ -1711,7 +2259,6 @@
 
                         </div>
 
-
                         <p class="bh-occasion-description">
 
                             For larger groups, our kitchen workflow scales
@@ -1720,13 +2267,11 @@
 
                         </p>
 
-
                         <div class="bh-occasion-arrow">
                             →
                         </div>
 
                     </div>
-
 
                 </div>
 
@@ -1737,7 +2282,7 @@
 
                         Whatever the occasion,
 
-                        <span>
+                        <span class="bh-script">
                             the kitchen stays focused on the food.
                         </span>
 
@@ -1776,8 +2321,7 @@
                     Process
                 </p>
 
-
-                <h2 class="section-title">
+                <h2 class="section-title bh-section-title">
                     How ordering works.
                 </h2>
 
@@ -1797,7 +2341,7 @@
                             <div class="lg:pr-14 lg:text-right">
 
                                 <span
-                                    class="font-display text-5xl font-black text-amber-500">
+                                    class="font-display text-5xl font-black text-[#6B3F24]">
                                     01
                                 </span>
 
@@ -1823,7 +2367,7 @@
                             <div class="lg:pl-14">
 
                                 <span
-                                    class="font-display text-5xl font-black text-amber-500">
+                                    class="font-display text-5xl font-black text-[#6B3F24]">
                                     02
                                 </span>
 
@@ -1845,7 +2389,7 @@
                             <div class="lg:pr-14 lg:text-right">
 
                                 <span
-                                    class="font-display text-5xl font-black text-amber-500">
+                                    class="font-display text-5xl font-black text-[#6B3F24]">
                                     03
                                 </span>
 
@@ -1871,7 +2415,7 @@
                             <div class="lg:pl-14">
 
                                 <span
-                                    class="font-display text-5xl font-black text-amber-500">
+                                    class="font-display text-5xl font-black text-[#6B3F24]">
                                     04
                                 </span>
 
@@ -1886,7 +2430,6 @@
                             </div>
 
                         </div>
-
 
                     </div>
 
@@ -1912,8 +2455,8 @@
                     <img
                         src="https://www.raysevent.in/gallery_wedding_buffet_1771155901014.png"
                         alt="Premium Indian buffet catering spread"
-                        class="aspect-[4/5] w-full rounded-3xl object-cover">
-
+                        class="aspect-[4/5] w-full rounded-3xl object-cover"
+                    >
 
                     <div
                         class="absolute -bottom-6 -right-6 hidden rounded-2xl bg-amber-500 p-6 text-stone-900 shadow-xl sm:block">
@@ -1937,11 +2480,9 @@
                         Why us
                     </p>
 
-
-                    <h2 class="section-title">
+                    <h2 class="section-title bh-section-title">
                         Reliable, every single time.
                     </h2>
-
 
                     <p class="mt-5 text-stone-600 dark:text-stone-300">
 
@@ -1958,9 +2499,7 @@
 
                             <div
                                 class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-amber-500 font-bold text-stone-900">
-
                                 ✓
-
                             </div>
 
                             <div>
@@ -1982,9 +2521,7 @@
 
                             <div
                                 class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-amber-500 font-bold text-stone-900">
-
                                 ✓
-
                             </div>
 
                             <div>
@@ -2006,9 +2543,7 @@
 
                             <div
                                 class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-amber-500 font-bold text-stone-900">
-
                                 ✓
-
                             </div>
 
                             <div>
@@ -2030,9 +2565,7 @@
 
                             <div
                                 class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-amber-500 font-bold text-stone-900">
-
                                 ✓
-
                             </div>
 
                             <div>
@@ -2048,7 +2581,6 @@
                             </div>
 
                         </div>
-
 
                     </div>
 
@@ -2068,7 +2600,6 @@
             <div
                 class="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12">
 
-
                 <div
                     class="mb-12 grid gap-6 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
 
@@ -2078,7 +2609,7 @@
                             Coverage
                         </p>
 
-                        <h2 class="section-title">
+                        <h2 class="section-title bh-section-title">
                             Where we deliver.
                         </h2>
 
@@ -2105,7 +2636,9 @@
                         <div
                             class="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-100 text-xl dark:bg-amber-500/10">
 
-                            🏙️
+                            <span
+                                class="block h-3 w-3 rounded-full border-2 border-amber-600">
+                            </span>
 
                         </div>
 
@@ -2126,7 +2659,9 @@
                         <div
                             class="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-100 text-xl dark:bg-amber-500/10">
 
-                            🏢
+                            <span
+                                class="block h-4 w-4 rounded-sm border-2 border-amber-600">
+                            </span>
 
                         </div>
 
@@ -2147,7 +2682,9 @@
                         <div
                             class="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-100 text-xl dark:bg-amber-500/10">
 
-                            🎪
+                            <span
+                                class="block h-4 w-4 rounded-full border-2 border-amber-600">
+                            </span>
 
                         </div>
 
@@ -2168,7 +2705,9 @@
                         <div
                             class="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-100 text-xl dark:bg-amber-500/10">
 
-                            🏘️
+                            <span
+                                class="block h-4 w-4 rounded-full border-2 border-amber-600">
+                            </span>
 
                         </div>
 
@@ -2182,7 +2721,6 @@
 
                     </div>
 
-
                 </div>
 
 
@@ -2192,7 +2730,7 @@
 
                     <a
                         href="contact.html"
-                        class="font-semibold text-amber-600 underline underline-offset-2 dark:text-amber-400">
+                        class="font-semibold text-[#6B3F24] underline underline-offset-2">
 
                         Ask us directly
 
@@ -2214,7 +2752,6 @@
         <section
             class="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12">
 
-
             <div class="grid gap-12 lg:grid-cols-[.8fr_1.2fr]">
 
 
@@ -2224,7 +2761,7 @@
                         Questions
                     </p>
 
-                    <h2 class="section-title">
+                    <h2 class="section-title bh-section-title">
                         Before you book.
                     </h2>
 
@@ -2251,10 +2788,8 @@
                             What's the minimum headcount for a bulk order?
 
                             <span
-                                class="ml-4 text-amber-500 transition group-open:rotate-45">
-
+                                class="ml-4 transition group-open:rotate-45">
                                 +
-
                             </span>
 
                         </summary>
@@ -2280,10 +2815,8 @@
                             How much advance notice do you need?
 
                             <span
-                                class="ml-4 text-amber-500 transition group-open:rotate-45">
-
+                                class="ml-4 transition group-open:rotate-45">
                                 +
-
                             </span>
 
                         </summary>
@@ -2308,10 +2841,8 @@
                             Can we customise the menu?
 
                             <span
-                                class="ml-4 text-amber-500 transition group-open:rotate-45">
-
+                                class="ml-4 transition group-open:rotate-45">
                                 +
-
                             </span>
 
                         </summary>
@@ -2336,10 +2867,8 @@
                             Do you provide serving staff or setup?
 
                             <span
-                                class="ml-4 text-amber-500 transition group-open:rotate-45">
-
+                                class="ml-4 transition group-open:rotate-45">
                                 +
-
                             </span>
 
                         </summary>
@@ -2356,7 +2885,6 @@
 
                     </details>
 
-
                 </div>
 
             </div>
@@ -2371,25 +2899,22 @@
         <section
             class="mx-auto max-w-7xl px-5 pb-20 sm:px-8 lg:px-12">
 
-
             <div
-                class="relative overflow-hidden rounded-3xl text-center text-white">
-
+                class="bh-final-cta relative overflow-hidden rounded-3xl text-center text-white">
 
                 <img
                     src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=80"
                     alt="Table set for a large event"
-                    class="absolute inset-0 h-full w-full object-cover">
-
+                    class="absolute inset-0 h-full w-full object-cover"
+                >
 
                 <div class="absolute inset-0 bg-stone-900/80"></div>
 
 
                 <div class="relative px-8 py-16 sm:px-16">
 
-
                     <p
-                        class="text-xs font-bold uppercase tracking-[.25em] text-amber-400">
+                        class="bh-final-kicker text-xs font-bold uppercase tracking-[.25em]">
 
                         Let's plan your next gathering
 
@@ -2397,14 +2922,14 @@
 
 
                     <h2
-                        class="mt-3 font-display text-3xl font-black sm:text-4xl">
+                        class="mt-3 font-display text-3xl font-black sm:text-4xl bh-section-title">
 
                         Ready to feed your next event?
 
                     </h2>
 
 
-                    <p class="mx-auto mt-4 max-w-xl text-stone-300">
+                    <p class="mx-auto mt-4 max-w-xl">
 
                         Send us your headcount and date —
                         we'll take it from there.
@@ -2414,7 +2939,7 @@
 
                     <a
                         href="contact.html"
-                        class="btn-primary mt-8 inline-block bg-amber-500 text-stone-900 hover:bg-amber-400">
+                        class="btn-primary mt-8 inline-block">
 
                         Send an order enquiry
 
