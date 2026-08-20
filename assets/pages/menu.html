@@ -113,7 +113,7 @@
 
 
         /* =====================================================
-           SECTION BACKGROUND (uniform, per request)
+           SECTION BACKGROUND
         ====================================================== */
 
         .page-surface {
@@ -126,7 +126,7 @@
 
 
         /* =====================================================
-           HERO — redesigned, side-by-side style
+           HERO
         ====================================================== */
 
         .menu-hero {
@@ -213,7 +213,7 @@
 
 
         /* =====================================================
-           FILTERS — pill button style
+           FILTERS
         ====================================================== */
 
         .filter-wrap {
@@ -361,7 +361,16 @@
             color: #f4efe3;
         }
 
-        /* Veg / Non-veg tags kept to brown & black only */
+        .food-desc {
+            font-family: "DM Sans", sans-serif;
+            font-size: .82rem;
+            line-height: 1.5;
+            color: var(--bh-muted);
+        }
+
+        .dark .food-desc {
+            color: #cfc2a8;
+        }
 
         .food-tag--veg,
         .food-tag--nonveg {
@@ -678,7 +687,7 @@
 
 
         <!-- =====================================================
-             HERO — side-by-side, premium editorial style
+             HERO
         ====================================================== -->
 
         <section class="menu-hero relative overflow-hidden">
@@ -743,8 +752,6 @@
 
                         </div>
 
-
-                        <!-- HERO STATS -->
 
                         <div
                             class="mt-14 grid max-w-lg grid-cols-3 border-t pt-7"
@@ -850,8 +857,6 @@
             </div>
 
 
-            <!-- FILTERS — navigation-tab style -->
-
             <div class="mt-10 flex justify-center">
 
                 <nav
@@ -890,141 +895,6 @@
             <div
                 id="menu-grid"
                 class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             FROM OUR KITCHEN
-        ====================================================== -->
-
-        <section
-            class="page-surface border-y"
-            style="border-color:var(--bh-border);">
-
-            <div
-                class="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-28">
-
-                <div
-                    class="grid items-center gap-12 lg:grid-cols-[1.05fr_.95fr] lg:gap-20">
-
-
-                    <div class="feature-image-wrap">
-
-                        <img
-                            src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1400&q=85"
-                            alt="Fresh ingredients being prepared"
-                            class="menu-feature-image h-[380px] w-full object-cover sm:h-[500px]">
-
-                    </div>
-
-
-                    <div>
-
-                        <p class="eyebrow">
-                            From our kitchen
-                        </p>
-
-
-                        <h2
-                            class="section-title mt-4 text-4xl font-semibold leading-tight sm:text-5xl">
-
-                            Simple ingredients.
-                            <span class="accent block" style="font-style:normal;">
-                                Serious flavour.
-                            </span>
-
-                        </h2>
-
-
-                        <p
-                            class="muted-text mt-6 max-w-xl text-base leading-8 sm:text-lg">
-
-                            Our menu is built around food that feels
-                            familiar. We focus on fresh preparation,
-                            balanced spices and dishes that are meant
-                            to be enjoyed without overthinking them.
-
-                        </p>
-
-
-                        <div class="mt-9 space-y-6">
-
-
-                            <div class="kitchen-point flex gap-4">
-
-                                <span class="icon-circle">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c8 0 14-6 14-14 0 0-10-2-14 6-2 4-1 6 0 8Z"/><path d="M6 18c2-4 4-7 8-10"/></svg>
-                                </span>
-
-                                <div>
-
-                                    <h3 class="font-bold" style="color:var(--bh-ink);">
-                                        Carefully selected ingredients
-                                    </h3>
-
-                                    <p class="muted-text mt-1 text-sm leading-6">
-                                        Fresh produce and trusted ingredients
-                                        form the base of every dish.
-                                    </p>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="kitchen-point flex gap-4">
-
-                                <span class="icon-circle">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c1 3-2 4-2 7a3 3 0 1 0 6 0c0-1-1-2-1-2 2 1 3 4 3 6a6 6 0 1 1-12 0c0-4 3-6 4-9 0 0 1-1 2-2Z"/></svg>
-                                </span>
-
-                                <div>
-
-                                    <h3 class="font-bold" style="color:var(--bh-ink);">
-                                        Cooked around your order
-                                    </h3>
-
-                                    <p class="muted-text mt-1 text-sm leading-6">
-                                        We keep the process focused so food
-                                        reaches you at its best.
-                                    </p>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="kitchen-point flex gap-4">
-
-                                <span class="icon-circle">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.35-9.5-8.5C.7 8 2 4.5 5.5 4c2-.3 3.7.9 4.5 2.3C10.8 4.9 12.5 3.7 14.5 4 18 4.5 19.3 8 17.5 11.5 15 15.65 12 20 12 20Z"/></svg>
-                                </span>
-
-                                <div>
-
-                                    <h3 class="font-bold" style="color:var(--bh-ink);">
-                                        Food made for real life
-                                    </h3>
-
-                                    <p class="muted-text mt-1 text-sm leading-6">
-                                        Easy enough for busy evenings and
-                                        special enough for sharing.
-                                    </p>
-
-                                </div>
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-                </div>
-
             </div>
 
         </section>
@@ -1176,6 +1046,149 @@
             <div
                 class="mt-12 grid grid-cols-1 gap-6 text-left sm:grid-cols-2 lg:grid-cols-4"
                 id="desserts-grid">
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             FROM OUR KITCHEN
+             MOVED TO AFTER DESSERTS
+        ====================================================== -->
+
+        <section
+            class="page-surface border-y"
+            style="border-color:var(--bh-border);">
+
+            <div
+                class="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-28">
+
+                <div
+                    class="grid items-center gap-12 lg:grid-cols-[1.05fr_.95fr] lg:gap-20">
+
+
+                    <div class="feature-image-wrap">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1400&q=85"
+                            alt="Fresh ingredients being prepared"
+                            class="menu-feature-image h-[380px] w-full object-cover sm:h-[500px]">
+
+                    </div>
+
+
+                    <div>
+
+                        <p class="eyebrow">
+                            From our kitchen
+                        </p>
+
+
+                        <h2
+                            class="section-title mt-4 text-4xl font-semibold leading-tight sm:text-5xl">
+
+                            Simple ingredients.
+                            <span class="accent block" style="font-style:normal;">
+                                Serious flavour.
+                            </span>
+
+                        </h2>
+
+
+                        <p
+                            class="muted-text mt-6 max-w-xl text-base leading-8 sm:text-lg">
+
+                            Our menu is built around food that feels
+                            familiar. We focus on fresh preparation,
+                            balanced spices and dishes that are meant
+                            to be enjoyed without overthinking them.
+
+                        </p>
+
+
+                        <div class="mt-9 space-y-6">
+
+
+                            <div class="kitchen-point flex gap-4">
+
+                                <span class="icon-circle">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M4 20c8 0 14-6 14-14 0 0-10-2-14 6-2 4-1 6 0 8Z"/>
+                                        <path d="M6 18c2-4 4-7 8-10"/>
+                                    </svg>
+                                </span>
+
+                                <div>
+
+                                    <h3 class="font-bold" style="color:var(--bh-ink);">
+                                        Carefully selected ingredients
+                                    </h3>
+
+                                    <p class="muted-text mt-1 text-sm leading-6">
+                                        Fresh produce and trusted ingredients
+                                        form the base of every dish.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="kitchen-point flex gap-4">
+
+                                <span class="icon-circle">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 3c1 3-2 4-2 7a3 3 0 1 0 6 0c0-1-1-2-1-2 2 1 3 4 3 6a6 6 0 1 1-12 0c0-4 3-6 4-9 0 0 1-1 2-2Z"/>
+                                    </svg>
+                                </span>
+
+                                <div>
+
+                                    <h3 class="font-bold" style="color:var(--bh-ink);">
+                                        Cooked around your order
+                                    </h3>
+
+                                    <p class="muted-text mt-1 text-sm leading-6">
+                                        We keep the process focused so food
+                                        reaches you at its best.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="kitchen-point flex gap-4">
+
+                                <span class="icon-circle">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 20s-7-4.35-9.5-8.5C.7 8 2 4.5 5.5 4c2-.3 3.7.9 4.5 2.3C10.8 4.9 12.5 3.7 14.5 4 18 4.5 19.3 8 17.5 11.5 15 15.65 12 20 12 20Z"/>
+                                    </svg>
+                                </span>
+
+                                <div>
+
+                                    <h3 class="font-bold" style="color:var(--bh-ink);">
+                                        Food made for real life
+                                    </h3>
+
+                                    <p class="muted-text mt-1 text-sm leading-6">
+                                        Easy enough for busy evenings and
+                                        special enough for sharing.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
 
         </section>
@@ -1423,7 +1436,10 @@
                         </div>
 
                         <div class="icon-circle hidden sm:flex">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18a9 8 0 0 1-18 0Z"/><path d="M8 11c0-3 1-5 4-5s4 2 4 5"/></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 11h18a9 8 0 0 1-18 0Z"/>
+                                <path d="M8 11c0-3 1-5 4-5s4 2 4 5"/>
+                            </svg>
                         </div>
 
                     </div>
@@ -1453,7 +1469,10 @@
                         </div>
 
                         <div class="icon-circle hidden sm:flex">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c8 0 14-6 14-14 0 0-10-2-14 6-2 4-1 6 0 8Z"/><path d="M6 18c2-4 4-7 8-10"/></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 20c8 0 14-6 14-14 0 0-10-2-14 6-2 4-1 6 0 8Z"/>
+                                <path d="M6 18c2-4 4-7 8-10"/>
+                            </svg>
                         </div>
 
                     </div>
@@ -1483,7 +1502,11 @@
                         </div>
 
                         <div class="icon-circle hidden sm:flex">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10a4 4 0 0 1 1-7.6A4 4 0 0 1 12 2a4 4 0 0 1 4 .4A4 4 0 0 1 17 10"/><path d="M7 10h10v4H7z"/><path d="M7 18h10v3H7z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 10a4 4 0 0 1 1-7.6A4 4 0 0 1 12 2a4 4 0 0 1 4 .4A4 4 0 0 1 17 10"/>
+                                <path d="M7 10h10v4H7z"/>
+                                <path d="M7 18h10v3H7z"/>
+                            </svg>
                         </div>
 
                     </div>
@@ -1512,7 +1535,12 @@
                         </div>
 
                         <div class="icon-circle hidden sm:flex">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M6 17 10 8h4l3 5"/><path d="M10 8 8 5h-2"/></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="6" cy="17" r="3"/>
+                                <circle cx="18" cy="17" r="3"/>
+                                <path d="M6 17 10 8h4l3 5"/>
+                                <path d="M10 8 8 5h-2"/>
+                            </svg>
                         </div>
 
                     </div>
@@ -1691,6 +1719,7 @@
                 tag: "Veg",
                 name: "Kuzhi Paniyaram",
                 price: "₹99",
+                desc: "Crisp-edged, soft-centred rice-batter dumplings straight off the paniyaram pan.",
                 images: [
                     "kuzhi-paniyaram.webp",
                     "kuzhi paniyaram.webp",
@@ -1704,6 +1733,7 @@
                 tag: "Veg",
                 name: "Ghee Pongal with Sambar",
                 price: "₹109",
+                desc: "Creamy moong dal pongal finished with ghee and cumin, served with hot sambar.",
                 images: [
                     "pongal.jpeg",
                     "Pongal.jpeg",
@@ -1716,6 +1746,7 @@
                 tag: "Veg",
                 name: "Adai with Aviyal",
                 price: "₹119",
+                desc: "Protein-rich lentil crepe paired with a mixed-vegetable aviyal in coconut and curd.",
                 images: [
                     "aviyal adai.jpeg",
                     "Aviyal adai.jpeg",
@@ -1726,8 +1757,9 @@
             {
                 category: "breakfast",
                 tag: "Veg",
-                name: "Idiyappam with Vegetable Kurma",
+                name: "Idiyappam with Kurma",
                 price: "₹129",
+                desc: "Steamed rice-noodle idiyappam served alongside a mildly spiced vegetable kurma.",
                 images: [
                     "Idiyapam.jpeg",
                     "Idiyappam.jpeg",
@@ -1742,6 +1774,7 @@
                 tag: "Veg",
                 name: "Vatha Kuzhambu Rice",
                 price: "₹169",
+                desc: "Tangy, sun-dried-vegetable tamarind gravy simmered slow and ladled over steamed rice.",
                 images: [
                     "Vatha Kuzhambu Rice.jpeg",
                     "Vatha Kuzhambu Rice.jpg",
@@ -1754,6 +1787,7 @@
                 tag: "Veg",
                 name: "Keerai Masiyal with Rice",
                 price: "₹159",
+                desc: "Mashed leafy greens tempered with garlic and lentils, a comforting village-style side.",
                 images: [
                     "keerai masiyal with rice.jpeg",
                     "Keerai Masiyal with Rice.jpeg",
@@ -1764,8 +1798,9 @@
             {
                 category: "lunch",
                 tag: "Non-Veg",
-                name: "Kongunadu Chicken Curry Meals",
+                name: "Kongunadu Chicken ",
                 price: "₹239",
+                desc: "Kongunadu-style chicken curry with roasted spices, served as a full rice meal.",
                 images: [
                     "kongunadu chicken curry meals.jpeg",
                     "Kongunadu chicken curry meals.jpeg",
@@ -1776,8 +1811,9 @@
             {
                 category: "lunch",
                 tag: "Non-Veg",
-                name: "Chettinad Mutton Kulambu Rice",
+                name: "Chettinad Mutton ",
                 price: "₹269",
+                desc: "Slow-cooked mutton in a fiery Chettinad kulambu, spooned generously over rice.",
                 images: [
                     "chettinad mutton kulambu rice.jpeg",
                     "Chettinad mutton kulambu rice.jpeg",
@@ -1790,6 +1826,7 @@
                 tag: "Non-Veg",
                 name: "Parotta & Salna",
                 price: "₹149",
+                desc: "Flaky layered parotta served with a rich, spiced salna for dipping.",
                 images: [
                     "parotta and salna.jpeg",
                     "parotta and salna.jpg",
@@ -1800,8 +1837,9 @@
             {
                 category: "dinner",
                 tag: "Non-Veg",
-                name: "Kothu Parotta with Chicken",
+                name: "Chicken Kothu Parotta ",
                 price: "₹199",
+                desc: "Shredded parotta tossed on the tawa with chicken, egg and a masala kick.",
                 images: [
                     "kothu parotta with chicken.jpeg",
                     "Kothu parotta with chicken.jpeg",
@@ -1812,8 +1850,9 @@
             {
                 category: "dinner",
                 tag: "Non-Veg",
-                name: "Nattu Kozhi Meen Kuzhambu Rice",
+                name: "Nattu Kozhi + Meen ",
                 price: "₹259",
+                desc: "Country-chicken and fish kuzhambu, deeply spiced and paired with soft-cooked rice.",
                 images: [
                     "nattu kozhi meen kuzhambu.jpeg",
                     "Nattu kozhi meen kuzhambu.jpeg",
@@ -1824,8 +1863,9 @@
             {
                 category: "dinner",
                 tag: "Veg",
-                name: "Vegetable Kurma with Chapati",
+                name: "Veg Kurma with Chapati",
                 price: "₹179",
+                desc: "Soft wheat chapatis served with a creamy, coconut-based mixed-vegetable kurma.",
                 images: [
                     "veg etable kurma with chapati.jpeg",
                     "vegetable kurma with chapati.jpeg",
@@ -1838,6 +1878,7 @@
                 tag: "Veg",
                 name: "Masala Vadai",
                 price: "₹79",
+                desc: "Crunchy chana dal fritters spiked with onion, curry leaves and green chilli.",
                 images: [
                     "masala vadai.jpeg",
                     "Masala vadai.jpeg",
@@ -1848,8 +1889,9 @@
             {
                 category: "snacks",
                 tag: "Veg",
-                name: "Onion & Vazhakkai Bajji Platter",
+                name: "Onion & Vazhakkai Bajji ",
                 price: "₹99",
+                desc: "A mixed platter of crisp onion and raw-banana bajjis fried to a golden crunch.",
                 images: [
                     "onion and vazhakkai bajji platter.jpeg",
                     "Onion and vazhakkai bajji platter.jpeg",
@@ -1862,6 +1904,7 @@
                 tag: "Non-Veg",
                 name: "Chicken 65",
                 price: "₹189",
+                desc: "Deep-fried, spice-marinated chicken bites with a fiery red masala coating.",
                 images: [
                     "chicken 65.jpeg",
                     "Chicken 65.jpeg",
@@ -1874,6 +1917,7 @@
                 tag: "Non-Veg",
                 name: "Mutton Sukka Bites",
                 price: "₹219",
+                desc: "Bite-sized mutton pieces roasted dry with coconut and a bold spice blend.",
                 images: [
                     "mutton sukka bites.jpeg",
                     "Mutton sukka bites.jpeg",
@@ -1939,6 +1983,8 @@
                             <h2 class="food-name mt-3 break-words">
                                 ${d.name}
                             </h2>
+
+                            ${d.desc ? `<p class="food-desc mt-2">${d.desc}</p>` : ""}
 
                         </div>
 
@@ -2058,6 +2104,8 @@
                                 ${d.name}
                             </h3>
 
+                            ${d.desc ? `<p class="food-desc mt-2">${d.desc}</p>` : ""}
+
                         </div>
 
                     </article>
@@ -2095,6 +2143,7 @@
                 tag: "Non-Veg",
                 name: "Chettinad Chicken Biryani",
                 price: "₹289",
+                desc: "Fragrant seeraga samba rice layered with slow-cooked Chettinad chicken.",
                 images: [
                     "chettinad chicken .jpeg",
                     "chettinad chicken.jpeg",
@@ -2105,8 +2154,9 @@
 
             {
                 tag: "Non-Veg",
-                name: "Karaikudi Fish Fry",
+                name: " Special Karaikudi Fish Fry",
                 price: "₹249",
+                desc: "Pan-fried fish coated in a peppery Karaikudi-style masala crust.",
                 images: [
                     "karakudi fish fry.jpeg"
                 ]
@@ -2116,6 +2166,7 @@
                 tag: "Veg",
                 name: "Kongunadu Vegetable Kurma",
                 price: "₹189",
+                desc: "A Kongunadu-style vegetable kurma built on freshly ground coconut and spices.",
                 images: [
                     "kongunadu vegitable kurma.jpeg"
                 ]
@@ -2125,6 +2176,7 @@
                 tag: "Non-Veg",
                 name: "Nattu Kozhi Chicken Chukka",
                 price: "₹259",
+                desc: "Country chicken roasted dry with curry leaves for a deep, smoky finish.",
                 images: [
                     "naatu kozhi chicken chukka.jpeg",
                     "Naatu kozhi chicken chukka.jpeg",
@@ -2145,6 +2197,7 @@
                 tag: "Non-Veg",
                 name: "Parotta + Salna + Chicken Curry",
                 price: "₹329",
+                desc: "A hearty trio of layered parotta, salna and chicken curry in one combo.",
                 images: [
                     "parotta salna chicken curry.jpeg",
                     "parotta salna chicken curry.jpg",
@@ -2156,6 +2209,7 @@
                 tag: "Veg",
                 name: "Idli + Vada + Sambar + Chutney",
                 price: "₹169",
+                desc: "The classic breakfast combo: soft idli, crisp vada, sambar and chutney.",
                 images: [
                     "idly ,vadi,sambar,chutney.jpeg"
                 ]
@@ -2165,6 +2219,7 @@
                 tag: "Veg",
                 name: "Kuzhi Paniyaram + Chutney Combo",
                 price: "₹139",
+                desc: "Golden paniyaram served with a duo of coconut and tomato chutneys.",
                 images: [
                     "kuzhipaniyaram with chutney combo.jpeg",
                     "kuzhipaniyaram with chutney combo.jpg",
@@ -2176,6 +2231,7 @@
                 tag: "Non-Veg",
                 name: "Meen Kuzhambu + Rice + Appalam Combo",
                 price: "₹289",
+                desc: "Spicy fish kuzhambu with steamed rice and a crisp roasted appalam on the side.",
                 images: [
                     "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=800&q=80"
                 ]
@@ -2194,6 +2250,7 @@
                 tag: "Veg",
                 name: "Filter Coffee",
                 price: "₹49",
+                desc: "Strong South Indian decoction coffee frothed with hot milk, served in a davara-tumbler.",
                 images: [
                     "filter coffee.jpeg",
                     "Filter coffee.jpeg",
@@ -2205,6 +2262,7 @@
                 tag: "Veg",
                 name: "Sukku Malli Coffee",
                 price: "₹59",
+                desc: "A warming dry-ginger and coriander brew, traditionally sipped for digestion.",
                 images: [
                     "https://m.media-amazon.com/images/I/81wRDw6f9SL.jpg"
                 ]
@@ -2214,6 +2272,7 @@
                 tag: "Veg",
                 name: "Nannari Sarbath",
                 price: "₹69",
+                desc: "Cooling sarsaparilla-root syrup mixed into chilled water for a refreshing sip.",
                 images: [
                     "nanari sarbath.jpeg",
                     "nannari sarbath.jpeg",
@@ -2224,8 +2283,9 @@
 
             {
                 tag: "Veg",
-                name: "Neer Mor (Spiced Buttermilk)",
+                name: "Neer Mor ",
                 price: "₹39",
+                desc: "Thin, spiced buttermilk with ginger, curry leaves and a hint of asafoetida.",
                 images: [
                     "neer mor.jpeg",
                     "Neer mor.jpeg",
@@ -2246,6 +2306,7 @@
                 tag: "Veg",
                 name: "Pal Payasam",
                 price: "₹89",
+                desc: "Rice slow-simmered in milk and sugar until thick, sweet and comforting.",
                 images: [
                     "pal paiyasam.jpeg",
                     "pal payasam.jpeg",
@@ -2259,6 +2320,7 @@
                 tag: "Veg",
                 name: "Adhirasam",
                 price: "₹69",
+                desc: "A traditional jaggery-and-rice-flour sweet, deep-fried to a glossy, chewy finish.",
                 images: [
                     "adhirasam.jpeg",
                     "Adhirasam.jpeg",
@@ -2270,6 +2332,7 @@
                 tag: "Veg",
                 name: "Ariselu",
                 price: "₹79",
+                desc: "Sesame-studded rice-flour sweet with a soft, jaggery-rich centre.",
                 images: [
                     "Ariselu.jpeg",
                     "ariselu.jpeg",
@@ -2281,6 +2344,7 @@
                 tag: "Veg",
                 name: "Boli (Poli)",
                 price: "₹79",
+                desc: "Thin sweet flatbread stuffed with a spiced lentil-and-jaggery filling.",
                 images: [
                     "Boli.jpeg",
                     "boli.jpeg",

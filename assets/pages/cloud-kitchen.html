@@ -411,64 +411,123 @@
 
 
         /* =========================================================
-           HERO PROCESS PANEL
+           NEW PREMIUM KITCHEN FLOW PANEL
         ========================================================== */
 
         .bh-cloud-process {
 
             position: relative;
+
             z-index: 5;
 
             width: 100%;
+
             max-width: 100%;
 
             min-width: 0;
 
+            padding: 30px;
+
             border:
-                1px solid rgba(255, 255, 255, .72);
+                1px solid rgba(255, 255, 255, .75);
+
+            border-radius: 30px;
 
             background:
-                rgba(255, 250, 247, .88);
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, .94),
+                    rgba(255, 247, 237, .88)
+                );
 
-            backdrop-filter: blur(18px);
+            backdrop-filter: blur(22px);
 
-            -webkit-backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(22px);
 
             box-shadow:
-                0 25px 60px rgba(87, 49, 31, .16);
+                0 30px 80px rgba(87, 49, 31, .18);
 
         }
 
+
+        .bh-cloud-process::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: -80px;
+
+            right: -70px;
+
+            width: 190px;
+
+            height: 190px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(217, 119, 6, .13);
+
+            filter: blur(35px);
+
+            pointer-events: none;
+
+        }
+
+
         .bh-cloud-process-top {
+
+            position: relative;
+
+            z-index: 2;
 
             display: flex;
 
-            align-items: center;
+            align-items: flex-end;
 
             justify-content: space-between;
 
-            gap: 12px;
+            gap: 20px;
 
-            padding-bottom: 20px;
+            padding-bottom: 24px;
 
             border-bottom:
                 1px solid rgba(120, 53, 15, .12);
 
         }
 
+
         .bh-cloud-process-label {
+
+            color: #292524;
+
+            font-family:
+                Georgia,
+                'Times New Roman',
+                serif;
+
+            font-size: 1.45rem;
+
+            font-weight: 700;
+
+            letter-spacing: -.02em;
+
+        }
+
+
+        .bh-cloud-process-subtitle {
+
+            margin-top: 5px;
 
             color: #78716c;
 
-            font-size: .7rem;
+            font-size: .72rem;
 
-            font-weight: 800;
-
-            text-transform: uppercase;
-
-            letter-spacing: .2em;
+            line-height: 1.5;
 
         }
+
 
         .bh-cloud-process-status {
 
@@ -476,28 +535,39 @@
 
             align-items: center;
 
-            gap: 7px;
+            gap: 8px;
+
+            padding: 8px 12px;
+
+            border-radius: 9999px;
+
+            background: rgba(194, 65, 12, .07);
+
+            border:
+                1px solid rgba(194, 65, 12, .14);
 
             color: #9a3412;
 
-            font-size: .7rem;
+            font-size: .62rem;
 
             font-weight: 800;
 
             text-transform: uppercase;
 
-            letter-spacing: .12em;
+            letter-spacing: .13em;
 
-            text-align: right;
+            white-space: nowrap;
 
         }
 
+
         .bh-cloud-process-status-dot {
 
-            flex-shrink: 0;
-
             width: 7px;
+
             height: 7px;
+
+            flex-shrink: 0;
 
             border-radius: 50%;
 
@@ -508,46 +578,80 @@
 
         }
 
+
+        .bh-cloud-process-list {
+
+            position: relative;
+
+            z-index: 2;
+
+            margin-top: 24px;
+
+        }
+
+
+        .bh-cloud-process-track {
+
+            position: absolute;
+
+            top: 35px;
+
+            bottom: 35px;
+
+            left: 24px;
+
+            width: 1px;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    #c2410c,
+                    #d97706,
+                    rgba(194, 65, 12, .12)
+                );
+
+        }
+
+
         .bh-cloud-process-item {
 
-            display: flex;
+            position: relative;
 
-            gap: 17px;
+            display: grid;
 
-            padding: 20px 0;
+            grid-template-columns: 50px minmax(0, 1fr);
+
+            gap: 18px;
 
             min-width: 0;
 
-            border-bottom:
-                1px solid rgba(120, 53, 15, .11);
+            padding: 14px 0;
 
         }
 
-        .bh-cloud-process-item:last-child {
-
-            border-bottom: 0;
-            padding-bottom: 0;
-
-        }
 
         .bh-cloud-process-number {
 
-            flex-shrink: 0;
+            position: relative;
 
-            width: 42px;
-            height: 42px;
+            z-index: 3;
+
+            width: 50px;
+
+            height: 50px;
 
             display: flex;
 
             align-items: center;
+
             justify-content: center;
 
             border-radius: 50%;
 
-            background: #f4dfce;
+            background: #fffaf7;
 
             border:
-                1px solid rgba(194, 65, 12, .20);
+                1px solid rgba(194, 65, 12, .25);
 
             color: #9a3412;
 
@@ -556,9 +660,94 @@
                 'Times New Roman',
                 serif;
 
-            font-size: .95rem;
+            font-size: .9rem;
 
             font-weight: 700;
+
+            box-shadow:
+                0 0 0 7px rgba(255, 250, 247, .90);
+
+            transition:
+                transform .35s ease,
+                background .35s ease,
+                color .35s ease,
+                border-color .35s ease,
+                box-shadow .35s ease;
+
+        }
+
+
+        .bh-cloud-process-item:hover
+        .bh-cloud-process-number {
+
+            transform: scale(1.1);
+
+            background: #c2410c;
+
+            color: #ffffff;
+
+            border-color: #c2410c;
+
+            box-shadow:
+                0 0 0 7px rgba(194, 65, 12, .10),
+                0 8px 20px rgba(194, 65, 12, .18);
+
+        }
+
+
+        .bh-cloud-process-content {
+
+            min-width: 0;
+
+            padding: 5px 0 18px;
+
+            border-bottom:
+                1px solid rgba(120, 53, 15, .09);
+
+            transition:
+                transform .35s ease;
+
+        }
+
+
+        .bh-cloud-process-item:last-child
+        .bh-cloud-process-content {
+
+            border-bottom: 0;
+
+            padding-bottom: 5px;
+
+        }
+
+
+        .bh-cloud-process-item:hover
+        .bh-cloud-process-content {
+
+            transform: translateX(5px);
+
+        }
+
+
+        .bh-cloud-process-icon {
+
+            width: 34px;
+
+            height: 34px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-bottom: 10px;
+
+            border-radius: 10px;
+
+            background:
+                rgba(194, 65, 12, .08);
+
+            color: #c2410c;
 
             transition:
                 transform .3s ease,
@@ -567,22 +756,18 @@
 
         }
 
-        .bh-cloud-process-item > div:last-child {
-
-            min-width: 0;
-
-        }
 
         .bh-cloud-process-item:hover
-        .bh-cloud-process-number {
+        .bh-cloud-process-icon {
 
-            transform: scale(1.08);
+            transform: translateY(-2px);
 
             background: #c2410c;
 
             color: #ffffff;
 
         }
+
 
         .bh-cloud-process-title {
 
@@ -593,29 +778,91 @@
                 'Times New Roman',
                 serif;
 
-            font-size: 1.05rem;
+            font-size: 1.12rem;
 
             font-weight: 700;
 
         }
 
+
         .bh-cloud-process-description {
 
-            margin-top: 6px;
+            margin-top: 5px;
 
             color: #78716c;
 
-            font-size: .83rem;
+            font-size: .78rem;
 
-            line-height: 1.65;
+            line-height: 1.7;
 
             overflow-wrap: anywhere;
 
         }
 
+
+        .bh-cloud-process-footer {
+
+            position: relative;
+
+            z-index: 2;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            margin-top: 20px;
+
+            padding-top: 18px;
+
+            border-top:
+                1px solid rgba(120, 53, 15, .10);
+
+        }
+
+
+        .bh-cloud-process-footer-label {
+
+            color: #78716c;
+
+            font-size: .62rem;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: .14em;
+
+        }
+
+
+        .bh-cloud-process-footer-line {
+
+            flex: 1;
+
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(194, 65, 12, .28),
+                    transparent
+                );
+
+        }
+
+
+        /* =========================================================
+           BRAND STRIP
+        ========================================================== */
+
         .bh-cloud-brand-strip {
 
             position: relative;
+
             z-index: 5;
 
             display: flex;
@@ -651,7 +898,7 @@
 
 
         /* =========================================================
-           WHY THE MODEL
+           WHY THE MODEL — CARD GRID (restyled)
         ========================================================== */
 
         .bh-model-section {
@@ -786,14 +1033,19 @@
 
         }
 
+        /* Card grid replacing the old horizontal list */
+
         .bh-model-list {
 
             position: relative;
 
-            margin-top: 64px;
+            margin-top: 56px;
 
-            border-top:
-                1px solid rgba(120, 113, 108, .22);
+            display: grid;
+
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+
+            gap: 24px;
 
         }
 
@@ -801,94 +1053,92 @@
 
             position: relative;
 
-            display: grid;
+            display: block;
 
-            grid-template-columns:
-                110px
-                90px
-                minmax(0, 1fr)
-                40px;
+            min-height: 0;
 
-            align-items: center;
+            padding: 34px 28px 30px;
 
-            gap: 25px;
+            border: 1px solid rgba(194, 65, 12, .14);
 
-            min-height: 170px;
+            border-radius: 26px;
 
-            padding: 28px 0;
+            background: #ffffff;
 
-            border-bottom:
-                1px solid rgba(120, 113, 108, .22);
+            box-shadow: 0 18px 45px rgba(120, 53, 15, .08);
 
             transition:
-                padding .35s ease,
-                background .35s ease;
-
-            min-width: 0;
+                transform .35s ease,
+                box-shadow .35s ease,
+                border-color .35s ease;
 
         }
 
         .bh-model-item:hover {
 
-            padding-left: 18px;
-            padding-right: 18px;
+            padding: 34px 28px 30px;
 
-            background: rgba(255, 255, 255, .70);
+            background: #ffffff;
+
+            transform: translateY(-6px);
+
+            border-color: rgba(194, 65, 12, .32);
+
+            box-shadow: 0 26px 60px rgba(120, 53, 15, .14);
 
         }
 
         .bh-model-number {
+
+            display: block;
 
             font-family:
                 Georgia,
                 'Times New Roman',
                 serif;
 
-            font-size: 3.4rem;
+            font-size: 1rem;
 
             line-height: 1;
 
             font-weight: 700;
 
-            color: #e7e5e4;
+            color: #d6a47c;
 
-            transition:
-                color .3s ease,
-                transform .3s ease;
+            letter-spacing: .1em;
+
+            transition: color .3s ease;
 
         }
 
         .bh-model-item:hover .bh-model-number {
 
-            color: #d6a47c;
-
-            transform: translateX(4px);
+            color: #c2410c;
 
         }
 
         .bh-model-icon {
 
-            width: 62px;
-            height: 62px;
+            width: 56px;
+            height: 56px;
+
+            margin-top: 16px;
 
             display: flex;
 
             align-items: center;
             justify-content: center;
 
-            border-radius: 50%;
+            border-radius: 16px;
 
             border:
                 1px solid rgba(194, 65, 12, .22);
 
-            background: #ffffff;
+            background: #fff7ed;
 
             color: #c2410c;
 
             font-size: 22px;
-
-            box-shadow:
-                0 8px 25px rgba(120, 53, 48, .08);
 
             transition:
                 transform .3s ease,
@@ -909,17 +1159,9 @@
 
         .bh-model-content {
 
-            display: grid;
+            display: block;
 
-            grid-template-columns:
-                minmax(180px, .55fr)
-                minmax(0, 1fr);
-
-            align-items: center;
-
-            gap: 40px;
-
-            min-width: 0;
+            margin-top: 20px;
 
         }
 
@@ -930,7 +1172,7 @@
                 'Times New Roman',
                 serif;
 
-            font-size: 1.6rem;
+            font-size: 1.3rem;
 
             font-weight: 700;
 
@@ -940,11 +1182,13 @@
 
         .bh-model-description {
 
-            max-width: 560px;
+            max-width: none;
+
+            margin-top: 10px;
 
             color: #78716c;
 
-            font-size: .95rem;
+            font-size: .9rem;
 
             line-height: 1.75;
 
@@ -954,37 +1198,7 @@
 
         .bh-model-arrow {
 
-            justify-self: end;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            width: 40px;
-            height: 40px;
-
-            border-radius: 50%;
-
-            color: #c2410c;
-
-            border:
-                1px solid rgba(194, 65, 12, .18);
-
-            transition:
-                transform .3s ease,
-                background .3s ease,
-                color .3s ease;
-
-        }
-
-        .bh-model-item:hover .bh-model-arrow {
-
-            transform: translateX(5px);
-
-            background: #c2410c;
-
-            color: #fff;
+            display: none;
 
         }
 
@@ -1070,7 +1284,7 @@
 
 
         /* =========================================================
-           WHAT MAKES OUR KITCHEN DIFFERENT
+           DIFFERENCE SECTION
         ========================================================== */
 
         .bh-difference-section {
@@ -1444,110 +1658,6 @@
 
 
         /* =========================================================
-           ORDER JOURNEY
-        ========================================================== */
-
-        .bh-journey-section {
-
-            position: relative;
-
-            overflow: hidden;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #fff7f3 0%,
-                    #ffffff 50%,
-                    #fff1e8 100%
-                );
-
-            color: #292524;
-
-        }
-
-        .bh-journey-line {
-
-            background:
-                linear-gradient(
-                    to bottom,
-                    #c2410c,
-                    #d97706,
-                    #d6d3d1
-                );
-
-        }
-
-        .bh-journey-step {
-
-            transition:
-                transform .35s ease,
-                border-color .35s ease;
-
-            min-width: 0;
-
-        }
-
-        .bh-journey-step:hover {
-
-            transform: translateX(8px);
-
-        }
-
-        .bh-journey-number {
-
-            background: #ffffff !important;
-
-            box-shadow:
-                0 0 0 8px #fff7f3;
-
-            transition:
-                background .3s ease,
-                color .3s ease,
-                border-color .3s ease,
-                transform .3s ease;
-
-        }
-
-        .bh-journey-step:hover .bh-journey-number {
-
-            transform: scale(1.08);
-
-            background: #d97706 !important;
-
-            color: #1c1917 !important;
-
-            border-color: #d97706;
-
-        }
-
-        .bh-journey-link {
-
-            transition:
-                background .3s ease,
-                color .3s ease,
-                border-color .3s ease,
-                transform .3s ease;
-
-            max-width: 100%;
-
-        }
-
-        .bh-journey-link:hover {
-
-            transform: translateY(-2px);
-
-        }
-
-        .bh-journey-step > div,
-        .bh-journey-step > p {
-
-            min-width: 0;
-            max-width: 100%;
-
-        }
-
-
-        /* =========================================================
            CTA
         ========================================================== */
 
@@ -1604,31 +1714,15 @@
 
             }
 
-            .bh-model-item {
+            .bh-model-list {
 
-                grid-template-columns:
-                    75px
-                    65px
-                    minmax(0, 1fr)
-                    40px;
-
-                gap: 18px;
-
-            }
-
-            .bh-model-content {
-
-                grid-template-columns:
-                    minmax(140px, .5fr)
-                    minmax(0, 1fr);
-
-                gap: 22px;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
 
             }
 
             .bh-model-title {
 
-                font-size: 1.35rem;
+                font-size: 1.2rem;
 
             }
 
@@ -1698,40 +1792,117 @@
 
             }
 
+
+            /* =====================================================
+               NEW FLOW MOBILE
+            ====================================================== */
+
             .bh-cloud-process {
-
-                margin-top: 8px;
-
-                border-radius: 1.5rem;
 
                 padding: 22px;
 
-            }
-
-            .bh-cloud-process-item {
-
-                padding: 16px 0;
+                border-radius: 24px;
 
             }
 
-            .bh-cloud-process-description {
+            .bh-cloud-process-top {
 
-                font-size: .76rem;
+                align-items: flex-start;
+
+                flex-direction: column;
+
+                gap: 14px;
 
             }
 
-            .bh-cloud-brand-strip {
+            .bh-cloud-process-label {
 
-                margin-top: 25px;
+                font-size: 1.25rem;
+
+            }
+
+            .bh-cloud-process-status {
 
                 font-size: .58rem;
 
             }
 
-            .bh-cloud-primary,
-            .bh-cloud-secondary {
+            .bh-cloud-process-track {
 
-                max-width: 100%;
+                left: 21px;
+
+                top: 32px;
+
+                bottom: 32px;
+
+            }
+
+            .bh-cloud-process-item {
+
+                grid-template-columns:
+                    44px
+                    minmax(0, 1fr);
+
+                gap: 14px;
+
+                padding: 12px 0;
+
+            }
+
+            .bh-cloud-process-number {
+
+                width: 44px;
+
+                height: 44px;
+
+                font-size: .78rem;
+
+                box-shadow:
+                    0 0 0 6px rgba(255, 250, 247, .92);
+
+            }
+
+            .bh-cloud-process-icon {
+
+                width: 31px;
+
+                height: 31px;
+
+                margin-bottom: 8px;
+
+            }
+
+            .bh-cloud-process-title {
+
+                font-size: 1rem;
+
+            }
+
+            .bh-cloud-process-description {
+
+                font-size: .72rem;
+
+                line-height: 1.6;
+
+            }
+
+            .bh-cloud-process-footer {
+
+                margin-top: 15px;
+
+            }
+
+            .bh-cloud-process-footer-label {
+
+                font-size: .55rem;
+
+            }
+
+
+            .bh-cloud-process-item:hover
+            .bh-cloud-process-content {
+
+                transform: none;
 
             }
 
@@ -1753,58 +1924,38 @@
 
             .bh-model-list {
 
-                margin-top: 45px;
+                margin-top: 40px;
+
+                grid-template-columns: 1fr;
+
+                gap: 18px;
 
             }
 
             .bh-model-item {
 
-                grid-template-columns:
-                    55px
-                    58px
-                    minmax(0, 1fr);
-
-                gap: 12px;
-
-                min-height: 150px;
-
-                padding: 25px 0;
+                padding: 28px 22px 24px;
 
             }
 
             .bh-model-item:hover {
 
-                padding-left: 4px;
-                padding-right: 4px;
-
-            }
-
-            .bh-model-number {
-
-                font-size: 2.2rem;
+                padding: 28px 22px 24px;
 
             }
 
             .bh-model-icon {
 
-                width: 50px;
-                height: 50px;
+                width: 48px;
+                height: 48px;
 
                 font-size: 18px;
 
             }
 
-            .bh-model-content {
-
-                display: block;
-
-                min-width: 0;
-
-            }
-
             .bh-model-title {
 
-                font-size: 1.25rem;
+                font-size: 1.15rem;
 
             }
 
@@ -1812,17 +1963,11 @@
 
                 margin-top: 8px;
 
-                font-size: .78rem;
+                font-size: .82rem;
 
                 line-height: 1.6;
 
                 max-width: 100%;
-
-            }
-
-            .bh-model-arrow {
-
-                display: none;
 
             }
 
@@ -1896,14 +2041,6 @@
             }
 
 
-            /* JOURNEY MOBILE */
-
-            .bh-journey-step:hover {
-
-                transform: none;
-
-            }
-
         }
 
 
@@ -1947,60 +2084,60 @@
 
             .bh-cloud-process-status {
 
-                font-size: .58rem;
+                font-size: .54rem;
 
-                letter-spacing: .08em;
+                letter-spacing: .07em;
 
             }
 
             .bh-cloud-process-item {
 
-                gap: 12px;
+                grid-template-columns:
+                    39px
+                    minmax(0, 1fr);
+
+                gap: 11px;
+
+            }
+
+            .bh-cloud-process-track {
+
+                left: 19px;
 
             }
 
             .bh-cloud-process-number {
 
-                width: 36px;
-                height: 36px;
+                width: 39px;
 
-                font-size: .82rem;
-
-            }
-
-            .bh-cloud-process-title {
-
-                font-size: .95rem;
-
-            }
-
-            .bh-cloud-process-description {
+                height: 39px;
 
                 font-size: .7rem;
 
             }
 
-            .bh-model-item {
+            .bh-cloud-process-title {
 
-                grid-template-columns:
-                    38px
-                    44px
-                    minmax(0, 1fr);
-
-                gap: 8px;
+                font-size: .94rem;
 
             }
 
-            .bh-model-number {
+            .bh-cloud-process-description {
 
-                font-size: 1.8rem;
+                font-size: .68rem;
+
+            }
+
+            .bh-model-item {
+
+                padding: 24px 18px 20px;
 
             }
 
             .bh-model-icon {
 
-                width: 43px;
-                height: 43px;
+                width: 44px;
+                height: 44px;
 
                 font-size: 16px;
 
@@ -2016,7 +2153,7 @@
 
             .bh-model-description {
 
-                font-size: .7rem;
+                font-size: .78rem;
 
             }
 
@@ -2085,9 +2222,7 @@
 
 
         /* =========================================================
-           =========================================================
-           COMPLETE DARK MODE
-           =========================================================
+           DARK MODE
         ========================================================== */
 
         html.dark,
@@ -2101,7 +2236,7 @@
 
 
         /* =========================================================
-           HERO DARK MODE
+           HERO DARK
         ========================================================== */
 
         html.dark .bh-cloud-hero {
@@ -2244,64 +2379,104 @@
 
 
         /* =========================================================
-           PROCESS PANEL DARK
+           NEW FLOW DARK MODE
         ========================================================== */
 
         html.dark .bh-cloud-process {
 
             background:
-                rgba(41, 37, 36, .92) !important;
+                linear-gradient(
+                    145deg,
+                    rgba(48, 39, 34, .96),
+                    rgba(38, 31, 27, .96)
+                ) !important;
 
             border-color:
                 rgba(255, 255, 255, .12) !important;
 
             box-shadow:
-                0 25px 60px rgba(0, 0, 0, .35) !important;
+                0 30px 80px rgba(0, 0, 0, .38) !important;
 
         }
+
+
+        html.dark .bh-cloud-process::before {
+
+            background:
+                rgba(217, 119, 6, .12);
+
+        }
+
 
         html.dark .bh-cloud-process-top {
-
-            border-color:
-                rgba(255, 255, 255, .12) !important;
-
-        }
-
-        html.dark .bh-cloud-process-label {
-
-            color: #a8a29e !important;
-
-        }
-
-        html.dark .bh-cloud-process-status {
-
-            color: #fb923c !important;
-
-        }
-
-        html.dark .bh-cloud-process-status-dot {
-
-            background: #f59e0b !important;
-
-        }
-
-        html.dark .bh-cloud-process-item {
 
             border-color:
                 rgba(255, 255, 255, .10) !important;
 
         }
 
-        html.dark .bh-cloud-process-number {
 
-            background: #3a2820 !important;
+        html.dark .bh-cloud-process-label {
+
+            color: #fafaf9 !important;
+
+        }
+
+
+        html.dark .bh-cloud-process-subtitle {
+
+            color: #a8a29e !important;
+
+        }
+
+
+        html.dark .bh-cloud-process-status {
+
+            background:
+                rgba(194, 65, 12, .12);
 
             border-color:
-                rgba(251, 146, 60, .30) !important;
+                rgba(251, 146, 60, .25);
 
             color: #fb923c !important;
 
         }
+
+
+        html.dark .bh-cloud-process-status-dot {
+
+            background: #f59e0b;
+
+        }
+
+
+        html.dark .bh-cloud-process-track {
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    #c2410c,
+                    #d97706,
+                    rgba(251, 146, 60, .12)
+                );
+
+        }
+
+
+        html.dark .bh-cloud-process-number {
+
+            background: #292524 !important;
+
+            border-color:
+                rgba(251, 146, 60, .35) !important;
+
+            color: #fb923c !important;
+
+            box-shadow:
+                0 0 0 7px rgba(41, 37, 36, .94);
+
+        }
+
 
         html.dark .bh-cloud-process-item:hover
         .bh-cloud-process-number {
@@ -2310,7 +2485,42 @@
 
             color: #ffffff !important;
 
+            border-color: #c2410c !important;
+
+            box-shadow:
+                0 0 0 7px rgba(194, 65, 12, .10),
+                0 8px 20px rgba(0, 0, 0, .28);
+
         }
+
+
+        html.dark .bh-cloud-process-content {
+
+            border-color:
+                rgba(255, 255, 255, .08);
+
+        }
+
+
+        html.dark .bh-cloud-process-icon {
+
+            background:
+                rgba(194, 65, 12, .12);
+
+            color: #fb923c;
+
+        }
+
+
+        html.dark .bh-cloud-process-item:hover
+        .bh-cloud-process-icon {
+
+            background: #c2410c;
+
+            color: #ffffff;
+
+        }
+
 
         html.dark .bh-cloud-process-title {
 
@@ -2318,11 +2528,44 @@
 
         }
 
+
         html.dark .bh-cloud-process-description {
 
             color: #a8a29e !important;
 
         }
+
+
+        html.dark .bh-cloud-process-footer {
+
+            border-color:
+                rgba(255, 255, 255, .08);
+
+        }
+
+
+        html.dark .bh-cloud-process-footer-label {
+
+            color: #78716c;
+
+        }
+
+
+        html.dark .bh-cloud-process-footer-line {
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(251, 146, 60, .35),
+                    transparent
+                );
+
+        }
+
+
+        /* =========================================================
+           BRAND DARK
+        ========================================================== */
 
         html.dark .bh-cloud-brand-strip {
 
@@ -2386,36 +2629,39 @@
 
         }
 
-        html.dark .bh-model-list {
-
-            border-color:
-                rgba(255, 255, 255, .13) !important;
-
-        }
-
         html.dark .bh-model-item {
 
+            background: #211d1b !important;
+
             border-color:
-                rgba(255, 255, 255, .13) !important;
+                rgba(255, 255, 255, .10) !important;
+
+            box-shadow:
+                0 18px 45px rgba(0, 0, 0, .30) !important;
 
         }
 
         html.dark .bh-model-item:hover {
 
-            background:
-                rgba(68, 64, 60, .45) !important;
+            background: #26211e !important;
+
+            border-color:
+                rgba(251, 146, 60, .35) !important;
+
+            box-shadow:
+                0 26px 60px rgba(0, 0, 0, .40) !important;
 
         }
 
         html.dark .bh-model-number {
 
-            color: #57534e !important;
+            color: #78716c !important;
 
         }
 
         html.dark .bh-model-item:hover .bh-model-number {
 
-            color: #a16207 !important;
+            color: #fb923c !important;
 
         }
 
@@ -2453,23 +2699,6 @@
 
         }
 
-        html.dark .bh-model-arrow {
-
-            color: #fb923c !important;
-
-            border-color:
-                rgba(251, 146, 60, .30) !important;
-
-        }
-
-        html.dark .bh-model-item:hover .bh-model-arrow {
-
-            background: #c2410c !important;
-
-            color: #ffffff !important;
-
-        }
-
         html.dark .bh-model-note {
 
             color: #a8a29e !important;
@@ -2484,11 +2713,12 @@
 
 
         /* =========================================================
-           TRADITIONAL VS CLOUD KITCHEN DARK
+           TRADITIONAL DARK
         ========================================================== */
 
-        html.dark section.bh-traditional-section,
-        html.dark section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50 {
+        html.dark .bh-traditional-section,
+        html.dark
+        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50 {
 
             background:
                 linear-gradient(
@@ -2501,24 +2731,6 @@
             color: #f5f5f4 !important;
 
         }
-
-        html.dark
-        section.bh-traditional-section
-        .pointer-events-none {
-
-            opacity: .25;
-
-        }
-
-        html.dark
-        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
-        .pointer-events-none {
-
-            opacity: .25;
-
-        }
-
-        /* Section 3 heading */
 
         html.dark
         section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
@@ -2544,8 +2756,6 @@
 
         }
 
-        /* Comparison outer card */
-
         html.dark
         section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
         .grid.overflow-hidden.rounded-3xl {
@@ -2559,8 +2769,6 @@
                 0 25px 60px rgba(0, 0, 0, .30) !important;
 
         }
-
-        /* Traditional header */
 
         html.dark
         section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
@@ -2578,8 +2786,6 @@
 
         }
 
-        /* Cloud kitchen header */
-
         html.dark
         section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
         .bg-gradient-to-br.from-orange-500 {
@@ -2595,16 +2801,6 @@
             color: #ffffff !important;
 
         }
-
-        html.dark
-        section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
-        .bg-gradient-to-br.from-orange-500 p {
-
-            color: #fff7ed !important;
-
-        }
-
-        /* Traditional cells */
 
         html.dark
         section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
@@ -2630,8 +2826,6 @@
 
         }
 
-        /* Cloud cells */
-
         html.dark
         section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
         .from-orange-100 {
@@ -2655,12 +2849,7 @@
 
         html.dark
         section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
-        .text-orange-400 {
-
-            color: #fb923c !important;
-
-        }
-
+        .text-orange-400,
         html.dark
         section.relative.overflow-hidden.bg-gradient-to-br.from-orange-50
         .text-orange-700 {
@@ -2671,10 +2860,10 @@
 
 
         /* =========================================================
-           INSIDE THE KITCHEN DARK
+           INSIDE DARK
         ========================================================== */
 
-        html.dark section.bh-inside-section,
+        html.dark .bh-inside-section,
         html.dark
         section.relative.overflow-hidden.bg-gradient-to-br.from-white.via-orange-50 {
 
@@ -2780,127 +2969,7 @@
 
 
         /* =========================================================
-           JOURNEY DARK
-        ========================================================== */
-
-        html.dark .bh-journey-section {
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #171311 0%,
-                    #241d19 50%,
-                    #2b2019 100%
-                ) !important;
-
-            color: #f5f5f4 !important;
-
-        }
-
-        html.dark .bh-journey-line {
-
-            background:
-                linear-gradient(
-                    to bottom,
-                    #c2410c,
-                    #d97706,
-                    #57534e
-                ) !important;
-
-        }
-
-        html.dark .bh-journey-step {
-
-            border-color:
-                rgba(255, 255, 255, .13) !important;
-
-        }
-
-        html.dark .bh-journey-number {
-
-            background: #292524 !important;
-
-            color: #fb923c !important;
-
-            border-color:
-                rgba(251, 146, 60, .35) !important;
-
-            box-shadow:
-                0 0 0 8px #171311 !important;
-
-        }
-
-        html.dark .bh-journey-step:hover .bh-journey-number {
-
-            background: #d97706 !important;
-
-            color: #1c1917 !important;
-
-        }
-
-        html.dark .bh-journey-step p {
-
-            color: #a8a29e !important;
-
-        }
-
-        html.dark .bh-journey-step h3 {
-
-            color: #fafaf9 !important;
-
-        }
-
-        html.dark .bh-journey-step .text-orange-700,
-        html.dark .bh-journey-step .text-amber-700 {
-
-            color: #fb923c !important;
-
-        }
-
-        html.dark .bh-journey-step .text-stone-400 {
-
-            color: #78716c !important;
-
-        }
-
-        html.dark .bh-journey-link {
-
-            color: #e7e5e4 !important;
-
-            border-color:
-                rgba(255, 255, 255, .22) !important;
-
-            background: transparent !important;
-
-        }
-
-        html.dark .bh-journey-link:hover {
-
-            background: #d97706 !important;
-
-            color: #1c1917 !important;
-
-            border-color: #d97706 !important;
-
-        }
-
-        html.dark .bh-journey-section
-        .text-stone-700 {
-
-            color: #d6d3d1 !important;
-
-        }
-
-        html.dark .bh-journey-section
-        .text-amber-600 {
-
-            color: #fbbf24 !important;
-
-        }
-
-
-        /* =========================================================
-           BY THE NUMBERS DARK
+           BY NUMBERS DARK
         ========================================================== */
 
         html.dark
@@ -2919,24 +2988,21 @@
         }
 
         html.dark
-        section.bg-gradient-to-br.from-orange-50
-        h2 {
+        section.bg-gradient-to-br.from-orange-50 h2 {
 
             color: #fafaf9 !important;
 
         }
 
         html.dark
-        section.bg-gradient-to-br.from-orange-50
-        .eyebrow {
+        section.bg-gradient-to-br.from-orange-50 .eyebrow {
 
             color: #fb923c !important;
 
         }
 
         html.dark
-        section.bg-gradient-to-br.from-orange-50
-        .grid.gap-0 {
+        section.bg-gradient-to-br.from-orange-50 .grid.gap-0 {
 
             background: #292524 !important;
 
@@ -2949,8 +3015,7 @@
         }
 
         html.dark
-        section.bg-gradient-to-br.from-orange-50
-        .grid.gap-0 > div {
+        section.bg-gradient-to-br.from-orange-50 .grid.gap-0 > div {
 
             background: #292524 !important;
 
@@ -2960,16 +3025,14 @@
         }
 
         html.dark
-        section.bg-gradient-to-br.from-orange-50
-        .grid.gap-0 p:first-child {
+        section.bg-gradient-to-br.from-orange-50 .grid.gap-0 p:first-child {
 
             color: #fb923c !important;
 
         }
 
         html.dark
-        section.bg-gradient-to-br.from-orange-50
-        .grid.gap-0 p:last-child {
+        section.bg-gradient-to-br.from-orange-50 .grid.gap-0 p:last-child {
 
             color: #a8a29e !important;
 
@@ -3052,8 +3115,7 @@
 
 
         /* =========================================================
-           GENERIC TAILWIND DARK OVERRIDES
-           Protects against shared styles / Tailwind utilities
+           GENERIC DARK OVERRIDES
         ========================================================== */
 
         html.dark .text-stone-900 {
@@ -3124,11 +3186,6 @@
                 rgba(251, 146, 60, .20) !important;
 
         }
-
-
-        /* =========================================================
-           PREVENT GLOBAL WHITE BACKGROUNDS
-        ========================================================== */
 
         html.dark main {
 
@@ -3272,15 +3329,30 @@
                 </div>
 
 
-                <div class="bh-cloud-process rounded-[2rem] p-7 sm:p-9">
+                <!-- =====================================================
+                     NEW KITCHEN FLOW
+                ====================================================== -->
+
+                <div class="bh-cloud-process">
 
                     <div class="bh-cloud-process-top">
 
-                        <p class="bh-cloud-process-label">
+                        <div>
 
-                            Our kitchen flow
+                            <p class="bh-cloud-process-label">
 
-                        </p>
+                                Our kitchen flow
+
+                            </p>
+
+                            <p class="bh-cloud-process-subtitle">
+
+                                Four simple stages from preparation to doorstep.
+
+                            </p>
+
+                        </div>
+
 
                         <p class="bh-cloud-process-status">
 
@@ -3293,78 +3365,274 @@
                     </div>
 
 
-                    <div class="bh-cloud-process-item">
+                    <div class="bh-cloud-process-list">
 
-                        <div class="bh-cloud-process-number">01</div>
+                        <div class="bh-cloud-process-track"></div>
 
-                        <div>
 
-                            <h3 class="bh-cloud-process-title">Prep</h3>
+                        <!-- STEP 01 -->
 
-                            <p class="bh-cloud-process-description">
+                        <div class="bh-cloud-process-item">
 
-                                Ingredients are portioned before the first order window.
+                            <div class="bh-cloud-process-number">
 
-                            </p>
+                                01
+
+                            </div>
+
+
+                            <div class="bh-cloud-process-content">
+
+                                <div class="bh-cloud-process-icon">
+
+                                    <svg
+                                        width="18"
+                                        height="18"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="1.7"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+
+                                        <path d="M4 3h16"></path>
+
+                                        <path d="M6 3v7"></path>
+
+                                        <path d="M18 3v7"></path>
+
+                                        <path d="M6 10h12"></path>
+
+                                        <path d="M8 10v8"></path>
+
+                                        <path d="M16 10v8"></path>
+
+                                        <path d="M8 18h8"></path>
+
+                                        <path d="M12 18v3"></path>
+
+                                    </svg>
+
+                                </div>
+
+
+                                <h3 class="bh-cloud-process-title">
+
+                                    Prep
+
+                                </h3>
+
+
+                                <p class="bh-cloud-process-description">
+
+                                    Ingredients are portioned before the first order window.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- STEP 02 -->
+
+                        <div class="bh-cloud-process-item">
+
+                            <div class="bh-cloud-process-number">
+
+                                02
+
+                            </div>
+
+
+                            <div class="bh-cloud-process-content">
+
+                                <div class="bh-cloud-process-icon">
+
+                                    <svg
+                                        width="18"
+                                        height="18"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="1.7"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+
+                                        <path d="M4 14h16"></path>
+
+                                        <path d="M6 14V9h12v5"></path>
+
+                                        <path d="M8 9V6"></path>
+
+                                        <path d="M12 9V5"></path>
+
+                                        <path d="M16 9V6"></path>
+
+                                        <path d="M5 18h14"></path>
+
+                                        <path d="M7 18v2"></path>
+
+                                        <path d="M17 18v2"></path>
+
+                                    </svg>
+
+                                </div>
+
+
+                                <h3 class="bh-cloud-process-title">
+
+                                    Cook
+
+                                </h3>
+
+
+                                <p class="bh-cloud-process-description">
+
+                                    Orders are cooked in short batches for consistency.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- STEP 03 -->
+
+                        <div class="bh-cloud-process-item">
+
+                            <div class="bh-cloud-process-number">
+
+                                03
+
+                            </div>
+
+
+                            <div class="bh-cloud-process-content">
+
+                                <div class="bh-cloud-process-icon">
+
+                                    <svg
+                                        width="18"
+                                        height="18"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="1.7"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+
+                                        <path d="M4 7h16"></path>
+
+                                        <path d="M5 7l1 13h12l1-13"></path>
+
+                                        <path d="M8 7V4h8v3"></path>
+
+                                        <path d="M9 11h6"></path>
+
+                                        <path d="M9 15h6"></path>
+
+                                    </svg>
+
+                                </div>
+
+
+                                <h3 class="bh-cloud-process-title">
+
+                                    Pack
+
+                                </h3>
+
+
+                                <p class="bh-cloud-process-description">
+
+                                    Containers are labelled and checked before dispatch.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- STEP 04 -->
+
+                        <div class="bh-cloud-process-item">
+
+                            <div class="bh-cloud-process-number">
+
+                                04
+
+                            </div>
+
+
+                            <div class="bh-cloud-process-content">
+
+                                <div class="bh-cloud-process-icon">
+
+                                    <svg
+                                        width="18"
+                                        height="18"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="1.7"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+
+                                        <path d="M3 6h11v11H3z"></path>
+
+                                        <path d="M14 10h4l3 3v4h-7z"></path>
+
+                                        <circle cx="7" cy="19" r="2"></circle>
+
+                                        <circle cx="18" cy="19" r="2"></circle>
+
+                                    </svg>
+
+                                </div>
+
+
+                                <h3 class="bh-cloud-process-title">
+
+                                    Deliver
+
+                                </h3>
+
+
+                                <p class="bh-cloud-process-description">
+
+                                    Local routes keep the final journey short.
+
+                                </p>
+
+                            </div>
 
                         </div>
 
                     </div>
 
 
-                    <div class="bh-cloud-process-item">
+                    <div class="bh-cloud-process-footer">
 
-                        <div class="bh-cloud-process-number">02</div>
+                        <span class="bh-cloud-process-footer-label">
 
-                        <div>
+                            Prep → Cook → Pack → Deliver
 
-                            <h3 class="bh-cloud-process-title">Cook</h3>
+                        </span>
 
-                            <p class="bh-cloud-process-description">
+                        <span class="bh-cloud-process-footer-line"></span>
 
-                                Orders are cooked in short batches for consistency.
+                        <span class="text-xs font-bold text-orange-700">
 
-                            </p>
+                            04 stages
 
-                        </div>
-
-                    </div>
-
-
-                    <div class="bh-cloud-process-item">
-
-                        <div class="bh-cloud-process-number">03</div>
-
-                        <div>
-
-                            <h3 class="bh-cloud-process-title">Pack</h3>
-
-                            <p class="bh-cloud-process-description">
-
-                                Containers are labelled and checked before dispatch.
-
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="bh-cloud-process-item">
-
-                        <div class="bh-cloud-process-number">04</div>
-
-                        <div>
-
-                            <h3 class="bh-cloud-process-title">Deliver</h3>
-
-                            <p class="bh-cloud-process-description">
-
-                                Local routes keep the final journey short.
-
-                            </p>
-
-                        </div>
+                        </span>
 
                     </div>
 
@@ -3421,7 +3689,7 @@
 
                     <div class="bh-model-item">
 
-                        <div class="bh-model-number">01</div>
+                        <span class="bh-model-number">01</span>
 
                         <div class="bh-model-icon">
 
@@ -3445,16 +3713,11 @@
 
                         <div class="bh-model-content">
 
-                            <div>
+                            <h3 class="bh-model-title">
 
-                                <h3 class="bh-model-title">
+                                Focused menus
 
-                                    Focused menus
-
-                                </h3>
-
-                            </div>
-
+                            </h3>
 
                             <p class="bh-model-description">
 
@@ -3465,15 +3728,12 @@
 
                         </div>
 
-
-                        <div class="bh-model-arrow">→</div>
-
                     </div>
 
 
                     <div class="bh-model-item">
 
-                        <div class="bh-model-number">02</div>
+                        <span class="bh-model-number">02</span>
 
                         <div class="bh-model-icon">
 
@@ -3494,16 +3754,11 @@
 
                         <div class="bh-model-content">
 
-                            <div>
+                            <h3 class="bh-model-title">
 
-                                <h3 class="bh-model-title">
+                                Local routes
 
-                                    Local routes
-
-                                </h3>
-
-                            </div>
-
+                            </h3>
 
                             <p class="bh-model-description">
 
@@ -3515,15 +3770,12 @@
 
                         </div>
 
-
-                        <div class="bh-model-arrow">→</div>
-
                     </div>
 
 
                     <div class="bh-model-item">
 
-                        <div class="bh-model-number">03</div>
+                        <span class="bh-model-number">03</span>
 
                         <div class="bh-model-icon">
 
@@ -3544,16 +3796,11 @@
 
                         <div class="bh-model-content">
 
-                            <div>
+                            <h3 class="bh-model-title">
 
-                                <h3 class="bh-model-title">
+                                Flexible scale
 
-                                    Flexible scale
-
-                                </h3>
-
-                            </div>
-
+                            </h3>
 
                             <p class="bh-model-description">
 
@@ -3564,9 +3811,6 @@
                             </p>
 
                         </div>
-
-
-                        <div class="bh-model-arrow">→</div>
 
                     </div>
 
@@ -4113,283 +4357,6 @@
                     Designed around food. Built around people.
 
                     <span class="bh-difference-bottom-line"></span>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================================================
-             SECTION 6: FROM ORDER TO ARRIVAL
-        ========================================================== -->
-
-        <section class="bh-journey-section">
-
-            <div
-                class="pointer-events-none absolute -left-40 -top-40 h-96 w-96 rounded-full bg-orange-500/10 blur-3xl">
-            </div>
-
-            <div
-                class="pointer-events-none absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-amber-500/10 blur-3xl">
-            </div>
-
-
-            <div
-                class="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-12"
-            >
-
-                <div class="mx-auto max-w-3xl text-center">
-
-                    <p
-                        class="flex items-center justify-center gap-3 text-xs font-bold uppercase tracking-[0.25em] text-orange-700"
-                    >
-
-                        <span class="h-px w-8 bg-orange-700"></span>
-
-                        From kitchen to doorstep
-
-                        <span class="h-px w-8 bg-orange-700"></span>
-
-                    </p>
-
-
-                    <h2
-                        class="mt-5 font-display text-4xl font-black leading-tight text-stone-900 sm:text-5xl lg:text-6xl"
-                    >
-
-                        Every order has
-
-                        <span class="text-amber-600">
-
-                            a journey.
-
-                        </span>
-
-                    </h2>
-
-                </div>
-
-
-                <div class="relative mt-16">
-
-                    <div
-                        class="bh-journey-line absolute left-[27px] top-8 hidden h-[calc(100%-64px)] w-px md:block">
-                    </div>
-
-
-                    <div
-                        class="bh-journey-step relative grid gap-7 border-t border-stone-200 py-10 md:grid-cols-[70px_180px_1fr] md:items-center md:gap-8"
-                    >
-
-                        <div
-                            class="bh-journey-number relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-orange-300 bg-white font-display text-lg font-black text-orange-700 ring-8 ring-[#fff7f3]"
-                        >
-
-                            01
-
-                        </div>
-
-
-                        <div>
-
-                            <p class="text-xs font-bold uppercase tracking-[0.2em] text-stone-400">
-                                Order
-                            </p>
-
-                            <h3 class="mt-2 font-display text-2xl font-bold text-stone-900">
-                                It starts with you.
-                            </h3>
-
-                        </div>
-
-
-                        <p class="max-w-2xl text-sm leading-7 text-stone-600">
-
-                            Your order enters our kitchen workflow, giving the team a clear
-                            picture of what needs to be prepared and when it needs to leave.
-
-                        </p>
-
-                    </div>
-
-
-                    <div
-                        class="bh-journey-step relative grid gap-7 border-t border-stone-200 py-10 md:grid-cols-[70px_180px_1fr] md:items-center md:gap-8"
-                    >
-
-                        <div
-                            class="bh-journey-number relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-amber-300 bg-white font-display text-lg font-black text-amber-700 ring-8 ring-[#fff7f3]"
-                        >
-
-                            02
-
-                        </div>
-
-
-                        <div>
-
-                            <p class="text-xs font-bold uppercase tracking-[0.2em] text-stone-400">
-                                Prepare
-                            </p>
-
-                            <h3 class="mt-2 font-display text-2xl font-bold text-stone-900">
-                                Ingredients come together.
-                            </h3>
-
-                        </div>
-
-
-                        <p class="max-w-2xl text-sm leading-7 text-stone-600">
-
-                            Portioning and preparation happen in a controlled workflow so
-                            ingredients are ready for the cooking stage without unnecessary
-                            delays.
-
-                        </p>
-
-                    </div>
-
-
-                    <div
-                        class="bh-journey-step relative grid gap-7 border-t border-stone-200 py-10 md:grid-cols-[70px_180px_1fr] md:items-center md:gap-8"
-                    >
-
-                        <div
-                            class="bh-journey-number relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-orange-300 bg-white font-display text-lg font-black text-orange-700 ring-8 ring-[#fff7f3]"
-                        >
-
-                            03
-
-                        </div>
-
-
-                        <div>
-
-                            <p class="text-xs font-bold uppercase tracking-[0.2em] text-stone-400">
-                                Cook
-                            </p>
-
-                            <h3 class="mt-2 font-display text-2xl font-bold text-stone-900">
-                                The kitchen gets moving.
-                            </h3>
-
-                        </div>
-
-
-                        <p class="max-w-2xl text-sm leading-7 text-stone-600">
-
-                            Orders move through the cooking line in short, organised batches,
-                            helping the kitchen maintain consistency while responding to demand.
-
-                        </p>
-
-                    </div>
-
-
-                    <div
-                        class="bh-journey-step relative grid gap-7 border-t border-stone-200 py-10 md:grid-cols-[70px_180px_1fr] md:items-center md:gap-8"
-                    >
-
-                        <div
-                            class="bh-journey-number relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-amber-300 bg-white font-display text-lg font-black text-amber-700 ring-8 ring-[#fff7f3]"
-                        >
-
-                            04
-
-                        </div>
-
-
-                        <div>
-
-                            <p class="text-xs font-bold uppercase tracking-[0.2em] text-stone-400">
-                                Check
-                            </p>
-
-                            <h3 class="mt-2 font-display text-2xl font-bold text-stone-900">
-                                Packed with purpose.
-                            </h3>
-
-                        </div>
-
-
-                        <p class="max-w-2xl text-sm leading-7 text-stone-600">
-
-                            Containers are packed, labelled and checked before they leave the
-                            kitchen, keeping the final handoff organised and clear.
-
-                        </p>
-
-                    </div>
-
-
-                    <div
-                        class="bh-journey-step relative grid gap-7 border-t border-b border-stone-200 py-10 md:grid-cols-[70px_180px_1fr] md:items-center md:gap-8"
-                    >
-
-                        <div
-                            class="bh-journey-number relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-orange-300 bg-white font-display text-lg font-black text-orange-700 ring-8 ring-[#fff7f3]"
-                        >
-
-                            05
-
-                        </div>
-
-
-                        <div>
-
-                            <p class="text-xs font-bold uppercase tracking-[0.2em] text-stone-400">
-                                Arrive
-                            </p>
-
-                            <h3 class="mt-2 font-display text-2xl font-bold text-stone-900">
-                                Ready for your table.
-                            </h3>
-
-                        </div>
-
-
-                        <p class="max-w-2xl text-sm leading-7 text-stone-600">
-
-                            Once dispatched, the order begins its final journey to you —
-                            completing a process designed around the food from beginning
-                            to end.
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div
-                    class="mt-14 flex flex-col gap-5 border-l-2 border-amber-500 pl-6 sm:flex-row sm:items-center sm:justify-between"
-                >
-
-                    <p
-                        class="max-w-2xl font-display text-xl font-bold leading-relaxed text-stone-700"
-                    >
-
-                        A simple process, carefully repeated,
-
-                        <span class="text-amber-600">
-                            for every order.
-                        </span>
-
-                    </p>
-
-
-                    <a
-                        href="menu.html"
-                        class="bh-journey-link inline-flex w-fit items-center rounded-full border border-stone-300 px-6 py-3 text-sm font-semibold text-stone-800 hover:border-amber-500 hover:bg-amber-500 hover:text-stone-950"
-                    >
-
-                        See what's cooking
-
-                        <span class="ml-2">→</span>
-
-                    </a>
 
                 </div>
 

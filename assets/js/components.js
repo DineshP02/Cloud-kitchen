@@ -1,3 +1,4 @@
+
 /* =========================================================
    BOWL & HEARTH
    SHARED NAVBAR + FOOTER
@@ -27,6 +28,7 @@
    ✓ 1280PX / 1440PX DESKTOP
    ✓ 1025-1100PX SAFE HAMBURGER NAV
    ✓ MOBILE MENU HEIGHT FIXED
+   ✓ SCROLL UP BUTTON
 ========================================================= */
 
 (function () {
@@ -1950,8 +1952,6 @@
             /* =================================================
                LAPTOP
                1101PX - 1200PX
-
-               Desktop navigation is safe in this range.
             ================================================= */
 
             @media (min-width:1101px) and (max-width:1200px) {
@@ -2027,8 +2027,6 @@
             /* =================================================
                SMALL LAPTOP
                1025PX - 1100PX
-
-               Uses hamburger navigation to prevent crowding.
             ================================================= */
 
             @media (min-width:1025px) and (max-width:1100px) {
@@ -2238,8 +2236,6 @@
                 .bh-actions {
                     gap:7px;
                 }
-
-                /* TABLET FOOTER */
 
                 .bh-footer-inner {
 
@@ -2452,8 +2448,6 @@
                     max-height:
                         calc(100dvh - 66px);
                 }
-
-                /* MOBILE FOOTER */
 
                 .bh-footer-inner {
 
@@ -3295,11 +3289,173 @@
 
             #bh-navbar button:focus-visible,
             #bh-navbar a:focus-visible,
-            .bh-footer a:focus-visible {
+            .bh-footer a:focus-visible,
+            #bh-scroll-up:focus-visible {
                 outline:
                     2px solid #c9862f;
 
                 outline-offset:3px;
+            }
+
+
+            /* =================================================
+               SCROLL UP BUTTON
+            ================================================= */
+
+            #bh-scroll-up {
+                position:fixed;
+
+                right:22px;
+                bottom:22px;
+
+                width:46px;
+                height:46px;
+
+                display:flex;
+                align-items:center;
+                justify-content:center;
+
+                border:1px solid rgba(168,52,31,.25);
+                border-radius:50%;
+
+                background:
+                    linear-gradient(
+                        135deg,
+                        #fff8eb,
+                        #f8e4c2
+                    );
+
+                color:#8f2b19;
+
+                font-size:22px;
+                font-weight:900;
+
+                cursor:pointer;
+
+                z-index:99998;
+
+                opacity:0;
+                visibility:hidden;
+                pointer-events:none;
+
+                transform:translateY(12px);
+
+                box-shadow:
+                    0 8px 24px rgba(36,26,20,.15);
+
+                transition:
+                    opacity .25s ease,
+                    visibility .25s ease,
+                    transform .25s ease,
+                    background .25s ease;
+            }
+
+
+            #bh-scroll-up.bh-scroll-up-visible {
+                opacity:1;
+                visibility:visible;
+                pointer-events:auto;
+                transform:translateY(0);
+            }
+
+
+            #bh-scroll-up:hover {
+                background:
+                    linear-gradient(
+                        135deg,
+                        #f8e4c2,
+                        #f3d39d
+                    );
+
+                transform:translateY(-3px);
+            }
+
+
+            #bh-scroll-up svg {
+                width:21px;
+                height:21px;
+            }
+
+
+            /* DARK MODE SCROLL BUTTON */
+
+            .dark #bh-scroll-up {
+                background:
+                    linear-gradient(
+                        135deg,
+                        #3b2814,
+                        #4a3015
+                    );
+
+                border-color:rgba(245,158,11,.42);
+
+                color:#ffd27a;
+
+                box-shadow:
+                    0 8px 24px rgba(0,0,0,.35);
+            }
+
+
+            .dark #bh-scroll-up:hover {
+                background:
+                    linear-gradient(
+                        135deg,
+                        #4a3015,
+                        #5a3a18
+                    );
+            }
+
+
+            /* RTL SCROLL BUTTON */
+
+            [dir="rtl"] #bh-scroll-up {
+                right:auto;
+                left:22px;
+            }
+
+
+            /* MOBILE SCROLL BUTTON */
+
+            @media (max-width:640px) {
+
+                #bh-scroll-up {
+                    right:14px;
+                    bottom:14px;
+
+                    width:42px;
+                    height:42px;
+
+                    font-size:20px;
+                }
+
+                [dir="rtl"] #bh-scroll-up {
+                    right:auto;
+                    left:14px;
+                }
+
+            }
+
+
+            @media (max-width:400px) {
+
+                #bh-scroll-up {
+                    right:10px;
+                    bottom:10px;
+
+                    width:38px;
+                    height:38px;
+                }
+
+                #bh-scroll-up svg {
+                    width:18px;
+                    height:18px;
+                }
+
+                [dir="rtl"] #bh-scroll-up {
+                    right:auto;
+                    left:10px;
+                }
+
             }
 
 
@@ -3813,6 +3969,112 @@
             );
 
         }
+
+
+        /* =====================================================
+           SCROLL UP BUTTON
+        ===================================================== */
+
+        let scrollUpButton =
+            document.getElementById("bh-scroll-up");
+
+
+        if (!scrollUpButton) {
+
+            scrollUpButton =
+                document.createElement("button");
+
+            scrollUpButton.type =
+                "button";
+
+            scrollUpButton.id =
+                "bh-scroll-up";
+
+            scrollUpButton.setAttribute(
+                "aria-label",
+                "Scroll to top"
+            );
+
+            scrollUpButton.setAttribute(
+                "title",
+                "Scroll to top"
+            );
+
+            scrollUpButton.innerHTML = `
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+
+                    <path d="M12 19V5"></path>
+
+                    <path d="m6 11 6-6 6 6"></path>
+
+                </svg>
+
+            `;
+
+            document.body.appendChild(
+                scrollUpButton
+            );
+
+        }
+
+
+        function updateScrollUpButton() {
+
+            if (
+                window.scrollY > 350
+            ) {
+
+                scrollUpButton.classList.add(
+                    "bh-scroll-up-visible"
+                );
+
+            } else {
+
+                scrollUpButton.classList.remove(
+                    "bh-scroll-up-visible"
+                );
+
+            }
+
+        }
+
+
+        window.addEventListener(
+            "scroll",
+            updateScrollUpButton,
+            {
+                passive:true
+            }
+        );
+
+
+        scrollUpButton.addEventListener(
+            "click",
+            function () {
+
+                window.scrollTo({
+
+                    top:0,
+
+                    behavior:
+                        "smooth"
+
+                });
+
+            }
+        );
+
+
+        updateScrollUpButton();
 
 
         /* =====================================================
@@ -4390,3 +4652,4 @@
     }
 
 })();
+
