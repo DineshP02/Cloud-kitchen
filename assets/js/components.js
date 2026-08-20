@@ -1,6 +1,3 @@
-
-   
-
 (function () {
 
     "use strict";
@@ -1854,10 +1851,10 @@
 
 
             .bh-footer-contact-icon {
-                width:22px;
-                height:22px;
+                width:25px;
+                height:25px;
 
-                flex:0 0 22px;
+                flex:0 0 25px;
 
                 display:flex;
                 align-items:center;
@@ -2317,10 +2314,10 @@
                 }
 
                 .bh-footer-contact-icon {
-                    width:20px;
-                    height:20px;
+                    width:23px;
+                    height:23px;
 
-                    flex-basis:20px;
+                    flex-basis:23px;
                 }
 
                 .bh-footer-social {
@@ -2861,9 +2858,9 @@
                 }
 
                 .bh-footer-contact-icon {
-                    width:19px;
-                    height:19px;
-                    flex-basis:19px;
+                    width:22px;
+                    height:22px;
+                    flex-basis:22px;
                 }
 
                 .bh-footer-social {
