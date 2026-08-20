@@ -1,36 +1,5 @@
-/* =========================================================
-   BOWL & HEARTH
-   SHARED NAVBAR + FOOTER
-   ---------------------------------------------------------
-   FULL RESPONSIVE VERSION
-   ✓ HEADER ALWAYS LOADS
-   ✓ FOOTER ALWAYS LOADS
-   ✓ DOMContentLoaded SAFE
-   ✓ ONE APPROVED LOGO
-   ✓ SAME LOGO HEADER + FOOTER
-   ✓ DESKTOP NAVIGATION
-   ✓ DESKTOP HOME DROPDOWN
-   ✓ TABLET NAVIGATION
-   ✓ MOBILE MENU
-   ✓ MOBILE HOME DROPDOWN
-   ✓ MOBILE LANGUAGE DROPDOWN
-   ✓ LTR / RTL
-   ✓ DARK MODE
-   ✓ TABLET RESPONSIVE FOOTER
-   ✓ MOBILE RESPONSIVE FOOTER
-   ✓ FOOTER CTA REMOVED
-   ✓ NO HORIZONTAL OVERFLOW
-   ✓ 320PX / 360PX / 375PX / 390PX / 414PX
-   ✓ 768PX TABLET
-   ✓ 820PX TABLET
-   ✓ 1024PX LAPTOP
-   ✓ 1280PX / 1440PX DESKTOP
-   ✓ 1025-1100PX SAFE HAMBURGER NAV
-   ✓ MOBILE MENU HEIGHT FIXED
-   ✓ SCROLL UP BUTTON
-   ✓ RTL/LTR BUTTON HAS NO BORDER
-   ✓ RTL/LTR BUTTON HAS NO COLORED PILL
-========================================================= */
+
+   
 
 (function () {
 
@@ -3958,23 +3927,44 @@
 
 
                                 <div
-                                    class="bh-footer-contact-item"
-                                >
+    class="bh-footer-contact-item"
+>
 
-                                    <span
-                                        class="bh-footer-contact-icon"
-                                    >
-                                        ⌖
-                                    </span>
+    <span
+        class="bh-footer-contact-icon"
+    >
+        <svg
+            width="15"
+            height="15"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="M12 21C12 21 19 15.8 19 9C19 5.13 15.87 2 12 2C8.13 2 5 5.13 5 9C5 15.8 12 21 12 21Z"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
 
-                                    <span>
-                                        Serving local neighbourhoods
-                                        <br>
-                                        with warmth &amp; care
-                                    </span>
+            <path
+                d="M12 12.2C12 12.2 9 10.5 9 8.6C9 7.55 9.85 6.7 10.9 6.7C11.35 6.7 11.75 6.9 12 7.2C12.25 6.9 12.65 6.7 13.1 6.7C14.15 6.7 15 7.55 15 8.6C15 10.5 12 12.2 12 12.2Z"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+        </svg>
+    </span>
 
-                                </div>
+    <span>
+        Serving local neighbourhoods
+        <br>
+        with warmth &amp; care
+    </span>
 
+</div>
 
                                 <div
                                     class="bh-footer-contact-item"

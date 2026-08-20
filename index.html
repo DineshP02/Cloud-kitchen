@@ -115,7 +115,11 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=EB+Garamond:ital,wght@0,400;1,400;1,500&family=Inter:wght@400;500;600;700;800&display=swap"
@@ -945,11 +949,6 @@
 
         }
 
-
-        /* ---------------------------------------------------
-           SIDE CARDS — now match the main card:
-           full-bleed photo + gradient overlay + text on top
-        --------------------------------------------------- */
 
         .bh-food-side {
 
@@ -2162,7 +2161,7 @@
 
 /* =========================================================
    BOWL & HEARTH — PREMIUM HOME REDESIGN OVERRIDES
-   ========================================================= */
+========================================================= */
 
 :root{
     --bh-ink:#211710;
@@ -2188,6 +2187,7 @@ body{
 }
 
 /* Better page rhythm */
+
 .bh-intro,
 .bh-menu-section,
 .bh-process,
@@ -2212,6 +2212,7 @@ body{
 }
 
 /* Premium typography */
+
 .bh-section-title{
     font-size:clamp(3rem,5.4vw,5.7rem);
     line-height:.88;
@@ -2236,6 +2237,7 @@ body{
 }
 
 /* Buttons */
+
 .bh-btn-primary,
 .bh-btn-outline{
     min-height:54px;
@@ -2263,6 +2265,7 @@ body{
 }
 
 /* HERO */
+
 .bh-hero{
     min-height:min(900px,92vh);
     background:
@@ -2343,6 +2346,7 @@ body{
 }
 
 /* Intro */
+
 .bh-intro{
     background:
         radial-gradient(circle at 8% 20%,rgba(200,138,58,.08),transparent 24%),
@@ -2400,6 +2404,7 @@ body{
 }
 
 /* Featured menu */
+
 .bh-menu-section{
     background:
         linear-gradient(180deg,#f0e9de 0%,#f5f0e8 100%);
@@ -2455,6 +2460,7 @@ body{
 }
 
 /* Numbers */
+
 .bh-numbers{
     position:relative;
     background:
@@ -2477,6 +2483,7 @@ body{
 }
 
 /* Process */
+
 .bh-process{
     background:var(--bh-paper);
 }
@@ -2510,8 +2517,9 @@ body{
 }
 
 /* Specials */
+
 .bh-specials{
-    background: #f7f5ed;
+    background:#f7f5ed;
 }
 
 .bh-specials-grid{
@@ -2543,6 +2551,7 @@ body{
 }
 
 /* Testimonials */
+
 .bh-testimonials{
     background:#eee7dc;
 }
@@ -2578,6 +2587,7 @@ body{
 }
 
 /* CTA */
+
 .bh-cta{
     min-height:560px;
     display:flex;
@@ -2606,6 +2616,7 @@ body{
 }
 
 /* Delivery */
+
 .bh-delivery{
     background:var(--bh-paper);
 }
@@ -2638,6 +2649,7 @@ body{
 }
 
 /* Reveal animation */
+
 .bh-reveal{
     opacity:0;
     transform:translateY(24px);
@@ -2649,8 +2661,271 @@ body{
     transform:none;
 }
 
-/* Mobile */
+
+/* =========================================================
+   TESTIMONIAL EQUAL HEIGHT FIX
+========================================================= */
+
+.bh-testimonial-grid{
+    align-items:stretch;
+}
+
+.bh-testimonial{
+    height:100%;
+}
+
+.bh-testimonial-text{
+    flex:1;
+}
+
+
+/* =========================================================
+   TABLET FIX — 4 COL PROCESS + 3 COL TESTIMONIALS
+========================================================= */
+
+@media (min-width:481px) and (max-width:1023px){
+
+    .bh-process-grid{
+        grid-template-columns:repeat(4,1fr) !important;
+        gap:0 !important;
+    }
+
+    .bh-process-grid::before{
+        display:block !important;
+        left:8%;
+        right:8%;
+        top:35px;
+    }
+
+    .bh-process-item{
+        padding:0 10px !important;
+    }
+
+    .bh-process-number{
+        width:60px !important;
+        height:60px !important;
+        font-size:1.2rem !important;
+    }
+
+    .bh-process-title{
+        font-size:1.2rem !important;
+        margin-top:22px !important;
+    }
+
+    .bh-process-copy{
+        font-size:.68rem !important;
+        max-width:140px !important;
+    }
+
+    .bh-testimonial-grid{
+        grid-template-columns:repeat(3,1fr) !important;
+    }
+
+    .bh-testimonial{
+        padding:28px 20px !important;
+        min-height:260px !important;
+    }
+
+    .bh-testimonial-text{
+        font-size:1.1rem !important;
+        max-width:100% !important;
+    }
+
+    .bh-quote{
+        font-size:3.8rem !important;
+    }
+}
+
+
+/* =========================================================
+   TABLET HEADING CENTER ALIGNMENT
+   481px — 1023px
+========================================================= */
+
+@media (min-width:481px) and (max-width:1023px){
+
+    /* -----------------------------------------------------
+       INTRO / OUR KITCHEN
+    ----------------------------------------------------- */
+
+    .bh-intro-copy{
+        text-align:center;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .bh-intro-copy .bh-eyebrow{
+        justify-content:center;
+    }
+
+    .bh-intro-copy .bh-section-title{
+        text-align:center;
+    }
+
+    .bh-intro-copy .bh-intro-lead{
+        text-align:center;
+    }
+
+    .bh-intro-copy .bh-section-copy{
+        margin-left:auto;
+        margin-right:auto;
+        text-align:center;
+    }
+
+    .bh-intro-copy .bh-btn-text{
+        justify-content:center;
+    }
+
+
+    /* -----------------------------------------------------
+       FEATURED MENU
+    ----------------------------------------------------- */
+
+    .bh-menu-heading{
+        display:block;
+        text-align:center;
+    }
+
+    .bh-menu-heading > div{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .bh-menu-heading .bh-eyebrow{
+        justify-content:center;
+    }
+
+    .bh-menu-heading .bh-section-title{
+        text-align:center;
+    }
+
+    .bh-menu-heading .hidden{
+        display:block !important;
+        max-width:620px;
+        margin:24px auto 0;
+        padding-bottom:0;
+    }
+
+    .bh-menu-heading .bh-section-copy{
+        margin-left:auto;
+        margin-right:auto;
+        text-align:center;
+    }
+
+    .bh-menu-heading .bh-btn-text{
+        justify-content:center;
+    }
+
+
+    /* -----------------------------------------------------
+       ORDER PROCESS
+    ----------------------------------------------------- */
+
+    .bh-process .max-w-2xl{
+        text-align:center;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .bh-process .bh-eyebrow{
+        justify-content:center;
+    }
+
+    .bh-process .bh-section-title{
+        text-align:center;
+    }
+
+
+    /* -----------------------------------------------------
+       SPECIALS
+    ----------------------------------------------------- */
+
+    .bh-specials > div > .max-w-2xl{
+        text-align:center;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .bh-specials .bh-eyebrow{
+        justify-content:center;
+    }
+
+    .bh-specials .bh-section-title{
+        text-align:center;
+    }
+
+
+    /* -----------------------------------------------------
+       TESTIMONIALS
+    ----------------------------------------------------- */
+
+    .bh-testimonials > div > .max-w-2xl{
+        text-align:center;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .bh-testimonials .bh-eyebrow{
+        justify-content:center;
+    }
+
+    .bh-testimonials .bh-section-title{
+        text-align:center;
+    }
+
+
+    /* -----------------------------------------------------
+       CTA
+    ----------------------------------------------------- */
+
+    .bh-cta-inner{
+        text-align:center;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .bh-cta-inner .bh-eyebrow{
+        justify-content:center;
+    }
+
+    .bh-cta-title{
+        text-align:center;
+    }
+
+    .bh-cta-copy{
+        margin-left:auto;
+        margin-right:auto;
+        text-align:center;
+    }
+
+
+    /* -----------------------------------------------------
+       DELIVERY
+    ----------------------------------------------------- */
+
+    .bh-delivery > div > .mb-12{
+        text-align:center;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .bh-delivery .bh-eyebrow{
+        justify-content:center;
+    }
+
+    .bh-delivery .bh-section-title{
+        text-align:center;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
 @media(max-width:1023px){
+
     .bh-hero{
         min-height:780px;
     }
@@ -2674,12 +2949,20 @@ body{
     }
 }
 
+
 @media(max-width:767px){
+
     .bh-hero{
         min-height:740px;
+
         background:
-            linear-gradient(90deg,rgba(18,11,7,.90),rgba(18,11,7,.56)),
+            linear-gradient(
+                90deg,
+                rgba(18,11,7,.90),
+                rgba(18,11,7,.56)
+            ),
             url("https://images.unsplash.com/photo-1547592180-85f173990554?q=90&w=1400&auto=format&fit=crop");
+
         background-position:62% center;
     }
 
@@ -2748,7 +3031,9 @@ body{
     }
 }
 
+
 @media(max-width:480px){
+
     .bh-hero{
         min-height:700px;
     }
@@ -2786,8 +3071,13 @@ body{
     }
 }
 
-/* Respect reduced motion */
+
+/* =========================================================
+   RESPECT REDUCED MOTION
+========================================================= */
+
 @media(prefers-reduced-motion:reduce){
+
     *,
     *::before,
     *::after{
@@ -2806,61 +3096,55 @@ body{
 
 /* =========================================================
    DARK MODE — TEXT CLARITY & CONTRAST FIX
-   ========================================================= */
+========================================================= */
 
-.dark {
+.dark{
 
-    --bh-ink: #F7F1E8;
-    --bh-dark: #110C09;
-    --bh-paper: #18120E;
-    --bh-cream: #211813;
-    --bh-terracotta: #E05A3F;
-    --bh-gold: #E6B563;
-    --bh-sage: #A8B58F;
-    --bh-muted: #C5B9AE;
-    --bh-line: rgba(255,255,255,.14);
-
-}
-
-
-/* Body */
-
-.dark body {
-
-    background: #15100C !important;
-
-    color: #F7F1E8 !important;
+    --bh-ink:#F7F1E8;
+    --bh-dark:#110C09;
+    --bh-paper:#18120E;
+    --bh-cream:#211813;
+    --bh-terracotta:#E05A3F;
+    --bh-gold:#E6B563;
+    --bh-sage:#A8B58F;
+    --bh-muted:#C5B9AE;
+    --bh-line:rgba(255,255,255,.14);
 
 }
 
 
-/* General text */
+.dark body{
+
+    background:#15100C !important;
+
+    color:#F7F1E8 !important;
+
+}
+
 
 .dark p,
 .dark span,
 .dark div,
 .dark li,
-.dark label {
+.dark label{
 
-    border-color: rgba(255,255,255,.12);
+    border-color:rgba(255,255,255,.12);
 
 }
 
-
-/* Section backgrounds */
 
 .dark .bh-intro,
 .dark .bh-process,
-.dark .bh-delivery {
+.dark .bh-delivery{
 
-    background: #18120E;
+    background:#18120E;
 
-    color: #F7F1E8;
+    color:#F7F1E8;
 
 }
 
 
-.dark .bh-menu-section {
+.dark .bh-menu-section{
 
     background:
         linear-gradient(
@@ -2872,14 +3156,14 @@ body{
 }
 
 
-.dark .bh-testimonials {
+.dark .bh-testimonials{
 
-    background: #211813;
+    background:#211813;
 
 }
 
 
-.dark .bh-specials {
+.dark .bh-specials{
 
     background:
         radial-gradient(
@@ -2892,130 +3176,116 @@ body{
 }
 
 
-/* Section headings */
+.dark .bh-section-title{
 
-.dark .bh-section-title {
-
-    color: #FFF8EF !important;
+    color:#FFF8EF !important;
 
 }
 
 
-.dark .bh-intro-lead {
+.dark .bh-intro-lead{
 
-    color: #FFF8EF !important;
-
-}
-
-
-.dark .bh-script {
-
-    color: #F0A28F !important;
+    color:#FFF8EF !important;
 
 }
 
 
-/* Section descriptions */
+.dark .bh-script{
 
-.dark .bh-section-copy {
-
-    color: #D7CCC2 !important;
+    color:#F0A28F !important;
 
 }
 
 
-/* Eyebrows */
+.dark .bh-section-copy{
 
-.dark .bh-eyebrow {
-
-    color: #F0C675 !important;
+    color:#D7CCC2 !important;
 
 }
 
 
-.dark .bh-eyebrow::before {
+.dark .bh-eyebrow{
 
-    background: #E6B563 !important;
-
-}
-
-
-/* Intro detail text */
-
-.dark .bh-detail p {
-
-    color: #E8DED5 !important;
+    color:#F0C675 !important;
 
 }
 
 
-.dark .bh-detail p.text-stone-500 {
+.dark .bh-eyebrow::before{
 
-    color: #BEB1A6 !important;
-
-}
-
-
-.dark .bh-detail-icon {
-
-    background: rgba(224,90,63,.12);
-
-    border-color: rgba(224,90,63,.25);
-
-    color: #F0785D;
+    background:#E6B563 !important;
 
 }
 
 
-/* Menu cards */
+.dark .bh-detail p{
 
-.dark .bh-food-side-content {
-
-    color: #FFF8EF;
+    color:#E8DED5 !important;
 
 }
 
 
-.dark .bh-food-name {
+.dark .bh-detail p.text-stone-500{
 
-    color: #FFF8EF !important;
-
-}
-
-
-.dark .bh-food-tag {
-
-    color: #F0A15C !important;
+    color:#BEB1A6 !important;
 
 }
 
 
-.dark .bh-food-price {
+.dark .bh-detail-icon{
 
-    color: #E6B563 !important;
+    background:rgba(224,90,63,.12);
 
-}
+    border-color:rgba(224,90,63,.25);
 
-
-/* Main food card */
-
-.dark .bh-food-main-content {
-
-    color: #FFF8EF;
+    color:#F0785D;
 
 }
 
 
-.dark .bh-food-main-content p {
+.dark .bh-food-side-content{
 
-    color: rgba(255,255,255,.78) !important;
+    color:#FFF8EF;
 
 }
 
 
-/* Numbers section */
+.dark .bh-food-name{
 
-.dark .bh-numbers {
+    color:#FFF8EF !important;
+
+}
+
+
+.dark .bh-food-tag{
+
+    color:#F0A15C !important;
+
+}
+
+
+.dark .bh-food-price{
+
+    color:#E6B563 !important;
+
+}
+
+
+.dark .bh-food-main-content{
+
+    color:#FFF8EF;
+
+}
+
+
+.dark .bh-food-main-content p{
+
+    color:rgba(255,255,255,.78) !important;
+
+}
+
+
+.dark .bh-numbers{
 
     background:
         radial-gradient(
@@ -3028,36 +3298,34 @@ body{
 }
 
 
-.dark .bh-number-label {
+.dark .bh-number-label{
 
-    color: rgba(255,255,255,.72) !important;
-
-}
-
-
-.dark .bh-number-value {
-
-    color: #EBC47B !important;
+    color:rgba(255,255,255,.72) !important;
 
 }
 
 
-/* Process section */
+.dark .bh-number-value{
 
-.dark .bh-process {
-
-    color: #F7F1E8;
+    color:#EBC47B !important;
 
 }
 
 
-.dark .bh-process-number {
+.dark .bh-process{
 
-    background: #18120E;
+    color:#F7F1E8;
 
-    color: #F0A15C;
+}
 
-    border-color: rgba(224,90,63,.42);
+
+.dark .bh-process-number{
+
+    background:#18120E;
+
+    color:#F0A15C;
+
+    border-color:rgba(224,90,63,.42);
 
     box-shadow:
         0 0 0 11px #18120E,
@@ -3066,147 +3334,139 @@ body{
 }
 
 
-.dark .bh-process-title {
+.dark .bh-process-title{
 
-    color: #FFF8EF !important;
-
-}
-
-
-.dark .bh-process-copy {
-
-    color: #C5B9AE !important;
+    color:#FFF8EF !important;
 
 }
 
 
-/* Specials */
+.dark .bh-process-copy{
 
-.dark .bh-specials-title {
-
-    color: #FFF8EF !important;
+    color:#C5B9AE !important;
 
 }
 
 
-.dark .bh-special-row h3 {
+.dark .bh-specials-title{
 
-    color: #FFF8EF !important;
-
-}
-
-
-.dark .bh-special-row p {
-
-    color: rgba(255,255,255,.68) !important;
+    color:#FFF8EF !important;
 
 }
 
 
-.dark .bh-special-price {
+.dark .bh-special-row h3{
 
-    color: #EBC47B !important;
-
-}
-
-
-/* Testimonials */
-
-.dark .bh-testimonials {
-
-    color: #FFF8EF;
+    color:#FFF8EF !important;
 
 }
 
 
-.dark .bh-testimonial-grid {
+.dark .bh-special-row p{
 
-    background: rgba(255,255,255,.12);
-
-    border-color: rgba(255,255,255,.12);
+    color:rgba(255,255,255,.68) !important;
 
 }
 
 
-.dark .bh-testimonial {
+.dark .bh-special-price{
 
-    background: #211813;
-
-    color: #FFF8EF;
+    color:#EBC47B !important;
 
 }
 
 
-.dark .bh-testimonial:hover {
+.dark .bh-testimonials{
 
-    background: #281E17;
-
-}
-
-
-.dark .bh-testimonial-text {
-
-    color: #F4EAE0 !important;
+    color:#FFF8EF;
 
 }
 
 
-.dark .bh-person-name {
+.dark .bh-testimonial-grid{
 
-    color: #FFF8EF !important;
+    background:rgba(255,255,255,.12);
 
-}
-
-
-.dark .bh-person-location {
-
-    color: #BEB1A6 !important;
+    border-color:rgba(255,255,255,.12);
 
 }
 
 
-/* CTA */
+.dark .bh-testimonial{
 
-.dark .bh-cta {
+    background:#211813;
 
-    color: #FFF8EF;
-
-}
-
-
-.dark .bh-cta-title {
-
-    color: #FFF8EF !important;
+    color:#FFF8EF;
 
 }
 
 
-.dark .bh-cta-copy {
+.dark .bh-testimonial:hover{
 
-    color: rgba(255,255,255,.78) !important;
-
-}
-
-
-/* Delivery */
-
-.dark .bh-delivery {
-
-    background: #18120E;
+    background:#281E17;
 
 }
 
 
-.dark .bh-delivery-grid {
+.dark .bh-testimonial-text{
 
-    border-color: rgba(255,255,255,.13);
-
-    background: #18120E;
+    color:#F4EAE0 !important;
 
 }
 
 
-.dark .bh-delivery-copy {
+.dark .bh-person-name{
+
+    color:#FFF8EF !important;
+
+}
+
+
+.dark .bh-person-location{
+
+    color:#BEB1A6 !important;
+
+}
+
+
+.dark .bh-cta{
+
+    color:#FFF8EF;
+
+}
+
+
+.dark .bh-cta-title{
+
+    color:#FFF8EF !important;
+
+}
+
+
+.dark .bh-cta-copy{
+
+    color:rgba(255,255,255,.78) !important;
+
+}
+
+
+.dark .bh-delivery{
+
+    background:#18120E;
+
+}
+
+
+.dark .bh-delivery-grid{
+
+    border-color:rgba(255,255,255,.13);
+
+    background:#18120E;
+
+}
+
+
+.dark .bh-delivery-copy{
 
     background:
         radial-gradient(
@@ -3219,338 +3479,296 @@ body{
 }
 
 
-.dark .bh-zone {
+.dark .bh-zone{
 
-    color: #EDE3DA !important;
+    color:#EDE3DA !important;
 
-    border-color: rgba(255,255,255,.12);
-
-}
-
-
-.dark .bh-zone:hover {
-
-    background: rgba(255,255,255,.035);
+    border-color:rgba(255,255,255,.12);
 
 }
 
 
-.dark .bh-zone-list {
+.dark .bh-zone:hover{
 
-    border-color: rgba(255,255,255,.12);
-
-}
-
-
-/* Map information box */
-
-.dark .bh-map-info {
-
-    background: rgba(25,19,15,.96) !important;
-
-    color: #FFF8EF !important;
-
-    border: 1px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.035);
 
 }
 
 
-.dark .bh-map-info small {
+.dark .bh-zone-list{
 
-    color: #C5B9AE !important;
-
-}
-
-
-.dark .bh-map-info strong {
-
-    color: #FFF8EF !important;
+    border-color:rgba(255,255,255,.12);
 
 }
 
 
-/* Leaflet popup */
+.dark .bh-map-info{
+
+    background:rgba(25,19,15,.96) !important;
+
+    color:#FFF8EF !important;
+
+    border:1px solid rgba(255,255,255,.12);
+
+}
+
+
+.dark .bh-map-info small{
+
+    color:#C5B9AE !important;
+
+}
+
+
+.dark .bh-map-info strong{
+
+    color:#FFF8EF !important;
+
+}
+
 
 .dark .leaflet-popup-content-wrapper,
-.dark .leaflet-popup-tip {
+.dark .leaflet-popup-tip{
 
-    background: #211813;
+    background:#211813;
 
-    color: #FFF8EF;
-
-}
-
-
-.dark .leaflet-popup-content {
-
-    color: #FFF8EF;
+    color:#FFF8EF;
 
 }
 
 
-.dark .leaflet-popup-content span {
+.dark .leaflet-popup-content{
 
-    color: #C5B9AE !important;
-
-}
-
-
-/* Map labels */
-
-.dark .bh-zone-label {
-
-    background: #211813 !important;
-
-    color: #FFF8EF !important;
-
-    border: 1px solid rgba(255,255,255,.12) !important;
+    color:#FFF8EF;
 
 }
 
 
-/* Tailwind text utility classes */
+.dark .leaflet-popup-content span{
 
-.dark .text-stone-500 {
-
-    color: #BEB1A6 !important;
+    color:#C5B9AE !important;
 
 }
 
 
-.dark .text-stone-600 {
+.dark .bh-zone-label{
 
-    color: #C9BDB2 !important;
+    background:#211813 !important;
 
-}
+    color:#FFF8EF !important;
 
-
-.dark .text-stone-700 {
-
-    color: #DDD2C8 !important;
+    border:1px solid rgba(255,255,255,.12) !important;
 
 }
 
 
-.dark .text-stone-800 {
+.dark .text-stone-500{
 
-    color: #F0E7DE !important;
-
-}
-
-
-/* Fixed custom colors */
-
-.dark .text-\[\#241A14\] {
-
-    color: #FFF8EF !important;
+    color:#BEB1A6 !important;
 
 }
 
 
-.dark .text-\[\#766A60\] {
+.dark .text-stone-600{
 
-    color: #C5B9AE !important;
-
-}
-
-
-/* Links */
-
-.dark a {
-
-    color: inherit;
+    color:#C9BDB2 !important;
 
 }
 
 
-.dark .bh-btn-text {
+.dark .text-stone-700{
 
-    color: #F0A15C !important;
-
-}
-
-
-.dark .bh-btn-text:hover {
-
-    color: #F4C777 !important;
+    color:#DDD2C8 !important;
 
 }
 
 
-/* Primary button */
+.dark .text-stone-800{
 
-.dark .bh-btn-primary {
-
-    background: #C94A32;
-
-    color: #FFFFFF !important;
+    color:#F0E7DE !important;
 
 }
 
 
-.dark .bh-btn-primary:hover {
+.dark .text-\[\#241A14\]{
 
-    background: #E05A3F;
-
-}
-
-
-/* Outline button */
-
-.dark .bh-btn-outline {
-
-    color: #FFFFFF !important;
-
-    border-color: rgba(255,255,255,.45);
-
-    background: rgba(255,255,255,.03);
+    color:#FFF8EF !important;
 
 }
 
 
-.dark .bh-btn-outline:hover {
+.dark .text-\[\#766A60\]{
 
-    background: #FFFFFF;
-
-    color: #211710 !important;
+    color:#C5B9AE !important;
 
 }
 
 
-/* Hero */
+.dark a{
 
-.dark .bh-hero-description {
-
-    color: rgba(255,255,255,.82) !important;
+    color:inherit;
 
 }
 
 
-.dark .bh-hero-title {
+.dark .bh-btn-text{
 
-    color: #FFFFFF !important;
-
-}
-
-
-.dark .bh-hero-title em {
-
-    color: #F1C978 !important;
+    color:#F0A15C !important;
 
 }
 
 
-.dark .bh-hero-kicker {
+.dark .bh-btn-text:hover{
 
-    color: #F4C777 !important;
-
-    border-color: rgba(255,255,255,.25);
+    color:#F4C777 !important;
 
 }
 
 
-/* Mobile dark-mode readability */
+.dark .bh-btn-primary{
 
-@media(max-width:767px) {
+    background:#C94A32;
 
-    .dark .bh-section-copy {
+    color:#FFFFFF !important;
 
-        color: #D8CDC3 !important;
+}
 
+
+.dark .bh-btn-primary:hover{
+
+    background:#E05A3F;
+
+}
+
+
+.dark .bh-btn-outline{
+
+    color:#FFFFFF !important;
+
+    border-color:rgba(255,255,255,.45);
+
+    background:rgba(255,255,255,.03);
+
+}
+
+
+.dark .bh-btn-outline:hover{
+
+    background:#FFFFFF;
+
+    color:#211710 !important;
+
+}
+
+
+.dark .bh-hero-description{
+
+    color:rgba(255,255,255,.82) !important;
+
+}
+
+
+.dark .bh-hero-title{
+
+    color:#FFFFFF !important;
+
+}
+
+
+.dark .bh-hero-title em{
+
+    color:#F1C978 !important;
+
+}
+
+
+.dark .bh-hero-kicker{
+
+    color:#F4C777 !important;
+
+    border-color:rgba(255,255,255,.25);
+
+}
+
+
+@media(max-width:767px){
+
+    .dark .bh-section-copy{
+        color:#D8CDC3 !important;
     }
 
-    .dark .bh-intro-lead {
-
-        color: #FFF8EF !important;
-
+    .dark .bh-intro-lead{
+        color:#FFF8EF !important;
     }
 
-    .dark .bh-food-side-content p {
-
-        color: #C5B9AE !important;
-
+    .dark .bh-food-side-content p{
+        color:#C5B9AE !important;
     }
 
-    .dark .bh-process-copy {
-
-        color: #C8BCB1 !important;
-
+    .dark .bh-process-copy{
+        color:#C8BCB1 !important;
     }
 
-    .dark .bh-special-row p {
-
-        color: rgba(255,255,255,.72) !important;
-
+    .dark .bh-special-row p{
+        color:rgba(255,255,255,.72) !important;
     }
 
-    .dark .bh-testimonial-text {
-
-        color: #F4EAE0 !important;
-
+    .dark .bh-testimonial-text{
+        color:#F4EAE0 !important;
     }
 
-    .dark .bh-person-location {
-
-        color: #BEB1A6 !important;
-
+    .dark .bh-person-location{
+        color:#BEB1A6 !important;
     }
 
-    .dark .bh-zone {
-
-        color: #EDE3DA !important;
-
+    .dark .bh-zone{
+        color:#EDE3DA !important;
     }
 
 }
 
-
-/* Prevent low-contrast Tailwind text */
 
 .dark .text-xs,
 .dark .text-sm,
 .dark .text-\[11px\],
-.dark .text-\[12px\] {
+.dark .text-\[12px\]{
 
-    color: #D8CDC3;
+    color:#D8CDC3;
 
 }
 
 
 .dark .font-bold,
 .dark .font-semibold,
-.dark .font-medium {
+.dark .font-medium{
 
-    color: inherit;
+    color:inherit;
 
 }
 
-
-/* Intentional white text */
 
 .dark .text-white,
 .dark .text-white\/70,
 .dark .text-white\/75,
-.dark .text-white\/80 {
+.dark .text-white\/80{
 
-    color: rgba(255,255,255,.85) !important;
-
-}
-
-
-.dark .text-white {
-
-    color: #FFFFFF !important;
+    color:rgba(255,255,255,.85) !important;
 
 }
 
 
-/* Dark selection */
+.dark .text-white{
 
-.dark ::selection {
+    color:#FFFFFF !important;
 
-    background: #E05A3F;
+}
 
-    color: #FFFFFF;
+
+.dark ::selection{
+
+    background:#E05A3F;
+
+    color:#FFFFFF;
 
 }
 
@@ -3671,8 +3889,6 @@ body{
             <div class="bh-intro-grid">
 
 
-                <!-- IMAGE -->
-
                 <div class="bh-intro-image-wrap">
 
                     <img
@@ -3695,8 +3911,6 @@ body{
 
                 </div>
 
-
-                <!-- CONTENT -->
 
                 <div class="bh-intro-copy">
 
@@ -3944,8 +4158,6 @@ body{
             <div class="bh-food-grid">
 
 
-                <!-- MAIN -->
-
                 <article class="bh-food-main">
 
                     <img
@@ -3984,8 +4196,6 @@ body{
 
                 </article>
 
-
-                <!-- SIDE 1 -->
 
                 <article class="bh-food-side">
 
@@ -4034,8 +4244,6 @@ body{
 
                 </article>
 
-
-                <!-- SIDE 2 -->
 
                 <article class="bh-food-side">
 
@@ -4102,7 +4310,6 @@ body{
 
             <div class="bh-number-grid">
 
-
                 <div class="bh-number">
 
                     <span class="bh-number-value">
@@ -4140,7 +4347,6 @@ body{
                     </span>
 
                 </div>
-
 
             </div>
 
@@ -4426,14 +4632,14 @@ body{
                 <article class="bh-testimonial">
 
                     <div class="bh-quote">
-                        “
+                        "
                     </div>
 
                     <p class="bh-testimonial-text">
 
-                        Fresh food arrived right on time.
+                        Food arrived right on time.
                         Every dish tasted warm and homemade.
-                        We would happily order again.
+                        We will happily order again.
 
                     </p>
 
@@ -4464,12 +4670,12 @@ body{
                 <article class="bh-testimonial">
 
                     <div class="bh-quote">
-                        “
+                        "
                     </div>
 
                     <p class="bh-testimonial-text">
 
-                        The meals feel just like home.
+                        Meals feel just like home.
                         Portions are generous and satisfying.
                         It is now our weekly favourite.
 
@@ -4505,14 +4711,14 @@ body{
                 <article class="bh-testimonial">
 
                     <div class="bh-quote">
-                        “
+                        "
                     </div>
 
                     <p class="bh-testimonial-text">
 
-                        Ordering for our office was simple.
+                        Office order was so simple.
                         Everything arrived fresh and well packed.
-                        The whole team enjoyed the meal.
+                        Also team loved the meal.
 
                     </p>
 
@@ -4646,8 +4852,6 @@ body{
             <div class="bh-delivery-grid">
 
 
-                <!-- LEFT -->
-
                 <div class="bh-delivery-copy">
 
                     <p class="bh-section-copy text-sm">
@@ -4746,8 +4950,6 @@ body{
                 </div>
 
 
-                <!-- MAP -->
-
                 <div class="bh-map-wrap">
 
                     <div id="bh-map"></div>
@@ -4802,32 +5004,14 @@ body{
 
 document.addEventListener("DOMContentLoaded", function () {
 
-
-    /* =====================================================
-       SAFETY CHECK
-    ===================================================== */
-
     const mapElement = document.getElementById("bh-map");
 
     if (!mapElement || typeof L === "undefined") {
-
         return;
-
     }
 
-
-    /* =====================================================
-       KITCHEN LOCATION
-    ===================================================== */
-
     const kitchenLat = 13.0827;
-
     const kitchenLng = 80.2707;
-
-
-    /* =====================================================
-       CREATE MAP
-    ===================================================== */
 
     const map = L.map("bh-map", {
 
@@ -4845,11 +5029,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     );
 
-
-    /* =====================================================
-       OPEN STREET MAP
-    ===================================================== */
-
     L.tileLayer(
 
         "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
@@ -4865,10 +5044,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     ).addTo(map);
 
-
-    /* =====================================================
-       KITCHEN ICON
-    ===================================================== */
 
     const kitchenIcon = L.divIcon({
 
@@ -4888,10 +5063,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
-
-    /* =====================================================
-       KITCHEN MARKER
-    ===================================================== */
 
     const kitchenMarker = L.marker(
 
@@ -4929,96 +5100,83 @@ document.addEventListener("DOMContentLoaded", function () {
     `);
 
 
-    /* =====================================================
-       SERVICE AREA
-    ===================================================== */
-
     L.circle(
 
         [kitchenLat, kitchenLng],
 
         {
 
-            radius: 6000,
+            radius:6000,
 
-            color: "#A8341F",
+            color:"#A8341F",
 
-            weight: 2,
+            weight:2,
 
-            dashArray: "7 7",
+            dashArray:"7 7",
 
-            fillColor: "#A8341F",
+            fillColor:"#A8341F",
 
-            fillOpacity: 0.07
+            fillOpacity:0.07
 
         }
 
     ).addTo(map);
 
 
-    /* =====================================================
-       DELIVERY ZONES
-    ===================================================== */
-
     const zones = [
 
         {
-            name: "Central City",
-            lat: 13.0827,
-            lng: 80.2707,
-            color: "#C9862F"
+            name:"Central City",
+            lat:13.0827,
+            lng:80.2707,
+            color:"#C9862F"
         },
 
         {
-            name: "North Park",
-            lat: 13.1150,
-            lng: 80.2900,
-            color: "#545F42"
+            name:"North Park",
+            lat:13.1150,
+            lng:80.2900,
+            color:"#545F42"
         },
 
         {
-            name: "Riverside",
-            lat: 13.0600,
-            lng: 80.2850,
-            color: "#A8341F"
+            name:"Riverside",
+            lat:13.0600,
+            lng:80.2850,
+            color:"#A8341F"
         },
 
         {
-            name: "Market Road",
-            lat: 13.0650,
-            lng: 80.2500,
-            color: "#545F42"
+            name:"Market Road",
+            lat:13.0650,
+            lng:80.2500,
+            color:"#545F42"
         },
 
         {
-            name: "Greenfield",
-            lat: 13.1050,
-            lng: 80.2450,
-            color: "#545F42"
+            name:"Greenfield",
+            lat:13.1050,
+            lng:80.2450,
+            color:"#545F42"
         },
 
         {
-            name: "Office Districts",
-            lat: 13.0350,
-            lng: 80.2550,
-            color: "#C9862F"
+            name:"Office Districts",
+            lat:13.0350,
+            lng:80.2550,
+            color:"#C9862F"
         }
 
     ];
 
 
-    /* =====================================================
-       ADD ZONES
-    ===================================================== */
-
     zones.forEach(function (zone) {
-
 
         const zoneIcon = L.divIcon({
 
-            className: "",
+            className:"",
 
-            html: `
+            html:`
 
                 <div style="
                     width:14px;
@@ -5031,9 +5189,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             `,
 
-            iconSize: [14, 14],
+            iconSize:[14,14],
 
-            iconAnchor: [7, 7]
+            iconAnchor:[7,7]
 
         });
 
@@ -5043,7 +5201,7 @@ document.addEventListener("DOMContentLoaded", function () {
             [zone.lat, zone.lng],
 
             {
-                icon: zoneIcon
+                icon:zoneIcon
             }
 
         ).addTo(map);
@@ -5055,13 +5213,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
             {
 
-                permanent: true,
+                permanent:true,
 
-                direction: "top",
+                direction:"top",
 
-                offset: [0, -8],
+                offset:[0,-8],
 
-                className: "bh-zone-label"
+                className:"bh-zone-label"
 
             }
 
@@ -5084,13 +5242,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         `);
 
-
     });
 
-
-    /* =====================================================
-       MOUSE MAP INTERACTION
-    ===================================================== */
 
     map.on("click", function () {
 
@@ -5112,15 +5265,11 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 
-    /* =====================================================
-       FIX MAP SIZE
-    ===================================================== */
-
     setTimeout(function () {
 
         map.invalidateSize();
 
-    }, 500);
+    },500);
 
 
     window.addEventListener(
@@ -5135,9 +5284,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     );
 
-
 });
-
 
 </script>
 
@@ -5147,9 +5294,11 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
 
     const revealTargets = document.querySelectorAll(
+
         ".bh-intro-grid, .bh-menu-heading, .bh-food-main, .bh-food-side, " +
         ".bh-number, .bh-process-item, .bh-specials-grid, .bh-testimonial, " +
         ".bh-cta-inner, .bh-delivery-grid"
+
     );
 
 
@@ -5182,9 +5331,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             }, {
 
-                threshold: 0.12,
+                threshold:0.12,
 
-                rootMargin: "0px 0px -45px 0px"
+                rootMargin:"0px 0px -45px 0px"
 
             });
 

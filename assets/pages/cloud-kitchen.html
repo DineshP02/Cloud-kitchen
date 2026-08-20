@@ -334,9 +334,9 @@
 
             border-radius: 9999px;
 
-            background: #292524;
+            background: #f59e0b;
 
-            color: #ffffff;
+            color: #1c1917;
 
             padding: 13px 24px;
 
@@ -350,18 +350,18 @@
                 box-shadow .3s ease;
 
             box-shadow:
-                0 10px 25px rgba(41, 37, 36, .16);
+                0 10px 25px rgba(245, 158, 11, .30);
 
         }
 
         .bh-cloud-primary:hover {
 
-            background: #1c1917;
+            background: #d97706;
 
             transform: translateY(-2px);
 
             box-shadow:
-                0 15px 30px rgba(41, 37, 36, .22);
+                0 15px 30px rgba(217, 119, 6, .35);
 
         }
 
@@ -1043,7 +1043,7 @@
 
             display: grid;
 
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-columns: repeat(2, minmax(0, 1fr));
 
             gap: 24px;
 
@@ -1053,7 +1053,9 @@
 
             position: relative;
 
-            display: block;
+            display: flex;
+
+            flex-direction: column;
 
             min-height: 0;
 
@@ -1140,6 +1142,8 @@
 
             font-size: 22px;
 
+            flex-shrink: 0;
+
             transition:
                 transform .3s ease,
                 background .3s ease,
@@ -1159,7 +1163,11 @@
 
         .bh-model-content {
 
-            display: block;
+            display: flex;
+
+            flex-direction: column;
+
+            flex: 1;
 
             margin-top: 20px;
 
@@ -1177,6 +1185,8 @@
             font-weight: 700;
 
             color: #292524;
+
+            min-height: 1.3em;
 
         }
 
@@ -1449,6 +1459,10 @@
 
             position: relative;
 
+            display: flex;
+
+            flex-direction: column;
+
             min-height: 300px;
 
             padding: 32px;
@@ -1547,6 +1561,8 @@
 
             color: #fbbf24;
 
+            flex-shrink: 0;
+
             transition:
                 transform .35s ease,
                 background .35s ease;
@@ -1604,6 +1620,8 @@
             font-weight: 700;
 
             color: #fafaf9;
+
+            min-height: 1.3em;
 
         }
 
@@ -1729,6 +1747,24 @@
             .bh-model-description {
 
                 font-size: .86rem;
+
+            }
+
+            .bh-difference-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 18px;
+
+                margin-top: 44px;
+
+            }
+
+            .bh-difference-card {
+
+                min-height: auto;
+
+                padding: 28px;
 
             }
 
@@ -3763,50 +3799,7 @@
                             <p class="bh-model-description">
 
                                 Delivery is organised around practical neighbourhood zones,
-                                keeping the final journey short and helping food reach you
-                                at its best.
-
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="bh-model-item">
-
-                        <span class="bh-model-number">03</span>
-
-                        <div class="bh-model-icon">
-
-                            <svg width="25" height="25" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor"
-                                stroke-width="1.6"
-                                stroke-linecap="round"
-                                stroke-linejoin="round">
-
-                                <path d="M3 20h18"></path>
-                                <path d="M5 17l5-5 4 3 6-8"></path>
-                                <path d="M15 7h5v5"></path>
-
-                            </svg>
-
-                        </div>
-
-
-                        <div class="bh-model-content">
-
-                            <h3 class="bh-model-title">
-
-                                Flexible scale
-
-                            </h3>
-
-                            <p class="bh-model-description">
-
-                                The same kitchen can move comfortably from an individual meal
-                                to a large office lunch or event order without losing the
-                                discipline of a small kitchen.
+                                keeping the final journey short and helping food reach you .
 
                             </p>
 
@@ -4243,7 +4236,7 @@
 
                             Our kitchen layout keeps prep, cooking and packing close
                             together, reducing unnecessary movement and helping every
-                            order move smoothly through the team.
+                            order move smoothly through the team each day.
 
                         </p>
 
@@ -4288,9 +4281,9 @@
 
                         <p class="bh-difference-text">
 
-                            Clear prep stages and repeatable cooking routines help the
-                            team deliver the same care and attention whether we're
-                            preparing one meal or a large order.
+                            Clear prep stages and repeatable cooking routines help our
+                            team deliver consistent care and attention, whether
+                            preparing one meal or larger orders every day.
 
                         </p>
 
@@ -4339,7 +4332,7 @@
 
                         <p class="bh-difference-text">
 
-                            Demand changes. Our workflow can change with it, allowing
+                            Demand changes often. Our workflow adapts with it, allowing
                             the same kitchen to handle everyday meals, office lunches
                             and larger events without unnecessary complexity.
 
@@ -4419,7 +4412,7 @@
 
                         <p class="mx-auto mt-3 max-w-xs text-sm leading-6 text-stone-500">
 
-                            Central kitchen, zero dine-in overhead
+                            One central kitchen, zero dine-in overhead to slow us down
 
                         </p>
 
@@ -4439,7 +4432,7 @@
 
                         <p class="mx-auto mt-3 max-w-xs text-sm leading-6 text-stone-500">
 
-                            Prep, cook, pack, deliver stages tracked
+                            Prep, cook, pack and deliver — every stage tracked closely
 
                         </p>
 
@@ -4459,7 +4452,7 @@
 
                         <p class="mx-auto mt-3 max-w-xs text-sm leading-6 text-stone-500">
 
-                            Fastest turnaround for bulk orders
+                            Fastest turnaround time for large bulk orders, guaranteed
 
                         </p>
 
@@ -4477,7 +4470,7 @@
 
                         <p class="mx-auto mt-3 max-w-xs text-sm leading-6 text-stone-500">
 
-                            Plates the same kitchen can scale to
+                            Plates the same kitchen can scale up to in a single day
 
                         </p>
 
@@ -4527,7 +4520,7 @@
 
                     <a
                         href="menu.html"
-                        class="btn-primary bg-stone-950 text-white hover:bg-stone-800"
+                        class="btn-primary bg-amber-500 text-stone-900 hover:bg-amber-600"
                     >
 
                         View the menu

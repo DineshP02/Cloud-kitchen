@@ -1403,6 +1403,98 @@
 
         }
 
+
+        /* =====================================================
+           CENTERED HEADINGS + ALIGNED CARD CONTENT
+           (applies at every breakpoint)
+        ====================================================== */
+
+        .eyebrow {
+            justify-content: center;
+            width: 100%;
+        }
+
+        .bh-section-title {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-heading-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-heading-block > * {
+            max-width: 720px;
+        }
+
+        .hero-cta-group {
+            justify-content: center;
+        }
+
+        .about-hero .mt-12.flex {
+            justify-content: center;
+        }
+
+        /* Value cards: icon, heading, copy and divider centered and
+           on a consistent vertical rhythm at every breakpoint */
+
+        .value-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .value-card .premium-icon {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .value-card .mt-8.h-px.w-12 {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Numbered step rows (Behind every bowl / kitchen section):
+           icon-circle and text sit on the same line at every size */
+
+        .step-row {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            text-align: left;
+        }
+
+        /* Highlight cards: icon + text stay aligned on one line,
+           centered as a group, at every breakpoint */
+
+        .highlight-card {
+            align-items: center;
+        }
+
+        /* Promise rows: number and heading share the same line at
+           every breakpoint instead of stacking on mobile */
+
+        .promise-row {
+            grid-template-columns: 56px 1fr;
+            align-items: baseline;
+        }
+
+        @media (max-width: 767px) {
+
+            .promise-row {
+                grid-template-columns: 40px 1fr;
+                gap: 16px;
+            }
+
+        }
+
     </style>
 
 </head>
@@ -1441,7 +1533,7 @@
 
                     <!-- LEFT -->
 
-                    <div class="reveal">
+                    <div class="reveal section-heading-block">
 
                         <p class="eyebrow">
                             Our story
@@ -1478,7 +1570,7 @@
                         </p>
 
                         <div
-                            class="hero-cta-group mt-9 flex flex-wrap items-center gap-5"
+                            class="hero-cta-group mt-9 flex flex-wrap items-center justify-center gap-5"
                         >
 
                             <a
@@ -1516,7 +1608,7 @@
 
                         </div>
 
-                        <div class="mt-12 flex flex-wrap gap-3">
+                        <div class="mt-12 flex flex-wrap justify-center gap-3">
 
                             <div class="premium-stat">
 
@@ -1693,7 +1785,7 @@
                     class="grid gap-14 lg:grid-cols-[0.85fr,1.15fr] lg:gap-24"
                 >
 
-                    <div class="reveal">
+                    <div class="reveal section-heading-block">
 
                         <p class="eyebrow">
                             Where it started
@@ -1711,7 +1803,7 @@
                     </div>
 
                     <div
-                        class="reveal space-y-7 text-[1.03rem] leading-8 text-stone-600 dark:text-stone-300"
+                        class="reveal space-y-7 text-center text-[1.03rem] leading-8 text-stone-600 dark:text-stone-300"
                         style="transition-delay:0.1s"
                     >
 
@@ -1731,7 +1823,7 @@
                         </p>
 
                         <blockquote
-                            class="story-quote font-display text-2xl font-bold leading-relaxed text-stone-900 dark:text-white sm:text-3xl"
+                            class="story-quote mx-auto max-w-xl text-left font-display text-2xl font-bold leading-relaxed text-stone-900 dark:text-white sm:text-3xl"
                         >
                             "Good food should fit into your day,
                             not take over your day."
@@ -1754,10 +1846,10 @@
                         ></div>
 
                         <div
-                            class="grid gap-12 lg:grid-cols-3 lg:gap-14"
+                            class="grid gap-12 text-center lg:grid-cols-3 lg:gap-14"
                         >
 
-                            <div class="timeline-item flex gap-5 lg:block">
+                            <div class="timeline-item flex flex-col items-center gap-5">
 
                                 <div class="relative flex-shrink-0">
 
@@ -1784,7 +1876,7 @@
 
                                 </div>
 
-                                <div class="pt-1 lg:pt-7">
+                                <div class="pt-1 lg:pt-3">
 
                                     <b
                                         class="text-xs font-bold uppercase tracking-[0.16em] text-amber-700 dark:text-amber-400"
@@ -1809,7 +1901,7 @@
                             </div>
 
 
-                            <div class="timeline-item flex gap-5 lg:block">
+                            <div class="timeline-item flex flex-col items-center gap-5">
 
                                 <div class="relative flex-shrink-0">
 
@@ -1836,7 +1928,7 @@
 
                                 </div>
 
-                                <div class="pt-1 lg:pt-7">
+                                <div class="pt-1 lg:pt-3">
 
                                     <b
                                         class="text-xs font-bold uppercase tracking-[0.16em] text-amber-700 dark:text-amber-400"
@@ -1861,7 +1953,7 @@
                             </div>
 
 
-                            <div class="timeline-item flex gap-5 lg:block">
+                            <div class="timeline-item flex flex-col items-center gap-5">
 
                                 <div class="relative flex-shrink-0">
 
@@ -1894,7 +1986,7 @@
 
                                 </div>
 
-                                <div class="pt-1 lg:pt-7">
+                                <div class="pt-1 lg:pt-3">
 
                                     <b
                                         class="text-xs font-bold uppercase tracking-[0.16em] text-amber-700 dark:text-amber-400"
@@ -1939,7 +2031,7 @@
 
             <div class="premium-container py-20 sm:py-24 lg:py-32">
 
-                <div class="reveal max-w-3xl">
+                <div class="reveal section-heading-block">
 
                     <p class="eyebrow">
                         What drives us
@@ -1948,7 +2040,7 @@
                     <h2
                         class="bh-section-title mt-6"
                     >
-                        Three things we refuse to
+                        Two things we refuse to
                         <span class="bh-script">
                             compromise on.
                         </span>
@@ -1958,7 +2050,7 @@
 
 
                 <div
-                    class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3"
+                    class="mt-14 grid gap-5 md:grid-cols-2 lg:mx-auto lg:max-w-3xl"
                 >
 
                     <div
@@ -2052,52 +2144,6 @@
 
                     </div>
 
-
-                    <div
-                        class="value-card reveal"
-                        style="transition-delay:0.2s"
-                    >
-
-                        <div class="premium-icon">
-
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                                stroke-width="1.8"
-                            >
-
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M4 7h16M6 7v12h12V7M8 7V4h8v3M9 11h6M9 15h6"
-                                />
-
-                            </svg>
-
-                        </div>
-
-                        <h3
-                            class="font-display mt-7 text-2xl font-bold"
-                        >
-                            Packaging that doesn't embarrass us
-                        </h3>
-
-                        <p
-                            class="mt-4 leading-7 text-stone-500 dark:text-stone-400"
-                        >
-                            Fully compostable, sized right to avoid waste.
-                            The container should honour the food inside,
-                            not be an afterthought.
-                        </p>
-
-                        <div
-                            class="mt-8 h-px w-12 bg-amber-500"
-                        ></div>
-
-                    </div>
-
                 </div>
 
 
@@ -2115,7 +2161,7 @@
                     <div class="image-cta-overlay"></div>
 
                     <div
-                        class="absolute inset-0 z-10 flex items-center px-7 sm:px-12 lg:px-16"
+                        class="absolute inset-0 z-10 flex items-center justify-center px-7 text-center sm:px-12 lg:px-16"
                     >
 
                         <div class="max-w-xl">
@@ -2204,16 +2250,16 @@
 
 
                     <div
-                        class="reveal"
+                        class="reveal text-center lg:text-left"
                         style="transition-delay:0.12s"
                     >
 
-                        <p class="eyebrow">
+                        <p class="eyebrow justify-center lg:justify-start">
                             Behind every bowl
                         </p>
 
                         <h2
-                            class="bh-section-title mt-6"
+                            class="bh-section-title mt-6 lg:text-left lg:mx-0"
                         >
                             More than a kitchen.
 
@@ -2232,12 +2278,12 @@
                         </p>
 
                         <div
-                            class="mt-8 h-px w-14 bg-amber-500"
+                            class="mt-8 h-px w-14 bg-amber-500 mx-auto lg:mx-0"
                         ></div>
 
                         <div class="mt-9 space-y-7">
 
-                            <div class="flex gap-5">
+                            <div class="step-row text-left">
 
                                 <div
                                     class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800 dark:bg-amber-900 dark:text-amber-200"
@@ -2266,7 +2312,7 @@
                             </div>
 
 
-                            <div class="flex gap-5">
+                            <div class="step-row text-left">
 
                                 <div
                                     class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800 dark:bg-amber-900 dark:text-amber-200"
@@ -2295,7 +2341,7 @@
                             </div>
 
 
-                            <div class="flex gap-5">
+                            <div class="step-row text-left">
 
                                 <div
                                     class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800 dark:bg-amber-900 dark:text-amber-200"
@@ -2423,17 +2469,17 @@
 
 
                     <div
-                        class="reveal order-1 lg:order-2"
+                        class="reveal order-1 text-center lg:order-2 lg:text-left"
                         style="transition-delay:0.12s"
                     >
 
-                        <p class="eyebrow">
+                        <p class="eyebrow justify-center lg:justify-start">
                             Why Bowl &amp; Hearth
                         </p>
 
 
                         <h2
-                            class="bh-section-title mt-6"
+                            class="bh-section-title mt-6 lg:text-left lg:mx-0"
                         >
                             The comfort of home,
 
@@ -2453,7 +2499,7 @@
                         </p>
 
 
-                        <div class="mt-9 space-y-4">
+                        <div class="mt-9 space-y-4 text-left">
 
                             <div class="highlight-card">
 
@@ -2625,17 +2671,17 @@
                     class="grid items-center gap-14 lg:grid-cols-[1.05fr,0.95fr] lg:gap-24"
                 >
 
-                    <div class="reveal">
+                    <div class="reveal text-center lg:text-left">
 
                         <p
-                            class="eyebrow !text-amber-700"
+                            class="eyebrow !text-amber-700 justify-center lg:justify-start"
                         >
                             Made for your table
                         </p>
 
 
                         <h2
-                            class="mt-6 font-display text-4xl font-black leading-[1.02] tracking-[-0.04em] text-stone-900 sm:text-5xl lg:text-6xl"
+                            class="mt-6 font-display text-4xl font-black leading-[1.02] tracking-[-0.04em] text-stone-900 sm:text-5xl lg:text-6xl lg:text-left"
                         >
 
                             Food that brings
@@ -2650,7 +2696,7 @@
 
 
                         <p
-                            class="mt-7 max-w-xl text-base leading-8 text-stone-600 sm:text-lg"
+                            class="mt-7 max-w-xl mx-auto text-base leading-8 text-stone-600 sm:text-lg lg:mx-0"
                         >
                             Whether it's a quiet dinner for two, a busy office
                             lunch, or a table full of friends and family, we
@@ -2659,10 +2705,10 @@
                         </p>
 
 
-                        <div class="mt-10 space-y-5">
+                        <div class="mt-10 space-y-5 text-left">
 
                             <div
-                                class="flex items-start gap-4"
+                                class="step-row"
                             >
 
                                 <div
@@ -2710,7 +2756,7 @@
 
 
                             <div
-                                class="flex items-start gap-4"
+                                class="step-row"
                             >
 
                                 <div
@@ -2758,7 +2804,7 @@
 
 
                             <div
-                                class="flex items-start gap-4"
+                                class="step-row"
                             >
 
                                 <div
@@ -2808,7 +2854,7 @@
 
 
                         <div
-                            class="mt-10 flex flex-wrap items-center gap-5"
+                            class="mt-10 flex flex-wrap items-center justify-center gap-5 lg:justify-start"
                         >
 
                             <a
@@ -2899,7 +2945,7 @@
                 class="mx-auto max-w-5xl px-5 py-20 sm:px-8 lg:py-32"
             >
 
-                <div class="reveal">
+                <div class="reveal section-heading-block">
 
                     <p class="eyebrow">
                         Our promise
