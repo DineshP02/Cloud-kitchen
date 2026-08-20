@@ -1,4 +1,3 @@
-
 /* =========================================================
    BOWL & HEARTH
    SHARED NAVBAR + FOOTER
@@ -29,6 +28,8 @@
    ✓ 1025-1100PX SAFE HAMBURGER NAV
    ✓ MOBILE MENU HEIGHT FIXED
    ✓ SCROLL UP BUTTON
+   ✓ RTL/LTR BUTTON HAS NO BORDER
+   ✓ RTL/LTR BUTTON HAS NO COLORED PILL
 ========================================================= */
 
 (function () {
@@ -1173,6 +1174,7 @@
             .bh-dropdown-chevron {
                 font-size:11px;
                 line-height:1;
+
                 transition:transform .2s ease;
             }
 
@@ -1270,37 +1272,66 @@
             }
 
 
+            /* =================================================
+               LANGUAGE BUTTON
+               NO BORDER
+               NO COLORED PILL
+               NO GRADIENT
+            ================================================= */
+
             .bh-lang-button,
             .bh-mobile-lang-trigger {
                 height:40px;
-                min-width:82px;
+                min-width:40px;
 
-                padding:0 14px;
+                width:40px;
+
+                padding:0;
 
                 display:inline-flex;
                 align-items:center;
                 justify-content:center;
 
-                gap:7px;
+                gap:0;
 
-                border:1px solid rgba(168,52,31,.35);
-                border-radius:999px;
+                border:none !important;
+                outline:none;
 
-                background:
-                    linear-gradient(
-                        135deg,
-                        #fff8eb,
-                        #f8e4c2
-                    );
+                border-radius:50%;
 
-                color:#8f2b19;
+                background:transparent !important;
+
+                color:#6b3f2d;
 
                 font-size:12px;
                 font-weight:850;
 
                 cursor:pointer;
 
-                flex:0 0 auto;
+                flex:0 0 40px;
+
+                box-shadow:none !important;
+
+                transition:
+                    transform .2s ease,
+                    background .2s ease,
+                    color .2s ease;
+            }
+
+
+            .bh-lang-button:hover,
+            .bh-mobile-lang-trigger:hover {
+                transform:translateY(-1px);
+
+                background:rgba(168,52,31,.07) !important;
+
+                color:#a8341f;
+            }
+
+
+            .bh-lang-button:focus,
+            .bh-mobile-lang-trigger:focus {
+                outline:none;
             }
 
 
@@ -1318,6 +1349,10 @@
                 height:100%;
             }
 
+
+            /* =================================================
+               THEME + MENU
+            ================================================= */
 
             .bh-theme-button,
             .bh-menu-button {
@@ -1386,7 +1421,6 @@
             .bh-mobile-lang-trigger {
                 width:40px;
                 min-width:40px;
-                padding:0;
             }
 
 
@@ -1492,6 +1526,7 @@
             .bh-mobile-arrow,
             .bh-mobile-dropdown-arrow {
                 flex:0 0 auto;
+
                 transition:transform .2s ease;
             }
 
@@ -1927,7 +1962,6 @@
 
             /* =================================================
                LARGE LAPTOP
-               1201PX - 1440PX
             ================================================= */
 
             @media (min-width:1201px) {
@@ -1951,7 +1985,6 @@
 
             /* =================================================
                LAPTOP
-               1101PX - 1200PX
             ================================================= */
 
             @media (min-width:1101px) and (max-width:1200px) {
@@ -1995,9 +2028,10 @@
                 }
 
                 .bh-lang-button {
-                    min-width:72px;
+                    width:38px;
+                    min-width:38px;
                     height:38px;
-                    padding:0 10px;
+                    flex-basis:38px;
                 }
 
                 .bh-theme-button {
@@ -2237,6 +2271,13 @@
                     gap:7px;
                 }
 
+                .bh-mobile-lang-trigger {
+                    width:38px;
+                    min-width:38px;
+                    height:38px;
+                    flex-basis:38px;
+                }
+
                 .bh-footer-inner {
 
                     width:100%;
@@ -2442,6 +2483,7 @@
                     width:38px;
                     min-width:38px;
                     height:38px;
+                    flex-basis:38px;
                 }
 
                 #bh-mobile-menu {
@@ -2574,6 +2616,7 @@
                     width:38px;
                     min-width:38px;
                     height:38px;
+                    flex-basis:38px;
                     padding:0;
                 }
 
@@ -2694,7 +2737,8 @@
                 }
 
                 .bh-theme-button,
-                .bh-menu-button {
+                .bh-menu-button,
+                .bh-mobile-lang-trigger {
                     width:36px;
                     height:36px;
                     flex-basis:36px;
@@ -2710,9 +2754,6 @@
                 }
 
                 .bh-mobile-lang-trigger {
-                    width:36px;
-                    min-width:36px;
-                    height:36px;
                     padding:0;
                 }
 
@@ -3039,18 +3080,29 @@
             }
 
 
+            /* =================================================
+               DARK MODE LANGUAGE BUTTON
+               NO BORDER
+               NO COLORED PILL
+            ================================================= */
+
             .dark .bh-lang-button,
             .dark .bh-mobile-lang-trigger {
-                color:#ffd27a;
+                border:none !important;
 
-                border-color:rgba(245,158,11,.42);
+                background:transparent !important;
 
-                background:
-                    linear-gradient(
-                        135deg,
-                        #3b2814,
-                        #4a3015
-                    );
+                color:#f8d27a;
+
+                box-shadow:none !important;
+            }
+
+
+            .dark .bh-lang-button:hover,
+            .dark .bh-mobile-lang-trigger:hover {
+                background:rgba(245,158,11,.08) !important;
+
+                color:#f59e0b;
             }
 
 
@@ -3299,6 +3351,24 @@
 
 
             /* =================================================
+               LANGUAGE BUTTON FOCUS OVERRIDE
+               Keeps RTL/LTR control border-free
+            ================================================= */
+
+            #bh-lang-button:focus-visible,
+            #bh-mobile-lang-trigger:focus-visible {
+                border:none !important;
+
+                outline:
+                    2px solid rgba(201,134,47,.55);
+
+                outline-offset:3px;
+
+                background:transparent !important;
+            }
+
+
+            /* =================================================
                SCROLL UP BUTTON
             ================================================= */
 
@@ -3377,7 +3447,9 @@
             }
 
 
-            /* DARK MODE SCROLL BUTTON */
+            /* =================================================
+               DARK MODE SCROLL BUTTON
+            ================================================= */
 
             .dark #bh-scroll-up {
                 background:
@@ -3406,7 +3478,9 @@
             }
 
 
-            /* RTL SCROLL BUTTON */
+            /* =================================================
+               RTL SCROLL BUTTON
+            ================================================= */
 
             [dir="rtl"] #bh-scroll-up {
                 right:auto;
@@ -3414,7 +3488,9 @@
             }
 
 
-            /* MOBILE SCROLL BUTTON */
+            /* =================================================
+               MOBILE SCROLL BUTTON
+            ================================================= */
 
             @media (max-width:640px) {
 
@@ -3524,6 +3600,7 @@
                                 id="bh-lang-button"
                                 class="bh-lang-button"
                                 aria-label="${getDirTitle(currentDirection)}"
+                                title="${getDirTitle(currentDirection)}"
                             >
 
                                 <span class="bh-lang-icon">
@@ -3547,6 +3624,7 @@
                                     class="bh-mobile-lang-trigger"
                                     id="bh-mobile-lang-trigger"
                                     aria-label="${getDirTitle(currentDirection)}"
+                                    title="${getDirTitle(currentDirection)}"
                                 >
 
                                     <span class="bh-lang-icon">
@@ -3563,6 +3641,7 @@
                                 id="bh-theme-button"
                                 class="bh-theme-button"
                                 aria-label="Toggle dark mode"
+                                title="Toggle dark mode"
                             >
                                 ${ICONS.moon}
                             </button>
@@ -4376,6 +4455,11 @@
                     title
                 );
 
+                langButton.setAttribute(
+                    "title",
+                    title
+                );
+
             }
 
 
@@ -4383,6 +4467,11 @@
 
                 mobileLangTrigger.setAttribute(
                     "aria-label",
+                    title
+                );
+
+                mobileLangTrigger.setAttribute(
+                    "title",
                     title
                 );
 
@@ -4411,6 +4500,7 @@
             if (event) {
                 event.stopPropagation();
             }
+
 
             const current =
                 document.documentElement
@@ -4593,11 +4683,13 @@
 
         let resizeTimer;
 
+
         window.addEventListener(
             "resize",
             function () {
 
                 clearTimeout(resizeTimer);
+
 
                 resizeTimer =
                     setTimeout(function () {
@@ -4652,4 +4744,3 @@
     }
 
 })();
-

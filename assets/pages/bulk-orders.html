@@ -1417,6 +1417,27 @@
                 var(--bh-dark-muted);
         }
 
+        /* Contain each accordion item so opening/closing one
+           can only repaint itself, never the rest of the page. */
+
+        #faq-accordion details {
+            contain: layout paint;
+        }
+
+        /* Plain CSS toggle icon — driven by the native [open]
+           attribute selector, not a Tailwind runtime variant,
+           so no re-scan/re-inject happens on click. */
+
+        .faq-icon {
+            display: inline-block;
+
+            transition: transform .2s ease;
+        }
+
+        details[open] .faq-icon {
+            transform: rotate(45deg);
+        }
+
 
         /* =====================================================
            FINAL CTA
@@ -3118,7 +3139,7 @@
                             What's the minimum headcount for a bulk order?
 
                             <span
-                                class="ml-4 transition group-open:rotate-45">
+                                class="ml-4 faq-icon">
                                 +
                             </span>
 
@@ -3145,7 +3166,7 @@
                             How much advance notice do you need?
 
                             <span
-                                class="ml-4 transition group-open:rotate-45">
+                                class="ml-4 faq-icon">
                                 +
                             </span>
 
@@ -3171,7 +3192,7 @@
                             Can we customise the menu?
 
                             <span
-                                class="ml-4 transition group-open:rotate-45">
+                                class="ml-4 faq-icon">
                                 +
                             </span>
 
@@ -3197,7 +3218,7 @@
                             Do you provide serving staff or setup?
 
                             <span
-                                class="ml-4 transition group-open:rotate-45">
+                                class="ml-4 faq-icon">
                                 +
                             </span>
 
