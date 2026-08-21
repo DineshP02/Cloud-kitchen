@@ -1059,11 +1059,9 @@
             .bh-desktop-nav {
                 display:flex;
                 align-items:center;
-                justify-content:space-evenly;
+                justify-content:flex-start;
 
-                gap:5px;
-
-                flex:1 1 auto;
+                gap:18px;
 
                 margin-inline-start:auto;
 
@@ -2023,7 +2021,7 @@
                 }
 
                 .bh-desktop-nav {
-                    gap:5px;
+                    gap:18px;
                 }
 
                 .bh-nav-link {
