@@ -1059,9 +1059,11 @@
             .bh-desktop-nav {
                 display:flex;
                 align-items:center;
-                justify-content:flex-end;
+                justify-content:space-evenly;
 
                 gap:5px;
+
+                flex:1 1 auto;
 
                 margin-inline-start:auto;
 
