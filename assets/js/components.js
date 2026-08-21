@@ -1063,7 +1063,7 @@
 
                 gap:5px;
 
-                margin-left:auto;
+                margin-inline-start:auto;
 
                 min-width:0;
             }
@@ -1232,7 +1232,7 @@
 
                 gap:9px;
 
-                margin-left:auto;
+                margin-inline-start:auto;
 
                 flex:0 0 auto;
             }
@@ -1240,17 +1240,15 @@
 
             /* =================================================
                LANGUAGE BUTTON
-               NO BORDER
-               NO COLORED PILL
-               NO GRADIENT
+               SAME STYLE AS DARK MODE BUTTON
             ================================================= */
 
             .bh-lang-button,
             .bh-mobile-lang-trigger {
-                height:40px;
-                min-width:40px;
-
                 width:40px;
+                height:40px;
+
+                min-width:40px;
 
                 padding:0;
 
@@ -1260,12 +1258,15 @@
 
                 gap:0;
 
-                border:none !important;
-                outline:none;
-
+                border:1px solid #d6d3d1;
                 border-radius:50%;
 
-                background:transparent !important;
+                background:
+                    linear-gradient(
+                        145deg,
+                        #fff,
+                        #f4f1ec
+                    );
 
                 color:#6b3f2d;
 
@@ -1275,8 +1276,6 @@
                 cursor:pointer;
 
                 flex:0 0 40px;
-
-                box-shadow:none !important;
 
                 transition:
                     transform .2s ease,
@@ -1288,16 +1287,6 @@
             .bh-lang-button:hover,
             .bh-mobile-lang-trigger:hover {
                 transform:translateY(-1px);
-
-                background:rgba(168,52,31,.07) !important;
-
-                color:#a8341f;
-            }
-
-
-            .bh-lang-button:focus,
-            .bh-mobile-lang-trigger:focus {
-                outline:none;
             }
 
 
@@ -1368,8 +1357,43 @@
             .bh-menu-button {
                 display:none;
 
-                font-size:21px;
-                line-height:1;
+                flex-direction:column;
+                align-items:center;
+                justify-content:center;
+
+                gap:5px;
+            }
+
+
+            .bh-menu-bar {
+                display:block;
+
+                width:18px;
+                height:2px;
+
+                border-radius:2px;
+
+                background:currentColor;
+
+                transition:
+                    transform .32s cubic-bezier(.4,0,.2,1),
+                    opacity .22s ease,
+                    width .32s ease;
+            }
+
+
+            .bh-menu-button.bh-menu-open .bh-menu-bar:nth-child(1) {
+                transform:translateY(7px) rotate(45deg);
+            }
+
+            .bh-menu-button.bh-menu-open .bh-menu-bar:nth-child(2) {
+                opacity:0;
+
+                width:0;
+            }
+
+            .bh-menu-button.bh-menu-open .bh-menu-bar:nth-child(3) {
+                transform:translateY(-7px) rotate(-45deg);
             }
 
 
@@ -1395,32 +1419,60 @@
             ================================================= */
 
             #bh-mobile-menu {
-                display:none;
+                display:block;
 
                 width:100%;
                 max-width:100%;
 
-                max-height:
-                    calc(100dvh - 66px);
+                max-height:0;
 
                 overflow-x:hidden;
-                overflow-y:auto;
+                overflow-y:hidden;
 
                 -webkit-overflow-scrolling:touch;
 
                 background:rgba(250,248,244,.99);
 
-                border-top:1px solid #e7e5e4;
+                border-top:1px solid transparent;
+
+                padding:
+                    0
+                    clamp(12px, 4vw, 20px)
+                    0;
+
+                opacity:0;
+
+                transform:translateY(-6px);
+
+                pointer-events:none;
+
+                transition:
+                    max-height .38s cubic-bezier(.4,0,.2,1),
+                    opacity .28s ease,
+                    transform .28s ease,
+                    padding .38s cubic-bezier(.4,0,.2,1),
+                    border-color .28s ease;
+            }
+
+
+            #bh-mobile-menu.bh-mobile-open {
+                max-height:
+                    calc(100dvh - 66px);
+
+                overflow-y:auto;
+
+                border-top-color:#e7e5e4;
 
                 padding:
                     12px
                     clamp(12px, 4vw, 20px)
                     24px;
-            }
 
+                opacity:1;
 
-            #bh-mobile-menu.bh-mobile-open {
-                display:block;
+                transform:translateY(0);
+
+                pointer-events:auto;
             }
 
 
@@ -1450,7 +1502,38 @@
                 cursor:pointer;
 
                 text-align:start;
+
+                opacity:0;
+
+                transform:translateY(-6px);
+
+                transition:
+                    opacity .28s ease,
+                    transform .28s ease,
+                    background .18s ease,
+                    border-color .18s ease,
+                    color .18s ease;
             }
+
+
+            .bh-mobile-link:active {
+                transform:scale(.98);
+            }
+
+
+            #bh-mobile-menu.bh-mobile-open .bh-mobile-link {
+                opacity:1;
+                transform:translateY(0);
+            }
+
+
+            #bh-mobile-menu.bh-mobile-open .bh-mobile-link:nth-child(1) { transition-delay:.02s; }
+            #bh-mobile-menu.bh-mobile-open .bh-mobile-link:nth-child(2) { transition-delay:.06s; }
+            #bh-mobile-menu.bh-mobile-open .bh-mobile-link:nth-child(3) { transition-delay:.10s; }
+            #bh-mobile-menu.bh-mobile-open .bh-mobile-link:nth-child(4) { transition-delay:.14s; }
+            #bh-mobile-menu.bh-mobile-open .bh-mobile-link:nth-child(5) { transition-delay:.18s; }
+            #bh-mobile-menu.bh-mobile-open .bh-mobile-link:nth-child(6) { transition-delay:.22s; }
+            #bh-mobile-menu.bh-mobile-open .bh-mobile-link:nth-child(7) { transition-delay:.26s; }
 
 
             .bh-mobile-link-content {
@@ -2057,7 +2140,7 @@
                     display:block;
                 }
 
-                #bh-mobile-menu {
+                #bh-mobile-menu.bh-mobile-open {
                     max-height:
                         calc(100dvh - 70px);
                 }
@@ -2131,7 +2214,7 @@
                     display:block;
                 }
 
-                #bh-mobile-menu {
+                #bh-mobile-menu.bh-mobile-open {
                     max-height:
                         calc(100dvh - 70px);
                 }
@@ -2205,7 +2288,7 @@
                     display:block;
                 }
 
-                #bh-mobile-menu {
+                #bh-mobile-menu.bh-mobile-open {
                     max-height:
                         calc(100dvh - 70px);
                 }
@@ -2452,7 +2535,7 @@
                     flex-basis:38px;
                 }
 
-                #bh-mobile-menu {
+                #bh-mobile-menu.bh-mobile-open {
                     max-height:
                         calc(100dvh - 66px);
                 }
@@ -2586,7 +2669,7 @@
                     padding:0;
                 }
 
-                #bh-mobile-menu {
+                #bh-mobile-menu.bh-mobile-open {
                     max-height:
                         calc(100dvh - 64px);
                 }
@@ -2729,7 +2812,7 @@
                     height:16px;
                 }
 
-                #bh-mobile-menu {
+                #bh-mobile-menu.bh-mobile-open {
                     max-height:
                         calc(100dvh - 62px);
 
@@ -3048,27 +3131,21 @@
 
             /* =================================================
                DARK MODE LANGUAGE BUTTON
-               NO BORDER
-               NO COLORED PILL
+               SAME STYLE AS DARK MODE BUTTON
             ================================================= */
 
             .dark .bh-lang-button,
             .dark .bh-mobile-lang-trigger {
-                border:none !important;
-
-                background:transparent !important;
-
                 color:#f8d27a;
 
-                box-shadow:none !important;
-            }
+                border-color:#57534e;
 
-
-            .dark .bh-lang-button:hover,
-            .dark .bh-mobile-lang-trigger:hover {
-                background:rgba(245,158,11,.08) !important;
-
-                color:#f59e0b;
+                background:
+                    linear-gradient(
+                        145deg,
+                        #292524,
+                        #211f1d
+                    );
             }
 
 
@@ -3318,19 +3395,14 @@
 
             /* =================================================
                LANGUAGE BUTTON FOCUS OVERRIDE
-               Keeps RTL/LTR control border-free
             ================================================= */
 
             #bh-lang-button:focus-visible,
             #bh-mobile-lang-trigger:focus-visible {
-                border:none !important;
-
                 outline:
                     2px solid rgba(201,134,47,.55);
 
                 outline-offset:3px;
-
-                background:transparent !important;
             }
 
 
@@ -3573,10 +3645,6 @@
                                     ${ICONS.globe}
                                 </span>
 
-                                <span id="bh-lang-label">
-                                    ${getDirLabel(currentDirection)}
-                                </span>
-
                             </button>
 
 
@@ -3621,7 +3689,9 @@
                                 aria-expanded="false"
                                 aria-controls="bh-mobile-menu"
                             >
-                                ☰
+                                <span class="bh-menu-bar"></span>
+                                <span class="bh-menu-bar"></span>
+                                <span class="bh-menu-bar"></span>
                             </button>
 
                         </div>
@@ -4164,7 +4234,9 @@
 
             if (menuButton) {
 
-                menuButton.textContent = "☰";
+                menuButton.classList.remove(
+                    "bh-menu-open"
+                );
 
                 menuButton.setAttribute(
                     "aria-expanded",
@@ -4205,7 +4277,9 @@
                             "bh-mobile-open"
                         );
 
-                        menuButton.textContent = "✕";
+                        menuButton.classList.add(
+                            "bh-menu-open"
+                        );
 
                         menuButton.setAttribute(
                             "aria-expanded",
@@ -4412,24 +4486,6 @@
 
 
         function updateDirectionUI(dir) {
-
-            const label =
-                getDirLabel(dir);
-
-
-            const langLabel =
-                document.getElementById(
-                    "bh-lang-label"
-                );
-
-
-            if (langLabel) {
-
-                langLabel.textContent =
-                    label;
-
-            }
-
 
             const title =
                 getDirTitle(dir);
