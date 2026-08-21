@@ -956,7 +956,7 @@
 
             .bh-navbar-inner {
                 width:100%;
-                max-width:1440px;
+                max-width:1250px;
 
                 min-height:78px;
 
@@ -1680,7 +1680,7 @@
 
             .bh-footer-inner {
                 width:100%;
-                max-width:1440px;
+                max-width:1250px;
 
                 margin:0 auto;
 
@@ -1960,7 +1960,7 @@
 
             .bh-footer-bottom-inner {
                 width:100%;
-                max-width:1440px;
+                max-width:1250px;
 
                 margin:0 auto;
 
